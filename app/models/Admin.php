@@ -1,0 +1,46 @@
+<?php 
+    class Admin{
+        private $db;
+
+        public function __construct()
+        {
+            $this->db= new Database;
+        }
+        
+        public function login($email,$password){
+            $this->db-> query('SELECT * FROM admin WHERE email= :email ');
+
+            $this->db -> bind(':email', $email);
+
+            $row = $this->db-> single();
+
+            if(isset($row->password)){
+            $hashedPassword = $row -> password;
+
+            if(password_verify($password, $hashedPassword))
+            {
+                return $row;
+            } else {
+                return false;
+            }
+        }else{
+            return false;
+        }
+        } 
+        public function register($data){
+            $this->db -> query('INSERT INTO admin(NIC,password,name,address,tpno,email) VALUES(:NIC,:password,:name, :address, :tpno , :email)');
+            $this->db -> bind(':NIC',$data['NIC']);
+            $this->db -> bind(':password',$data['password']);
+            $this->db -> bind(':name',$data['name']);
+            $this->db -> bind(':address',$data['address']);
+            $this->db -> bind(':tpno',$data['tpno']);
+            $this->db -> bind(':email',$data['email']);
+
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        } 
+    }
+?>
