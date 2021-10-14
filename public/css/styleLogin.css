@@ -1,0 +1,110 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  font-family: sans-serif;
+  color: black;
+  background-color:rgb(250, 250, 250);
+}
+
+.loginbox{
+  width: 320px;
+  height: fit-content;
+  background: white;
+  color: white;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  box-sizing: border-box;
+  padding-left:30px;
+  padding-right: 30px;
+  box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.125);
+
+}
+.title{
+  font-size: 48px;
+}
+.cover{
+  width: 100%;
+  text-align: center;
+}
+.cover img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+h1{
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+  color: black;
+}
+
+h2{
+  margin: 5;
+  padding: 0 0 10px;
+  text-align: center;
+  font-size: 16px;
+  color: gray;
+}
+
+h3{
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 10px;
+  color: gray;
+}
+
+h4{
+  margin: 0;
+  padding: 0px 0px 0px;
+  text-align: center;
+  font-size: 10px;
+  color: gray;
+}
+
+h5{
+  margin: 0;
+  padding: 10px 3px 0px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.loginbox p{
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  color: black;
+}
+
+.loginbox input{
+  width: 100%;
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+a{
+  margin: 0;
+  text-align: center;
+  font-size: 10px;
+  color: blue;
+}
+
+input[type=submit]{
+background-color: green;
+border: none;
+color: white;
+padding: 5px 0px 5px;
+margin: -5px 3px;
+cursor: pointer;
+border-radius: 5%;
+
+}
+.invalidFeedback{
+  color: red; 
+}
