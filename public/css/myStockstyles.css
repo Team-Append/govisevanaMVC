@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body{
+    margin: 0;
+}
+
+.mystock-content{
+    display: flex;
+}
+
+.mystock-content .left-side{
+    float: left;
+    height: 100%;
+    width: 400px;
+    /* background: lightcoral; */
+
+}
+.mystock-content .right-side{
+    float: right;
+    /* height: 100%; */
+    width: 1200px;
+    /* background: lightcyan; */
+}
+
+.mystock-content .left-side .history{
+    margin: 25px;
+    /* background: lightslategrey; */
+    height: 800px;
+    max-height:fit-content;
+    position:inherit; 
+    width: 350px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    border-radius: 5px;
+
+}
+
+.history .side-table h2{
+    font-size: 20px;
+} 
+.mystock-content .left-side .history .side-table{
+        
+        font-size: 18px;
+        height: 70%;
+        width: fit-content;
+        box-shadow: none;
+        margin: auto;
+}
+
+.mystock-content .right-side .topic{
+    padding: 25px;
+}
+
+
+.mystock-content .right-side .topic h2{
+    font-size: 25px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+    width: 250px;
+    background-color: white;
+    float: left;
+    margin: 10px;
+}
+
+.mystock-content .right-side .posts-list .row{
+    display: flex;
+    margin-bottom: 30px;
+  
+}
+
+.mystock-content .right-side .posts-list .row .column{
+    margin-left:20px ;
+}
+
+.mystock-content .right-side .posts-list{
+    margin-left:55px ;
+    /* margin-top: 10px;
+    margin: 25px; */
+}
+
+.stock-img-1{
+    border-radius: 10px;
+}
+
+.container {
+    padding: 0 16px;
+}
+
+.title {
+    color: grey;
+  }
+
+.container .line-1{
+    display: flex;
+
+} 
+
+.container .line-1 .text1{
+    width: 75% ; 
+}
+
+.container .line-1 .text2{
+    text-align: left;
+
+}
+
+.container .line-2{
+    display: flex;
+}
+
+.container .line-2 .text1{
+    width: 75% ; 
+}
+.container .line-2 .text2 .i{
+    text-align: left;
+    margin-top: 20px;
+}
