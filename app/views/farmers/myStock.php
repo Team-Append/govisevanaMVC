@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Boxicons CDN Links-->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/myStockstyle.css" />
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/myStockstyles.css" />
     <link rel="stylesheet" href="myStockstyles.css"/>
     <title>my stocks</title>
 </head>
@@ -44,11 +44,13 @@
                 <h2>My Stocks </h2>
             </div>
             <div class="posts-list">
+                <?php for ($i = 0; $i <= 2; $i++){ ?>
                 <div class="row">
+                <?php for ($j = 0; $j <= 2; $j++){ ?>
                     <div class="column">
-                    <div class="card">
+                        <div class="card">
                             <div class="stock-img">
-                                <img class="stock-img-1" src="images/carrot.jpg" alt="Stock" style="width:100%">
+                                <img class="stock-img-1" src="<?php echo URLROOT; ?>/img/carrot.jpg" alt="Stock" style="width:100%">
                             </div>
                             <div class="container">
                                 <div class="line-1">
@@ -71,139 +73,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="column">
-                    <div class="card">
-                            <div class="stock-img">
-                                <img class="stock-img-1" src="images/carrot.jpg" alt="Stock" style="width:100%">
-                            </div>
-                            <div class="container">
-                                <div class="line-1">
-                                    <div class="text1">
-                                        <p>Carrot 20KG</p>
-                                    </div>
-                                    <div class="text2">
-                                        <p>Rs.3000.00</p>
-                                    </div>
-                                </div>
-                                <div class="line-2">
-                                    <div class="text1">
-                                        <p class="title">Farmer : Nimal</p>
-                                    </div>
-                                    <div class="text2">
-                                        <i class='bx bx-star'></i>
-                                        <i class='bx bx-star'></i>
-                                    </div>
-                                </div>    
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                    <div class="card">
-                            <div class="stock-img">
-                                <img class="stock-img-1" src="images/carrot.jpg" alt="Stock" style="width:100%">
-                            </div>
-                            <div class="container">
-                                <div class="line-1">
-                                    <div class="text1">
-                                        <p>Carrot 20KG</p>
-                                    </div>
-                                    <div class="text2">
-                                        <p>Rs.3000.00</p>
-                                    </div>
-                                </div>
-                                <div class="line-2">
-                                    <div class="text1">
-                                        <p class="title">Farmer : Nimal</p>
-                                    </div>
-                                    <div class="text2">
-                                        <i class='bx bx-star'></i>
-                                        <i class='bx bx-star'></i>
-                                    </div>
-                                </div>    
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
-                <div class="row">
-                    <div class="column">
-                    <div class="card">
-                            <div class="stock-img">
-                                <img class="stock-img-1" src="images/carrot.jpg" alt="Stock" style="width:100%">
-                            </div>
-                            <div class="container">
-                                <div class="line-1">
-                                    <div class="text1">
-                                        <p>Carrot 20KG</p>
-                                    </div>
-                                    <div class="text2">
-                                        <p>Rs.3000.00</p>
-                                    </div>
-                                </div>
-                                <div class="line-2">
-                                    <div class="text1">
-                                        <p class="title">Farmer : Nimal</p>
-                                    </div>
-                                    <div class="text2">
-                                        <i class='bx bx-star'></i>
-                                        <i class='bx bx-star'></i>
-                                    </div>
-                                </div>    
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                    <div class="card">
-                            <div class="stock-img">
-                                <img class="stock-img-1" src="images/carrot.jpg" alt="Stock" style="width:100%">
-                            </div>
-                            <div class="container">
-                                <div class="line-1">
-                                    <div class="text1">
-                                        <p>Carrot 20KG</p>
-                                    </div>
-                                    <div class="text2">
-                                        <p>Rs.3000.00</p>
-                                    </div>
-                                </div>
-                                <div class="line-2">
-                                    <div class="text1">
-                                        <p class="title">Farmer : Nimal</p>
-                                    </div>
-                                    <div class="text2">
-                                        <i class='bx bx-star'></i>
-                                        <i class='bx bx-star'></i>
-                                    </div>
-                                </div>    
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                    <div class="card">
-                            <div class="stock-img">
-                                <img class="stock-img-1" src="images/carrot.jpg" alt="Stock" style="width:100%">
-                            </div>
-                            <div class="container">
-                                <div class="line-1">
-                                    <div class="text1">
-                                        <p>Carrot 20KG</p>
-                                    </div>
-                                    <div class="text2">
-                                        <p>Rs.3000.00</p>
-                                    </div>
-                                </div>
-                                <div class="line-2">
-                                    <div class="text1">
-                                        <p class="title">Farmer : Nimal</p>
-                                    </div>
-                                    <div class="text2">
-                                        <i class='bx bx-star'></i>
-                                        <i class='bx bx-star'></i>
-                                    </div>
-                                </div>    
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php } ?>
+                
             </div>
         </div>
     </div>
