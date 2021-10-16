@@ -62,7 +62,7 @@
                                         <p><?php echo $post->title ;?> <?php echo $post ->qty;?>KG</p>
                                     </div>
                                     <div class="text2">
-                                        <p>Rs.<?php echo $post->fixedPrice;?>.00</p>
+                                        <p>Rs.<?php echo $post->fixedPrice;?></p>
                                     </div>
                                 </div>
                                 <div class="line-2">
