@@ -187,10 +187,9 @@ class Farmers extends Controller {
         $this->view('farmers/dashboard',$data);
     }
     public function myStock(){
-        $data = array(
-            'name' => '',
-        );
-        
+        $posts = $this->farmerModel->findAllPosts();
+
+        $data = array( 'posts' => $posts);
         
         $this->view('farmers/myStock',$data);
     }

@@ -48,6 +48,10 @@
                 <div class="row">
                 <?php for ($j = 0; $j <= 2; $j++){ ?>
                     <div class="column">
+                        <!-- checkk -->
+                        <?php  foreach($data['posts'] as $post); ?>
+                        
+                        
                         <div class="card">
                             <div class="stock-img">
                                 <img class="stock-img-1" src="<?php echo URLROOT; ?>/img/carrot.jpg" alt="Stock" style="width:100%">
@@ -55,10 +59,10 @@
                             <div class="container">
                                 <div class="line-1">
                                     <div class="text1">
-                                        <p>Carrot 20KG</p>
+                                        <p><?php echo $post->title ;?> <?php echo $post ->qty;?>KG</p>
                                     </div>
                                     <div class="text2">
-                                        <p>Rs.3000.00</p>
+                                        <p>Rs.<?php echo $post->fixedPrice;?>.00</p>
                                     </div>
                                 </div>
                                 <div class="line-2">
@@ -71,7 +75,9 @@
                                     </div>
                                 </div>    
                             </div>
+                            
                         </div>
+                        
                     </div>
                     <?php } ?>
                 </div>
