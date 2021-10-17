@@ -205,6 +205,8 @@ class Admins extends Controller {
         $data = array( 'posts' => $posts);
 
         $this->view('admins/pendingStock',$data);
+
+
     }
     public function dashboard(){
         $data = array(
@@ -214,8 +216,16 @@ class Admins extends Controller {
             'email' => '',
             'tpno' => '',
         );
-        
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            if(isset($_POST['approve'])) {
+                echo "bla bla";
+            }
+            if(isset($_POST['reject'])) {
+                echo "bla bla";
+            }
+        }
         
         $this->view('admins/dashboard',$data);
     }
+
 }

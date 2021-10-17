@@ -36,9 +36,12 @@
                         <li><label for="city"><b>Farmer's address : </b><?php echo $post->address ;?></li>
                         <li><label for="description"><b>Description :</b> <?php echo $post->description ;?></li>
                     </ul>
+                    <?php $_SESSION['currentStockID'] = $post -> stockID; ?>
                     <div class="buttons">
-                        <input type="submit" value="Approve">
-                        <input type="submit" value="Reject">
+                        <form action="" method="POST">
+                            <input type="submit" value="Approve" name="approve" >
+                            <input type="submit" value="Reject" name="reject">
+                        </form>
                     </div>
                 </div>
                
