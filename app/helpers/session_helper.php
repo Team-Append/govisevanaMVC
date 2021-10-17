@@ -16,7 +16,7 @@
         }
     }
     function isAdminLoggedIn(){
-        if (isset($_SESSION['adminID'])){
+        if (isset($_SESSION['AdminID'])){
             return true;
         }else {
             return false;

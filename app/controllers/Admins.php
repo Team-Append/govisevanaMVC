@@ -4,6 +4,7 @@ class Admins extends Controller {
     public function __construct()
     {
         $this->adminModel = $this-> model('Admin');
+        $this->stockModel = $this-> model('Stock');
 
     }
     public function login(){
@@ -41,7 +42,7 @@ class Admins extends Controller {
 
             if($loggedInUser){
                 $this->createUserSession($loggedInUser);
-                header('location:'.URLROOT);
+                header('location:'.URLROOT .'/admins/dashboard');
   
             }else{
                 $data['passwordError'] = 'Password or username is incorrect. Please try again' ;
@@ -199,6 +200,22 @@ class Admins extends Controller {
         $this->view('admins/notiReporting');
     }
     public function pendingStock(){
-        $this->view('admins/pendingStock');
+        $posts = $this->stockModel->getPendingStock();
+
+        $data = array( 'posts' => $posts);
+
+        $this->view('admins/pendingStock',$data);
+    }
+    public function dashboard(){
+        $data = array(
+            'name' => '',
+            'NIC' => '',
+            'address' => '',
+            'email' => '',
+            'tpno' => '',
+        );
+        
+        
+        $this->view('admins/dashboard',$data);
     }
 }

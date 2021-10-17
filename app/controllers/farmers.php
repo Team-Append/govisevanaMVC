@@ -4,6 +4,7 @@ class Farmers extends Controller {
     public function __construct()
     {
         $this->farmerModel = $this-> model('Farmer');
+        $this->stockModel = $this-> model('Farmer');
 
     }
     public function login(){
@@ -187,7 +188,7 @@ class Farmers extends Controller {
         $this->view('farmers/dashboard',$data);
     }
     public function myStock(){
-        $posts = $this->farmerModel->findAllPosts();
+        $posts = $this->stockModel->findAllPosts($_SESSION['farmerID']);
 
         $data = array( 'posts' => $posts);
         
