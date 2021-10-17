@@ -1,0 +1,95 @@
+.Rdetails{
+    width: 90%;
+    margin: auto;
+    background-color: #EAE9E9;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    height: auto;
+    text-align: center;
+    border-radius: 5px;
+    float: right;
+    margin-right: 50px;
+    margin-top: 4%;
+  }
+  
+  .topic{
+    padding: 50px;
+    padding-top: 60px;
+    font-family: Candara Light; 
+    padding-left: 200px;  
+  }
+  
+  .topic .main-topic{
+    font-size: 25px;
+    font-weight: 900;
+    color: rgb(3, 3, 3);
+    font-weight:bold;   
+  }
+  .topic hr{
+    width: 400px;
+    float: left;
+    border-color: rgb(78, 190, 13);
+    border-style: solid;
+  }
+  
+  
+  .Rdetails .table, th, td {
+    border: 1px;
+    background-color: white;
+    width: 100%;
+    padding: 10px;
+    font-family: Candara Light;
+  }
+  
+  
+  .Rdetails .b1 button{
+    background-color: rgb(78, 190, 13);;
+    border: none;
+    color: white;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin-left:7px;
+    cursor: pointer;
+    border-radius: 30px;
+  }
+  
+  .Rdetails .b2 button{
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin-left:7px;
+    cursor: pointer;
+    border-radius: 30px;
+  }
+  
+  .Rdetails img{
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .Rdetails .picClm{
+    margin-top: 80px;
+
+  }
+  
+  .Rdetails th{
+    background: #c0bfbf;
+  }
+  
+  
+  .Rdetails th,td{
+    width: 200px;
+  }
+  
+  .Rdetails table .view{
+    width: 150px;
+  }
+  

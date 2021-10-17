@@ -1,56 +1,52 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/viewSingleStockStyles.css" />
-  </head>
-  <body>
-    <header>
-      <h2><b>FARMER STOCKS</b> | Nimal De Silva</h2>
-    </header>
-    <hr>
-    <div class="details">
-        <table>
-          <tr>
-            <td></td>
-            <td>
-              <div class="dtop">
-              <h2>CARROT</h2>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><img class="cart-image" src="<?php echo URLROOT; ?>/img/carrot.jpg" alt="cartpic"></td>
-            <td><div class="data">
-            <b>Farmer Name</b>: Nimali de Silva
-            <br>
-            <b>Quantity </b>: 25kg
-            <br>
-            <b>Fixed price </b>: LKR. 200.00
-            <br>
-            <b>Expire Date </b>: 30th September
-            <br>
-            <b>Category </b>: Vegetable
-            <br>
-            <b>Farmer Contact Number </b>: 071-********
-            <br>
-            <b>Farmer's City </b>: Kandy
-            <br>
-            <b>Details</b>: nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
-            nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
-            ccccccccccccccccccccccccccccccccccccccccccc
-            ccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-            ccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-            cccccccccccccccccccccccccccccc
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/adminSingleViewStyle.css" />
+    <title>Stocks</title>
+</head>
+<body>
+    <div class="nav">
+
+    </div>
+    <div class="noti-content">
+        <div class="topic">
+            <span class="main-topic">FARMER STOCKS | Nimal De Silva</span><br>
+            <hr>
+        </div>
+        <div class="noti-list">
+            <div class="stock-noti">
+                <div class="image">
+                    <img src="<?php echo URLROOT; ?>/img/carrot.jpg" alt="image of stock">
+
+                </div>
+                <div class="details">
+                    <ul>
+                        <li><label for="fname"><b>Farmer Name :</b> Nimal de silva</label></li>
+                        <li><label for="qty"><b>Quantity :</b> 25kg</li>
+                        <li><label for="price"><b>Fixed Price :</b> LKR 200.00 (Per Kilogram)</li>
+                        <li><label for="hdate"><b>Harvested Date :</b> 1st September 2021</li>
+                        <li><label for="edate"><b>Expire Date :</b> 30 th September 2021</li>
+                        <li><label for="category"><b>Category : </b>Vegetable</li>
+                        <li><label for="contact"><b>Farmer's Contact Number :</b> 071 444 4444</li>
+                        <li><label for="city"><b>Farmer's City : </b>Kandy</li>
+                        <li><label for="description"><b>Description :</b> Any one from any area can buy whole stock at <br> once if you prefered. Or-else if you wish to buy more than <br>10 kg  contact me. Delivery for island wide is available</li>
+                    </ul>
+                </div>
+               
             </div>
-            </td>
-          </tr>
-        </table>
+            
+        </div>
+    </div><br>
+    <div class="footer">
+        <hr>
+        <div class="copyright">
+            <p>Copyright © govisewana , All Right Reserved. </p>
+        </div>
 
-      </div>
-  </body>
-
-
-
+    </div>
+    
+</body>
 </html>
