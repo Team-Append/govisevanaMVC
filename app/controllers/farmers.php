@@ -196,14 +196,22 @@ class Farmers extends Controller {
 
     public function myOrder(){
         
-        
         $this->view('farmers/myOrder');
     }
 
     public function viewRequest(){
         
-        
         $this->view('farmers/viewRequest');
+    }
+
+    public function notification(){
+        
+        $this->view('farmers/notification');
+    }
+
+    public function notiOrder(){
+        
+        $this->view('farmers/notiOrder');
     }
 
 }

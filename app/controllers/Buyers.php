@@ -207,4 +207,19 @@ class Buyers extends Controller {
         $this->view('buyers/reviewFarmer');
     }
 
+    public function notification(){
+
+        $this->view('buyers/notification');
+    }
+
+    public function notiOffer(){
+
+        $this->view('buyers/notiOffer');
+    }
+
+    public function notiStock(){
+
+        $this->view('buyers/notiStock');
+    }
+
 }

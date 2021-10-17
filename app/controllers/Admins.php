@@ -174,5 +174,28 @@ class Admins extends Controller {
         unset($_SESSION['email']);
         header('location:' .URLROOT. '/pages/index');
     }
-      
+
+    public function viewSingleAccount(){
+        $this->view('admins/viewSingleAccount');
+    }
+    
+    public function viewSingleStock(){
+        $this->view('admins/viewSingleStock');
+    }
+
+    public function notification(){
+        $this->view('admins/notification');
+    }
+
+    public function notiBuyerRequest(){
+        $this->view('admins/notiBuyerRequest');
+    }
+
+    public function notiFarmerStock(){
+        $this->view('admins/notiFarmerStock');
+    }
+
+    public function notiReporting(){
+        $this->view('admins/notiReporting');
+    }
 }
