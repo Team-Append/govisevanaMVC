@@ -6,6 +6,9 @@
     <link rel="stylesheet" href=" <?php echo URLROOT; ?> /css/myOrderStyle.css" />
   </head>
   <body>
+    <div class="nav">
+      <?php include_once(APPROOT.'/views/includes/navigation.php'); ?>
+    </div>
     <div class="detail">
       <div class="dtopic">
         <h1>My Orders</h1>

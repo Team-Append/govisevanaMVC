@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="nav">
-
+        <?php include_once(APPROOT.'/views/includes/navigation.php'); ?>
     </div>
     <div class="mystock-content">
         <div class="left-side">

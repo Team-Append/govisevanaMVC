@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/adminStockPostStyles.css" />
   </head>
   <body>
-  <div class="topic">
+    <div class="nav">
+      <?php include_once(APPROOT.'/views/includes/navigation.php'); ?>
+    </div>
+    <div class="topic">
             <span class="main-topic">Stock Posts</span><br>
             <hr>
         </div>

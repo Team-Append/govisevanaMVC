@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/reviewFarmerStyles.css" />
   </head>
   <body>
-    <header>
-    </header>
+  <div class="nav">
+        <?php include_once(APPROOT.'/views/includes/navigation.php'); ?>
+    </div>
     <div class="mainR">
       <div class="sideL">
         <div class="t1">
