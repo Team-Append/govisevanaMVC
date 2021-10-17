@@ -47,5 +47,16 @@
             $results = $this->db->resultSet();
             return $results;
         }
+        public function updateStockStatus($status,$stockID){
+            $this->db->query("UPDATE stock SET stockStatus = :status WHERE stockID = :stockID");
+            $this->db -> bind(':status',$status);
+            $this->db -> bind(':stockID',$stockID);
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+
+        }
      }
 ?>

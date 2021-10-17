@@ -184,22 +184,6 @@ class Admins extends Controller {
         $this->view('admins/viewSingleStock');
     }
 
-    public function viewSingleRequest(){
-        $this->view('admins/viewSingleRequest');
-    }
-
-    public function viewRegisteredAccount(){
-        $this->view('admins/viewRegisteredAccount');
-    }
-
-    public function viewBuyerRequest(){
-        $this->view('admins/viewBuyerRequest');
-    }
-
-    public function viewStockPost(){
-        $this->view('admins/viewStockPost');
-    }
-
     public function notification(){
         $this->view('admins/notification');
     }
@@ -219,6 +203,13 @@ class Admins extends Controller {
         $posts = $this->stockModel->getPendingStock();
 
         $data = array( 'posts' => $posts);
+       
+            if(isset($_POST['approve'])) {
+                $posts = $this->stockModel->updateStockStatus('approved',$_SESSION['currentStockID']);
+            }
+            if(isset($_POST['reject'])) {
+                $posts = $this->stockModel->updateStockStatus('rejected',$_SESSION['currentStockID']);
+            }
 
         $this->view('admins/pendingStock',$data);
 
@@ -232,14 +223,7 @@ class Admins extends Controller {
             'email' => '',
             'tpno' => '',
         );
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            if(isset($_POST['approve'])) {
-                echo "bla bla";
-            }
-            if(isset($_POST['reject'])) {
-                echo "bla bla";
-            }
-        }
+        
         
         $this->view('admins/dashboard',$data);
     }
