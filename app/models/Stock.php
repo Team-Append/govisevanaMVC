@@ -27,5 +27,12 @@
                 return false;
             }
         }
-    }
+    
+        public function getStockForLanding(){
+            $this->db->query('SELECT * FROM stock ORDER BY stockID DESC LIMIT 6');
+
+            $results = $this->db->resultSet();
+            return $results;
+        }
+     }
 ?>

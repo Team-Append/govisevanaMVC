@@ -109,7 +109,7 @@ include_once(APPROOT.'/views/includes/navigation.php');
             </table>
         </div>
         <div id = "edit-profile-card">
-            <h1>Farmer</h1>
+            <h1>Buyer</h1>
             <hr>
             <h2>Edit profile</h2>
         </div>

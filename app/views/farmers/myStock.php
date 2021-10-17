@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if(isFarmerLoggedIn()){ ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -44,48 +44,48 @@
                 <h2>My Stocks </h2>
             </div>
             <div class="posts-list">
-                <?php for ($i = 0; $i <= 2; $i++){ ?>
-                <div class="row">
-                <?php for ($j = 0; $j <= 2; $j++){ ?>
-                    <div class="column">
+                <?php $count = 0; ?>
+
                         <!-- checkk -->
-                        <?php  foreach($data['posts'] as $post); ?>
-                        
-                        
-                        <div class="card">
-                            <div class="stock-img">
-                                <img class="stock-img-1" src="<?php echo URLROOT; ?>/img/carrot.jpg" alt="Stock" style="width:100%">
-                            </div>
-                            <div class="container">
-                                <div class="line-1">
-                                    <div class="text1">
-                                        <p><?php echo $post->title ;?> <?php echo $post ->qty;?>KG</p>
+                        <?php  foreach($data['posts'] as $post){ ?>
+                            <?php if($count%3 == 0){ echo "<div class=\"row\">";}?>   
+                            <div class="column">
+                                
+                                <div class="card">
+                                    <div class="stock-img">
+                                        <img class="stock-img-1" src="<?php echo URLROOT; ?>/img/carrot.jpg" alt="Stock" style="width:100%">
                                     </div>
-                                    <div class="text2">
-                                        <p>Rs.<?php echo $post->fixedPrice;?></p>
-                                    </div>
+                                    <div class="container">
+                                        <div class="line-1">
+                                            <div class="text1">
+                                                <p><?php echo $post->title ;?> <?php echo $post ->qty;?>KG</p>
+                                            </div>
+                                            <div class="text2">
+                                                <p>Rs.<?php echo $post->fixedPrice;?></p>
+                                            </div>
+                                        </div>
+                                        <div class="line-2">
+                                            <div class="text1">
+                                                <p class="title">Farmer : <?php echo  $_SESSION['name'];?></p>
+                                            </div>
+                                            <div class="text2">
+                                                <i class='bx bx-star'></i>
+                                                <i class='bx bx-star'></i>
+                                            </div>
+                                        </div>    
+                                    </div> 
                                 </div>
-                                <div class="line-2">
-                                    <div class="text1">
-                                        <p class="title">Farmer : Nimal</p>
-                                    </div>
-                                    <div class="text2">
-                                        <i class='bx bx-star'></i>
-                                        <i class='bx bx-star'></i>
-                                    </div>
-                                </div>    
                             </div>
-                            
-                        </div>
-                        
-                    </div>
-                    <?php } ?>
-                </div>
-                <?php } ?>
-                
+                            <?php if($count%3 == 0){ echo "</div>";}?>
+
+                        <?php $count++;} ?>
+
             </div>
         </div>
     </div>
     
 </body>
 </html>
+<?php } else{
+    header('location:' .URLROOT. '/pages/index');
+}?>
