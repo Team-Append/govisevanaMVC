@@ -193,4 +193,17 @@ class Farmers extends Controller {
         
         $this->view('farmers/myStock',$data);
     }
+
+    public function myOrder(){
+        
+        
+        $this->view('farmers/myOrder');
+    }
+
+    public function viewRequest(){
+        
+        
+        $this->view('farmers/viewRequest');
+    }
+
 }

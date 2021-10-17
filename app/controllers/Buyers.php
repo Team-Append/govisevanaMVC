@@ -186,4 +186,25 @@ class Buyers extends Controller {
         
         $this->view('buyers/dashboard',$data);
     }
+
+    public function myCart(){
+
+        $this->view('buyers/myCart');
+    }
+
+    public function myRequest(){
+
+        $this->view('buyers/myRequest');
+    }
+
+    public function receivedOffer(){
+
+        $this->view('buyers/receivedOffer');
+    }
+
+    public function reviewFarmer(){
+
+        $this->view('buyers/reviewFarmer');
+    }
+
 }

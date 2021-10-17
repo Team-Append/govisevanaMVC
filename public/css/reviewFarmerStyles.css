@@ -1,0 +1,114 @@
+/*google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background-color: rgb(250, 250, 250);
+}
+
+.mainR{
+  width: 99%;
+  margin: auto;
+  background-color: #EAE9E9;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  height: auto;
+  text-align: center;
+  border-radius: 5px;
+  float: right;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.mainR .sideR {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 13%;
+  height: 300px;
+  float: right;
+  padding-right: 50px;
+  margin-right: 50px;
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  border-radius: 5px;
+  background-color: #5E8B7E;
+}
+
+.mainR .sideL {
+  transition: 0.3s;
+  width: 60%;
+  height: auto;
+  float: left;
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-bottom: 50px;
+}
+
+.mainR .sideR .sideR-top img{
+  margin-top: 10%;
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin-left: 45%;
+  margin-right:;
+}
+
+.sideR .sideR-bottom{
+  margin-top: 5%;
+  text-align:left;
+  padding-left: 10%;
+}
+
+.mainR .sideL .rate .tble{
+  padding-left: 50px;
+}
+
+.mainR .sideL .rate{
+  margin-left: 5px;
+  margin-top: 15%;
+  text-align: left;
+  padding-left: 3%;
+}
+
+.mainR .sideL .t1{
+  float: left;
+  text-align: left;
+  padding-left: 5%;
+  font-weight: 300;
+  font-size: 25px;
+  padding-top: 5%;
+
+}
+
+.mainR .sideL .reviewbox{
+  float: left;
+  margin-top: 2%;
+  margin-right: 10%;
+  padding-left: 5%;
+}
+
+.mainR .sideR .sideR-top .caption{
+  text-align: center;
+  padding-left: 30%;
+  margin-top: 2px;
+  font-weight: bold;
+  color: #4A503D;
+}
+
+.mainR .sideL .reviewbox input[type=submit] {
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin-top: 5px ;
+  margin-left: 80%;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+
+}
+
+.mainR .sideL .reviewbox input[type=submit]:hover {
+  background-color: #45a049;
+}

@@ -65,7 +65,9 @@
             $results = $this->db->resultSet();
             return $results;
         }
-
+        public function myOrders(){
+            
+        }
         
     }
 ?>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Boxicons CDN Links-->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/myStockstyles.css" />
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/myStockStyles.css" />
     <link rel="stylesheet" href="myStockstyles.css"/>
     <title>my stocks</title>
 </head>
