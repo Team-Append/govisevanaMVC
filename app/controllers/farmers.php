@@ -4,7 +4,7 @@ class Farmers extends Controller {
     public function __construct()
     {
         $this->farmerModel = $this-> model('Farmer');
-        $this->stockModel = $this-> model('Farmer');
+        $this->stockModel = $this-> model('Stock');
 
     }
     public function login(){
