@@ -38,9 +38,13 @@
                     </ul>
                     <?php $_SESSION['currentStockID'] = $post -> stockID; ?>
                     <div class="buttons">
-                        <form action="" method="POST">
-                            <input type="submit" value="Approve" name="approve" >
-                            <input type="submit" value="Reject" name="reject">
+                        <form action="">
+                            <a href="<?php echo URLROOT; ?>/admins/pendingStock?stockID=<?php echo  $post -> stockID;?>&approve=true ">
+                                <input type="button" value="Approve" name="approve" >
+                            </a>
+                            <a href="<?php echo URLROOT; ?>/admins/pendingStock?stockID=<?php echo  $post -> stockID;?>&reject=true ">
+                                <input type="button" value="Reject" name="reject">
+                            </a>
                         </form>
                     </div>
                 </div>

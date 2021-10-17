@@ -1,0 +1,262 @@
+/*google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif; 
+}
+body{
+    background-color: rgb(243, 243, 243);
+}
+#farmer-info-card{
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border-radius: 5px;
+  
+    float: right;
+    margin-left: 10px;
+    margin-right: 10px;
+  
+  
+  }
+  #farmer-info-card h1{
+      font-size: 26px;
+  }
+  #farmer-info-card h2{
+      font-size: 18px;
+  }
+  #farmer-info-card table{
+      border-collapse: collapse;
+      border: 0px solid black;
+      margin: auto;
+      width: 90%;
+      height: 35%;
+      font-size: 18px;
+  }
+  #farmer-info-card .profile-upper{
+      height: 55%;
+  }
+  
+  #farmer-info-card table .stats-desc{
+      width: 80%;
+      text-align: left;
+  }
+  #farmer-info-card table .stat{
+      width: 20%;
+      text-align: right;
+      color: rgb(0, 212, 35);
+  }
+/*Create top row*/
+.row {
+    /* height: 30% */
+    display:flex;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* Create three columns inside the top row*/
+.column {
+float: left;
+padding: 10px;
+}
+
+/* Right column */
+.column.right {
+width: 20%;
+margin-left: 30px;
+}
+
+/*Left column*/
+.column.left {
+width: 50%;
+}
+
+/* Middle column */
+.column.middle {
+width: 30%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+/*table in middle column*/
+.stock-info{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+table {
+    padding:10px;
+    width:100%;
+    height:96%;
+}
+table,td,tr {
+    border:solid white;
+    background-color:#ffffff;
+    text-align:center;
+    padding: 10px;
+}
+
+/*buttons in middle column*/
+.btn {
+    border: none;
+    border-radius:20px;
+    outline: 0;
+    padding: 10px;
+    color: white;
+    background-color: rgba(89, 136, 2, 0.8);
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 15px;
+}
+
+/* input text boxes in middle column*/
+.txt{
+    width: 80%;
+    padding: 15px;
+    margin: 15px 0 22px 0;
+    display: inline-block;
+    border-radius: 8px;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    position: relative;
+    background:transparent;
+}
+
+/* Slides */
+.mySlides {
+    display: none;
+    padding-left: 70px;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -30px;
+    padding: 16px;
+    color: #888;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    position: absolute;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* next prev buttons on hover*/
+.prev:hover,
+.next:hover {
+    background-color: rgba(89, 136, 2, 0.8);
+    color: white;
+}
+
+/* Indicator Dots */
+.dot-container {
+    text-align: center;
+    padding: 20px;
+    background-color:transparent;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+/*stock card*/
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+    width: 250px;
+}
+
+/* Upper Image Part */
+.stock-img-1{
+    border-radius: 10px;
+}
+
+/* Below Info part */
+.container {
+    padding: 0 16px;
+}
+
+.container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.title {
+    color: grey;
+}
+
+.container .line-1{
+    display: flex;
+
+} 
+
+.container .line-1 .text1{
+    width: 75% ; 
+}
+
+.container .line-1 .text2{
+    text-align: left;
+}
+
+.container .line-2{
+    display: flex;
+}
+
+.container .line-2 .text1{
+    width: 75% ; 
+}
+.container .line-2 .text2 .i{
+    text-align: left;
+}
+#stock-description{
+    width: 100%;
+    height: 100%;
+    border:1px solid black;
+    border-radius: 5px;
+}
+.review{
+    border:1px solid black;
+    border-radius: 5px;
+    height: 300px;
+    background-color: white;
+    width: 97%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.slideshow-container{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: white;
+    padding: 10px;
+}

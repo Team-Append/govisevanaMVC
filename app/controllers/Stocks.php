@@ -5,6 +5,9 @@ public function __construct()
 {
     $this->stockModel = $this->model('Stock');
 }
+public function viewStock(){
+    $this->view('stocks/viewStock');  
+}
 public function addStock(){
     
     $data = array(

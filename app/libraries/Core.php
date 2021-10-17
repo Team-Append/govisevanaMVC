@@ -7,6 +7,7 @@
 
         public function __construct()
         {
+
             $url = $this -> getUrl();
             //ucwords capitalize the first letter
             if(file_exists('../app/controllers/' . ucwords($url[0]) . '.php')){
@@ -32,6 +33,7 @@
         }
         public function getUrl(){
             if(isset($_GET['url'])){
+                
                 $url = rtrim($_GET['url'],'/');
 
                 $url = filter_var($url, FILTER_SANITIZE_URL);

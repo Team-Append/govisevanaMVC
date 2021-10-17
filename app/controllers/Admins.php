@@ -204,17 +204,28 @@ class Admins extends Controller {
 
         $data = array( 'posts' => $posts);
        
-            if(isset($_POST['approve'])) {
-                $posts = $this->stockModel->updateStockStatus('approved',$_SESSION['currentStockID']);
+            if(isset($_GET['approve'])) {
+                $posts = $this->stockModel->updateStockStatus('approved',$_GET['stockID']);
+                header('location:' .URLROOT. '/admins/PendingStock');
             }
-            if(isset($_POST['reject'])) {
-                $posts = $this->stockModel->updateStockStatus('rejected',$_SESSION['currentStockID']);
+            if(isset($_GET['reject'])) {
+                $posts = $this->stockModel->updateStockStatus('rejected',$_GET['stockID']);
+                header('location:' .URLROOT. '/admins/PendingStock');
             }
 
         $this->view('admins/pendingStock',$data);
 
 
     }
+    // public function updateStockStatus(){
+    //     if(isset($_POST['approve'])) {
+    //         $posts = $this->stockModel->updateStockStatus('approved',$_GET);
+    //     }
+    //     if(isset($_POST['reject'])) {
+    //         $posts = $this->stockModel->updateStockStatus('rejected');
+    //     }
+    //     $this->view('admins/pendingStock',$data);
+    // }
     public function dashboard(){
         $data = array(
             'name' => '',
