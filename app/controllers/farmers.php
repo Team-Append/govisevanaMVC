@@ -167,12 +167,14 @@ class Farmers extends Controller {
     }
         $this->view('farmers/register',$data);
     }
+
     public function logout(){
         unset($_SESSION['farmerID']);
         unset($_SESSION['name']);
         unset($_SESSION['email']);
         header('location:' .URLROOT. '/pages/index');
     }
+
     public function dashboard(){
         $data = array(
             'name' => '',
@@ -186,6 +188,7 @@ class Farmers extends Controller {
         
         $this->view('farmers/dashboard',$data);
     }
+    
     public function myStock(){
         $posts = $this->farmerModel->findAllPosts();
 
