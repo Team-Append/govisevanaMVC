@@ -1,5 +1,5 @@
 .noti-content .noti-list{
-    padding-left: 200px;
+    /* padding-left: 200px; */
 }
 
 .noti-content .topic{
@@ -113,6 +113,7 @@
     box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2), 0 3px 5px 0 rgba(0,0,0,0.19);
     margin-bottom: 10px;
     display: flex;
+    margin: auto;
 }
 
 .noti-content .noti-list .stock-noti .image{
