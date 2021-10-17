@@ -46,24 +46,28 @@ include_once(APPROOT.'/views/includes/navigation.php');
                     <img src="<?php echo URLROOT;?>/img/icons/stock.png" alt="">
                 </div>
             </a>
+            <a href="<?php echo URLROOT;?>/farmers/myStock">
+            <div class="dash-card">
+                <h1>My stock</h1>
+                <img src="<?php echo URLROOT;?>/img/icons/admin.png" alt="">
+            </div>
+            </a>
             <div class="dash-card">
                 <h1>Offers Sent</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/offer.png" alt="">
             </div>
+            
+        </div>
+        <div class="card-line">
             <div class="dash-card">
                 <h1>Earnings</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/earn.png" alt="">
             </div>
-        </div>
-        <div class="card-line">
             <div class="dash-card">
                 <h1>Buyer Requests</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/req.png" alt="">
             </div>
-            <div class="dash-card">
-                <h1>Contact Admins</h1>
-                <img src="<?php echo URLROOT;?>/img/icons/admin.png" alt="">
-            </div>
+            
             <div class="dash-card">
                 <h1>Analytics</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/analytics.png" alt="">
