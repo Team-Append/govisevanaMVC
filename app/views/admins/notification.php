@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="nav">
-
+        <?php include_once(APPROOT.'/views/includes/navigation.php'); ?>    
     </div>
     <div class="noti-content">
         <div class="topic">

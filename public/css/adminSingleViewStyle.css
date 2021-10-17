@@ -1,0 +1,209 @@
+.ra-content .acc-list{
+    padding-left: 200px;
+}
+
+.ra-content .topic{
+    padding: 50px;
+    padding-top: 60px;
+    font-family: Candara Light; 
+    padding-left: 200px;  
+}
+
+.ra-content .topic .main-topic{
+    font-size: 25px;
+    font-weight: 900;
+    color: rgb(3, 3, 3);
+    font-weight:bold;   
+}
+.ra-content .topic hr{
+    width: 400px;
+    float: left;
+    border-color: rgb(78, 190, 13);
+    border-style: solid;
+}
+
+.ra-content .acc-list .acc{
+    height: 100px;
+    width: 900px;
+    border-width: 10px;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2), 0 3px 5px 0 rgba(0,0,0,0.19);
+    margin-bottom: 10px;
+
+}
+
+.ra-content .acc-list .pre.acc .acc{
+    height: 100px;
+    width: 900px;
+    border-width: 10px;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2), 0 3px 5px 0 rgba(0,0,0,0.19);
+    margin-bottom: 10px;
+
+}
+
+.acc:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+.acc-list .acc{
+    display: flex;
+    font-family:Candara Light;
+    
+}
+
+.acc-list .acc .acc-profile{
+    float:left;
+    width: 120px;
+}
+
+.acc-list .acc .acc-profile img{
+    border-radius: 50%;
+    height: 70px;
+    margin-left: 25px;
+    margin-top: 15px;
+}
+
+.acc-list .acc .acc-details{
+    float:right;
+    width: 800px;
+
+}
+
+.acc-list .acc .acc-details .acc-name{
+    margin-top: 15px;
+    height: 25px;
+    font-weight: 500;
+}
+
+.acc-list .acc .acc-details .acc-info{
+    height: 25px;
+}
+
+
+.acc-list .acc .acc-details .time{
+    margin-bottom: 10px;
+    height: 25px;
+}
+.copyright{
+    width: 100%;
+    height: 50px;
+    padding:5px;
+    text-align:center;
+    font-family:Candara Light;
+}
+
+/* singlestock css */
+
+.noti-content .noti-list{
+    padding-left: 200px;
+}
+
+.noti-content .noti-list .stock-noti{
+    height: 400px;
+    width: 900px;
+    border-width: 10px;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2), 0 3px 5px 0 rgba(0,0,0,0.19);
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.noti-content .noti-list .stock-noti .image{
+    float: left;
+    width: 400px;
+    padding-top: 50px;
+    padding-left: 100px;
+}
+.noti-content .noti-list .stock-noti .image img{
+    width: 250px;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2), 0 3px 5px 0 rgba(0,0,0,0.19);
+}
+
+.noti-content .noti-list .stock-noti .details{
+    float: right;
+    width: 500px;    
+}
+
+
+.noti-content .noti-list .details ul{
+    list-style: none;
+    color:#575857;
+    font-family: Candara Light;
+    padding: 15px;
+}
+
+.noti-content .noti-list .details li{
+    padding: 5px;
+}
+
+.noti-content .topic{
+    padding: 50px;
+    padding-top: 60px;
+    font-family: Candara Light; 
+    padding-left: 200px;  
+}
+
+.noti-content .topic .main-topic{
+    font-size: 25px;
+    font-weight: 900;
+    color: rgb(3, 3, 3);
+    font-weight:bold;   
+}
+.noti-content .topic hr{
+    width: 400px;
+    float: left;
+    border-color: rgb(78, 190, 13);
+    border-style: solid;
+}
+
+/* single account view */
+
+.noti-content .noti-list .report-noti{
+    height: 350px;
+    width: 820px;
+    border-width: 10px;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2), 0 3px 5px 0 rgba(0,0,0,0.19);
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.noti-content .noti-list .report-noti .details .buttons{
+    margin-left:300px ;
+}
+
+/* single account view */
+
+.noti-content .noti-list .single-acc .prof-image{
+    float: left;
+    width: 400px;
+    padding-top: 50px;
+    padding-left: 100px;
+}
+
+
+.noti-content .noti-list .stock-noti .prof-image img{
+    width: 250px;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2), 0 3px 5px 0 rgba(0,0,0,0.19);
+    border-radius: 50%;
+}
+
+.single-acc{
+    height: 600px;
+    width:900px;
+    border-width: 10px;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2), 0 3px 5px 0 rgba(0,0,0,0.19);
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.noti-content .noti-list .single-acc .image{
+    float: left;
+    width: 400px;
+    padding-top: 50px;
+    padding-left: 100px;
+}
+
+
+.noti-content .noti-list .single-acc .details hr{
+    width:475px;
+}
+
+

@@ -1,66 +1,63 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/viewSingleAccountStyles.css" />
-  </head>
-  <body>
-    <header>
-      <h2><b>REGISTERED ACCOUNTS</b> | Nimal De Silva</h2>
-    </header>
-    <hr>
-    <div class="details">
-        <table>
-          <tr>
-            <td></td>
-            <td>
-              <div class="dtop">
-              <h2>FARMER</h2>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><img class="farmer-image" src="<?php echo URLROOT; ?>/img/profile.png" alt="farmerpic"></td>
-            <td><div class="data">
-            <b>Farmer Name</b>: Nimali de Silva
-            <br>
-            <b>NIC </b>: 97*****
-            <br>
-            <b>Address </b>: No 25. Colombo
-            <br>
-            <b>Email Address </b>: abc@gmail.com
-            <br>
-            <b>City </b>: Kandy
-            <br>
-            <b>Farmer Contact Number </b>: 071-********
-            <br>
-            <b>Message from Farmer</b>: nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
-            nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
-            ccccccccccccccccccccccccccccccccccccccccccc
-            ccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-            ccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-            cccccccccccccccccccccccccccccc
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/adminSingleViewStyle.css" />
+    <title>Registered Account</title>
+</head>
+<body>
+    <div class="nav">
+        <?php include_once(APPROOT.'/views/includes/navigation.php'); ?>
+    </div>
+    <div class="noti-content">
+        <div class="topic">
+            <span class="main-topic">FARMER | Nimal De Silva</span><br>
+            <hr>
+        </div>
+        <div class="noti-list">
+            <div class="single-acc">
+                <div class="prof-image">
+                    <img src="<?php echo URLROOT; ?>/img/profile.png" alt="image of stock">
+
+                </div>
+                <div class="details">
+                    <ul>
+                        <li><label for="fname"><b>Farmer Name :</b> Nimal de silva</label></li>
+                        <li><label for="qty"><b>NIC :</b> 58475862V</li>
+                        <li><label for="price"><b>Address :</b> No.24, Highlevel rd,Nugegoda</li>
+                        <li><label for="hdate"><b>E-mail Address :</b> abc@gail.com</li>
+                        <li><label for="edate"><b>City :</b> Colombo</li>
+                        <li><label for="category"><b>Province : </b>Western Province</li>
+                        <li><label for="contact"><b>Farmer's Contact Number :</b> 071 444 4444</li>
+                        <li><label for="description"><b>Message from Farmer :</b> Any one from any area can buy  <br>whole stock at  once if you prefered. Or-else if you wish to buy more than 10 kg  contact me. Delivery  <br>for island wide is available</li>
+                    </ul> <hr>
+
+                    <ul>
+                        <li><label for="fname"><b>Number of orders completed :</b> 10</label></li>
+                        <li><label for="qty"><b>Total number of posts :</b>6</li>
+                        <li><label for="price"><b>Number of posts approved :</b> 5</li>
+                        <li><label for="edate"><b>Number of rejected posts :</b> 1</li>
+                        <li><label for="category"><b>Number of reports : </b>0</li>
+
+                    </ul>
+
+                </div>
+               
+
+               
             </div>
-            <div class="dataHistory">
-              <h3>FARMER HISTORY</h3>
-              <b>Number of orders completed</b>: 10
-              <br>
-              <b>Total number of posts </b>: 6
-              <br>
-              <b>Number of posts approved </b>: 5
-              <br>
-              <b>Number of posts rejected </b>: 1
-              <br>
-              <b>Number of reports </b>: 0
-            </div>
-            </td>
-          </tr>
-        </table>
+            
+        </div>
+    </div><br>
+    <div class="footer">
+        <hr>
+        <div class="copyright">
+            <p>Copyright © govisewana , All Right Reserved. </p>
+        </div>
 
-      </div>
-  </body>
-
-
-
+    </div>
+    
+</body>
 </html>

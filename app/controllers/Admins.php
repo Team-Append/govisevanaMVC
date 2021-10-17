@@ -184,6 +184,22 @@ class Admins extends Controller {
         $this->view('admins/viewSingleStock');
     }
 
+    public function viewSingleRequest(){
+        $this->view('admins/viewSingleRequest');
+    }
+
+    public function viewRegisteredAccount(){
+        $this->view('admins/viewRegisteredAccount');
+    }
+
+    public function viewBuyerRequest(){
+        $this->view('admins/viewBuyerRequest');
+    }
+
+    public function viewStockPost(){
+        $this->view('admins/viewStockPost');
+    }
+
     public function notification(){
         $this->view('admins/notification');
     }
