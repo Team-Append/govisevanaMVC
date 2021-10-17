@@ -76,9 +76,10 @@
                                     </div> 
                                 </div>
                             </div>
-                            <?php if($count%3 == 0){ echo "</div>";}?>
+                            
 
                         <?php $count++;} ?>
+                        <?php if(($count-1)%3 == 0){ echo "</div>";}?>
 
             </div>
         </div>
