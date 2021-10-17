@@ -34,5 +34,18 @@
             $results = $this->db->resultSet();
             return $results;
         }
+        public function getPendingStock(){
+            $this->db->query("SELECT * FROM stock,farmer WHERE stockStatus = 'pending' and stock.farmerID = farmer.farmerID ORDER BY stockID DESC");
+
+            $results = $this->db->resultSet();
+            return $results;
+        }
+        public function findAllPosts($ID){
+            $this->db->query('SELECT * FROM stock WHERE farmerID = :ID ORDER BY stockID DESC');
+            $this->db -> bind(':ID',$ID);
+    
+            $results = $this->db->resultSet();
+            return $results;
+        }
      }
 ?>

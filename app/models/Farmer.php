@@ -59,12 +59,7 @@
         }
         }  
 
-        public function findAllPosts(){
-            $this->db->query('SELECT * FROM stock WHERE farmerID = 3 ORDER BY stockID DESC');
-    
-            $results = $this->db->resultSet();
-            return $results;
-        }
+        
         public function myOrders(){
             
         }

@@ -15,7 +15,7 @@
         <?php 
             include_once(APPROOT.'/views/includes/navigation.php');
         ?>
-
+    <?php echo $_SESSION['email'];?>
     <div class="landing_page">
         
 
