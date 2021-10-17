@@ -3,7 +3,7 @@ class Pages extends Controller{
 
     public function __construct()
     {
-        $this->buyerModel = $this->model('Buyer');
+        $this->stockModel = $this->model('Stock');
     }
     public function index(){
         
@@ -13,7 +13,11 @@ class Pages extends Controller{
         $this -> view('pages/about');
     }
     public function accountType(){
-        $this -> view('pages/accountType');
+        $posts = $this->stockModel->getStockForLanding();
+
+        $data = array( 'posts' => $posts);
+
+        $this -> view('pages/accountType',$data);
     }
 }
 ?>
