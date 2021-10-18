@@ -3,10 +3,14 @@
     <head>
         <title>Select Stock</title>
         <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/stock.css" />
+        <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/navStyles.css" />
 
     </head>
 
     <body style="font-family: 'Poppins', sans-serif; ">
+    <?php 
+            include_once(APPROOT.'/views/includes/navigation.php');
+        ?>
        <div class="row">
         <!-- Left column for Stock Image -->
             <div class="column left">
@@ -15,21 +19,24 @@
 
         <!-- Middle column for Stock Information -->
             <div class="column middle">
-            <table align="center" class="stock-info">
+            <table align="left" class="stock-info">
             <tr>
-                <td><h2>Carrot 20 KG</h2></td>
-                <td><h2 align="right">Rs.3000.00</h2></td>
+                <td colspan="2"><h2 align="left"><?php echo $data['posts']->title;?>  <?php echo $data['posts']->qty;?> KG </h2></td>
+                
+            </tr>
+            <tr>
+            <td colspan="2"><h2 align="left">Rs.<?php echo $data['posts']->fixedPrice;?>.00</h2></td>
             </tr>
             <tr align="center" style="height:200px">
                 <td colspan='2'>
                     <div id="stock-description">
-                        <p>description</p>
+                        <p style="text-align: left;"><?php echo $data['posts']->description;?></p>
                     </div>
                 </td>
             </tr>
             <tr>
                 <td><input type="text" class="txt" id="qty" name="qty" value="Qty" required></td>
-                <td><input type="text" class="txt" id="bid" name="bid" value="Minimum Bid Rs.2800" required></td>
+                <td><input type="text" class="txt" id="bid" name="bid" placeholder="Minimum Bid Rs.<?php echo $data['posts']->minBidPrice;?>" required></td>
             </tr>
             <tr>
                 <td><input type="button" class="btn" value="Add to Cart"></td>
@@ -46,18 +53,18 @@
                             <img src="pp.jpg" alt="">
                         </div>
                         <h1>Farmer</h1>
-                        <h2>Thilina Peduruhewa</h2>
+                        <h2><?php echo $data['posts']->name;?></h2>
                         <hr>
                     </div>
                     <table id="farmer-card-stats">
                         <tbody>
                             <tr>
                                 <td class="stats-desc">address</td>
-                                <td class="stat">50</td>
+                                <td class="stat"><?php echo $data['posts']->address;?></td>
                             </tr>
                             <tr>
                                 <td class="stats-desc">telephone number</td>
-                                <td class="stat">231</td>
+                                <td class="stat"><?php echo $data['posts']->tpno;?></td>
                             </tr>
                             <tr>
                                 <td class="stats-desc">Orders completed</td>
@@ -147,9 +154,49 @@
         
         <br> <br> <br> 
 
-        <!-- /*Stock Card Section*/ -->
+        <!-- Stock Card Section -->
         <h2> Other Stock from the Farmer </h2>
-        <table class="stock-rows">
+        <div class="farmer-stock">
+        <!--row 1 start-->
+        <?php for( $j = 0; $j<2; $j++ ){ ?>
+        <div class="row" style="width: 100%;">
+            
+                <?php for( $i = 0; $i<4; $i++ ){ ?>
+                    <div class="column">
+                <!--stock card1-->
+                <div class="card">
+                    <div class="stock-img">
+                    <img class="stock-img-1" src="<?php echo URLROOT;?>/img/carrot.jpg" alt="Jane" style="width:100%">
+                    </div>
+                    <div class="container">
+                        <div class="line-1">
+                            <div class="text1">
+                                <p>Carrot 20KG</p>
+                            </div>
+                            <div class="text2">
+                                <p>Rs.3000.00</p>
+                            </div>
+                        </div>
+                        <div class="line-2">
+                            <div class="text1">
+                            <p class="title">Farmer : Nimal</p>
+                            </div>
+                            <div class="text2">
+                                <i class='bx bx-star'></i>
+                                <i class='bx bx-star'></i>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--end of the card1-->
+            </div>
+                <?php } ?>
+                
+                <!--end of the card1-->
+            </div>
+            <?php } ?>
+        <!-- <table class="stock-rows">
          <tr>
             <td width="20%">
                 <div class="card">
@@ -429,7 +476,7 @@
                 </div>
             </td>
          </tr>
-        </table> 
+        </table>  -->
    
     </body>
 </html> 

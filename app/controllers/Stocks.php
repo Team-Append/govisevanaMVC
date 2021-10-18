@@ -6,7 +6,11 @@ public function __construct()
     $this->stockModel = $this->model('Stock');
 }
 public function viewStock(){
-    $this->view('stocks/viewStock');  
+    $post = $this->stockModel->getStockByID($_GET['stockID']);
+    $data = array('posts' => $post);
+
+
+    $this->view('stocks/viewStock',$data);  
 }
 public function addStock(){
     

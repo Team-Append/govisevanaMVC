@@ -29,7 +29,7 @@
         }
     
         public function getStockForLanding(){
-            $this->db->query('SELECT * FROM stock ORDER BY stockID DESC LIMIT 6');
+            $this->db->query("SELECT * FROM stock,farmer WHERE stockStatus='approved' and stock.farmerID = farmer.farmerID ORDER BY stockID DESC LIMIT 8");
 
             $results = $this->db->resultSet();
             return $results;
@@ -57,6 +57,13 @@
                 return false;
             }
 
+        }
+        public function getStockByID($stockID){
+            $this->db->query('SELECT * FROM stock,farmer WHERE stockID = :ID and stock.farmerID = farmer.farmerID');
+            $this->db -> bind(':ID',$stockID);
+    
+            $results = $this->db->single();
+            return $results;
         }
      }
 ?>

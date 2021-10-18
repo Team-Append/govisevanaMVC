@@ -102,48 +102,50 @@
     <!--stock from best selling farmers-->
     <div class="farmer-stock">
         <!--row 1 start-->
-        <?php for( $j = 0; $j<2; $j++ ){ ?>
-        <div class="row">
-            
-                <?php for( $i = 0; $i<4; $i++ ){ ?>
-                    <div class="column">
-                <!--stock card1-->
-                <div class="card">
-                    <div class="stock-img">
-                    <img class="stock-img-1" src="<?php echo URLROOT;?>/img/carrot.jpg" alt="Jane" style="width:100%">
-                    </div>
-                    <div class="container">
-                        <div class="line-1">
-                            <div class="text1">
-                                <p>Carrot 20KG</p>
-                            </div>
-                            <div class="text2">
-                                <p>Rs.3000.00</p>
-                            </div>
+        <?php $count = 0; ?>
+
+                        <!-- checkk -->
+                        <?php  foreach($data['posts'] as $post){ ?>
+                            <?php if($count%3 == 0){ echo "<div class=\"row\">";}?>   
+                            <div class="column">
+                                <a href="<?php echo URLROOT; ?>/stocks/viewStock?stockID=<?php echo  $post -> stockID;?>">
+                                <div class="card">
+                                    <div class="stock-img">
+                                        <img class="stock-img-1" src="<?php echo URLROOT; ?>/img/carrot.jpg" alt="Stock" style="width:100%">
+                                    </div>
+                                    <div class="container">
+                                        <div class="line-1">
+                                            <div class="text1">
+                                                <p><?php echo $post->title ;?> <?php echo $post ->qty;?>KG</p>
+                                            </div>
+                                            <div class="text2">
+                                                <p>Rs.<?php echo $post->fixedPrice;?></p>
+                                            </div>
+                                        </div>
+                                        <div class="line-2">
+                                            <div class="text1">
+                                                <p class="title">Farmer : <?php echo  $_SESSION['name'];?></p>
+                                            </div>
+                                            <div class="text2">
+                                                <i class='bx bx-star'></i>
+                                                <i class='bx bx-star'></i>
+                                            </div>
+                                        </div>    
+                                    </div> 
+                                </div>
+                                </a>
+                            
                         </div>
-                        <div class="line-2">
-                            <div class="text1">
-                            <p class="title">Farmer : Nimal</p>
-                            </div>
-                            <div class="text2">
-                                <i class='bx bx-star'></i>
-                                <i class='bx bx-star'></i>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-                <!--end of the card1-->
-            </div>
-                <?php } ?>
-                
-                <!--end of the card1-->
-            </div>
-            <?php } ?>
+                            
+
+                        <?php $count++;} ?>
+                        <?php if(($count-1)%3 == 0 || $count-1==0 || $count-1 == 1 || $count-1 == 2){ echo "</div>";}?>
             
         <!--end of a row1-->
        
     <!--For you text-->
+    <br>
+    <br>
     <div class="topic">
         <span class="main-topic">FOR YOU</span>
     </div>
