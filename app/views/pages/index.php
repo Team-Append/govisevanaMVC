@@ -15,7 +15,7 @@
         <?php 
             include_once(APPROOT.'/views/includes/navigation.php');
         ?>
-    <?php echo $_SESSION['email'];?>
+
     <div class="landing_page">
         
 
@@ -124,7 +124,7 @@
                                         </div>
                                         <div class="line-2">
                                             <div class="text1">
-                                                <p class="title">Farmer : <?php echo  $_SESSION['name'];?></p>
+                                                <p class="title">Farmer : <?php echo  $post->name;?></p>
                                             </div>
                                             <div class="text2">
                                                 <i class='bx bx-star'></i>
