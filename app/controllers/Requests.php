@@ -86,5 +86,9 @@ public function addRequest(){
     $this->view('Requests/addRequest',$data);
 
 }
+public function viewRequest(){
+    
+    $this->view('Requests/viewRequest');
+}
 }
 ?>

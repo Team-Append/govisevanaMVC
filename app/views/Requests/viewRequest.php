@@ -44,7 +44,7 @@
                   <p>Expect delivery date : 22/03/2021</p>
                 </div>
                 <div class="button">
-                  <input type="submit" value="Submit Offer">
+                  <input type="button" value="Submit Offer">
                 </div>
             </div>
           

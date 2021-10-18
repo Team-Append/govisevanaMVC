@@ -24,5 +24,9 @@
                 return false;
             }
         }
+
+        public function getAllRequest($data){
+            
+        }
     }
 ?>
