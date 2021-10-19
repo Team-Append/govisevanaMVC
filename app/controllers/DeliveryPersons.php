@@ -174,5 +174,17 @@ class DeliveryPersons extends Controller {
         unset($_SESSION['email']);
         header('location:' .URLROOT. '/pages/index');
     }
+
+    public function addSchedule(){
+        $this->view('deliveryPersons/addSchedule');
+    }
+
+    public function mySchedule(){
+        $this->view('deliveryPersons/mySchedule');
+    }
+
+    public function viewSingleSchedule(){
+        $this->view('deliveryPersons/viewSingleSchedule');
+    }
       
 }

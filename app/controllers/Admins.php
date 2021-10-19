@@ -199,6 +199,11 @@ class Admins extends Controller {
     public function notiReporting(){
         $this->view('admins/notiReporting');
     }
+
+    public function notiAdminContact(){
+        $this->view('admins/notiAdminContact');
+    }
+
     public function pendingStock(){
         $posts = $this->stockModel->getPendingStock();
 
