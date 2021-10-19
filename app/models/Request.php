@@ -25,8 +25,11 @@
             }
         }
 
-        public function getAllRequest($data){
-            
+        public function getAllRequest(){
+            $this->db->query("SELECT * FROM request,buyer WHERE reqStatus = 'pending' and request.buyerID = buyer.buyerID ORDER BY RID DESC");
+
+            $results = $this->db->resultSet();
+            return $results;
         }
     }
 ?>

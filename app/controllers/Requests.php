@@ -87,8 +87,12 @@ public function addRequest(){
 
 }
 public function viewRequest(){
-    
-    $this->view('Requests/viewRequest');
-}
+
+        $posts = $this->requestModel->getAllRequest();
+
+        $data = array( 'posts' => $posts);
+        
+        $this->view('Requests/viewRequest',$data);
+    }
 }
 ?>

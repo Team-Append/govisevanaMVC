@@ -20,28 +20,27 @@
         <h1>Buyer requests</h1>
       </div>
       <div class="dlist">
-      <?php for ($i = 0; $i <= 2; $i++){ ?>
+      <?php foreach ($data['posts'] as $post){ ?>
         <div class="d1">
           <div class="content">
             <div class="top-line">
               <div class="name">
-                <h3>Thilakarathne Dilshan</h3>
+                <h3><?php echo $post->name;?></h3>
               </div>
               <div class="budget">
                 Budget | Rs. <hb>3000.00</hb>
               </div>
               <div class="cat">
-                Category | <hc>Carrot</hc>
+                Category | <hc><?php echo $post->reqCatagory;?></hc>
               </div>
             </div>
             
             <div class="description">
-              dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd <br>ddddddddddddddddddddddddddddddddddddddddddddddddddd
-              ddddddddddddddddddddd
+            <?php echo $post->reqDescription;?>
             </div>
             <div class="bottom-line">
                 <div class="date">
-                  <p>Expect delivery date : 22/03/2021</p>
+                  <p>Expect delivery date : <?php echo $post->expectedDate;?></p>
                 </div>
                 <div class="button">
                   <input type="button" value="Submit Offer">
