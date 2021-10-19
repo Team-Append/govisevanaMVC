@@ -63,7 +63,7 @@ body{
   margin-bottom: 10px
 }
 
-input[type=submit]{
+input[type=button]{
     width: 150px;
     background-color: rgb(78, 190, 13);;
     color: white;
