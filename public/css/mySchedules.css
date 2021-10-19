@@ -1,0 +1,154 @@
+/*google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+}
+body{
+  background-color: #EAE9E9;
+}
+
+.viewreq-container{
+  margin-top: 200px;
+}
+
+.side{
+  width: 18%;
+  margin: auto;
+  background-color: gray;
+  height: auto;
+  text-align: center;
+  border-radius: 5px;
+  float: left;
+  margin-left: 10px;
+  margin-right: 2px;
+  margin-top: 82px;
+}
+
+.detail{
+  width: 80%;
+  margin: auto;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  height: auto;
+  text-align: center;
+  border-radius: 5px;
+  float: right;
+  margin-left: 1px;
+  margin-right: 10px;
+  margin-top: 82px;
+}
+
+.detail .dtopic{
+  height: 100px;
+  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+}
+
+.detail .dtopic h1{
+  font-size: 26px;
+}
+
+
+
+.detail .dlist .d1{
+  width: 1050px;
+  height: auto;
+  margin-left: 60px;
+  margin-right: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+input[type=submit]{
+    width: 150px;
+    background-color: rgb(78, 190, 13);;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-right: 10px;
+  
+  
+}
+input[type=submit]:hover {
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.24),0 12px 10px 0 rgba(0,0,0,0.10);
+}
+.detail .dlist .d1 table{
+  width: 100%;
+}
+
+.detail .dlist .d1 th{
+  color: gray;
+}
+
+.detail .dlist .d1 h3{
+  color: black;
+}
+
+.detail .dlist .d1 .description{
+  background-color: white;
+  width: 950px;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  text-align: left;
+}
+
+
+.detail .dlist .d1 .content{
+  margin-left: 50px;
+  margin-right: 50px;
+  
+}
+
+
+.detail .dlist .top-line{
+  display: flex;
+}
+
+.detail .dlist .top-line .name{
+    float: left;
+    width: 310px;
+}
+
+.detail .dlist .top-line .budget{
+  float: right;
+  width: 310px;
+  margin-top: 20px;
+  color: gray;
+  font-weight: 600;
+}
+
+.detail .dlist .top-line .cat{
+  float: right;
+  width: 310px;
+  margin-top: 20px;
+  color: gray;
+  font-weight: 600;
+  
+}
+
+.detail .dlist .bottom-line{
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.detail .dlist .bottom-line .date{
+  float: left;
+  width: 650px;
+
+}
+
+.detail .dlist .bottom-line .button{
+  float: right;
+  padding-left: 150px;
+}
