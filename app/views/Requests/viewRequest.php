@@ -43,7 +43,9 @@
                   <p>Expect delivery date : <?php echo $post->expectedDate;?></p>
                 </div>
                 <div class="button">
+                  <a href="<?php echo URLROOT;?>/Offers/addOffer?RID=<?php echo $post->RID;?>">
                   <input type="button" value="Submit Offer">
+                  </a>
                 </div>
             </div>
           
