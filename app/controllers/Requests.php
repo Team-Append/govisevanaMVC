@@ -4,15 +4,17 @@ Class Requests extends Controller{
 public function __construct()
 {
     $this->requestModel = $this->model('Request');
+    $this->catagoryModel = $this->model('Catagory');
 }
 public function addRequest(){
-    
+    $cat = $this->catagoryModel->getCatagory();
     $data = array(
         'title' => '',
         'qty' => '',
         'reqCatagory' => '',
         'reqDescription' => '',
         'expectedDate' => '',
+        'cat' => $cat,
         'titleError' => '',
         'qtyError' => '',
         'reqCatagoryError' => '',
@@ -28,6 +30,7 @@ public function addRequest(){
             'reqCatagory' => trim($_POST['reqCatagory']),
             'reqDescription' => trim($_POST['reqDescription']),
             'expectedDate' => trim($_POST['expectedDate']),
+            'cat' => $cat,
             'titleError' => '',
             'qtyError' => '',
             'reqCatagoryError' => '',
@@ -75,6 +78,7 @@ public function addRequest(){
         'reqCatagory' => '',
         'reqDescription' => '',
         'expectedDate' => '',
+        'cat' => $cat,
         'titleError' => '',
         'qtyError' => '',
         'reqCatagoryError' => '',

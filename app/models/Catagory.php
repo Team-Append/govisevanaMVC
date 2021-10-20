@@ -19,5 +19,11 @@
             return false;
         }
     }
+    public function getCatagory(){
+        $this->db->query("SELECT * FROM catagory");
+
+        $results = $this->db->resultSet();
+        return $results;
+    }
     }
 ?>

@@ -4,6 +4,7 @@ Class Stocks extends Controller{
 public function __construct()
 {
     $this->stockModel = $this->model('Stock');
+    $this->catagoryModel = $this->model('Catagory');
 }
 public function viewStock(){
     $post = $this->stockModel->getStockByID($_GET['stockID']);
@@ -13,7 +14,8 @@ public function viewStock(){
     $this->view('stocks/viewStock',$data);  
 }
 public function addStock(){
-    
+    $cat = $this->catagoryModel->getCatagory();
+
     $data = array(
         'title' => '',
         'description' => '',
@@ -23,6 +25,7 @@ public function addStock(){
         'qty' => '',
         'fixedPrice' => '',
         'minBidPrice' => '',
+        'cat' => $cat,
         'titleError' => '',
         'descriptionError' => '',
         'harvestDateError' => '',
@@ -44,6 +47,7 @@ public function addStock(){
             'qty' => trim($_POST['qty']),
             'fixedPrice' => trim($_POST['fixedPrice']),
             'minBidPrice' => trim($_POST['minBidPrice']),
+            'cat' => $cat,
             'titleError' =>  '',
             'descriptionError' => '',
             'harvestDateError' => '',
@@ -107,6 +111,7 @@ public function addStock(){
         'qty' => '',
         'fixedPrice' => '',
         'minBidPrice' => '',
+        'cat' => $cat,
         'titleError' => '',
         'descriptionError' => '',
         'harvestDateError' => '',

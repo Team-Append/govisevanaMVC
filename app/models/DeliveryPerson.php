@@ -37,7 +37,7 @@
             }
         }
         public function login($email,$password){
-            $this->db-> query('SELECT * FROM buyer WHERE email= :email ');
+            $this->db-> query('SELECT * FROM deliveryperson WHERE email= :email ');
 
             $this->db -> bind(':email', $email);
 

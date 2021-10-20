@@ -30,7 +30,7 @@
 
 <div class="split right">
   <button class="btn">
-    <a href="createAccount.php?cat=delivery">
+    <a href="<?php echo URLROOT;?>/deliveryPersons/login">
   <div class="centered">
     <img src="<?php echo URLROOT;?>/img/icons/delivery.png" alt="deliveryP">
     <h2>A delivery person</h2>

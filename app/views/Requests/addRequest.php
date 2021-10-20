@@ -45,11 +45,10 @@
                 <span class="invalidFeedback">
                     <?php echo $data['reqCatagoryError'];?>
                 </span>
-                <select id="reqCatagory" name="reqCatagory" >
-                    <option value="choose">Choose Category</option>
-                    <option value="Carrot">Carrot</option>
-                    <option value="Potatoes">Potatoes</option>
-                    <option value="Leaves">Leaves</option>
+                <select id="catagory" name="catagory" >
+                   <?php foreach($data['cat'] as $cat){ ?>
+                       <option value="<?php echo $cat -> catName; ?>"><?php echo $cat -> catName; ?></option>
+                    <?php } ?>   
                 </select>
                 <br>
 

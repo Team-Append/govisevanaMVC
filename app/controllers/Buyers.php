@@ -41,7 +41,7 @@ class Buyers extends Controller {
 
             if($loggedInUser){
                 $this->createUserSession($loggedInUser);
-                header('location:'.URLROOT);
+                header('location:'.URLROOT.'/buyers/dashboard');
   
             }else{
                 $data['passwordError'] = 'Password or username is incorrect. Please try again' ;
