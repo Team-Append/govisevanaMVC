@@ -22,4 +22,11 @@
             return false;
         }
     }
+    function isUserLoggedIn(){
+        if (isset($_SESSION['AdminID'])||isset($_SESSION['farmerID'])||isset($_SESSION['buyerID'])){
+            return true;
+          }else {
+            return false;
+        }
+    }
 ?>

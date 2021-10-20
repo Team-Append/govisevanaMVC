@@ -56,10 +56,12 @@ include_once(APPROOT.'/views/includes/navigation.php');
             </div>
         </div>
         <div class="card-line">
+        <a href="<?php echo URLROOT;?>/Catagories/addCatagory">
             <div class="dash-card">
-                <h1>Admin Contacts</h1>
+                <h1>Add Catagory</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/req.png" alt="">
             </div>
+        </a>
             <div class="dash-card">
                 <h1>Complains</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/admin.png" alt="">
