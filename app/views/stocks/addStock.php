@@ -76,9 +76,9 @@
                 </span>
                 <br>
                 <select id="catagory" name="catagory" >
-                    <option value="choose">Choose Category</option>
-                    <option value="Carrot">Carrot</option>
-                    <option value="Potatoes">Potatoes</option>
+                   <?php foreach($data['cat'] as $cat){ ?>
+                       <option value="<?php echo $cat -> catName; ?>"><?php echo $cat -> catName; ?></option>
+                    <?php } ?>   
                 </select>
                 <br>
                 <label for="fname">Minimum bid price</label><br>
