@@ -70,5 +70,8 @@ body{
 }
 
 
-
-/*<p><a href="https://www.w3schools.com" target="iframe_a">W3Schools.com</a></p>*/
+@media screen and (max-width: 1366px) {
+  .amount{
+    margin-left: 50px;
+  }
+}
