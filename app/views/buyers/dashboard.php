@@ -48,7 +48,7 @@ include_once(APPROOT.'/views/includes/navigation.php');
             </a>
             <a href="<?php echo URLROOT;?>/buyers/myRequest">
             <div class="dash-card">
-                <h1>View Requests</h1>
+                <h1>My Requests</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/offer.png" alt="">
             </div>
             </a>

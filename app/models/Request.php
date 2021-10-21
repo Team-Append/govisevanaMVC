@@ -26,14 +26,14 @@
         }
 
         public function getAllRequest(){
-            $this->db->query("SELECT * FROM request,buyer WHERE reqStatus = 'approved' and request.buyerID = buyer.buyerID ORDER BY RID DESC");
+            $this->db->query("SELECT * FROM request,buyer,catagory WHERE reqStatus = 'approved' and request.buyerID = buyer.buyerID and request.catID = catagory.catID ORDER BY RID DESC");
 
             $results = $this->db->resultSet();
             return $results;
         }
 
         public function getAllRequestByID($ID){
-            $this->db->query('SELECT * FROM request WHERE buyerID = :ID ORDER BY RID DESC');
+            $this->db->query('SELECT * FROM request,catagory WHERE buyerID = :ID and request.catID = catagory.catID ORDER BY RID DESC');
             $this->db -> bind(':ID',$ID);
     
             $results = $this->db->resultSet();
