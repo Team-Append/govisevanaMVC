@@ -4,6 +4,7 @@ class Buyers extends Controller {
     public function __construct()
     {
         $this->buyerModel = $this-> model('Buyer');
+        $this->requestModel = $this-> model('Request');
 
     }
     public function login(){
@@ -192,10 +193,7 @@ class Buyers extends Controller {
         $this->view('buyers/myCart');
     }
 
-    public function myRequest(){
-
-        $this->view('buyers/myRequest');
-    }
+    
 
     public function receivedOffer(){
 
@@ -246,7 +244,14 @@ class Buyers extends Controller {
 
         $this->view('buyers/contactAdmin');
     }
+    public function myRequest(){
 
+        $posts = $this->requestModel->getAllRequestByID($_SESSION['buyerID']);
+
+        $data = array( 'posts' => $posts);
+        
+        $this->view('buyers/MyRequest',$data);
+}
 
 
 
