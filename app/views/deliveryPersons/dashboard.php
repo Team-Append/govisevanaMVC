@@ -36,18 +36,24 @@ include_once(APPROOT.'/views/includes/navigation.php');
             </table>
         </div>
         <div class="card-line">
+            <a href="<?php echo URLROOT;?>/deliveryPersons/addSchedule">
                 <div class="dash-card">
                     <h3>Add Schedule</h3>
                     <img src="<?php echo URLROOT;?>/img/icons/stock.png" alt="">
                 </div>
+            </a>
+            <a href="<?php echo URLROOT;?>/deliveryPersons/mySchedule">
             <div class="dash-card">
                 <h3>View Schedule</h3>
                 <img src="<?php echo URLROOT;?>/img/icons/admin.png" alt="">
             </div>
+            </a>
+            <a href="<?php echo URLROOT;?>/deliveryPersons/analytic">
             <div class="dash-card">
                 <h3>Analytics</h3>
                 <img src="<?php echo URLROOT;?>/img/icons/analytics.png" alt="">
             </div>
+            </a>
         </div>
         <div id="order-table">
             <h1>Current Deliveries</h1>

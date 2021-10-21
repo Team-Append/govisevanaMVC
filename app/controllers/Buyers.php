@@ -237,4 +237,12 @@ class Buyers extends Controller {
         $this->view('buyers/editProfile');
     }
 
+    public function analytic(){
+
+        $this->view('buyers/analytic');
+    }
+
+
+
+
 }
