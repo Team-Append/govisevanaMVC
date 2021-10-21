@@ -46,10 +46,12 @@ include_once(APPROOT.'/views/includes/navigation.php');
                     <img src="<?php echo URLROOT;?>/img/icons/stock.png" alt="">
                 </div>
             </a>
-            <div class="dash-card">
-                <h1>Pending Requests</h1>
-                <img src="<?php echo URLROOT;?>/img/icons/offer.png" alt="">
-            </div>
+            <a href="<?php echo URLROOT;?>/admins/pendingRequest">
+                <div class="dash-card">
+                    <h1>Pending Requests</h1>
+                    <img src="<?php echo URLROOT;?>/img/icons/offer.png" alt="">
+                </div>
+            </a>
             <div class="dash-card">
                 <h1>Reports</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/earn.png" alt="">
@@ -72,14 +74,14 @@ include_once(APPROOT.'/views/includes/navigation.php');
             </div>
         </div>
         <div id="order-table">
-            <h1>current orders</h1>
+            <h1>Active stocks</h1>
             <table>
                 <thead>
                     <tr>
-                        <th>Order ID</th>
-                        <th>Delivery Date</th>
+                        <th>catagory</th>
                         <th>Description</th>
-                        <th>Status</th>
+                        <th>no of stock</th>
+                        <th>no of Active orders</th>
                     </tr>
                 </thead>
                 <tbody>

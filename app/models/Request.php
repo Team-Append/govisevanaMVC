@@ -26,6 +26,23 @@
         }
 
         public function getAllRequest(){
+            $this->db->query("SELECT * FROM request,buyer WHERE reqStatus = 'approved' and request.buyerID = buyer.buyerID ORDER BY RID DESC");
+
+            $results = $this->db->resultSet();
+            return $results;
+        }
+        public function updateRequestStatus($status,$RID){
+            $this->db->query("UPDATE request SET reqStatus = :reqStatus WHERE RID = :RID");
+            $this->db -> bind(':reqStatus',$status);
+            $this->db -> bind(':RID',$RID);
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+
+        }
+        public function getPendingRequests(){
             $this->db->query("SELECT * FROM request,buyer WHERE reqStatus = 'pending' and request.buyerID = buyer.buyerID ORDER BY RID DESC");
 
             $results = $this->db->resultSet();

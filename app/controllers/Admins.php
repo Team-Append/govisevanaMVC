@@ -5,6 +5,8 @@ class Admins extends Controller {
     {
         $this->adminModel = $this-> model('Admin');
         $this->stockModel = $this-> model('Stock');
+        $this->requestModel = $this-> model('Request');
+        
 
     }
     public function login(){
@@ -42,7 +44,7 @@ class Admins extends Controller {
 
             if($loggedInUser){
                 $this->createUserSession($loggedInUser);
-                header('location:'.URLROOT .'/admins/dashboard');
+                header('location:' . URLROOT. '/admins/pendingStock');
   
             }else{
                 $data['passwordError'] = 'Password or username is incorrect. Please try again' ;
@@ -219,6 +221,25 @@ class Admins extends Controller {
             }
 
         $this->view('admins/pendingStock',$data);
+
+
+    }
+    public function pendingRequest(){
+        $posts = $this->requestModel->getPendingRequests();
+
+        $data = array( 'posts' => $posts);
+
+            if(isset($_GET['approve'])) {
+                echo $_GET['RID'];
+                $posts = $this->requestModel->updateRequestStatus('approved',$_GET['RID']);
+                header('location:' .URLROOT. '/admins/PendingRequest');
+            }
+            if(isset($_GET['reject'])) {
+                $posts = $this->requestModel->updateRequestStatus('rejected',$_GET['RID']);
+                header('location:' .URLROOT. '/admins/PendingRequest');
+            }
+
+        $this->view('admins/PendingRequest',$data);
 
 
     }
