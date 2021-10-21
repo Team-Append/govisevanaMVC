@@ -31,7 +31,7 @@
                 Budget | Rs. <hb>3000.00</hb>
               </div>
               <div class="cat">
-                Category | <hc><?php echo $post->reqCatagory;?></hc>
+                Category | <hc><?php echo $post->catName;?></hc>
               </div>
             </div>
             
