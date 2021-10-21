@@ -44,7 +44,7 @@ class Admins extends Controller {
 
             if($loggedInUser){
                 $this->createUserSession($loggedInUser);
-                header('location:' . URLROOT. '/admins/pendingStock');
+                header('location:'.URLROOT.'/admins/dashboard');
   
             }else{
                 $data['passwordError'] = 'Password or username is incorrect. Please try again' ;
@@ -69,6 +69,7 @@ class Admins extends Controller {
         $_SESSION['AdminID']= $admin -> AID;
         $_SESSION['name'] = $admin -> name;
         $_SESSION['email'] = $admin -> email;
+        
     }
     public function addAdmin(){
         

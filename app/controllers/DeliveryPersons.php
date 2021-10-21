@@ -41,7 +41,7 @@ class DeliveryPersons extends Controller {
 
             if($loggedInUser){
                 $this->createUserSession($loggedInUser);
-                header('location:'.URLROOT.'/deliveryPerson/dashboard');
+                header('location:'.URLROOT.'/deliveryPersons/dashboard');
   
             }else{
                 $data['passwordError'] = 'Password or username is incorrect. Please try again' ;

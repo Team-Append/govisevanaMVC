@@ -1,3 +1,4 @@
+<?php if(isBuyerLoggedIn()){ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -17,16 +18,14 @@
     </div>
     <div class="detail">
       <div class="dtopic">
-        <h1>Buyer requests</h1>
+        <h1>My Requests</h1>
       </div>
       <div class="dlist">
       <?php foreach ($data['posts'] as $post){ ?>
         <div class="d1">
           <div class="content">
             <div class="top-line">
-              <div class="name">
-                <h3><?php echo $post->name;?></h3>
-              </div>
+              
               <div class="budget">
                 Budget | Rs. <hb>3000.00</hb>
               </div>
@@ -44,7 +43,7 @@
                 </div>
                 <div class="button">
                   <a href="<?php echo URLROOT;?>/Offers/addOffer?RID=<?php echo $post->RID;?>">
-                  <input type="button" value="Submit Offer">
+                  <input type="button" value="View Offers">
                   </a>
                 </div>
             </div>
@@ -59,3 +58,6 @@
     </div>
   </body>
 </html>
+<?php } else{
+    header('location:' .URLROOT. '/pages/index');
+}?>
