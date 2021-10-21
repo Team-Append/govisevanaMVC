@@ -43,7 +43,7 @@
 <div class="split mid">
 
   <button class="btn">
-<a href="<?php echo URLROOT;?>/farmers/login">
+  <a href="<?php echo URLROOT;?>/farmers/login">
   <div class="centered">
     <img src="<?php echo URLROOT;?>/img/icons/farmer.png" alt="farmer">
     <h2>A farmer</h2>
@@ -54,6 +54,12 @@
 </div>
 
 </div>
+<button class="btn admin-login" style="position: absolute;right: 0;bottom: 0; background-color: #e6ffee;padding: 10px;">
+  <a href="<?php echo URLROOT;?>/admins/login" style="text-decoration: none;">
+    <h2>Admin</h2>
+  </div>
+  </a>
+  </button>
 
 </body>
 </html>

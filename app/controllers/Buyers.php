@@ -5,6 +5,7 @@ class Buyers extends Controller {
     {
         $this->buyerModel = $this-> model('Buyer');
         $this->requestModel = $this-> model('Request');
+        $this->offerModel = $this-> model('Offer');
 
     }
     public function login(){
@@ -191,6 +192,15 @@ class Buyers extends Controller {
     public function myCart(){
 
         $this->view('buyers/myCart');
+    }
+    public function viewOffers(){
+        $offers =  $this->offerModel -> getOffersByReq($_GET['RID']);
+        $data = array(
+            'posts' => $offers
+        );
+
+
+        $this->view('buyers/viewOffers',$data);
     }
 
     

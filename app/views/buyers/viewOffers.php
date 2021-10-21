@@ -13,7 +13,7 @@
     </div>
 
     
-
+   
     <div class="detail" style="width: 100%;">
       <div class="dtopic">
         <h1>My Requests</h1>
@@ -25,26 +25,29 @@
             <div class="top-line">
               
               <div class="budget">
-                Budget | Rs. <hb><?php echo $post->budget;?></hb>
+                Farmer Name |  <hb><?php echo $post->name;?></hb>
               </div>
               <div class="cat">
-                Category | <hc><?php echo $post->catName;?></hc>
+                Address | <hc><?php echo $post->address;?></hc>
               </div>
               <div class="budget">
-                Status | <hb><?php echo $post->reqStatus;?></hb>
+                Telephone number | <hb><?php echo $post->tpno;?></hb>
               </div>
             </div>
             
             <div class="description">
-            <?php echo $post->reqDescription;?>
+            <?php echo $post->offerDescription;?>
             </div>
             <div class="bottom-line">
                 <div class="date">
-                  <p>Expect delivery date : <?php echo $post->expectedDate;?></p>
+                  <p>offer price : <?php echo $post->offerPrice;?></p>
                 </div>
                 <div class="button">
-                  <a href="<?php echo URLROOT;?>/Buyers/viewOffers?RID=<?php echo $post->RID;?>">
-                  <input type="button" value="View Offers">
+                  <a href="">
+                  <input type="button" value="accept">
+                  </a>
+                  <a href="">
+                  <input type="button" value="reject">
                   </a>
                 </div>
             </div>

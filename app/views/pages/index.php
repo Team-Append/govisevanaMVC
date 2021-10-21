@@ -40,7 +40,9 @@
                     <div class="welcome"><strong>Welcome To <br> GOVISEVANA</strong></div>
                     <div class="para"><p >See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p></div>
                     <div class="btn">
-                    <button type="button">SHOP NOW</button>
+                    <a href="<?php echo URLROOT;?>/stocks/allStock">
+                        <button type="button">SHOP NOW</button>
+                    </a>
                     </div>
                         
                 </div></center>
@@ -54,7 +56,9 @@
                     <div class="welcome"><strong>Explore <br> The Farmers World</strong></div>
                     <div class="para"><p >See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p></div>
                     <div class="btn">
-                    <button type="button">SHOP NOW</button>
+                    <a href="<?php echo URLROOT;?>/stocks/allStock">
+                        <button type="button">SHOP NOW</button>
+                    </a>
                 </div>
                 </div>
             </div>
