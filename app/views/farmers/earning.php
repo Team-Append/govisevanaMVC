@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/styleEarning.css">
   </head>
   <body>
+  <?php
+
+include_once(APPROOT.'/views/includes/navigation.php');
+?>  
     <header>
       <h2>Earnings</h2>
       <hr>

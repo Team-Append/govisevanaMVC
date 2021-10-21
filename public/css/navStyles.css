@@ -131,7 +131,7 @@ body{
     float: right;
     text-decoration: bold;
     font-family: Candara Light;
-    width: 100px;
+    width: 150px;
 }
 
 
@@ -177,8 +177,15 @@ body{
 
   @media screen and (max-width: 1366px) {
     .nav .logo{
-        width: 10%;
+        width: 15%;
          
+    }
+    .nav .nav-right{
+        width: 15%;
+        margin-right: 0px;
+    }
+    .nav .middle{
+        margin-left: 130px;
     }
 }
 

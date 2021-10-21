@@ -125,3 +125,10 @@ input[type=file]{
 .offer-content.form textarea{
     width: 600px;
 }
+
+@media screen and (max-width: 1366px) {
+    .offer-content .content{
+        
+        margin-left: 300px;
+    }
+}

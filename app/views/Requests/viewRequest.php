@@ -12,9 +12,9 @@
     </div>
 
     
-    <div class="side">
+    <!-- <div class="side">
       Side bar
-    </div>
+    </div> -->
     <div class="detail">
       <div class="dtopic">
         <h1>Buyer requests</h1>
