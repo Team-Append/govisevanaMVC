@@ -10,6 +10,10 @@
     <title>addStock</title>
 </head>
 <body>
+<?php if(isset($_GET['status'])){ ?>   
+<?php if($_GET['status']=='success'){ ?>
+        <script>window.alert("Request successfully added");</script>
+    <?php }} ?>
     <div class="nav">
         <?php include_once(APPROOT.'/views/includes/navigation.php'); ?>
     </div>

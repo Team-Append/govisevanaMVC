@@ -71,7 +71,7 @@ public function addRequest(){
         //add request to db
         if($this->requestModel -> addRequest($data)){
            // redirect to index;
-           header('location:' . URLROOT. '/buyers/dashboard'); 
+           header('location:' . URLROOT. '/buyers/dashboard?status=success'); 
         }else{
             die('something went wrong');
         }

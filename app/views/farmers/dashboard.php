@@ -4,6 +4,10 @@
     <link rel="stylesheet" href="<?php echo URLROOT;?>/css/style.css" type="text/css">   
 </head>
 <body>
+<?php if(isset($_GET['status'])){ ?>
+<?php if($_GET['status']=='success'){ ?>
+        <script>window.alert("stock successfully added");</script>
+    <?php } }?>
 <?php
 
 include_once(APPROOT.'/views/includes/navigation.php');

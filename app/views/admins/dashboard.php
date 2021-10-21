@@ -1,7 +1,5 @@
 <?php if(isAdminLoggedIn()){ ?>
-    <?php if($_GET['status']=='success'){ ?>
-        <script>window.alert("stock successfully added");</script>
-    <?php } ?>
+    
 <html>
 <head>
     <link rel="stylesheet" href="<?php echo URLROOT;?>/css/style.css" type="text/css">   
