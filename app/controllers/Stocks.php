@@ -13,6 +13,21 @@ public function viewStock(){
 
     $this->view('stocks/viewStock',$data);  
 }
+
+
+public function allStock(){
+    $stock = $this->stockModel->getAllStock();
+    $cat = $this->catagoryModel -> getCatagory();
+    $data = array(  
+                    'stocks' => $stock,
+                    'cats' => $cat,
+                    );
+
+
+
+    $this->view('stocks/allStock',$data);  
+}
+
 public function addStock(){
     $cat = $this->catagoryModel->getCatagory();
     
