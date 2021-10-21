@@ -52,11 +52,12 @@ include_once(APPROOT.'/views/includes/navigation.php');
                 <img src="<?php echo URLROOT;?>/img/icons/admin.png" alt="">
             </div>
             </a>
+            <a href="<?php echo URLROOT;?>/farmers/offersSent">
             <div class="dash-card">
                 <h1>Offers Sent</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/offer.png" alt="">
             </div>
-            
+            </a>
         </div>
         <div class="card-line">
             <div class="dash-card">

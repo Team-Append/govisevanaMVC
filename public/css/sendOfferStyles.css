@@ -1,0 +1,127 @@
+
+.offer-content .content{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 700px;
+    margin-left: 400px;
+}
+
+.offer-content .topic{
+    padding: 50px;
+    text-align: center;
+    padding-left: 70px;
+    padding-top: 60px;
+    font-family: Candara Light;   
+}
+
+.offer-content .topic .main-topic{
+    font-size: 25px;
+    font-weight: 900;
+    color: rgb(3, 3, 3);
+    font-weight:bold;   
+}
+/* stock-details */
+
+.offer-content .content .stock-details{
+    height: 200px;
+    width: 600px;
+    margin-left: 50px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.offer-content .content .stock-details .line-1{
+    display: flex;
+    height:30px;
+}
+
+.offer-content .content .stock-details .line-1 .col-1{
+    float: left;
+    width: 300px;
+    font-family: Candara Light;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.offer-content .content .stock-details .line-1 .col-2{
+    float: right;
+    width: 150px;
+    font-family: Candara Light;
+    font-weight: 600;
+}
+
+.offer-content .content .stock-details .line-1 .col-3{
+    float: right;
+    width: 150px;
+    font-family: Candara Light;
+    font-weight: 600;
+    margin-right: 20px;
+    text-align: end;
+}
+
+.offer-content .content .stock-details .line-2{
+    margin-top: 25px;
+    margin-left: 10px;
+    margin-right: 20px;
+    font-family: Candara Light;
+    color: black;
+}
+
+
+.offer-content .content .stock-details .line-3{
+    font-family: Candara Light;
+    margin-left: 10px;
+}
+/* stock details end */
+.offer-content form{
+   
+    color:#575857;
+    font-weight:bold;
+    font-family: Candara Light;
+    margin-left: 50px;
+}
+
+
+
+
+/* form css */
+input[type=text], textarea {
+    width: 300px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color:rgb(128, 128, 128);
+  }
+ 
+  input[type=submit] {
+    width: 250px;
+    background-color: #1cd823;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    padding-left: 30px;
+    margin-left: 350px;
+}
+
+input[type=file]{
+    width: 300px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color:rgb(128, 128, 128);
+    padding-left: 50px;
+  }
+
+.offer-content.form textarea{
+    width: 600px;
+}

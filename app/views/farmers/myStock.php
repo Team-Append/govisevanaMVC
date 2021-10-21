@@ -48,12 +48,13 @@
 
                         <!-- checkk -->
                         <?php  foreach($data['posts'] as $post){ ?>
-                            <?php if($count%3 == 0){ echo "<div class=\"row\">";}?>   
+                            <?php if($count == 0){ echo "<div class=\"row\">";}?>   
                             <div class="column">
                                 
                                 <div class="card">
                                     <div class="stock-img">
-                                        <img class="stock-img-1" src="<?php echo URLROOT; ?>/img/carrot.jpg" alt="Stock" style="width:100%">
+                                        <!-- <img class="stock-img-1" src="<?php echo URLROOT; ?>/img/carrot.jpg" alt="Stock" style="width:100%"> -->
+                                        <img class="stock-img-1" src="<?php echo URLROOT; ?>/img/<?php echo $post -> image ?>" alt="Stock" style="width:100%"/> 
                                     </div>
                                     <div class="container">
                                         <div class="line-1">
@@ -78,8 +79,8 @@
                             </div>
                             
 
-                        <?php $count++;} ?>
-                        <?php if(($count-1)%3 == 0){ echo "</div>";}?>
+                        <?php $count++; ?>
+                        <?php if(($count == 3)){ echo "</div>"; $count=0;}}?>
 
             </div>
         </div>

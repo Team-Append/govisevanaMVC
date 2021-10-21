@@ -10,6 +10,20 @@
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/newStyle.css" />
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/footerStyles.css" />
     <title>Home</title>
+    <style>
+        .contactUs .contact-img{
+            background-image: url("<?php echo URLROOT; ?>/img/contact.jpg");
+        }
+        .instagram-box{
+            background: url("<?php echo URLROOT; ?>/img/img-pro-03.jpg") no-repeat center center;
+            background-size: auto auto;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -ms-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
     <div class="nav">
@@ -22,7 +36,7 @@
                 <div class="numbertext">1 / 3</div>
                 <img src="<?php echo URLROOT; ?>/img/landing1.jpg" style="width:100%">
                 <center><div class="text">
-                    <div class="hello">Hello Thilina!</div>
+                    <div class="hello" >Hello!</div>
                     <div class="welcome"><strong>Welcome To <br> GOVISEVANA</strong></div>
                     <div class="para"><p >See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p></div>
                     <div class="btn">
@@ -77,7 +91,7 @@
         <div class="products-box">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="">
                         <div class="title-all text-center">
                             <h1>Fruits & Vegetables</h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p>
@@ -85,7 +99,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="">
                         <div class="special-menu text-center"><center>
                             <div class="button-group filter-button-group">
                                 <button class="active" data-filter="*">All</button>
@@ -97,7 +111,7 @@
                 </div>
 
                 <div class="row-special-list">
-                    <div class="col-lg-3 col-md-6 special-grid best-seller">
+                    <div class="special-grid best-seller">
                         <div class="products-single fix">
                             <div class="box-img-hover">
                                 <div class="type-lb">
@@ -120,7 +134,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 special-grid top-featured">
+                    <div class="special-grid top-featured">
                         <div class="products-single fix">
                             <div class="box-img-hover">
                                 <div class="type-lb">
@@ -143,7 +157,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 special-grid top-featured">
+                    <div class="special-grid top-featured">
                         <div class="products-single fix">
                             <div class="box-img-hover">
                                 <div class="type-lb">
@@ -166,7 +180,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 special-grid best-seller">
+                    <div class="special-grid best-seller">
                         <div class="products-single fix">
                             <div class="box-img-hover">
                                 <div class="type-lb">
@@ -402,7 +416,7 @@
             }
             slides[slideIndex-1].style.display = "block";  
             dots[slideIndex-1].className += " active";
-            setTimeout(showSlides, 2000); // Change image every 2 seconds
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
         }
     </script>
 

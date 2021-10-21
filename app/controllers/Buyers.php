@@ -242,6 +242,12 @@ class Buyers extends Controller {
         $this->view('buyers/analytic');
     }
 
+    public function contactAdmin(){
+
+        $this->view('buyers/contactAdmin');
+    }
+
+
 
 
 
