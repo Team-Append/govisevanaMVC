@@ -56,7 +56,6 @@ public function addStock(){
         $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
         $imgContent= '';
         $imgError = '';
-        $target = '';
         if(!empty($_FILES["image"]["name"])) { 
             // Get file info 
             $fileName = basename($_FILES["image"]["name"]); 
@@ -138,9 +137,8 @@ public function addStock(){
         
         //add stock to db
         if($this->stockModel -> addStock($data)){
-           // redirect to dashboard;
-           echo $target;
-        //    header('location:' . URLROOT. '/farmers/dashboard'); 
+
+        header('location:' . URLROOT. "/farmers/dashboard?status=success"); 
         }else{
             die('something went wrong');
         }
