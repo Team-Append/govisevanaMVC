@@ -29,22 +29,11 @@
             </ul>
         </div>
         <div class="nav-right">
-            <div class="notify">
+                <div class="notify">
                     <i class='bx bxs-bell'></i>
                 </div>
             <div class="name">
             <a href="profile.html">Log Out</a>
-            </div>
-
-            <div class="menu-icon">
-                
-                <div class="prof">
-                <img src="<?php echo URLROOT; ?>/img/profile.png" alt="profile picture">
-                </div>
-                <div class="menu">
-                    <i class='bx bx-menu'></i> 
-                </div>
-                 
             </div>
         </div>
     </div>
