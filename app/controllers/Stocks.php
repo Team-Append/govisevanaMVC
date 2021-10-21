@@ -43,7 +43,7 @@ public function addStock(){
             'description' => trim($_POST['description']),
             'harvestDate' => trim($_POST['harvestDate']),
             'expireDate' => trim($_POST['expireDate']),
-            'catagory' => trim($_POST['catagory']),
+            'catagory' => trim($_POST['catID']),
             'qty' => trim($_POST['qty']),
             'fixedPrice' => trim($_POST['fixedPrice']),
             'minBidPrice' => trim($_POST['minBidPrice']),

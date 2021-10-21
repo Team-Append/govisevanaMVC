@@ -45,9 +45,9 @@
                 <span class="invalidFeedback">
                     <?php echo $data['reqCatagoryError'];?>
                 </span>
-                <select id="catagory" name="catagory" >
+                <select id="catID" name="catID" >
                    <?php foreach($data['cat'] as $cat){ ?>
-                       <option value="<?php echo $cat -> catName; ?>"><?php echo $cat -> catName; ?></option>
+                       <option value="<?php echo $cat -> catID; ?>"><?php echo $cat -> catName; ?></option>
                     <?php } ?>   
                 </select>
                 <br>
