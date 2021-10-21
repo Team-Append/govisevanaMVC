@@ -27,7 +27,7 @@ public function addRequest(){
         $data = array(
             'title' => trim($_POST['title']),
             'qty' => trim($_POST['qty']),
-            'reqCatagory' => trim($_POST['reqCatagory']),
+            'reqCatagory' => trim($_POST['catID']),
             'reqDescription' => trim($_POST['reqDescription']),
             'expectedDate' => trim($_POST['expectedDate']),
             'cat' => $cat,

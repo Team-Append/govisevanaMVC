@@ -8,7 +8,7 @@
         }
     
         public function addRequest($data){
-            $this->db -> query('INSERT INTO request(buyerID,title,qty,reqStatus,reqCatagory,reqDescription,expectedDate) VALUES(:buyerID,:title,:qty,:reqStatus,:reqCatagory,:reqDescription, :expectedDate)');
+            $this->db -> query('INSERT INTO request(buyerID,title,qty,reqStatus,catID,reqDescription,expectedDate) VALUES(:buyerID,:title,:qty,:reqStatus,:reqCatagory,:reqDescription, :expectedDate)');
             $this->db -> bind(':buyerID',$_SESSION['buyerID']);
             $this->db -> bind(':title',$data['title']);
             $this->db -> bind(':qty',$data['qty']);
@@ -43,7 +43,7 @@
 
         }
         public function getPendingRequests(){
-            $this->db->query("SELECT * FROM request,buyer WHERE reqStatus = 'pending' and request.buyerID = buyer.buyerID ORDER BY RID DESC");
+            $this->db->query("SELECT * FROM request,buyer,catagory WHERE reqStatus = 'pending' and request.buyerID = buyer.buyerID and request.catID = catagory.catID ORDER BY RID DESC");
 
             $results = $this->db->resultSet();
             return $results;

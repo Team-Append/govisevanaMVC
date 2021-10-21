@@ -27,7 +27,7 @@
                         <li><label for="qty"><b>Title :</b> <?php echo $post->title ;?>kg</li>
                         <li><label for="price"><b>Budget :</b> LKR </li>
                         <li><label for="hdate"><b>expected Date :</b> <?php echo $post->expectedDate ;?></li>
-                        <li><label for="category"><b>Category : </b><?php echo $post->reqCatagory ;?></li>
+                        <li><label for="category"><b>Category : </b><?php echo $post->catName ;?></li>
                         <li><label for="contact"><b>Buyers's Contact Number :</b> <?php echo $post->tpno ;?></li>
                         <li><label for="city"><b>Buyers's address : </b><?php echo $post->address ;?></li>
                         <li><label for="description"><b>Description :</b> <?php echo $post->reqDescription ;?></li>
