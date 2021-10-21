@@ -8,7 +8,7 @@
         }
     
         public function addStock($data){
-            $this->db -> query('INSERT INTO stock(farmerID,title,description,harvestDate,expireDate,catID,qty,fixedPrice,minBidPrice,stockStatus) VALUES(:farmerID,:title,:description, :harvestDate, :expireDate , :catagory, :qty, :fixedPrice, :minBidPrice, :stockStatus)');
+            $this->db -> query('INSERT INTO stock(farmerID,title,description,harvestDate,expireDate,catID,qty,image,fixedPrice,minBidPrice,stockStatus) VALUES(:farmerID,:title,:description, :harvestDate, :expireDate , :catagory, :qty,:image, :fixedPrice, :minBidPrice, :stockStatus)');
             $this->db -> bind(':farmerID',$_SESSION['farmerID']);
             $this->db -> bind(':title',$data['title']);
             $this->db -> bind(':description',$data['description']);
@@ -16,6 +16,7 @@
             $this->db -> bind(':expireDate',$data['expireDate']);
             $this->db -> bind(':catagory',$data['catagory']);
             $this->db -> bind(':qty',$data['qty']);
+            $this->db -> bind(':image',$data['image']);
             $this->db -> bind(':fixedPrice',$data['fixedPrice']);
             $this->db -> bind(':minBidPrice',$data['minBidPrice']);
             $this->db -> bind(':stockStatus','pending');
