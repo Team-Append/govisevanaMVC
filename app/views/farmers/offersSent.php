@@ -44,7 +44,7 @@ Lorem ipsum dolor sit amet, consectetu
                     <input type="text" id="title" name="title" placeholder="Title">
                     <br>
 
-                    <textarea rows="10" cols="50" name="comment" form="usrform">Add offer description here...</textarea><br>
+                    <textarea rows="10" cols="50" name="comment" form="usrform" placeholder="Add offer description here..."></textarea><br>
 
                     <input type="text" id="fname" name="fixedprice" placeholder="Fixed Price..">
                     <br>
