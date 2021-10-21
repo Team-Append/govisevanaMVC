@@ -1,0 +1,77 @@
+/*google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background-color: rgb(250, 250, 250);
+}
+
+.detail{
+  width: 95%;
+  height: 550px;
+  margin: auto;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border-radius: 5px;
+  float: right;
+  display:flex;
+  margin-right: 20px;
+}
+
+
+.detail .message{
+  width: 30%;
+  margin-right: 15%;
+  margin-left: 5px;
+  margin-top: 10%;
+}
+
+.detail .info{
+  height: 550px;
+  width: 60%;
+  margin: auto;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border-radius: 5px;
+  float: left;
+  margin-right: 2%;
+  margin-left: 10px%;
+}
+
+.detail .info .topic{
+  background-color: #F9F9F9;
+}
+
+.detail .info .contact{
+  margin-left: 70px;
+  margin-top: 70px;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.detail  .message button {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.head header{
+  text-align: center;
+  padding-top: 3px;
+}

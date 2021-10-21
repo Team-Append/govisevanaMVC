@@ -15,7 +15,7 @@ public function viewStock(){
 }
 public function addStock(){
     $cat = $this->catagoryModel->getCatagory();
-
+    
     $data = array(
         'title' => '',
         'description' => '',
@@ -33,11 +33,37 @@ public function addStock(){
         'catagoryError' => '',
         'qtyError' => '',
         'fixedPriceError' => '',
-        'minBidPriceError' => ''
+        'minBidPriceError' => '',
+        'imageError' => ''
     );
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+        $imgContent= '';
+        $imgError = '';
+        $target = '';
+        if(!empty($_FILES["image"]["name"])) { 
+            // Get file info 
+            $fileName = basename($_FILES["image"]["name"]); 
+            $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
+            $image = $_FILES['image']['tmp_name']; 
+            // Allow certain file formats 
+            $allowTypes = array('jpg','png','jpeg'); 
+            if(in_array($fileType, $allowTypes)){ 
+                
+                $image =$_FILES['image']['name'];
+                $tempname = $_FILES["image"]["tmp_name"];
+                $target =  "img/".$image;
+                echo $target;
+                move_uploaded_file($tempname, $target); 
+            }else{
+                $imgError = 'file not supported'; 
+            }
+        }else{
+            $imgError = 'please insert a photo'; 
+        }
+        
+
         $data = array(
             'title' => trim($_POST['title']),
             'description' => trim($_POST['description']),
@@ -48,6 +74,7 @@ public function addStock(){
             'fixedPrice' => trim($_POST['fixedPrice']),
             'minBidPrice' => trim($_POST['minBidPrice']),
             'cat' => $cat,
+            'image' => $image,
             'titleError' =>  '',
             'descriptionError' => '',
             'harvestDateError' => '',
@@ -55,7 +82,9 @@ public function addStock(){
             'catagoryError' => '',
             'qtyError' => '',
             'fixedPriceError' => '',
-            'minBidPriceError' => ''
+            'minBidPriceError' => '',
+            'imageError' => $imgError
+         
             
         );
         
@@ -86,7 +115,8 @@ public function addStock(){
         }
         
         
-        if(empty($data['titleError']) && empty($data['descriptionError']) && empty($data['harvestDateError']) && empty($data['expireDateError']) && empty($data['catagoryError']) && empty($data['qtyError']) && empty($data['fixedPriceError']) && empty($data['minBidPriceError'])){
+        
+        if(empty($data['titleError']) && empty($data['descriptionError']) && empty($data['harvestDateError']) && empty($data['expireDateError']) && empty($data['catagoryError']) && empty($data['qtyError']) && empty($data['fixedPriceError']) && empty($data['minBidPriceError']) && empty($data['ImageError'])){
             
 
   
@@ -94,7 +124,8 @@ public function addStock(){
         //add stock to db
         if($this->stockModel -> addStock($data)){
            // redirect to dashboard;
-           header('location:' . URLROOT. '/farmers/dashboard'); 
+           echo $target;
+        //    header('location:' . URLROOT. '/farmers/dashboard'); 
         }else{
             die('something went wrong');
         }
@@ -119,7 +150,8 @@ public function addStock(){
         'catagoryError' => '',
         'qtyError' => '',
         'fixedPriceError' => '',
-        'minBidPriceError' => ''
+        'minBidPriceError' => '',
+        'imageError' => ''
         
     );
 }

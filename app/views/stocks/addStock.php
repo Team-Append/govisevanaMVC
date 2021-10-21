@@ -22,7 +22,7 @@
             <div class="topic">
                 <span class="main-topic">Add Stock</span>
             </div>
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <label >Product Title</label><br>
                 <span class="invalidFeedback">
                     <?php echo $data['titleError'];?>
@@ -89,6 +89,9 @@
                 <input type="text"  name="minBidPrice" placeholder="Minimum bid price">
                 <br>
                  <label for="image">Image</label><br>
+                 <span class="invalidFeedback">
+                    <?php echo $data['imageError'];?>
+                </span>
                  <input type="file" id="image" name="image" placeholder="Upload an image">
                 <br>
 

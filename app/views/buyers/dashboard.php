@@ -50,24 +50,32 @@ include_once(APPROOT.'/views/includes/navigation.php');
                 <h1>View Requests</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/offer.png" alt="">
             </div>
+            <a href="<?php echo URLROOT;?>/buyers/ongoingorders">
             <div class="dash-card">
                 <h1>ongoing orders</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/earn.png" alt="">
             </div>
+            </a>
         </div>
         <div class="card-line">
+            <a href="<?php echo URLROOT;?>/buyers/completedOrder">
             <div class="dash-card">
                 <h1>completed orders</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/req.png" alt="">
             </div>
+            </a>
+            <a href="<?php echo URLROOT;?>/buyers/contactAdmin">
             <div class="dash-card">
                 <h1>Contact Admins</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/admin.png" alt="">
             </div>
+            </a>
+            <a href="<?php echo URLROOT;?>/buyers/analytic">
             <div class="dash-card">
                 <h1>Analytics</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/analytics.png" alt="">
             </div>
+            </a>
         </div>
         <div id="order-table">
             <h1>current orders</h1>
@@ -111,7 +119,7 @@ include_once(APPROOT.'/views/includes/navigation.php');
         <div id = "edit-profile-card">
             <h1>Buyer</h1>
             <hr>
-            <h2>Edit profile</h2>
+            <h2><a href="<?php echo URLROOT;?>/buyers/editProfile">Edit profile</a></h2>
         </div>
     </div>
     

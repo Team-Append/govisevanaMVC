@@ -222,4 +222,33 @@ class Buyers extends Controller {
         $this->view('buyers/notiStock');
     }
 
+    public function ongoingorders(){
+
+        $this->view('buyers/ongoingorders');
+    }
+
+    public function completedOrder(){
+
+        $this->view('buyers/completedOrder');
+    }
+
+    public function editProfile(){
+
+        $this->view('buyers/editProfile');
+    }
+
+    public function analytic(){
+
+        $this->view('buyers/analytic');
+    }
+
+    public function contactAdmin(){
+
+        $this->view('buyers/contactAdmin');
+    }
+
+
+
+
+
 }

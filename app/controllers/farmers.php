@@ -218,4 +218,20 @@ class Farmers extends Controller {
         $this->view('farmers/notiOrder');
     }
 
+    public function editProfile(){
+        
+        $this->view('farmers/editProfile');
+    }
+
+    public function analytic(){
+        
+        $this->view('farmers/analytic');
+    }
+
+    public function offersSent(){
+        
+        $this->view('farmers/offersSent');
+    }
+
+
 }
