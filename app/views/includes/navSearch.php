@@ -5,41 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/navStyles.css" />
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/navSearchStyles.css" />
         <!--Boxicons CDN Links-->
         <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <div class="nav">
-    <div class="logo">
-            <h1>GOVISEVANA</h1>
-            <div class="select">
-                <span class="lan">English | සිංහල | தமிழ் </span>
-            </div>
+        <div class="logo">
+
+        <img src="./img/logo.png" alt="logo">
         </div>
         <div class="middle">
-            <ul>
-            <li class="right"><a href="contact.html">Dashboard</a></li>
-            <li class="right"><a href="contact.html">Stocks</a></li>
-            <li class="right"><a href="index.html">Orders</a></li>
-            <li class="right"><a href="contact.html">Contact Us</a></li>
-            <li class="right"><a href="international.html">Help</a></li>
-            <li class="search"><input type="text" placeholder="Search.."></li>
-            
-            </ul>
+                <input type="submit" value="All">
+                <input type="text" placeholder="Search..">
         </div>
         <div class="nav-right">
             <div class="notify">
                     <i class='bx bxs-bell'></i>
                 </div>
             <div class="name">
-            <a href="profile.html">Log Out</a>
+            <a href="profile.html">Nimal de silva</a>
             </div>
 
             <div class="menu-icon">
                 
                 <div class="prof">
-                <img src="<?php echo URLROOT; ?>/img/profile.png" alt="profile picture">
+                <img src="./img/profile.png" alt="profile picture">
                 </div>
                 <div class="menu">
                     <i class='bx bx-menu'></i> 
@@ -50,6 +41,3 @@
     </div>
 </body>
 </html>
-
-
-

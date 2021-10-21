@@ -920,7 +920,38 @@ body{
     }
 }
 
+@media screen and (max-width: 1366px) {
+    .dash-card{
+        width: 210px;
+        height: 150px;
+        font-size: 20px; 
+    }
+    .dash-card h1{
+       
+        font-size: 20px; 
+    }
+
+    #order-table{
+        width: 65%;
+        float: right;
+        margin-right: 60px;
+    }
+
+    #edit-profile-card h1{
+        color: rgb(0, 212, 35);
+        font-weight: normal;
+    }
+
+    #edit-profile-card{
+        
+        width: 260px;
+    }
+}
 .invalidFeedback{
     color: red; 
   }
   
+
+/* new styles */
+
+
