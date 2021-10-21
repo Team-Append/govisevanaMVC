@@ -8,7 +8,7 @@
         }
     
         public function addStock($data){
-            $this->db -> query('INSERT INTO stock(farmerID,title,description,harvestDate,expireDate,catagory,qty,fixedPrice,minBidPrice,stockStatus) VALUES(:farmerID,:title,:description, :harvestDate, :expireDate , :catagory, :qty, :fixedPrice, :minBidPrice, :stockStatus)');
+            $this->db -> query('INSERT INTO stock(farmerID,title,description,harvestDate,expireDate,catID,qty,fixedPrice,minBidPrice,stockStatus) VALUES(:farmerID,:title,:description, :harvestDate, :expireDate , :catagory, :qty, :fixedPrice, :minBidPrice, :stockStatus)');
             $this->db -> bind(':farmerID',$_SESSION['farmerID']);
             $this->db -> bind(':title',$data['title']);
             $this->db -> bind(':description',$data['description']);
@@ -35,7 +35,7 @@
             return $results;
         }
         public function getPendingStock(){
-            $this->db->query("SELECT * FROM stock,farmer WHERE stockStatus = 'pending' and stock.farmerID = farmer.farmerID ORDER BY stockID DESC");
+            $this->db->query("SELECT * FROM stock,farmer,catagory WHERE stockStatus = 'pending' and stock.farmerID = farmer.farmerID and stock.catID = catagory.catID ORDER BY stockID DESC");
 
             $results = $this->db->resultSet();
             return $results;

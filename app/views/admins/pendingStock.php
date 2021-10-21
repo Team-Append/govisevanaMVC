@@ -31,7 +31,7 @@
                         <li><label for="price"><b>Fixed Price :</b> LKR <?php echo $post->fixedPrice ;?></li>
                         <li><label for="hdate"><b>Harvested Date :</b> <?php echo $post->harvestDate ;?></li>
                         <li><label for="edate"><b>Expire Date :</b> <?php echo $post->expireDate ;?></li>
-                        <li><label for="category"><b>Category : </b><?php echo $post->catagory ;?></li>
+                        <li><label for="category"><b>Category : </b><?php echo $post->catName ;?></li>
                         <li><label for="contact"><b>Farmer's Contact Number :</b> <?php echo $post->tpno ;?></li>
                         <li><label for="city"><b>Farmer's address : </b><?php echo $post->address ;?></li>
                         <li><label for="description"><b>Description :</b> <?php echo $post->description ;?></li>

@@ -69,11 +69,12 @@ include_once(APPROOT.'/views/includes/navigation.php');
                 <img src="<?php echo URLROOT;?>/img/icons/req.png" alt="">
             </div>
             </a>
-            
+            <a href="<?php echo URLROOT;?>/farmers/analytic">
             <div class="dash-card">
                 <h1>Analytics</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/analytics.png" alt="">
             </div>
+            </a>
         </div>
         <div id="order-table">
             <h1>current orders</h1>
@@ -117,7 +118,7 @@ include_once(APPROOT.'/views/includes/navigation.php');
         <div id = "edit-profile-card">
             <h1>Farmer</h1>
             <hr>
-            <h2>Edit profile</h2>
+            <h2><a href="<?php echo URLROOT;?>/farmers/editProfile">Edit profile</a></h2>
         </div>
     </div>
     
