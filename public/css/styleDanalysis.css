@@ -18,7 +18,7 @@ body{
 }
 
 .detail{
-  width: 85%;
+  width: 75%;
   height: 550px;
   margin: auto;
   background-color: white;
@@ -51,13 +51,17 @@ body{
 }
 
 .detail .grph{
-  width: 70%;
+  width: 60%;
+}
+td{
+  padding-left: 200px;
 }
 
 .detail .amount{
   width: 20%;
   margin-right: 1px;
   margin-left: 5px;
+  height: 550px;
 }
 
 .detail .grph iframe{
@@ -70,5 +74,22 @@ body{
 }
 
 
+@media screen and (max-width: 1366px) {
+  .amount{
+    padding-left: 100px;
+    margin-left: 200px;
+  }
 
-/*<p><a href="https://www.w3schools.com" target="iframe_a">W3Schools.com</a></p>*/
+  .side{
+    padding: 25px;
+    padding-top: 100px;
+
+  }
+  table tbody{
+    width: 500px;
+  }
+.iframe{
+  width: 400px;
+}
+
+}

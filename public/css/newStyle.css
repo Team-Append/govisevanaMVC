@@ -141,7 +141,6 @@ img {vertical-align: middle;}
 
 /* Slideshow container */
 .slideshow-container {
- 
   position: relative;
   margin: auto;
   width: 100%;
@@ -1034,5 +1033,13 @@ input[type=text], select, textarea {
     opacity: 1;
 }
 
+@media screen and (max-width: 1366px) {
+    .text{
+        margin-top: 100px;
+    }
+    .hello{
+        padding-top: 100px;
+      }
+  }
 
 /* footer */
