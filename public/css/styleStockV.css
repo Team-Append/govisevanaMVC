@@ -5,10 +5,11 @@
 }
 body{
     background-color: rgb(250, 250, 250);
+    text-decoration: none;
 }
 
 .side{
-  width: 18%;
+  width: 60px;
   margin: auto;
   background-color: gray;
   height: auto;
@@ -20,7 +21,7 @@ body{
 }
 
 .detail{
-  width: 80%;
+  width: 84%;
   margin: auto;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);

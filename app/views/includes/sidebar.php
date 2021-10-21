@@ -46,7 +46,7 @@
                         <a href="#">
                             <i class='bx bx-server'></i>
                             <span class="link_name">Farmer Ratings</span>
-                            <i class='bx bxs-chevron-down'></i>
+                            <i class='bx bxs-chevron-down arrow'></i>
                         </a>
                         
                         <ul class="sub-menu">
@@ -74,7 +74,7 @@
             </div>
             </li> -->
 
-            <!-- <script>
+            <script>
                 let arrow = document.querySelectorAll(".arrow");
                 for (var i=0;i<arrow.length;i++){
                     arrow[i].addeventListner("click", (e)=>{
@@ -83,7 +83,7 @@
                         arrowParent.classList.toggle("showMenu");
                     });
                 }
-            </script> -->
+            </script>
 
 
         </div>
