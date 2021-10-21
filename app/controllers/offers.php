@@ -3,28 +3,29 @@ class Offers extends Controller {
 
     public function __construct()
     {
-        $this->offerModel = $this-> model('Offer');
-
+        $this->offerModel = $this-> model('Offer');  
     }
+
     public function addOffer(){
-    
+        //Defining the array
         $data = array(
             'offerDescription' => '',
             'offerPrice' => '',
-            'RID' => '',
             'offerDescriptionError' => '',
-            'offerPriceError' => ''
+            'offerPriceError' => ''             
         );
+
+        //catch data received from the form via POST method
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
     
             $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
             $data = array(
                 'offerDescription' => trim($_POST['offerDescription']),
                 'offerPrice' => trim($_POST['offerPrice']),
-                'RID' => $_GET['RID'],
-                'offerDescriptionError' => '',
+                'RID' => $_GET['RID'], //fetch the RID through the GET method
+                'offerDescriptionError' =>  '',
                 'offerPriceError' => ''
-                
+                               
             );
             
             //validation
@@ -34,17 +35,14 @@ class Offers extends Controller {
             if(empty($data['offerPrice'])){
                 $data['offerPriceError'] = 'please enter the price'; 
             }
-            
-            
+             
+            //check whether the array is completed with data (check if there are any error msgs)
             if(empty($data['offerDescriptionError']) && empty($data['offerPriceError'])){
-                
-    
-      
             
             //add stock to db
             if($this->offerModel -> addOffer($data)){
-               // redirect to dashboard;
-               header('location:' . URLROOT. '/farmers/dashboard'); 
+               // redirect to Requests page;
+               header('location:' . URLROOT. '/Requests/viewRequest'); 
             }else{
                 die('something went wrong');
             }
@@ -53,26 +51,16 @@ class Offers extends Controller {
         }
     }else{
         $data = array(
-            'title' => '',
-            'description' => '',
-            'harvestDate' => '',
-            'expireDate' => '',
-            'catagory' => '',
-            'qty' => '',
-            'fixedPrice' => '',
-            'minBidPrice' => '',
-            'titleError' => '',
-            'descriptionError' => '',
-            'harvestDateError' => '',
-            'expireDateError' => '',
-            'catagoryError' => '',
-            'qtyError' => '',
-            'fixedPriceError' => '',
-            'minBidPriceError' => ''
+            'offerDescription' => '',
+            'offerPrice' => '',
+            'offerDescriptionError' => '',
+            'offerPriceError' => ''
             
         );
     }
-        $this->view('stocks/addStock',$data);
+        $this->view('offers/addOffer',$data); //pass data to the addOffer page
     
     }
+    
+
 }
