@@ -21,6 +21,13 @@
                 return false;
             }
         }
+        public function getOffersByReq($RID){
+            $this->db -> query('SELECT * FROM offer,farmer WHERE RID = :ID  AND offer.farmerID = farmer.farmerID ORDER BY RID DESC');
+            $this->db -> bind(':ID',$RID);
+            $results = $this->db->resultSet();
+            return $results;
+            
+        }
         
     }
 ?>

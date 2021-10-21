@@ -5,6 +5,7 @@
     <title></title>
       <link rel="stylesheet" type="text/css" href="../public/css/styleLogin.css">
       <link rel="stylesheet" type="text/css" href="../public/css/style.css">
+      
   </head>
     <body>
 
@@ -40,8 +41,8 @@
         <br>
         <table>
           <tr>
-            <th><h4>Don't have an account?</h4></th>
-            <th><h5><a href="<?php echo URLROOT;?>/buyers/register">Sign up</a><h5></th>
+            <!-- <th><h4>Don't have an account?</h4></th> -->
+            <!-- <th><h5><a href="<?php echo URLROOT;?>/buyers/register">Sign up</a><h5></th> -->
           </tr>
         </table>
         </form>

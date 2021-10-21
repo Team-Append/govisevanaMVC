@@ -28,7 +28,7 @@
                 <h3>Thilakarathne Dilshan</h3>
               </div>
               <div class="budget">
-                Budget | Rs. <hb>3000.00</hb>
+                Fee | Rs. <hb>3000.00</hb>
               </div>
               <div class="cat">
                 Category | <hc>Carrot</hc>

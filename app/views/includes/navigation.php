@@ -32,7 +32,7 @@
             <?php if(isDeliveryPersonLoggedIn()) : ?>
             <li class="right"><a href="<?php echo URLROOT;?>/deliveryPersons/dashboard">Dashboard</a></li>
             <?php endif;?>
-            <li class="right"><a href="contact.html">Stocks</a></li>
+            <li class="right"><a href="<?php echo URLROOT;?>/Stocks/allStock">Stocks</a></li>
             <li class="right"><a href="index.html">Orders</a></li>
             <li class="right"><a href="contact.html">Contact Us</a></li>
             <li class="right"><a href="international.html">Help</a></li>

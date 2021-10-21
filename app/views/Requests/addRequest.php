@@ -27,11 +27,11 @@
                 <span class="main-topic">Add Request</span>
             </div>
             <form action="" method="POST">
-                <label for="title">Expected Product Title</label><br>
+                <label for="title">Request Title</label><br>
                 <span class="invalidFeedback">
                     <?php echo $data['titleError'];?>
                 </span>
-                <input type="text" id="title" name="title" placeholder="Product name..">
+                <input type="text" id="title" name="title" placeholder="Give any title here..">
                 <br>
 
                 <label for="qty">Expected Quantity</label><br>
@@ -50,6 +50,13 @@
                        <option value="<?php echo $cat -> catID; ?>"><?php echo $cat -> catName; ?></option>
                     <?php } ?>   
                 </select>
+                <br>
+
+                <label > Budget </label><br>
+                <span class="invalidFeedback">
+                    <?php echo $data['budgetError'];?>
+                </span>
+                <input type="text"  name="budget" id="budget" placeholder="Requested Budget..">
                 <br>
 
                 <label for="expectedDate">Expected Date</label><br>

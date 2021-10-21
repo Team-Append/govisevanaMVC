@@ -13,6 +13,21 @@ public function viewStock(){
 
     $this->view('stocks/viewStock',$data);  
 }
+
+
+public function allStock(){
+    $stock = $this->stockModel->getAllStock();
+    $cat = $this->catagoryModel -> getCatagory();
+    $data = array(  
+                    'stocks' => $stock,
+                    'cats' => $cat,
+                    );
+
+
+
+    $this->view('stocks/allStock',$data);  
+}
+
 public function addStock(){
     $cat = $this->catagoryModel->getCatagory();
     
@@ -41,7 +56,6 @@ public function addStock(){
         $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
         $imgContent= '';
         $imgError = '';
-        $target = '';
         if(!empty($_FILES["image"]["name"])) { 
             // Get file info 
             $fileName = basename($_FILES["image"]["name"]); 
@@ -123,9 +137,14 @@ public function addStock(){
         
         //add stock to db
         if($this->stockModel -> addStock($data)){
+<<<<<<< HEAD
            // redirect to dashboard;
            
         //    header('location:' . URLROOT. '/farmers/dashboard'); 
+=======
+
+        header('location:' . URLROOT. "/farmers/dashboard?status=success"); 
+>>>>>>> 5c3fa857947ca2531d5d4109ba2059fe05e28fb5
         }else{
             die('something went wrong');
         }

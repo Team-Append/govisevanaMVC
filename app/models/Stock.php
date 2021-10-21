@@ -66,5 +66,23 @@
             $results = $this->db->single();
             return $results;
         }
+        public function getStockByCatagory($catID){
+            $this->db->query('SELECT * FROM stock,farmer WHERE catID = :ID and stock.farmerID = farmer.farmerID');
+            $this->db -> bind(':cat',$catID);
+    
+            $results = $this->db->resultSet();
+            return $results;
+
+        }
+        public function  getAllStock(){
+            $this->db->query('SELECT * FROM stock,farmer WHERE  stock.farmerID = farmer.farmerID');
+            
+    
+            $results = $this->db->resultSet();
+            return $results;
+
+        }
+       
+        
      }
 ?>
