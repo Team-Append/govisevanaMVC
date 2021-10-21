@@ -11,12 +11,14 @@ public function addRequest(){
     $data = array(
         'title' => '',
         'qty' => '',
+        'budget' => '',
         'reqCatagory' => '',
         'reqDescription' => '',
         'expectedDate' => '',
         'cat' => $cat,
         'titleError' => '',
         'qtyError' => '',
+        'budgetError' => '',
         'reqCatagoryError' => '',
         'reqDescriptionError' => '',
         'expectedDateError' => ''
@@ -27,12 +29,14 @@ public function addRequest(){
         $data = array(
             'title' => trim($_POST['title']),
             'qty' => trim($_POST['qty']),
+            'budget' => trim($_POST['budget']),
             'reqCatagory' => trim($_POST['catID']),
             'reqDescription' => trim($_POST['reqDescription']),
             'expectedDate' => trim($_POST['expectedDate']),
             'cat' => $cat,
             'titleError' => '',
             'qtyError' => '',
+            'budgetError' => '',
             'reqCatagoryError' => '',
             'reqDescriptionError' => '',
             'expectedDateError' => ''
@@ -46,6 +50,9 @@ public function addRequest(){
         if(empty($data['qty'])){
             $data['qtyError'] = 'please enter the quantity'; 
         }
+        if(empty($data['budget'])){
+            $data['budgetError'] = 'please enter the budget'; 
+        }
         if(empty($data['reqCatagory'])){
             $data['reqCatagoryError'] = 'please enter the category'; 
         }
@@ -58,7 +65,7 @@ public function addRequest(){
         
         
         
-        if(empty($data['titleError']) && empty($data['qtyError']) && empty($data['reqCatagoryError']) && empty($data['reqDescriptionError']) && empty($data['expectedDateError'])){
+        if(empty($data['titleError']) && empty($data['qtyError']) && empty($data['budgetError']) && empty($data['reqCatagoryError']) && empty($data['reqDescriptionError']) && empty($data['expectedDateError'])){
             
         
         //add request to db
@@ -75,12 +82,14 @@ public function addRequest(){
     $data = array(
         'title' => '',
         'qty' => '',
+        'budget' => '',
         'reqCatagory' => '',
         'reqDescription' => '',
         'expectedDate' => '',
         'cat' => $cat,
         'titleError' => '',
         'qtyError' => '',
+        'budgetError' => '',
         'reqCatagoryError' => '',
         'reqDescriptionError' => '',
         'expectedDateError' => ''

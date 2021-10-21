@@ -56,7 +56,6 @@
                 <span class="invalidFeedback">
                     <?php echo $data['budgetError'];?>
                 </span>
-                <br>
                 <input type="text"  name="budget" id="budget" placeholder="Requested Budget..">
                 <br>
 
