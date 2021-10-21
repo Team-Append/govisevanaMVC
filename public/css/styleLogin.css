@@ -108,3 +108,16 @@ border-radius: 5%;
 .invalidFeedback{
   color: red; 
 }
+
+@media screen and (max-width: 1366px) {
+
+  .loginbox{
+    
+    top: 70%;
+  }
+
+  .title{
+    margin-bottom: 50px;
+  }
+  
+}

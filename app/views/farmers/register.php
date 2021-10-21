@@ -91,11 +91,11 @@
  
 </form>
 </div>
-    <div class="socials">
+    <!-- <div class="socials">
       <a href="#" class="button"><img src="../img/fb.png" width="30" height="30" alt="facebook"></a>
       <a href="#" class="button"><img src="../img/google.png" width="30" height="30" alt="google"></a>
       <a href="#" class="button"><img src="../img/twitter.png" width="30" height="30" alt="tweeter"></a>
-    </div>
+    </div> -->
     </div>
 
   </div>

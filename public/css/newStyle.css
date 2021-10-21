@@ -141,7 +141,11 @@ img {vertical-align: middle;}
 
 /* Slideshow container */
 .slideshow-container {
+<<<<<<< HEAD
+  
+=======
  
+>>>>>>> 48e359a2d98c65e118034b2b8a9ed42f70eccc26
   position: relative;
   margin: auto;
   width: 100%;
@@ -1034,5 +1038,13 @@ input[type=text], select, textarea {
     opacity: 1;
 }
 
+@media screen and (max-width: 1366px) {
+    .text{
+        margin-top: 100px;
+    }
+    .hello{
+        padding-top: 100px;
+      }
+  }
 
 /* footer */
