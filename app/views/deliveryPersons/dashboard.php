@@ -1,7 +1,7 @@
 <?php if(isDeliveryPersonLoggedIn()){ ?>
 <html>
 <head>
-    <link rel="stylesheet" href="<?php echo URLROOT;?>/css/styleDeliveryPersonDashboard.css"
+    <link rel="stylesheet" href="<?php echo URLROOT;?>/css/styleDeliveryPersonDashboard.css">
 </head>
 <body>
 <?php
