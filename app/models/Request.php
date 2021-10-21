@@ -31,6 +31,15 @@
             $results = $this->db->resultSet();
             return $results;
         }
+
+        public function getAllRequestByID($ID){
+            $this->db->query('SELECT * FROM request WHERE buyerID = :ID ORDER BY RID DESC');
+            $this->db -> bind(':ID',$ID);
+    
+            $results = $this->db->resultSet();
+            return $results;
+        }
+
         public function updateRequestStatus($status,$RID){
             $this->db->query("UPDATE request SET reqStatus = :reqStatus WHERE RID = :RID");
             $this->db -> bind(':reqStatus',$status);

@@ -64,7 +64,7 @@ public function addRequest(){
         //add request to db
         if($this->requestModel -> addRequest($data)){
            // redirect to index;
-           header('location:' . URLROOT. '/pages/index'); 
+           header('location:' . URLROOT. '/buyers/dashboard'); 
         }else{
             die('something went wrong');
         }
@@ -90,6 +90,7 @@ public function addRequest(){
     $this->view('Requests/addRequest',$data);
 
 }
+
 public function viewRequest(){
 
         $posts = $this->requestModel->getAllRequest();
@@ -97,6 +98,9 @@ public function viewRequest(){
         $data = array( 'posts' => $posts);
         
         $this->view('Requests/viewRequest',$data);
-    }
+}
+
+
+
 }
 ?>

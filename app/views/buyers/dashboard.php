@@ -46,10 +46,12 @@ include_once(APPROOT.'/views/includes/navigation.php');
                     <img src="<?php echo URLROOT;?>/img/icons/stock.png" alt="">
                 </div>
             </a>
+            <a href="<?php echo URLROOT;?>/buyers/myRequest">
             <div class="dash-card">
                 <h1>View Requests</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/offer.png" alt="">
             </div>
+            </a>
             <a href="<?php echo URLROOT;?>/buyers/ongoingorders">
             <div class="dash-card">
                 <h1>ongoing orders</h1>
