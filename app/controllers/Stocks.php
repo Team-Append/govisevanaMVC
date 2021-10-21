@@ -54,7 +54,7 @@ public function addStock(){
                 $image =$_FILES['image']['name'];
                 $tempname = $_FILES["image"]["tmp_name"];
                 $target =  "img/".$image;
-                echo $target;
+                
                 move_uploaded_file($tempname, $target); 
             }else{
                 $imgError = 'file not supported'; 
@@ -124,7 +124,7 @@ public function addStock(){
         //add stock to db
         if($this->stockModel -> addStock($data)){
            // redirect to dashboard;
-           echo $target;
+           
         //    header('location:' . URLROOT. '/farmers/dashboard'); 
         }else{
             die('something went wrong');

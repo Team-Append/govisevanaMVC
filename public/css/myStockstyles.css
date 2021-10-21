@@ -123,3 +123,20 @@ body{
     text-align: left;
     margin-top: 20px;
 }
+
+
+@media screen and (max-width: 1366px) {
+    .mystock-content .right-side .posts-list .row{
+        margin-left: 10px;
+      
+    }
+
+    .mystock-content .right-side .posts-list {
+        margin-left: 10px;
+      
+    }
+
+    .mystock-content .right-side .posts-list .row .column{
+        margin-left:10px ;
+    }
+}

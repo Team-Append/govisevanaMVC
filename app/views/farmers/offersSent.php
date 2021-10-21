@@ -9,7 +9,10 @@
 </head>
 <body>
     <div class="nav">
+    <?php
 
+include_once(APPROOT.'/views/includes/navigation.php');
+?> 
     </div>
     <div class="offer-content">
         <div class="topic">
