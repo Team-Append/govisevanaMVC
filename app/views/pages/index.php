@@ -135,7 +135,7 @@
                                         <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
                                         <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                     </ul>
-                                    <a class="cart" href="#">Add to Cart</a>
+                                    <a class="cart" href="<?php echo URLROOT; ?>/stocks/viewStock?stockID=<?php echo  $post -> stockID;?>" style="width: 100%;">View Stock</a>
                                 </div>
                             </div>
                             <div class="why-text">
