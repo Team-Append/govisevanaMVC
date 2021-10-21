@@ -186,5 +186,8 @@ class DeliveryPersons extends Controller {
     public function viewSingleSchedule(){
         $this->view('deliveryPersons/viewSingleSchedule');
     }
+    public function dashboard(){
+        $this->view('deliveryPersons/dashboard');
+    }
       
 }
