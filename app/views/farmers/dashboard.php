@@ -117,7 +117,7 @@ include_once(APPROOT.'/views/includes/navigation.php');
         <div id = "edit-profile-card">
             <h1>Farmer</h1>
             <hr>
-            <h2>Edit profile</h2>
+            <h2><a href="<?php echo URLROOT;?>/farmers/editProfile">Edit profile</a></h2>
         </div>
     </div>
     
