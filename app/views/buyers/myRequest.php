@@ -27,10 +27,13 @@
             <div class="top-line">
               
               <div class="budget">
-                Budget | Rs. <hb>3000.00</hb>
+                Budget | Rs. <hb><?php echo $post->budget;?></hb>
               </div>
               <div class="cat">
                 Category | <hc><?php echo $post->catName;?></hc>
+              </div>
+              <div class="budget">
+                Status | <hb><?php echo $post->reqStatus;?></hb>
               </div>
             </div>
             
