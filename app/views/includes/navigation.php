@@ -35,6 +35,7 @@
             
             </ul>
         </div>
+        
         <div class="nav-right">
                 <div class="notify">
                     <i class='bx bxs-bell'></i>
@@ -46,6 +47,8 @@
                     <a href="<?php echo URLROOT;?>/farmers/Logout">Log out</a>
                 <?php }else if(isset($_SESSION['AdminID'])){ ?>
                     <a href="<?php echo URLROOT;?>/admins/logout">Log out</a>
+                <?php }else if(isDeliveryPersonLoggedIn()){ ?>
+                    <a href="<?php echo URLROOT;?>/deliveryPersons/logout">Log out</a>
                 <?php }else {?>
                     <a href="<?php echo URLROOT;?>/pages/accountType">Log in</a>
                     <?php }?>
