@@ -20,11 +20,17 @@
         <div class="middle">
         <ul>
             <li class="right"><a href="<?php echo URLROOT;?>/pages/index">Home</a></li>
-            <?php if(isset($_SESSION['farmerID'])) : ?>
+            <?php if(isFarmerLoggedIn()) : ?>
             <li class="right"><a href="<?php echo URLROOT;?>/farmers/dashboard">Dashboard</a></li>
             <?php endif;?>
-            <?php if(isset($_SESSION['buyerID'])) : ?>
+            <?php if(isBuyerLoggedIn()) : ?>
             <li class="right"><a href="<?php echo URLROOT;?>/buyers/dashboard">Dashboard</a></li>
+            <?php endif;?>
+            <?php if(isAdminLoggedIn()) : ?>
+            <li class="right"><a href="<?php echo URLROOT;?>/admins/dashboard">Dashboard</a></li>
+            <?php endif;?>
+            <?php if(isDeliveryPersonLoggedIn()) : ?>
+            <li class="right"><a href="<?php echo URLROOT;?>/deliveryPersons/dashboard">Dashboard</a></li>
             <?php endif;?>
             <li class="right"><a href="contact.html">Stocks</a></li>
             <li class="right"><a href="index.html">Orders</a></li>
@@ -41,11 +47,11 @@
                     <i class='bx bxs-bell'></i>
                 </div>
             <div class="name">
-            <?php if(isset($_SESSION['buyerID'])){ ?>
+            <?php if(isBuyerLoggedIn()){ ?>
                     <a href="<?php echo URLROOT;?>/buyers/Logout">Log out</a>
-                <?php }else if (isset($_SESSION['farmerID'])){ ?>
+                <?php }else if (isFarmerLoggedIn()){ ?>
                     <a href="<?php echo URLROOT;?>/farmers/Logout">Log out</a>
-                <?php }else if(isset($_SESSION['AdminID'])){ ?>
+                <?php }else if(isAdminLoggedIn()){ ?>
                     <a href="<?php echo URLROOT;?>/admins/logout">Log out</a>
                 <?php }else if(isDeliveryPersonLoggedIn()){ ?>
                     <a href="<?php echo URLROOT;?>/deliveryPersons/logout">Log out</a>
