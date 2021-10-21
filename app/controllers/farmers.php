@@ -233,5 +233,10 @@ class Farmers extends Controller {
         $this->view('farmers/offersSent');
     }
 
+    public function earning(){
+        
+        $this->view('farmers/earning');
+    }
+
 
 }
