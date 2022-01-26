@@ -21,21 +21,24 @@
         <ul>
             <li class="right"><a href="<?php echo URLROOT;?>/pages/index">Home</a></li>
             <?php if(isFarmerLoggedIn()) : ?>
-            <li class="right"><a href="<?php echo URLROOT;?>/farmers/dashboard">Dashboard</a></li>
+                <li class="right"><a href="<?php echo URLROOT;?>/farmers/dashboard">Dashboard</a></li>
             <?php endif;?>
             <?php if(isBuyerLoggedIn()) : ?>
-            <li class="right"><a href="<?php echo URLROOT;?>/buyers/dashboard">Dashboard</a></li>
+                <li class="right"><a href="<?php echo URLROOT;?>/buyers/dashboard">Dashboard</a></li>
+            <?php endif;?>
+            <?php if(isModLoggedIn()) : ?>
+                <li class="right"><a href="<?php echo URLROOT;?>/Moderators/dashboard">Dashboard</a></li>
             <?php endif;?>
             <?php if(isAdminLoggedIn()) : ?>
-            <li class="right"><a href="<?php echo URLROOT;?>/admins/dashboard">Dashboard</a></li>
+                <li class="right"><a href="<?php echo URLROOT;?>/admins/dashboard">Dashboard</a></li>
             <?php endif;?>
             <?php if(isDeliveryPersonLoggedIn()) : ?>
-            <li class="right"><a href="<?php echo URLROOT;?>/deliveryPersons/dashboard">Dashboard</a></li>
+                <li class="right"><a href="<?php echo URLROOT;?>/deliveryPersons/dashboard">Dashboard</a></li>
             <?php endif;?>
-            <li class="right"><a href="<?php echo URLROOT;?>/Stocks/allStock">Stocks</a></li>
-            <li class="right"><a href="index.html">Orders</a></li>
-            <li class="right"><a href="contact.html">Contact Us</a></li>
-            <li class="right"><a href="international.html">Help</a></li>
+                <li class="right"><a href="<?php echo URLROOT;?>/Stocks/allStock">Stocks</a></li>
+                <li class="right"><a href="index.html">Orders</a></li>
+                <li class="right"><a href="contact.html">Contact Us</a></li>
+                <li class="right"><a href="international.html">Help</a></li>
         
             <li class="search"><input type="text" placeholder="Search.."></li>
             
@@ -55,6 +58,8 @@
                     <a href="<?php echo URLROOT;?>/admins/logout">Log out</a>
                 <?php }else if(isDeliveryPersonLoggedIn()){ ?>
                     <a href="<?php echo URLROOT;?>/deliveryPersons/logout">Log out</a>
+                <?php }else if(isModLoggedIn()){ ?>
+                    <a href="<?php echo URLROOT;?>/moderators/logout">Log out</a>
                 <?php }else {?>
                     <a href="<?php echo URLROOT;?>/pages/accountType">Log in</a>
                     <?php }?>

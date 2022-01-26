@@ -553,6 +553,20 @@ html {
     color: rgb(3, 3, 3);
     
 }
+#addMod{
+    width: 100px;
+    height: 50px;
+    background-color: rgb(0, 212, 35);
+    float: right;
+    text-align: center;
+    margin: 10px;
+    border-radius: 8px;
+    
+}
+#addMod:hover{
+    transition: 500ms;
+    background-color: rgb(187, 255, 0);
+}
 
 /* responsive part */
 

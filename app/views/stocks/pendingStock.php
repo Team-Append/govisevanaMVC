@@ -1,4 +1,4 @@
-<?php if(isAdminLoggedIn()){ ?>
+<?php if(isAdminLoggedIn() || isModLoggedIn()){ ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,31 +13,36 @@
     </div>
     <div class="noti-content">
         <div class="topic">
-            <span class="main-topic">Pending Buyer Requests</span>
+            <span class="main-topic">Pending Farmer Stocks</span>
             <img src="<?php echo URLROOT; ?>/img/bell-ring.png" alt="notification-icon"><br>
             <hr>
         </div>
         <div class="noti-list">
         <?php  foreach($data['posts'] as $post){ ?>
             <div class="stock-noti">
-                
+                <div class="image">
+                    <img src="<?php echo URLROOT; ?>/img/<?php echo $post->image;?>" alt="image of stock">
+
+                </div>
                 <div class="details">
                     <ul>
-                        <li><label for="fname"><b>Buyer Name :</b> <?php echo $post->name ;?></label></li>
-                        <li><label for="qty"><b>Title :</b> <?php echo $post->title ;?>kg</li>
-                        <li><label for="price"><b>Budget :</b> LKR </li>
-                        <li><label for="hdate"><b>expected Date :</b> <?php echo $post->expectedDate ;?></li>
+                        <li><label for="fname"><b>Farmer Name :</b> <?php echo $post->name ;?></label></li>
+                        <li><label for="qty"><b>Quantity :</b> <?php echo $post->qty ;?>kg</li>
+                        <li><label for="price"><b>Fixed Price :</b> LKR <?php echo $post->fixedPrice ;?></li>
+                        <li><label for="hdate"><b>Harvested Date :</b> <?php echo $post->harvestDate ;?></li>
+                        <li><label for="edate"><b>Expire Date :</b> <?php echo $post->expireDate ;?></li>
                         <li><label for="category"><b>Category : </b><?php echo $post->catName ;?></li>
-                        <li><label for="contact"><b>Buyers's Contact Number :</b> <?php echo $post->tpno ;?></li>
-                        <li><label for="city"><b>Buyers's address : </b><?php echo $post->address ;?></li>
-                        <li><label for="description"><b>Description :</b> <?php echo $post->reqDescription ;?></li>
+                        <li><label for="contact"><b>Farmer's Contact Number :</b> <?php echo $post->tpno ;?></li>
+                        <li><label for="city"><b>Farmer's address : </b><?php echo $post->address ;?></li>
+                        <li><label for="description"><b>Description :</b> <?php echo $post->description ;?></li>
                     </ul>
+                    <?php $_SESSION['currentStockID'] = $post -> stockID; ?>
                     <div class="buttons">
                         <form action="">
-                            <a href="<?php echo URLROOT; ?>/admins/pendingRequest?RID=<?php echo  $post -> RID;?>&approve=true ">
+                            <a href="<?php echo URLROOT; ?>/admins/pendingStock?stockID=<?php echo  $post -> stockID;?>&approve=true ">
                                 <input type="button" value="Approve" name="approve" >
                             </a>
-                            <a href="<?php echo URLROOT; ?>/admins/pendingRequest?RID=<?php echo  $post -> RID;?>&reject=true ">
+                            <a href="<?php echo URLROOT; ?>/admins/pendingStock?stockID=<?php echo  $post -> stockID;?>&reject=true ">
                                 <input type="button" value="Reject" name="reject">
                             </a>
                         </form>

@@ -41,13 +41,13 @@ include_once(APPROOT.'/views/includes/navigation.php');
             </table> -->
         </div>
         <div class="card-line">
-            <a href="<?php echo URLROOT;?>/admins/pendingStock">
+            <a href="<?php echo URLROOT;?>/stocks/pendingStock">
                 <div class="dash-card">
                     <h1>Pending Stock</h1>
                     <img src="<?php echo URLROOT;?>/img/icons/stock.png" alt="">
                 </div>
             </a>
-            <a href="<?php echo URLROOT;?>/admins/pendingRequest">
+            <a href="<?php echo URLROOT;?>/Requests/pendingRequest">
                 <div class="dash-card">
                     <h1>Pending Requests</h1>
                     <img src="<?php echo URLROOT;?>/img/icons/offer.png" alt="">
@@ -65,10 +65,12 @@ include_once(APPROOT.'/views/includes/navigation.php');
                 <img src="<?php echo URLROOT;?>/img/icons/req.png" alt="">
             </div>
         </a>
+        <a href="<?php echo URLROOT;?>/admins/manageModerators">
             <div class="dash-card">
-                <h1>Complains</h1>
+                <h1>Moderators</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/admin.png" alt="">
             </div>
+        </a>
             <div class="dash-card">
                 <h1>Analytics</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/analytics.png" alt="">

@@ -80,6 +80,10 @@ class DeliveryPersons extends Controller {
             'nameError' => '',
             'NICError' => '',
             'addressError' => '',
+            'provinceError'=>'',
+            'districtError'=>'',
+            'postalZoneError'=>'',
+            'postalCodeError'=>'',
             'emailError' => '',
             'tpnoError' => '',
             'passwordError' => '',
@@ -99,6 +103,10 @@ class DeliveryPersons extends Controller {
                 'nameError' => '',
                 'NICError' => '',
                 'addressError' => '',
+                'provinceError'=>'',
+                'districtError'=>'',
+                'postalZoneError'=>'',
+                'postalCodeError'=>'',
                 'emailError' => '',
                 'tpnoError' => '',
                 'passwordError' => '',
@@ -159,6 +167,10 @@ class DeliveryPersons extends Controller {
             'nameError' => '',
             'NICError' => '',
             'addressError' => '',
+            'provinceError'=>'',
+            'districtError'=>'',
+            'postalZoneError'=>'',
+            'postalCodeError'=>'',
             'emailError' => '',
             'tpnoError' => '',
             'passwordError' => '',
@@ -189,6 +201,9 @@ class DeliveryPersons extends Controller {
 
     public function viewSingleSchedule(){
         $this->view('deliveryPersons/viewSingleSchedule');
+    }
+    public function selectDeliveryArea(){
+        $this->view('deliveryPersons/selectDeliveryArea');
     }
     public function dashboard(){
         $this->view('deliveryPersons/dashboard');
