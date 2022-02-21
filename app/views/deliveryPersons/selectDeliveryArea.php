@@ -168,6 +168,12 @@
             </svg>
 
     </div>
+    <form id="submitAreasForm" action="" method="POST" name="addAreas" id="addAreas" >
+    <div class="submit-btn">
+        <input type="submit" value="add current areas" class="btn" id="submitAreas">
+      </div>
+ 
+    </form>
     
 </body>
 </html>
