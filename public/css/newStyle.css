@@ -278,10 +278,6 @@ img {vertical-align: middle;}
     width: 825px;
     border-right-style: groove;
     border-right-color: cadetblue;
-   
-  
-    
-    /* background: wheat; */
 }
 
 .aboutUs img{
@@ -1035,10 +1031,10 @@ input[type=text], select, textarea {
 
 @media screen and (max-width: 1366px) {
     .text{
-        margin-top: 100px;
+        margin-top: 70px;
     }
     .hello{
-        padding-top: 100px;
+        padding-top: 70px;
       }
   }
 

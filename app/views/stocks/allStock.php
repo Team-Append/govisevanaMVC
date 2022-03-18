@@ -42,10 +42,12 @@
                                 <div class="text1">
                                     <p class="title">Farmer : <?php echo $stock->name;?></p>
                                 </div>
+
                                 <div class="text2">
                                     <i class='bx bx-star'></i>
                                     <i class='bx bx-star'></i>
                                 </div>
+                                <div><input type="button" value="Add to Cart"></div>
                             </div>
                         </div>
                     </div>

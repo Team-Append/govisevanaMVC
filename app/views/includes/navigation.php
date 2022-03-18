@@ -36,8 +36,9 @@
             <li class="right"><a href="index.html">Orders</a></li>
             <li class="right"><a href="contact.html">Contact Us</a></li>
             <li class="right"><a href="international.html">Help</a></li>
-        
-            <li class="search"><input type="text" placeholder="Search.."></li>
+            <form method = "post">
+            <li class="search"><input type="text" placeholder="Search.." name="search" ><input type="submit" name="submit"></li>
+            </form>
             
             </ul>
         </div>
@@ -63,6 +64,45 @@
     </div>
 </body>
 </html>
+
+<?php
+
+$con = new PDO("mysql:host=localhost;dbname=govisevana",'root','');
+
+if (isset($_POST["submit"])) {
+	$str = $_POST["search"];
+	$sth = $con->prepare("SELECT * FROM catagory,stock WHERE catagory.catName = '$str' and stock.catID = catagory.catID");
+
+	$sth->setFetchMode(PDO:: FETCH_OBJ);
+	$sth -> execute();
+
+	if($row = $sth->fetch())
+	{
+		?>
+		<br><br><br>
+		<table>
+			<tr>
+				<th>Title</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td><?php echo $row->title; ?></td>
+				<td><?php echo $row->description;?></td>
+			</tr>
+
+		</table>
+<?php 
+	}
+		
+		
+		else{
+			echo "Name Does not exist";
+		}
+
+
+}
+
+?>
 
 
 
