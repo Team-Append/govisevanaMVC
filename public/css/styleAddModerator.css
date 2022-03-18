@@ -1,0 +1,120 @@
+/*google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap');
+
+
+body{
+    margin: 0;
+}
+
+.content{
+    display: flex;
+    height: 1025px;
+    margin-top: 10px;
+
+
+}
+
+.content .form-side{
+    width: 50%;
+
+}
+
+.content .image{
+    float: right;
+    width: 50%;
+    padding-left: 200px;
+    padding-top: 150px;
+
+}
+
+.content .image img{
+    height: 350px;
+    padding-left: 100px;
+}
+
+
+input[type=text], select, textarea {
+    width: 300px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color:rgb(128, 128, 128);
+  }
+
+
+  input[type=date] {
+    width: 300px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color:rgb(128, 128, 128);
+  }
+
+  input[type=submit] {
+    width: 300px;
+    background-color: #1cd823;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+
+  }
+
+  input[type=submit]:hover {
+    background-color: #586158;
+  }
+
+  .content .form-side .topic{
+    padding: 50px;
+    text-align: center;
+    padding-left: 70px;
+    padding-top: 60px;
+    font-family: Candara Light;
+
+}
+
+.content .form-side .topic .main-topic{
+    font-size: 25px;
+    font-weight: 900;
+    color: rgb(3, 3, 3);
+    font-weight:bold;
+
+}
+
+.form-side form{
+    padding-left: 200px;
+    color:#575857;
+    font-weight:bold;
+    font-family: Candara Light;
+}
+
+.form-side i{
+    padding-right: 5px;
+}
+
+.content .image .img-content{
+    text-align: center;
+    color: rgb(70, 72, 73);
+    font-family: Candara Light;
+}
+
+input[type=file]{
+    width: 300px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color:rgb(128, 128, 128);
+    padding-left: 20px;
+  }

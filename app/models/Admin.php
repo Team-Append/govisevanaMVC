@@ -42,6 +42,25 @@
                 return false;
             }
         } 
-        
+        public function addModerator($data){
+            $this->db -> query('INSERT INTO moderator(ModName,ModEmail,ModTP,Password) VALUES(:modName,:modEmail,:modTP,:password)');
+            $this->db -> bind(':modName',$data['modName']);
+            $this->db -> bind(':modEmail',$data['modEmail']);
+            $this->db -> bind(':modTP',$data['modTP']);
+            $this->db -> bind(':password',$data['password']);
+
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        public function getAllModerators(){
+            $this->db->query('SELECT * FROM moderator');
+            
+    
+            $results = $this->db->resultSet();
+            return $results;
+        }
     }
 ?>

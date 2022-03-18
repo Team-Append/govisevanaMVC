@@ -4,6 +4,7 @@ class DeliveryPersons extends Controller {
     public function __construct()
     {
         $this->DeliveryPersonModel = $this-> model('DeliveryPerson');
+        $this->catagoryModel = $this-> model('Catagory');
 
     }
     public function login(){
@@ -80,6 +81,10 @@ class DeliveryPersons extends Controller {
             'nameError' => '',
             'NICError' => '',
             'addressError' => '',
+            'provinceError'=>'',
+            'districtError'=>'',
+            'postalZoneError'=>'',
+            'postalCodeError'=>'',
             'emailError' => '',
             'tpnoError' => '',
             'passwordError' => '',
@@ -99,6 +104,10 @@ class DeliveryPersons extends Controller {
                 'nameError' => '',
                 'NICError' => '',
                 'addressError' => '',
+                'provinceError'=>'',
+                'districtError'=>'',
+                'postalZoneError'=>'',
+                'postalCodeError'=>'',
                 'emailError' => '',
                 'tpnoError' => '',
                 'passwordError' => '',
@@ -159,6 +168,10 @@ class DeliveryPersons extends Controller {
             'nameError' => '',
             'NICError' => '',
             'addressError' => '',
+            'provinceError'=>'',
+            'districtError'=>'',
+            'postalZoneError'=>'',
+            'postalCodeError'=>'',
             'emailError' => '',
             'tpnoError' => '',
             'passwordError' => '',
@@ -190,6 +203,30 @@ class DeliveryPersons extends Controller {
     public function viewSingleSchedule(){
         $this->view('deliveryPersons/viewSingleSchedule');
     }
+
+    public function selectDeliveryArea(){
+        $data = array(
+            'selectedAreas' => '',
+        );
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+            $str = $_POST['selectedAreas'];
+            $str = str_replace('&#34;','',$str);
+            $str = str_replace('[','',$str);
+            $str = str_replace(']','',$str);
+            $str_arr = explode(',',$str);
+            $data =array(
+                'selectedAreas' => trim($str),
+            );
+            foreach($str_arr as $ss){
+                $this->DeliveryPersonModel->setAreas($ss);
+            }
+            header('location:'.URLROOT.'/deliveryPersons/selectVehicleandCatagory');
+
+        }
+        $this->view('deliveryPersons/selectDeliveryArea',$data);
+    }
     public function dashboard(){
         $this->view('deliveryPersons/dashboard');
     }
@@ -197,5 +234,14 @@ class DeliveryPersons extends Controller {
     public function editProfile(){
         $this->view('deliveryPersons/editProfile');
     }
+    public function selectVehicleandCatagory(){
+        $cat = $this->catagoryModel->getCatagory();
+        $data = array(
+            'cat' => $cat
+        );
+        
+        $this->view('deliveryPersons/selectVehicleandCatagory',$data);
+    }
+    
       
 }

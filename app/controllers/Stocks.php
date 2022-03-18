@@ -5,6 +5,7 @@ public function __construct()
 {
     $this->stockModel = $this->model('Stock');
     $this->catagoryModel = $this->model('Catagory');
+    $this->requestModel = $this-> model('Request');
 }
 public function viewStock(){
     $post = $this->stockModel->getStockByID($_GET['stockID']);
@@ -171,5 +172,24 @@ public function addStock(){
     $this->view('stocks/addStock',$data);
 
 }
+public function pendingStock(){
+    $posts = $this->stockModel->getPendingStock();
+
+    $data = array( 'posts' => $posts);
+   
+        if(isset($_GET['approve'])) {
+            $posts = $this->stockModel->updateStockStatus('approved',$_GET['stockID']);
+            header('location:' .URLROOT. '/stocks/PendingStock');
+        }
+        if(isset($_GET['reject'])) {
+            $posts = $this->stockModel->updateStockStatus('rejected',$_GET['stockID']);
+            header('location:' .URLROOT. '/stocks/PendingStock');
+        }
+
+    $this->view('stocks/pendingStock',$data);
+
+
+}
+
 }
 ?>

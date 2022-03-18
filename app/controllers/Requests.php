@@ -109,7 +109,25 @@ public function viewRequest(){
         $this->view('Requests/viewRequest',$data);
 }
 
+public function pendingRequest(){
+    $posts = $this->requestModel->getPendingRequests();
 
+    $data = array( 'posts' => $posts);
+
+        if(isset($_GET['approve'])) {
+            echo $_GET['RID'];
+            $posts = $this->requestModel->updateRequestStatus('approved',$_GET['RID']);
+            header('location:' .URLROOT. '/stocks/PendingRequest');
+        }
+        if(isset($_GET['reject'])) {
+            $posts = $this->requestModel->updateRequestStatus('rejected',$_GET['RID']);
+            header('location:' .URLROOT. '/stocks/PendingRequest');
+        }
+
+    $this->view('Requests/PendingRequest',$data);
+
+
+}
 
 }
 ?>

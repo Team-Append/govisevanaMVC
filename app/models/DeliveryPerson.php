@@ -55,6 +55,17 @@
         }else{
             return false;
         }
-        }  
+        
     }
+    public function setAreas($data){
+        $this->db -> query('INSERT INTO deliveryAreas(area) VALUES(:area)');
+        $this->db -> bind(':area',$data);
+        
+        if($this->db->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    }  
 ?>

@@ -54,9 +54,15 @@
 </div>
 
 </div>
-<button class="btn admin-login" style="position: absolute;right: 0;bottom: 0; background-color: #e6ffee;padding: 10px;">
+<button class="btn admin-login" style="position: absolute;right: 70px;bottom: 0; background-color: #e6ffee;padding: 10px;">
   <a href="<?php echo URLROOT;?>/admins/login" style="text-decoration: none;">
     <h2>Admin</h2>
+  </div>
+  </a>
+  </button>
+  <button class="btn admin-login" style="position: absolute;right: 0;bottom: 0; background-color: #e6ffee;padding: 10px;">
+  <a href="<?php echo URLROOT;?>/moderators/login" style="text-decoration: none;">
+    <h2>Mod</h2>
   </div>
   </a>
   </button>

@@ -1,6 +1,39 @@
 <!DOCTYPE html>
 
 <html lang="en">
+<script>
+  function selectDistrict(province,district){
+    var s1 = document.getElementById(province);
+    var s2 = document.getElementById(district);
+    s2.innerHTML = "";
+    if(s1.value == "Western"){
+      var optionArray = [" Colombo|Colombo" , " Gampaha|Gampaha","Kalutara|Kalutara"];
+    } else if(s1.value == "Central"){
+      var optionArray = ["Kandy|Kandy", " Matale| Matale","Nuwara Eliya|Nuwara Eliya"];
+    } else if(s1.value == "Southern"){
+      var optionArray = ["Galle|Galle","Hambantota|Hambantota", "Matara|Matara"];
+    }else if(s1.value == "Uva"){
+      var optionArray = ["Badulla|Badulla","Moneragala|Moneragala"];
+    }else if(s1.value == "Sabaragamuwa"){
+      var optionArray = ["Kegalle|Kegalle","Ratnapura|Ratnapura"];
+    }else if(s1.value == "North Western"){
+      var optionArray = ["Kurunegala|Kurunegala","Puttalam|Puttalam"];
+    }else if(s1.value == "North Central"){
+      var optionArray = ["Anuradhapura|Anuradhapura","Polonnaruwa|Polonnaruwa"];
+    }else if(s1.value == "Nothern"){
+      var optionArray = ["Jaffna|Jaffna","Kilinochchi|Kilinochchi","Mannar|Mannar","Mullaitivu|Mullaitivu","Vavuniya|Vavuniya"];
+    }else if(s1.value == "Eastern"){
+      var optionArray = ["Ampara|Ampara","Batticaloa|Batticaloa","Trincomalee|Trincomalee"];
+    }
+    for(var option in optionArray){
+      var pair = optionArray[option].split("|");
+      var newOption = document.createElement("option");
+      newOption.value = pair[0];
+      newOption.innerHTML = pair[1];
+      s2.options.add(newOption);
+    }
+  }
+</script>
 <head>
 	<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,6 +78,48 @@
            
            <textarea class="textarea" name="address" id="address" placeholder="Address"></textarea>
         </div>
+        
+      <span class="invalidFeedback">
+              <?php echo $data['provinceError'];?>
+          </span>
+       <div class="inputfield">
+         <label>Province</label>
+         <select id="province" name="province" onchange="selectDistrict(this.id,'district')">
+          <option value=""></option>
+          <option value="Western">Western</option>
+          <option value="Central">Central</option>
+          <option value="Southern">Southern</option>
+          <option value="Uva">Uva</option>
+          <option value="Sabaragamuwa">Sabaragamuwa</option>
+          <option value="North Western">North Western</option>
+          <option value="North Central">North Central</option>
+          <option value="Nothern">Nothern</option>
+          <option value="Eastern">Eastern</option>
+        </select>
+      </div>
+      <span class="invalidFeedback">
+              <?php echo $data['districtError'];?>
+          </span>
+       <div class="inputfield">
+         <label>District</label>
+         <select id="district" name="district"></select>
+      </div>
+      <span class="invalidFeedback">
+              <?php echo $data['postalZoneError'];?>
+          </span>
+       <div class="inputfield">
+         <label>Postal Zone</label>
+         
+         <input type="text" class="input" name="email" id="email" placeholder="Postal Zone" >
+      </div>
+      <span class="invalidFeedback">
+              <?php echo $data['postalCodeError'];?>
+          </span>
+       <div class="inputfield">
+         <label>Postal code</label>
+         
+         <input type="number" class="input" name="email" id="email" placeholder="Postal code" >
+      </div>
         <span class="invalidFeedback">
               <?php echo $data['emailError'];?>
           </span>

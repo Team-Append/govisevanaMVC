@@ -207,43 +207,84 @@ class Admins extends Controller {
         $this->view('admins/notiAdminContact');
     }
 
-    public function pendingStock(){
-        $posts = $this->stockModel->getPendingStock();
-
-        $data = array( 'posts' => $posts);
-       
-            if(isset($_GET['approve'])) {
-                $posts = $this->stockModel->updateStockStatus('approved',$_GET['stockID']);
-                header('location:' .URLROOT. '/admins/PendingStock');
-            }
-            if(isset($_GET['reject'])) {
-                $posts = $this->stockModel->updateStockStatus('rejected',$_GET['stockID']);
-                header('location:' .URLROOT. '/admins/PendingStock');
-            }
-
-        $this->view('admins/pendingStock',$data);
-
-
+    public function manageModerators(){
+        $post = $this->adminModel->getAllModerators();
+        $data = array('posts' => $post);
+        $this->view('admins/manageModerators',$data);
     }
-    public function pendingRequest(){
-        $posts = $this->requestModel->getPendingRequests();
+    public function addModerator(){
+        $data = array(
+            'modName' => '',
+            'modEmail' => '',
+            'modTP' => '',
+            'modNameError' => '',
+            'modEmailError' => '',
+            'modTPError' => ''
+            
+        );
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    
+            $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+            $data = array(
+                'modName' => trim($_POST['modName']),
+                'modEmail' => trim($_POST['modEmail']),
+                'modTP' => trim($_POST['modTP']),
+                'modNameError' => '',
+                'modEmailError' => '',
+                'modTPError' => '', 
+                'password'=> '1234'
+                
+            );
 
-        $data = array( 'posts' => $posts);
-
-            if(isset($_GET['approve'])) {
-                echo $_GET['RID'];
-                $posts = $this->requestModel->updateRequestStatus('approved',$_GET['RID']);
-                header('location:' .URLROOT. '/admins/PendingRequest');
+            $data['password'] = password_hash($data['password'],PASSWORD_DEFAULT);
+            
+            //validation
+            if(empty($data['modName'])){
+                $data['modNameError'] = 'Please enter the Name'; 
             }
-            if(isset($_GET['reject'])) {
-                $posts = $this->requestModel->updateRequestStatus('rejected',$_GET['RID']);
-                header('location:' .URLROOT. '/admins/PendingRequest');
+            if(empty($data['modEmail'])){
+                $data['modEmailError'] = 'please enter the Email'; 
             }
-
-        $this->view('admins/PendingRequest',$data);
-
-
+            if(empty($data['modTP'])){
+                $data['modTPError'] = 'please enter the TP'; 
+            }
+            
+            
+            
+            
+            if(empty($data['modNameError']) && empty($data['modEmailError']) && empty($data['modTPError'])){
+                
+            
+            //add request to db
+            if($this->adminModel -> addModerator($data)){
+               // redirect to index;
+               header('location:' . URLROOT. '/admins/manageModerators?status=success'); 
+            }else{
+                die('something went wrong');
+            }
+    
+    
+        }
+    }else{
+        $data = array(
+            'modName' => '',
+            'modEmail' => '',
+            'modTP' => '',
+            'modNameError' => '',
+            'modEmailError' => '',
+            'modTPError' => '',
+            'password'=> ''
+            
+            
+        );
     }
+        $this->view('Admins/addModerator',$data);
+    
+    }
+    
+
+    
+    
     // public function updateStockStatus(){
     //     if(isset($_POST['approve'])) {
     //         $posts = $this->stockModel->updateStockStatus('approved',$_GET);
