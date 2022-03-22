@@ -16,7 +16,7 @@
    
     <div class="detail" style="width: 100%;">
       <div class="dtopic">
-        <h1>offers For Request</h1>
+        <h1>My Orders</h1>
       </div>
       <div class="dlist">
       <?php foreach ($data['posts'] as $post){ ?>

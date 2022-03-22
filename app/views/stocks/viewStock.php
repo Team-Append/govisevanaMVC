@@ -35,11 +35,11 @@
                 </td>
             </tr>
             <tr>
-                <td><input type="text" class="txt" id="qty" name="qty" value="Qty" required></td>
+                <td><input type="text" class="txt" id="qty" name="qty" placeholder="Qty" required></td>
                 <td><input type="text" class="txt" id="bid" name="bid" placeholder="Minimum Bid Rs.<?php echo $data['posts']->minBidPrice;?>" required></td>
             </tr>
             <tr>
-                <td><input type="button" class="btn" value="Add to Cart"></td>
+                <td><input type="button" class="btn" value="buy"></td>
                 <td><input type="button" class="btn" value="Place a Bid"></td>
             </tr>
             </table> 

@@ -6,6 +6,8 @@ class Buyers extends Controller {
         $this->buyerModel = $this-> model('Buyer');
         $this->requestModel = $this-> model('Request');
         $this->offerModel = $this-> model('Offer');
+        $this->orderModel = $this-> model('Order');
+
 
     }
     public function login(){
@@ -202,6 +204,16 @@ class Buyers extends Controller {
 
         $this->view('buyers/viewOffers',$data);
     }
+    public function viewOrders(){
+        $orders =  $this->orderModel -> getOrdersByBuyerID($_SESSION['buyerID']);
+        $data = array(
+            'posts' => $orders
+        );
+
+
+        $this->view('buyers/viewOrders',$data);
+    }
+
 
     
 
