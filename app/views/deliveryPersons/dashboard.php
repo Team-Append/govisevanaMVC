@@ -36,9 +36,9 @@ include_once(APPROOT.'/views/includes/navigation.php');
             </table>
         </div>
         <div class="card-line">
-            <a href="<?php echo URLROOT;?>/deliveryPersons/addSchedule">
+            <a href="<?php echo URLROOT;?>/deliveryPersons/selectDeliveryArea">
                 <div class="dash-card">
-                    <h3>Add Schedule</h3>
+                    <h3>Edit Delivery Areas</h3>
                     <img src="<?php echo URLROOT;?>/img/icons/stock.png" alt="">
                 </div>
             </a>

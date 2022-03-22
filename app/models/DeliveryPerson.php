@@ -22,13 +22,16 @@
             }
         } 
         public function register($data){
-            $this->db -> query('INSERT INTO deliveryperson(NIC,password,name,address,tpno,email) VALUES(:NIC,:password,:name, :address, :tpno , :email)');
+            $this->db -> query('INSERT INTO deliveryperson(NIC,password,name,address,tpno,email,province,district,city) VALUES(:NIC,:password,:name, :address, :tpno , :email, :province, :district,:city )');
             $this->db -> bind(':NIC',$data['NIC']);
             $this->db -> bind(':password',$data['password']);
             $this->db -> bind(':name',$data['name']);
             $this->db -> bind(':address',$data['address']);
             $this->db -> bind(':tpno',$data['tpno']);
             $this->db -> bind(':email',$data['email']);
+            $this->db -> bind(':province',$data['province']);
+            $this->db -> bind(':district',$data['district']);
+            $this->db -> bind(':city',$data['city']);
 
             if($this->db->execute()){
                 return true;
@@ -58,8 +61,31 @@
         
     }
     public function setAreas($data){
-        $this->db -> query('INSERT INTO deliveryAreas(area) VALUES(:area)');
+        $this->db -> query('INSERT INTO deliveryAreas(deliveryPersonID,areas) VALUES(:deliveryPersonID,:area)');
         $this->db -> bind(':area',$data);
+        $this->db -> bind(':deliveryPersonID',$_SESSION['deliveryPersonID']);
+        
+        if($this->db->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function setVehicles($data){
+        $this->db -> query('INSERT INTO deliveryVehicles(deliveryPersonID,vehicleModel) VALUES(:deliveryPersonID,:vehicleModel)');
+        $this->db -> bind(':vehicleModel',$data);
+        $this->db -> bind(':deliveryPersonID',$_SESSION['deliveryPersonID']);
+        
+        if($this->db->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function setCats($data){
+        $this->db -> query('INSERT INTO deliverypersoncatagories(deliveryPersonID,catID) VALUES(:deliveryPersonID,:catID)');
+        $this->db -> bind(':catID',$data);
+        $this->db -> bind(':deliveryPersonID',$_SESSION['deliveryPersonID']);
         
         if($this->db->execute()){
             return true;
