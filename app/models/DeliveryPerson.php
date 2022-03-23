@@ -71,6 +71,16 @@
             return false;
         }
     }
+    public function deleteAreas($deliveryPersonID){
+        $this->db -> query('DELETE FROM deliveryareas WHERE deliveryPersonID= :deliveryPersonID');
+        $this->db -> bind(':deliveryPersonID',$deliveryPersonID);
+        
+        if($this->db->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
     public function setVehicles($data){
         $this->db -> query('INSERT INTO deliveryVehicles(deliveryPersonID,vehicleModel) VALUES(:deliveryPersonID,:vehicleModel)');
         $this->db -> bind(':vehicleModel',$data);
@@ -92,6 +102,12 @@
         }else{
             return false;
         }
+    }
+    public function getAreas($deliveryPersonID){
+        $this->db->query("SELECT * FROM deliveryareas WHERE deliveryPersonID= $deliveryPersonID");
+
+            $results = $this->db->resultSet();
+            return $results;
     }
     }  
 ?>

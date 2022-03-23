@@ -168,7 +168,7 @@ class DeliveryPersons extends Controller {
                     echo " logged in";
                     $this->createUserSession($loggedInUser);
                     // redirect to login page;
-                    header('location:' . URLROOT. '/deliveryPersons/selectDeliveryArea'); 
+                    header('location:' . URLROOT. '/deliveryPersons/selectDeliveryArea?district[]='. $data['district']); 
                 }else{
                     header('location:' . URLROOT. '/deliveryPersons/login');
                 }
@@ -242,8 +242,10 @@ class DeliveryPersons extends Controller {
             $data =array(
                 'selectedAreas' => trim($str),
             );
-            foreach($str_arr as $ss){
-                $this->DeliveryPersonModel->setAreas($ss);
+            if($this->DeliveryPersonModel->deleteAreas($_SESSION['deliveryPersonID'])){
+                foreach($str_arr as $ss){
+                    $this->DeliveryPersonModel->setAreas($ss);
+                }
             }
             header('location:'.URLROOT.'/deliveryPersons/selectVehicleandCatagory');
 
@@ -251,7 +253,10 @@ class DeliveryPersons extends Controller {
         $this->view('deliveryPersons/selectDeliveryArea',$data);
     }
     public function dashboard(){
-        $this->view('deliveryPersons/dashboard');
+        $data = array(
+            'areas' => $this->DeliveryPersonModel-> getAreas($_SESSION['deliveryPersonID'])
+        );
+        $this->view('deliveryPersons/dashboard',$data);
     }
 
     public function editProfile(){

@@ -6,6 +6,31 @@
     <title>Sri Lanka - MAP Jquery</title>
     <script src="<?php echo URLROOT; ?>/js/jquery.min.js"></script>
     <script src="<?php echo URLROOT; ?>/js/map.js"></script>
+    <script>
+        <?php foreach ($_GET['district'] as $districtx){ ?>
+        $(document).ready(function(){
+            console.log("<?php echo $districtx ?>");
+            $district = $("[title=<?php echo $districtx ?>]")
+            $district.css("fill","#ee2f5b");
+
+            var curIndex = selectedAreas.indexOf($district.attr("title"));
+            if (curIndex == -1){
+                selectedAreas.push($district.attr("title"))
+            }else{
+                selectedAreas.splice(curIndex,1);
+            }
+            var list = document.getElementById('selectedAreaList');
+            list.textContent = '';
+            for (var i = 0; i < selectedAreas.length; i++) {
+                var entry = document.createElement('li');
+                entry.appendChild(document.createTextNode(selectedAreas[i]));
+                list.appendChild(entry);
+                $( "path[title="+ selectedAreas[i]+"]" ).css("fill","#ee2f5b");
+            }
+        });
+        <?php } ?>
+    </script>
+   
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap');
 *{
@@ -35,14 +60,35 @@
             left: 10%;
             margin: 0px;
         }
+        .submit-btn input{
+            width: 60%;
+            height: 40px;
+            background-color: rgb(11, 172, 38);
+            border-radius: 20px;
+            border-color: rgb(11, 172, 137);
+        }
+        #selectors input{
+            width: 40%;
+            height: 30px;
+            background-color: rgb(11, 172, 38);
+            border-radius: 6px;
+            border-color: rgb(11, 172, 137);
+        }
     </style>
 </head>
 <body>
     <?php include_once(APPROOT.'/views/includes/navigation.php');?>
     <h1>Please select the areas that you are willing to deliver with your delivery service</h1>
     <div id="selectedList">
-    <input type="button" value="selectAll" id="selectAll"/>  
-    <input type="button" value="selectNone" id="selectNone"/>  
+    <div id="selectors">
+        <input type="button" value="selectAll" id="selectAll"/>  
+        <input type="button" value="selectNone" id="selectNone"/>  
+    </div>
+    <div class="submit-btn" style="margin-top: 20px;">
+        <a href="<?php echo URLROOT; ?>/deliveryPersons/selectVehicleandCatagory">
+            <input type="submit" value="add current areas" class="btn" id="submitAreas">
+        </a>
+      </div>
         <h2>Selected areas</h2>
         <ul id="selectedAreaList">
         
@@ -169,9 +215,7 @@
 
     </div>
     <form id="submitAreasForm" action="" method="POST" name="addAreas" id="addAreas" >
-    <div class="submit-btn">
-        <input type="submit" value="add current areas" class="btn" id="submitAreas">
-      </div>
+    
  
     </form>
     
