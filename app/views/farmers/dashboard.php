@@ -76,9 +76,9 @@ include_once(APPROOT.'/views/includes/navigation.php');
                 <img src="<?php echo URLROOT;?>/img/icons/req.png" alt="">
             </div>
             </a>
-            <a href="<?php echo URLROOT;?>/farmers/analytic">
+            <a href="<?php echo URLROOT;?>/farmers/myOrder">
             <div class="dash-card">
-                <h1>Analytics</h1>
+                <h1>My orders</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/analytics.png" alt="">
             </div>
             </a>

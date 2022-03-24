@@ -39,7 +39,7 @@
                 <td><input type="text" class="txt" id="bid" name="bid" placeholder="Minimum Bid Rs.<?php echo $data['posts']->minBidPrice;?>" required></td>
             </tr>
             <tr>
-                <td><input type="button" class="btn" value="buy"></td>
+                <td> <a href="<?php echo URLROOT;?>/buyers/orderConfirmation?stockID=<?php echo $data['posts']->stockID;?>"> <input type="button" class="btn" value="buy"></a></td>
                 <td><input type="button" class="btn" value="Place a Bid"></td>
             </tr>
             </table> 
