@@ -46,7 +46,6 @@ class Farmers extends Controller {
   
             }else{
                 $data['passwordError'] = 'Password or username is incorrect. Please try again' ;
-
             }
         }
         }else{
@@ -146,26 +145,26 @@ class Farmers extends Controller {
             }
 
 
-        }
-    }else{
-        $data = array(
-        'name' => '',
-        'NIC' => '',
-        'address' => '',
-        'email' => '',
-        'tpno' => '',
-        'password' => '',
-        'confirmPassword' => '',
-        'nameError' => '',
-        'NICError' => '',
-        'addressError' => '',
-        'emailError' => '',
-        'tpError' => '',
-        'passwordError' => '',
-        'confirmPasswordError' => ''
+        }}
+    // }else{
+    //     $data = array(
+    //     'name' => '',
+    //     'NIC' => '',
+    //     'address' => '',
+    //     'email' => '',
+    //     'tpno' => '',
+    //     'password' => '',
+    //     'confirmPassword' => '',
+    //     'nameError' => '',
+    //     'NICError' => '',
+    //     'addressError' => '',
+    //     'emailError' => '',
+    //     'tpError' => '',
+    //     'passwordError' => '',
+    //     'confirmPasswordError' => ''
             
-        );
-    }
+    //     );
+    // }
         $this->view('farmers/register',$data);
     }
 

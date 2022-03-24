@@ -40,7 +40,10 @@
             <li class="right"><a href="contact.html">Contact Us</a></li>
             <li class="right"><a href="international.html">Help</a></li>
             <form method = "post">
-            <li class="search"><input type="text" placeholder="Search.." name="search" ><input type="submit" name="submit"></li>
+                <li class="search">
+                    <input type="text" placeholder="Search.." name="search" >
+                    <input type="submit" name="submit">
+                </li>
             </form>
             
             </ul>

@@ -98,9 +98,7 @@ public function addStock(){
             'qtyError' => '',
             'fixedPriceError' => '',
             'minBidPriceError' => '',
-            'imageError' => $imgError
-         
-            
+            'imageError' => $imgError   
         );
         
         //validation
@@ -132,9 +130,6 @@ public function addStock(){
         
         
         if(empty($data['titleError']) && empty($data['descriptionError']) && empty($data['harvestDateError']) && empty($data['expireDateError']) && empty($data['catagoryError']) && empty($data['qtyError']) && empty($data['fixedPriceError']) && empty($data['minBidPriceError']) && empty($data['ImageError'])){
-            
-
-  
         
         //add stock to db
         if($this->stockModel -> addStock($data)){
