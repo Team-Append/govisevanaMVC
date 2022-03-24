@@ -9,12 +9,12 @@
         
         public function createOrder($data){
             $this->db -> query('INSERT INTO stockOrder(stockID, farmerID, buyerID, qty, shippingAddress, orderDate, orderStatus) VALUES(:stockID,:farmerID,:buyerID, :qty, :shippingAddress,:orderDate, :orderStatus)');
-            $this->db -> bind(':stockID',$data['stockID']); //get the currently loged in buyers's ID
-            $this->db -> bind(':farmerID',$data['farmerID']);
+            $this->db -> bind(':stockID',$data['posts']->stockID); //get the currently loged in buyers's ID
+            $this->db -> bind(':farmerID',$data['posts']->farmerID);
             $this->db -> bind(':buyerID',$_SESSION['buyerID']);
-            $this->db -> bind(':qty',$data['qty']);
+            $this->db -> bind(':qty',$data['posts']->qty);
             $this->db -> bind(':shippingAddress',$data['shippingAddress']);
-            $this->db -> bind(':orderDate',$data['orderDate']); 
+            $this->db -> bind(':orderDate',date("Y/m/d")); 
             $this->db -> bind(':orderStatus','pending'); 
            
             if($this->db->execute()){
@@ -31,7 +31,7 @@
             
         }
         public function getOrdersByFarmerID($farmerID){
-            $this->db -> query('SELECT * FROM stockorder WHERE farmerID = :ID ORDER BY orderDate DESC');
+            $this->db -> query('SELECT * FROM stockorder,stock,farmer,buyer WHERE stockorder.farmerID = :ID and stockorder.stockId = stock.stockID and farmer.farmerID = stock.farmerID and buyer.buyerID = stockorder.buyerID order BY orderDate DESC');
             $this->db -> bind(':ID',$farmerID);
             $results = $this->db->resultSet();
             return $results;

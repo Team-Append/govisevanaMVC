@@ -7,6 +7,7 @@ class Buyers extends Controller {
         $this->requestModel = $this-> model('Request');
         $this->offerModel = $this-> model('Offer');
         $this->orderModel = $this-> model('Order');
+        $this->stockModel = $this-> model('Stock');
 
 
     }
@@ -215,11 +216,33 @@ class Buyers extends Controller {
     }
 
 
-    
-
     public function receivedOffer(){
 
         $this->view('buyers/receivedOffer');
+    }
+
+
+    public function orderConfirmation(){
+        $post = $this->stockModel->getStockByID($_GET['stockID']);
+        $data = array('posts' => $post);
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+            $data = array(
+                    'posts' => $post,
+                    'shippingAddress' => trim($_POST['shippingAddress']),
+                );
+                if($this -> orderModel-> createOrder($data)){
+                    // redirect to login page;
+                    header('location:' . URLROOT. '/buyers/dashboard'); 
+                 }else{
+                     die('something went wrong');
+                 }
+            
+
+        }else{
+            $data = array('posts' => $post);
+        }
+        $this->view('buyers/orderConfirmation',$data);
     }
 
     public function reviewFarmer(){

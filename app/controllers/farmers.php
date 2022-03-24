@@ -5,6 +5,7 @@ class Farmers extends Controller {
     {
         $this->farmerModel = $this-> model('Farmer');
         $this->stockModel = $this-> model('Stock');
+        $this->orderModel = $this-> model('Order');
 
     }
     public function login(){
@@ -198,8 +199,11 @@ class Farmers extends Controller {
     }
 
     public function myOrder(){
-        
-        $this->view('farmers/myOrder');
+        $orderDetails = $this->orderModel -> getOrdersByFarmerID($_SESSION['farmerID']);
+        $data = array(
+            'orders' => $orderDetails
+        );
+        $this->view('farmers/myOrder',$data);
     }
 
     public function viewRequest(){

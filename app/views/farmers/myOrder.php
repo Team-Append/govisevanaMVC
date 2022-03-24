@@ -18,34 +18,54 @@
           <thead class="ttopic">
             <td>Order number</td>
             <td>Description</td>
-            <td>Price</td>
-            <td>Status</td>
+            <td>shipping Address</td>
+            <td>Unit Price</td>
+            <td>qty</td>
             <td>Total</td>
+            <td>Status</td>
+            
           </thead>
-          <?php for ($i = 0; $i <= 3; $i++){ ?>
+          <?php foreach ($data['orders'] as $order){ ?>
           <tbody>
             <tr class="rw">
-              <td>1234532</td>
+              <td><?php echo $order-> orderID ?></td>
               <td class="col-description">
                 <div class="s-details">
                   <div class="s-topic">
-                    <h4>Carrot 20kg Stock</h4>
+                    <h4><?php echo $order-> title ?></h4>
                   </div>
                   <div class="s-description">
                     <div class="image">
                     <img class="cart-image" src="<?php echo URLROOT; ?>/img/carrot.jpg" alt="cartpic" style="width:100%">
                     </div>
                     <div class="info">
-                      <p>Weight : <w>20kg</w> <br>
-                      Shipping address : <sa> Abc <br> Colombo <br>
-                      Call : <cl>+94775432124</cl></p>
+                      <p><?php echo $order-> description ?></p>
                     </div>
                   </div>
                 </div>
               </td>
-              <td>Rs. <pr>3000.00</pr></td>
-              <td><st>Shipped</st></td>
-              <td>Rs. <t>3000.00</t></td>
+              <td><?php echo $order-> shippingAddress ?></td>
+              <td><?php echo $order-> fixedPrice ?></td>
+              <td><?php echo $order-> qty ?></td>
+              <td><?php echo $order-> qty * $order-> fixedPrice?></td>
+              <td>
+                <?php echo $order-> orderStatus ?>
+                <div class="Proceed">
+                  
+                    <?php if($order-> orderStatus == 'pending'){ ?>
+                        <button type="button" name="button"> <?php echo "confirm order";?> </button>
+                        <?php } else if($order-> orderStatus == 'confirmed'){?>
+                          <button type="button" name="button"> <?php echo "confirm order";?> </button>
+                      <?php }else if($order-> orderStatus == 'shipped'){ ?>
+                         
+                      <?php }else if($order-> orderStatus == 'completed'){?>
+                        <button type="button" name="button"> <?php echo "view review";?> </button>
+                      <?php }?>
+
+                  
+                  
+                </div>
+              </td>
             </tr>
             <tr>
             </tr>
@@ -55,12 +75,10 @@
           <?php } ?>
           
         </table>
-       
+        
       </div>
       <br><br>
-      <div class="Proceed">
-        <button type="button" name="button">Mark as complete</button>
-      </div>
+      
     </div>
   </body>
 </html>
