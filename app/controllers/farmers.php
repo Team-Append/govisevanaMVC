@@ -240,6 +240,7 @@ class Farmers extends Controller {
         
         $this->view('farmers/earning');
     }
+    
 
 
 }
