@@ -708,9 +708,9 @@ html {
   .wrapper .submit-btn input{
       width: 60%;
       height: 40px;
-      background-color: rgb(172, 11, 123);
+      background-color: rgb(11, 172, 38);
       border-radius: 20px;
-      border-color: rgb(172, 11, 123);
+      border-color: rgb(11, 172, 137);
   }
   input[type=submit]:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);

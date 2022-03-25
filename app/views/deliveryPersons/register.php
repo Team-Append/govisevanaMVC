@@ -102,23 +102,17 @@
           </span>
        <div class="inputfield">
          <label>District</label>
-         <select id="district" name="district"></select>
+         <select id="district" name="district">
+          <option value=" "></option>
+         </select>
       </div>
       <span class="invalidFeedback">
-              <?php echo $data['postalZoneError'];?>
+              <?php echo $data['cityError'];?>
           </span>
        <div class="inputfield">
-         <label>Postal Zone</label>
+         <label>City</label>
          
-         <input type="text" class="input" name="email" id="email" placeholder="Postal Zone" >
-      </div>
-      <span class="invalidFeedback">
-              <?php echo $data['postalCodeError'];?>
-          </span>
-       <div class="inputfield">
-         <label>Postal code</label>
-         
-         <input type="number" class="input" name="email" id="email" placeholder="Postal code" >
+         <input type="text" class="input" name="city" id="city" placeholder="city" >
       </div>
         <span class="invalidFeedback">
               <?php echo $data['emailError'];?>
@@ -153,12 +147,6 @@
           <input type="password" class="input" name="confirmpassword" id="confirmpassword">
        </div>
       <div class="inputfield terms">
-      <p>I agree all the terms and conditions</p>
-          <label class="check">
-            <input type="checkbox" id="terms" name="terms">
-            <span class="checkmark"></span>
-          </label>
-          
        </div>
        <div class="submit-btn">
         <input type="submit" value="SIGN IN" class="btn">
@@ -166,11 +154,7 @@
  
 </form>
 </div>
-    <div class="socials">
-      <a href="#" class="button"><img src="../img/fb.png" width="30" height="30" alt="facebook"></a>
-      <a href="#" class="button"><img src="../img/google.png" width="30" height="30" alt="google"></a>
-      <a href="#" class="button"><img src="../img/twitter.png" width="30" height="30" alt="tweeter"></a>
-    </div>
+
     </div>
 
   </div>

@@ -6,6 +6,9 @@ class Buyers extends Controller {
         $this->buyerModel = $this-> model('Buyer');
         $this->requestModel = $this-> model('Request');
         $this->offerModel = $this-> model('Offer');
+        $this->orderModel = $this-> model('Order');
+        $this->stockModel = $this-> model('Stock');
+
 
     }
     public function login(){
@@ -202,12 +205,44 @@ class Buyers extends Controller {
 
         $this->view('buyers/viewOffers',$data);
     }
+    public function viewOrders(){
+        $orders =  $this->orderModel -> getOrdersByBuyerID($_SESSION['buyerID']);
+        $data = array(
+            'posts' => $orders
+        );
 
-    
+
+        $this->view('buyers/viewOrders',$data);
+    }
+
 
     public function receivedOffer(){
 
         $this->view('buyers/receivedOffer');
+    }
+
+
+    public function orderConfirmation(){
+        $post = $this->stockModel->getStockByID($_GET['stockID']);
+        $data = array('posts' => $post);
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+            $data = array(
+                    'posts' => $post,
+                    'shippingAddress' => trim($_POST['shippingAddress']),
+                );
+                if($this -> orderModel-> createOrder($data)){
+                    // redirect to login page;
+                    header('location:' . URLROOT. '/buyers/dashboard'); 
+                 }else{
+                     die('something went wrong');
+                 }
+            
+
+        }else{
+            $data = array('posts' => $post);
+        }
+        $this->view('buyers/orderConfirmation',$data);
     }
 
     public function reviewFarmer(){

@@ -47,7 +47,7 @@
                                     <i class='bx bx-star'></i>
                                     <i class='bx bx-star'></i>
                                 </div>
-                                <div><input type="button" value="Add to Cart"></div>
+                                
                             </div>
                         </div>
                     </div>

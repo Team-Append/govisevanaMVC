@@ -26,6 +26,7 @@
 //     });
 // })();
 var selectedAreas = new Array();
+
 $(document).ready(function(){
 
     $("#submitAreas").click( function() {
@@ -34,9 +35,10 @@ $(document).ready(function(){
         var areas = JSON.stringify(selectedAreas);
         // "localhost" + $("#submitAreasForm").attr( "action" )
         $.post("",
-        {selectedAreas: areas}, alert("success")
+        {selectedAreas: areas}
         );
     });
+    
     
     
 });

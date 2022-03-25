@@ -36,9 +36,17 @@ include_once(APPROOT.'/views/includes/navigation.php');
             </table>
         </div>
         <div class="card-line">
-            <a href="<?php echo URLROOT;?>/deliveryPersons/addSchedule">
+            <?php 
+                $deliveryURL = URLROOT.'/deliveryPersons/selectDeliveryArea?';
+                foreach ($data['areas'] as $area){
+                    $deliveryURL .= "district[]=". $area->areas.'&';
+                }
+                $deliveryURL = substr_replace($deliveryURL, "", -1);
+
+            ?>
+            <a href="<?php echo $deliveryURL ?>">
                 <div class="dash-card">
-                    <h3>Add Schedule</h3>
+                    <h3>Edit Delivery Areas</h3>
                     <img src="<?php echo URLROOT;?>/img/icons/stock.png" alt="">
                 </div>
             </a>

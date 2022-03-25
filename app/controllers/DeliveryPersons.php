@@ -83,8 +83,7 @@ class DeliveryPersons extends Controller {
             'addressError' => '',
             'provinceError'=>'',
             'districtError'=>'',
-            'postalZoneError'=>'',
-            'postalCodeError'=>'',
+            'cityError' => '',
             'emailError' => '',
             'tpnoError' => '',
             'passwordError' => '',
@@ -97,6 +96,9 @@ class DeliveryPersons extends Controller {
                 'name' => trim($_POST['name']),
                 'NIC' => trim($_POST['NIC']),
                 'address' => trim($_POST['address']),
+                'province'=>trim($_POST['province']),
+                'district'=>trim($_POST['district']),
+                'city' => trim($_POST['city']),
                 'email' => trim($_POST['email']),
                 'tpno' => trim($_POST['tpno']),
                 'password' => trim($_POST['password']),
@@ -106,8 +108,7 @@ class DeliveryPersons extends Controller {
                 'addressError' => '',
                 'provinceError'=>'',
                 'districtError'=>'',
-                'postalZoneError'=>'',
-                'postalCodeError'=>'',
+                'cityError' => '',
                 'emailError' => '',
                 'tpnoError' => '',
                 'passwordError' => '',
@@ -122,6 +123,15 @@ class DeliveryPersons extends Controller {
             }
             if(empty($data['address'])){
                 $data['addressError'] = 'please enter the address'; 
+            }
+            if(empty($data['province'])){
+                $data['provinceError'] = 'please enter the address'; 
+            }
+            if(empty($data['district'])){
+                $data['districtError'] = 'please enter the district'; 
+            }
+            if(empty($data['city'])){
+                $data['cityError'] = 'please enter the city'; 
             }
             if(empty($data['email'])){
                 $data['emailError'] = 'please enter the email'; 
@@ -140,6 +150,10 @@ class DeliveryPersons extends Controller {
                     $data['confirmPasswordError'] = 'passwords does not match'; 
                 }
             }
+            if(empty($data['confirmPassword'])){
+                $data['confirmPasswordError'] = 'please confirm the password'; 
+            }
+            
             if(empty($data['nameError']) && empty($data['NICError']) && empty($data['addressError']) && empty($data['emailError']) && empty($data['tpnoError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])){
                 
             
@@ -148,8 +162,18 @@ class DeliveryPersons extends Controller {
             
             //register user from model
             if($this->DeliveryPersonModel -> register($data)){
-               // redirect to login page;
-               header('location:' . URLROOT. '/deliveryPersons/login'); 
+                 $loggedInUser = $this->DeliveryPersonModel->login(trim($_POST['email']),trim($_POST['password']));
+
+                if($loggedInUser){
+                    echo " logged in";
+                    $this->createUserSession($loggedInUser);
+                    // redirect to login page;
+                    header('location:' . URLROOT. '/deliveryPersons/selectDeliveryArea?district[]='. $data['district']); 
+                }else{
+                    header('location:' . URLROOT. '/deliveryPersons/login');
+                }
+               
+               
             }else{
                 die('something went wrong');
             }
@@ -170,8 +194,7 @@ class DeliveryPersons extends Controller {
             'addressError' => '',
             'provinceError'=>'',
             'districtError'=>'',
-            'postalZoneError'=>'',
-            'postalCodeError'=>'',
+            'cityError' => '',
             'emailError' => '',
             'tpnoError' => '',
             'passwordError' => '',
@@ -219,8 +242,10 @@ class DeliveryPersons extends Controller {
             $data =array(
                 'selectedAreas' => trim($str),
             );
-            foreach($str_arr as $ss){
-                $this->DeliveryPersonModel->setAreas($ss);
+            if($this->DeliveryPersonModel->deleteAreas($_SESSION['deliveryPersonID'])){
+                foreach($str_arr as $ss){
+                    $this->DeliveryPersonModel->setAreas($ss);
+                }
             }
             header('location:'.URLROOT.'/deliveryPersons/selectVehicleandCatagory');
 
@@ -228,7 +253,10 @@ class DeliveryPersons extends Controller {
         $this->view('deliveryPersons/selectDeliveryArea',$data);
     }
     public function dashboard(){
-        $this->view('deliveryPersons/dashboard');
+        $data = array(
+            'areas' => $this->DeliveryPersonModel-> getAreas($_SESSION['deliveryPersonID'])
+        );
+        $this->view('deliveryPersons/dashboard',$data);
     }
 
     public function editProfile(){
@@ -237,9 +265,54 @@ class DeliveryPersons extends Controller {
     public function selectVehicleandCatagory(){
         $cat = $this->catagoryModel->getCatagory();
         $data = array(
-            'cat' => $cat
+            'cat' => $cat,
+            'selectedCats' => '',
+            'vehicle' => '',
+            'catsError' => '',
+            'vehicleError' => ''
         );
-        
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+            $data = array(
+                'cat' => $cat,
+                'selectedCats' => $_POST['cats'],
+                'vehicle' => trim($_POST['vehicle']),
+                'catsError' => '',
+                'vehicleError' => ''
+            );
+            echo implode(" ",$_POST['cats']);
+            if(empty($data['vehicle'])){
+                $data['vehicleError'] = 'please enter vehicle model'; 
+            }
+            if(empty($data['selectedCats'])){
+                $data['catsError'] = 'please enter catagories you like to deliver'; 
+            }
+            if(empty($data['vehicleError']) && empty($data['catsError'])){
+                $vehicleSuccess = false;
+                $catSuccess = false;
+                foreach($data['selectedCats'] as $selectedCat){
+                    if($this->DeliveryPersonModel->setCats($selectedCat)){
+                        $catSuccess = true;
+                    }
+                }
+                if($this->DeliveryPersonModel->setVehicles($data['vehicle'])){
+                    $vehicleSuccess = true;
+                }
+                if($vehicleSuccess && $catSuccess){
+                    header('location:'.URLROOT.'/deliveryPersons/dashboard');
+                }
+            }
+            
+
+        }else{
+            $data = array(
+                'cat' => $cat,
+                'selectedCats' => '',
+                'vehicle' => '',
+                'catsError' => '',
+                'vehicleError' => ''
+            );
+        }
         $this->view('deliveryPersons/selectVehicleandCatagory',$data);
     }
     

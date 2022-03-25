@@ -23,17 +23,20 @@
     <form action="" method="POST" name="createAccount" onsubmit="return(validate())">
     <div class="form">
     <span class="invalidFeedback">
-              <!-- <?php echo $data['vehicleError'];?> -->
+              <?php echo $data['vehicleError'];?>
           </span>
        <div class="inputfield">
           <label>Enter the delivery vehicle model </label>
           <input type="text" class="input" name="vehicle" id="vehicle" placeholder="vehicle model">
        </div>
        <label>select all the catagories that you like to deliver </label>
+       <span class="invalidFeedback">
+              <?php echo $data['catsError'];?>
+          </span>
        <?php foreach($data['cat'] as $cat){ ?>
           <div class="inputfield" style="max-width: 100px;">
                 <label><?php echo $cat -> catName; ?></label>
-                <input type="checkbox"  name="<?php echo $cat -> catID; ?>" id="<?php echo $cat -> catID; ?>" value="<?php echo $cat -> catID; ?>" placeholder="r1">
+                <input type="checkbox"  name="cats[]" id="<?php echo $cat -> catID; ?>" value="<?php echo $cat -> catID; ?>" placeholder="r1">
           </div>
         <?php } ?>
         <div class="inputfield" style="max-width: 100px; margin-left: 60px;">
