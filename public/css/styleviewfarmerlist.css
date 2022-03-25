@@ -1,0 +1,116 @@
+/*google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background-color: rgb(250, 250, 250);
+}
+
+.detail{
+  width: 99%;
+  margin: auto;
+  background-color: #EAE9E9;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  height: auto;
+  text-align: center;
+  border-radius: 5px;
+  float: right;
+  margin-left: 1px;
+  margin-right: 10px;
+}
+
+.detail .dtopic{
+  height: 100px;
+  background-color: #EAE9E9;
+  text-align: left;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+}
+
+.detail .dtopic h1{
+  font-size: 26px;
+}
+
+.detail .dcontent .main{
+  width: 99%;
+}
+
+.detail .dcontent .main .ttopic{
+  background-color: gray;
+  height: 60px;
+  margin: auto;
+}
+
+.detail .dcontent .main button{
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 10px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin-left:15px;
+  margin-right: 20px;
+  cursor: pointer;
+  border-radius: 30px;
+  float:left;
+  break-inside:avoid;
+}
+
+.detail .dcontent .main .bedit button{
+  background-color: green;
+  border: none;
+  color: white;
+  padding: 10px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin-left:150px;
+  margin-right: 20px;
+  cursor: pointer;
+  border-radius: 30px;
+  float:left;
+  break-inside:avoid;
+}
+
+.detail .dcontent .main img{
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+}
+
+.dcontent .foot{
+  display: flex;
+}
+
+.dcontent .foot .tp{
+  float:left;
+}
+
+.dcontent .foot .tpR{
+  margin-left: 1270px;
+  margin-right: 100px;
+}
+
+.detail .Proceed{
+  margin-bottom: 60px;
+  margin-left: 1200px;
+}
+
+.detail .Proceed button{
+  background-color: #54E346;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 20px;
+  break-inside:avoid;
+}
