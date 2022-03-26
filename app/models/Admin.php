@@ -62,5 +62,29 @@
             $results = $this->db->resultSet();
             return $results;
         }
+
+        public function farmerList(){
+            $this->db->query('SELECT * FROM farmer');
+
+            $results = $this->db->resultSet();
+            
+            return $results;
+        }
+
+        public function buyerList(){
+            $this->db->query('SELECT * FROM buyer');
+
+            $results = $this->db->resultSet();
+            
+            return $results;
+        }
+
+        public function deleteBuyer(){
+            $this->db->query('DELETE FROM buyer WHERE buyerID = :buyerID');
+            
+            $results = self::$_connection->prepare($this->db);
+            $results->execute(['buyerID'=>$this->buyerID]);
+            return $results->rowCount();
+        }
+ 
     }
-?>

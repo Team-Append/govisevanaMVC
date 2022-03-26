@@ -101,7 +101,9 @@ body{
   width: 250px;
   
 }
-
+.invalidFeedback{
+  color: red; 
+}
 .btn-proceed {background-color: #55b406;}  
 .btn-proceed:hover {background: #2e5d08;}
 

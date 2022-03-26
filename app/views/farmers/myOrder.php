@@ -53,9 +53,13 @@
                 <div class="Proceed">
                   
                     <?php if($order-> orderStatus == 'pending'){ ?>
-                        <button type="button" name="button"> <?php echo "confirm order";?> </button>
-                        <?php } else if($order-> orderStatus == 'confirmed'){?>
-                          <button type="button" name="button"> <?php echo "confirm order";?> </button>
+                        <a href="<?php echo URLROOT; ?>/farmers/myOrder?status=orderConfirmed&orderID=<?php echo $order-> orderID ?>">
+                          <button type="button" name="button"> <?php echo "confirm order recieved";?> </button>
+                        </a>
+                        <?php } else if($order-> orderStatus == 'orderConfirmed'){?>
+                          <a href="<?php echo URLROOT; ?>/farmers/myOrder?status=orderShipped&orderID=<?php echo $order-> orderID ?>">
+                            <button type="button" name="button"> <?php echo "order shipped";?> </button>
+                          </a>
                       <?php }else if($order-> orderStatus == 'shipped'){ ?>
                          
                       <?php }else if($order-> orderStatus == 'completed'){?>

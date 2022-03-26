@@ -307,4 +307,43 @@ class Admins extends Controller {
         $this->view('admins/dashboard',$data);
     }
 
-}
+    //public function buyerList(){
+      //  $this->view('admins/buyerList');
+   // }
+
+    //public function farmerList(){
+      // $this->view('admins/farmerList');
+   // }
+
+
+    public function farmerList(){
+        
+       $post = $this->adminModel->farmerList();
+       $data = array( 'posts' => $post);
+       $this->view('admins/farmerList',$data);
+    
+    
+    }
+
+    public function buyerList(){
+        
+        $post = $this->adminModel->buyerList();  
+        $data = array( 'posts' => $post);
+        $this->view('admins/buyerList',$data);
+     }
+
+     public function deleteBuyer($buyerID){
+        
+        $post = $this->adminModel('posts')->find($buyerID);  
+        if(isset($post['action'])){
+        $data->deleteBuyer();
+       // header('location:/admins/buyerList');
+        }
+        else{
+        $this->view('admins/buyerList',$data);
+     }
+    }
+
+
+
+}   

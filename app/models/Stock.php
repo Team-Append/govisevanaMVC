@@ -48,6 +48,7 @@
             $results = $this->db->resultSet();
             return $results;
         }
+        
         public function updateStockStatus($status,$stockID){
             $this->db->query("UPDATE stock SET stockStatus = :status WHERE stockID = :stockID");
             $this->db -> bind(':status',$status);
@@ -82,7 +83,25 @@
             return $results;
 
         }
-       
+        public function  getAllActiveStock(){
+            $this->db->query('SELECT * FROM stock,farmer WHERE  stock.farmerID = farmer.farmerID and stock.qty>0');
+            
+    
+            $results = $this->db->resultSet();
+            return $results;
+
+        }
+        public function updateQty($stockID,$newQty){
+            $this->db->query("UPDATE stock SET qty = :qty WHERE stockID = :stockID");
+            $this->db -> bind(':qty',$newQty);
+            $this->db -> bind(':stockID',$stockID);
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+
+        }
         
      }
 ?>

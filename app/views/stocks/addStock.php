@@ -47,7 +47,7 @@
                 <input type="text"  name="qty" placeholder="Quantity..">
                 <br>
 
-                <label >Fixed Price</label><br>
+                <label >Unit Price</label><br>
                 <span class="invalidFeedback">
                     <?php echo $data['qtyError'];?>
                 </span>
