@@ -224,6 +224,7 @@ class Buyers extends Controller {
 
     public function orderConfirmation(){
         $post = $this->stockModel->getStockByID($_GET['stockID']);
+        $buyer = $this-> buyerModel ->getBuyerByID($_SESSION['buyerID']);
         $data = array('posts' => $post);
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
@@ -233,6 +234,7 @@ class Buyers extends Controller {
                 );
                 if($this -> orderModel-> createOrder($data)){
                     // redirect to login page;
+                    $descr = "Buyer,".$buyer -> name ." place a order to the stock post you posts on 17th october";
                     header('location:' . URLROOT. '/buyers/dashboard'); 
                  }else{
                      die('something went wrong');

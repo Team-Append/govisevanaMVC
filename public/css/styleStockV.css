@@ -8,34 +8,22 @@ body{
     text-decoration: none;
 }
 
-.side{
-  width: 60px;
+
+
+.detail{
+  width: 100%;
   margin: auto;
-  background-color: gray;
+  background-color: white;
   height: auto;
   text-align: center;
   border-radius: 5px;
   float: left;
-  margin-left: 10px;
-  margin-right: 2px;
-}
-
-.detail{
-  width: 84%;
-  margin: auto;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  height: auto;
-  text-align: center;
-  border-radius: 5px;
-  float: right;
-  margin-left: 1px;
-  margin-right: 10px;
+  
+  
 }
 
 .detail .dtopic{
   height: 100px;
-  background-color: #EAE9E9;
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -157,6 +145,7 @@ body{
     background-color: white;
     float: left;
     margin: 10px;
+    margin-left: 25px;
 }
 
 .mystock-content .right-side .posts-list .row{
@@ -166,7 +155,7 @@ body{
 }
 
 .mystock-content .right-side .posts-list .row .column{
-    margin-left:20px ;
+    margin-left:40px ;
 }
 
 .mystock-content .right-side .posts-list{

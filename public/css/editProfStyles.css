@@ -1,0 +1,106 @@
+/*google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background-color: rgb(250, 250, 250);
+}
+
+/* header{
+  
+}
+
+.details .dtop{
+  padding-bottom: 10px;
+}
+
+.details img{
+  border-radius: 5px;
+  width: 250px;
+  height: 250px;
+  margin-top: 50px;
+  margin-left: 80px;
+  margin-right: 50px;
+  box-shadow: 10px 10px 5px grey;
+}
+
+.details .data{
+  font-weight: 5px;
+  margin-top: 50px;
+} */
+
+.order-title{
+  padding-left: 50px;
+}
+
+.order-content{
+  display: flex;
+  height: auto;
+}
+
+.order-content .stock-image{
+  float: left;
+  width: 45%;
+  /* background-color: blue; */
+  height: auto;
+  /* padding-left: 50px; */
+  padding-left: 250px;
+  padding-top: 100px;
+  
+}
+
+.order-content .stock-details{
+  float: left;
+  width: 55%;
+  /* background-color: blueviolet; */
+  height: 500px;
+}
+
+
+.order-content .stock-details .name{
+  padding-left: 115px;
+}
+
+.order-content .stock-details .details{
+  padding-left: 50px;
+  padding-top: 25px;
+  height: auto;
+}
+
+.stock-details .details .info-row{
+  display: flex;
+  padding-bottom: 10px;
+}
+.stock-details .details .info-row .take-info{
+  float: left;
+  height: 25px;
+  width: 200px;
+  /* background-color: bisque; */
+}
+
+.stock-details .details .info-row .info{
+  float: left;
+  height: 25px;
+  width: 200px;
+  /* background-color: brown; */
+}
+
+.stock-details .proceed-button{
+  padding-left: 80px;
+  padding-top: 50px;
+}
+
+.stock-details .proceed-button input.btn-proceed {
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 10px;
+  width: 250px;
+  
+}
+
+.btn-proceed {background-color: #55b406;}  
+.btn-proceed:hover {background: #2e5d08;}

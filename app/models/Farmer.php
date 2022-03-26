@@ -63,6 +63,34 @@
         public function myOrders(){
             
         }
+
+        
+        
+
+        public function getFarmerByID($id){
+            $this->db->query("SELECT * FROM farmer WHERE farmerID=:ID");
+            $this->db -> bind(':ID',$id);
+            $results = $this->db->single();
+            return $results;
+        }
+
+        public function updateProfile($data,$id){
+            $this->db->query("UPDATE farmer SET name = :name , NIC = :NIC , address = :address , email = :email , tpno = :tpno WHERE farmerID =:ID");
+            $this->db -> bind(':ID',$id);
+            $this->db -> bind(':name',$data['name']);
+            $this->db -> bind(':NIC',$data['NIC']);
+            $this->db -> bind(':address',$data['address']);
+            $this->db -> bind(':email',$data['email']);
+            $this->db -> bind(':tpno',$data['tpno']);
+            
+            
+
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
         
     }
 ?>
