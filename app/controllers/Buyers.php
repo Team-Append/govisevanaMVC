@@ -240,7 +240,6 @@ class Buyers extends Controller {
 
     public function orderConfirmation(){
         $post = $this->stockModel->getStockByID($_GET['stockID']);
-<<<<<<< HEAD
         $buyer = $this-> buyerModel ->getBuyerByID($_SESSION['buyerID']);
         $data = array('posts' => $post);
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -257,7 +256,7 @@ class Buyers extends Controller {
                      die('something went wrong');
                  }
             
-=======
+
         $data = array(  
                         'posts' => $post,
                         'orderQty' => $_GET['qty'],
@@ -300,7 +299,6 @@ class Buyers extends Controller {
                     header('location:' . URLROOT. '/stocks/viewStock?stockID='. $post->stockID);
                 }
             }
->>>>>>> 5c3c63ed912f34d478e5cb17bec2d3720c7fcc6b
 
         }else{
             $data = array(  
