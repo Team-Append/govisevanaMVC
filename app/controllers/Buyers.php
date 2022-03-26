@@ -245,30 +245,6 @@ class Buyers extends Controller {
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
             $data = array(
-                    'posts' => $post,
-                    'shippingAddress' => trim($_POST['shippingAddress']),
-                );
-                if($this -> orderModel-> createOrder($data)){
-                    // redirect to login page;
-                    $descr = "Buyer,".$buyer -> name ." place a order to the stock post you posts on 17th october";
-                    header('location:' . URLROOT. '/buyers/dashboard'); 
-                 }else{
-                     die('something went wrong');
-                 }
-            
-
-        $data = array(  
-                        'posts' => $post,
-                        'orderQty' => $_GET['qty'],
-                        'shippingAddress' => '',
-                        'province' =>'',
-                        'district' => '',
-                        'provinceError' => '',
-                        'districtError' => '',
-                    );
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
-            $data = array(
                 'posts' => $post,
                 'shippingAddress' => trim($_POST['shippingAddress']),
                 'orderQty' => $_GET['qty'],
