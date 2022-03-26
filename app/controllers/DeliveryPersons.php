@@ -74,6 +74,8 @@ class DeliveryPersons extends Controller {
             'name' => '',
             'NIC' => '',
             'address' => '',
+            'province'=>'',
+            'district'=>'',
             'email' => '',
             'tpno' => '',
             'password' => '',
@@ -154,7 +156,7 @@ class DeliveryPersons extends Controller {
                 $data['confirmPasswordError'] = 'please confirm the password'; 
             }
             
-            if(empty($data['nameError']) && empty($data['NICError']) && empty($data['addressError']) && empty($data['emailError']) && empty($data['tpnoError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])){
+            if(empty($data['nameError']) && empty($data['NICError']) && empty($data['addressError']) && empty($data['districtError']) && empty($data['emailError']) && empty($data['emailError']) && empty($data['tpnoError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])){
                 
             
             //hash password
@@ -185,6 +187,8 @@ class DeliveryPersons extends Controller {
             'name' => '',
             'NIC' => '',
             'address' => '',
+            'province'=>'',
+            'district'=>'',
             'email' => '',
             'tpno' => '',
             'password' => '',

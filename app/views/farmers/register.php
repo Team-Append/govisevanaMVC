@@ -7,6 +7,7 @@
 	<title>Registration Form</title>
 
     <link rel="stylesheet" type="text/css" href="../public/css/style.css">
+    <script src="<?php echo URLROOT; ?>/js/selectDistrict.js"></script>
 </head>
 <body >
         <?php 
@@ -46,6 +47,33 @@
            <textarea class="textarea" name="address" id="address" placeholder="Address"></textarea>
         </div>
         <span class="invalidFeedback">
+              <?php echo $data['provinceError'];?>
+          </span>
+       <div class="inputfield">
+         <label>Province</label>
+         <select id="province" name="province" onchange="selectDistrict(this.id,'district')">
+          <option value=""></option>
+          <option value="Western">Western</option>
+          <option value="Central">Central</option>
+          <option value="Southern">Southern</option>
+          <option value="Uva">Uva</option>
+          <option value="Sabaragamuwa">Sabaragamuwa</option>
+          <option value="North Western">North Western</option>
+          <option value="North Central">North Central</option>
+          <option value="Nothern">Nothern</option>
+          <option value="Eastern">Eastern</option>
+        </select>
+      </div>
+      <span class="invalidFeedback">
+              <?php echo $data['districtError'];?>
+          </span>
+       <div class="inputfield">
+         <label>District</label>
+         <select id="district" name="district">
+          <option value=" "></option>
+         </select>
+      </div>
+        <span class="invalidFeedback">
               <?php echo $data['emailError'];?>
           </span>
        <div class="inputfield">
@@ -77,14 +105,7 @@
           
           <input type="password" class="input" name="confirmpassword" id="confirmpassword">
        </div>
-      <div class="inputfield terms">
-      <p>I agree all the terms and conditions</p>
-          <label class="check">
-            <input type="checkbox" id="terms" name="terms">
-            <span class="checkmark"></span>
-          </label>
-          
-       </div>
+      
        <div class="submit-btn">
         <input type="submit" value="SIGN IN" class="btn">
       </div>

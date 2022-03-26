@@ -72,6 +72,8 @@ class Farmers extends Controller {
             'name' => '',
             'NIC' => '',
             'address' => '',
+            'province'=>'',
+            'district'=>'',
             'email' => '',
             'tpno' => '',
             'password' => '',
@@ -79,6 +81,8 @@ class Farmers extends Controller {
             'nameError' => '',
             'NICError' => '',
             'addressError' => '',
+            'provinceError'=>'',
+            'districtError'=>'',
             'emailError' => '',
             'tpError' => '',
             'passwordError' => '',
@@ -91,6 +95,8 @@ class Farmers extends Controller {
                 'name' => trim($_POST['name']),
                 'NIC' => trim($_POST['NIC']),
                 'address' => trim($_POST['address']),
+                'province'=>trim($_POST['province']),
+                'district'=>trim($_POST['district']),
                 'email' => trim($_POST['email']),
                 'tpno' => trim($_POST['tpno']),
                 'password' => trim($_POST['password']),
@@ -98,6 +104,8 @@ class Farmers extends Controller {
                 'nameError' => '',
                 'NICError' => '',
                 'addressError' => '',
+                'provinceError'=>'',
+                'districtError'=>'',
                 'emailError' => '',
                 'tpError' => '',
                 'passwordError' => '',
@@ -113,6 +121,12 @@ class Farmers extends Controller {
             }
             if(empty($data['address'])){
                 $data['addressError'] = 'please enter the address'; 
+            }
+            if(empty($data['province'])){
+                $data['provinceError'] = 'please enter the address'; 
+            }
+            if(empty($data['district'])){
+                $data['districtError'] = 'please enter the district'; 
             }
             if(empty($data['email'])){
                 $data['emailError'] = 'please enter the email'; 
@@ -131,7 +145,7 @@ class Farmers extends Controller {
                     $data['confirmPasswordError'] = 'two passwords does not match'; 
                 }
             }
-            if(empty($data['nameError']) && empty($data['NICError']) && empty($data['addressError']) && empty($data['emailError']) && empty($data['tpError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])){
+            if(empty($data['nameError']) && empty($data['NICError']) && empty($data['addressError']) && empty($data['provinceError']) && empty($data['districtError']) && empty($data['emailError']) && empty($data['tpError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])){
                 
 
             //hash password
@@ -146,26 +160,30 @@ class Farmers extends Controller {
             }
 
 
-        }}
-    // }else{
-    //     $data = array(
-    //     'name' => '',
-    //     'NIC' => '',
-    //     'address' => '',
-    //     'email' => '',
-    //     'tpno' => '',
-    //     'password' => '',
-    //     'confirmPassword' => '',
-    //     'nameError' => '',
-    //     'NICError' => '',
-    //     'addressError' => '',
-    //     'emailError' => '',
-    //     'tpError' => '',
-    //     'passwordError' => '',
-    //     'confirmPasswordError' => ''
-            
-    //     );
-    // }
+            }
+        }else{
+            $data = array(
+                'name' => '',
+                'NIC' => '',
+                'address' => '',
+                'province'=>'',
+                'district'=>'',
+                'email' => '',
+                'tpno' => '',
+                'password' => '',
+                'confirmPassword' => '',
+                'nameError' => '',
+                'NICError' => '',
+                'addressError' => '',
+                'provinceError'=>'',
+                'districtError'=>'',
+                'emailError' => '',
+                'tpError' => '',
+                'passwordError' => '',
+                'confirmPasswordError' => ''
+            );
+        }
+    
         $this->view('farmers/register',$data);
     }
 
@@ -201,8 +219,29 @@ class Farmers extends Controller {
     public function myOrder(){
         $orderDetails = $this->orderModel -> getOrdersByFarmerID($_SESSION['farmerID']);
         $data = array(
-            'orders' => $orderDetails
+            'orders' => $orderDetails,
+            'status' => '',
+            'orderID' => ''
         );
+        
+        if(!empty($_GET['orderID'])){
+            
+            $data = array(
+                'orders' => $orderDetails,
+                'status' => trim($_GET['status']),
+                'orderID' => trim($_GET['orderID'])
+            );
+
+            
+            if($this-> orderModel->updateOrderStatus($data['status'],$data['orderID'])){
+                header('location:' . URLROOT. '/farmers/myOrder'); 
+            }
+
+        }else{
+            $data = array(
+                'orders' => $orderDetails
+            );
+        }
         $this->view('farmers/myOrder',$data);
     }
 
