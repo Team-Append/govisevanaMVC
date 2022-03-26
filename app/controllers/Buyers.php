@@ -266,13 +266,22 @@ class Buyers extends Controller {
     }
 
     public function ongoingorders(){
+        $orders =  $this->orderModel -> getOngoingOrdersByBuyerID($_SESSION['buyerID']);
+        $data = array(
+            'posts' => $orders
+        );
 
-        $this->view('buyers/ongoingorders');
+
+        $this->view('buyers/ongoingorders',$data);
     }
 
     public function completedOrder(){
+        $orders =  $this->orderModel -> getCompletedOrdersByBuyerID($_SESSION['buyerID']);
+        $data = array(
+            'posts' => $orders
+        );
 
-        $this->view('buyers/completedOrder');
+        $this->view('buyers/completedOrder',$data);
     }
 
     public function editProfile(){
