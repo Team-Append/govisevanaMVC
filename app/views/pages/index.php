@@ -89,12 +89,11 @@
                 <h1>ABOUT US</h1>
             </div>
             <div class="des">
-            It is a long established fact that a reader will be <br> 
-            distracted by the readable content of a page when<br>  looking at its layout. The point of using <br> Lorem Ipsum is that it has a more-or-less<br>  normal distribution of letters, as opposed to using <br> 'Content here, content here', making it look<br>  like readable English. Many desktop <br> publishing packages andIt is a long established fact <br> that a reader will be distracted by the.
+                 We believe that technology should connect people together, shrink the world, empower individuals and small businesses while lowering costs and inefficiencies, and help you stay safe during the pandemic.<br>Well, what exactly does that imply? We use our platform to connect farmers, buyers, and delivery people to the supply chain, allowing them to store and share their products with the community.
             </div>
             <div class="button">
                     <!-- <div class="btn from-top">READ ME</div> -->
-                    <span><a href="#"></a></span>
+                    <span><a href="<?php echo URLROOT;?>/pages/about"></a></span>
                 </a>
             </div>
 
@@ -107,7 +106,7 @@
                     <div class="">
                         <div class="title-all text-center">
                             <h1>Fruits & Vegetables</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p>
+                            <p>Convenient market place at your fingertip !</p>
                         </div>
                     </div>
                 </div>

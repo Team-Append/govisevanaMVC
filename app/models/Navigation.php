@@ -7,9 +7,8 @@
             $this->db= new Database;
         }
 
-        public function navigation($data){
-            if(isset($_POST["submit"])){
-                $str = $_POST["search"];
+        public function navigation($str){
+           
 
                 $this->db->query("SELECT * FROM 'stock' WHERE title='$str'");
 
@@ -18,5 +17,5 @@
    
             }
         }
-    }
+    
 ?>

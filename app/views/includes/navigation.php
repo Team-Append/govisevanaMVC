@@ -38,11 +38,17 @@
             <li class="right"><a href="<?php echo URLROOT;?>/Stocks/allStock">Stocks</a></li>
             <li class="right"><a href="index.html">Orders</a></li>
             <li class="right"><a href="contact.html">Contact Us</a></li>
-            <li class="right"><a href="international.html">Help</a></li>
-            <form method = "post">
+            <li class="right"><a href="<?php echo URLROOT;?>/farmers/viewProfile">Profile</a></li>
+            <form method = "post" action="Navigation/navigation">
                 <li class="search">
                     <input type="text" placeholder="Search.." name="search" >
-                    <input type="submit" name="submit">
+                        <form action="" method="POST" name="search">
+                        <button type="submit" id="search">
+                            <i class='bx bx-search'></i>
+                        </button>
+                        
+                        </form>
+                    
                 </li>
             </form>
             
@@ -51,7 +57,7 @@
         
         <div class="nav-right">
                 <div class="notify">
-                    <i class='bx bxs-bell'></i>
+                    <i class='bx bxs-bell' ></i>
                 </div>
             <div class="name">
             <?php if(isBuyerLoggedIn()){ ?>

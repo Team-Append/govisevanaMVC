@@ -7,7 +7,13 @@ class Navigation extends Controller {
     }
 
     public function navigation(){
-        $posts = $this->navigationModel->navigation();
+
+        if(isset($_POST["submit"])){
+
+            $str = $_POST["search"];
+        
+        }
+        $posts = $this->navigationModel->navigation($str);
 
         $this->view('stocks/allStock',$posts);
 

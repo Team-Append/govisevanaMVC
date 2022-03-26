@@ -78,6 +78,8 @@ class Buyers extends Controller {
             'name' => '',
             'NIC' => '',
             'address' => '',
+            'province'=>'',
+            'district'=>'',
             'email' => '',
             'tpno' => '',
             'password' => '',
@@ -85,6 +87,8 @@ class Buyers extends Controller {
             'nameError' => '',
             'NICError' => '',
             'addressError' => '',
+            'provinceError'=>'',
+            'districtError'=>'',
             'emailError' => '',
             'tpError' => '',
             'passwordError' => '',
@@ -97,6 +101,8 @@ class Buyers extends Controller {
                 'name' => trim($_POST['name']),
                 'NIC' => trim($_POST['NIC']),
                 'address' => trim($_POST['address']),
+                'province'=>trim($_POST['province']),
+                'district'=>trim($_POST['district']),
                 'email' => trim($_POST['email']),
                 'tpno' => trim($_POST['tpno']),
                 'password' => trim($_POST['password']),
@@ -104,6 +110,8 @@ class Buyers extends Controller {
                 'nameError' => '',
                 'NICError' => '',
                 'addressError' => '',
+                'provinceError'=>'',
+                'districtError'=>'',
                 'emailError' => '',
                 'tpError' => '',
                 'passwordError' => '',
@@ -118,6 +126,12 @@ class Buyers extends Controller {
             }
             if(empty($data['address'])){
                 $data['addressError'] = 'please enter the address'; 
+            }
+            if(empty($data['province'])){
+                $data['provinceError'] = 'please enter the address'; 
+            }
+            if(empty($data['district'])){
+                $data['districtError'] = 'please enter the district'; 
             }
             if(empty($data['email'])){
                 $data['emailError'] = 'please enter the email'; 
@@ -136,7 +150,7 @@ class Buyers extends Controller {
                     $data['confirmPasswordError'] = 'two passwords does not match'; 
                 }
             }
-            if(empty($data['nameError']) && empty($data['NICError']) && empty($data['addressError']) && empty($data['emailError']) && empty($data['tpError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])){
+            if(empty($data['nameError']) && empty($data['NICError']) && empty($data['addressError']) && empty($data['provinceError']) && empty($data['districtError']) && empty($data['emailError']) && empty($data['tpError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])){
                 
             
             //hash password
@@ -164,6 +178,8 @@ class Buyers extends Controller {
             'nameError' => '',
             'NICError' => '',
             'addressError' => '',
+            'provinceError'=>'',
+            'districtError'=>'',
             'emailError' => '',
             'tpError' => '',
             'passwordError' => '',
@@ -224,23 +240,52 @@ class Buyers extends Controller {
 
     public function orderConfirmation(){
         $post = $this->stockModel->getStockByID($_GET['stockID']);
+        $buyer = $this-> buyerModel ->getBuyerByID($_SESSION['buyerID']);
         $data = array('posts' => $post);
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
             $data = array(
-                    'posts' => $post,
-                    'shippingAddress' => trim($_POST['shippingAddress']),
-                );
-                if($this -> orderModel-> createOrder($data)){
-                    // redirect to login page;
-                    header('location:' . URLROOT. '/buyers/dashboard'); 
-                 }else{
-                     die('something went wrong');
-                 }
-            
+                'posts' => $post,
+                'shippingAddress' => trim($_POST['shippingAddress']),
+                'orderQty' => $_GET['qty'],
+                'province' =>$_POST['province'],
+                'district' => $_POST['district'],
+                'provinceError' => '',
+                'districtError' => '',
+            );
+            if(empty($data['district'])){
+                $data['districtError'] = 'please enter shipping infrormation'; 
+            }
+            if(empty($data['province'])){
+                $data['provinceError'] = 'please enter shipping infrormation'; 
+            }
+            if(empty($data['shippingAddress'])){
+                $data['provinceError'] = 'please enter shipping infrormation'; 
+            }
+            if(empty($data['provinceError']) && empty($data['districtError'])){
+                if($post->qty>= $data['orderQty']){
+                    if($this -> orderModel-> createOrder($data)){
+                        $this -> stockModel-> updateQty($post->stockID,$post->qty - $data['orderQty']);
+
+                        header('location:' . URLROOT. '/buyers/dashboard'); 
+                    }else{
+                        die('something went wrong');
+                    }
+                }else{
+                    header('location:' . URLROOT. '/stocks/viewStock?stockID='. $post->stockID);
+                }
+            }
 
         }else{
-            $data = array('posts' => $post);
+            $data = array(  
+                'posts' => $post,
+                'orderQty' => $_GET['qty'],
+                'shippingAddress' => '',
+                'province' =>'',
+                'district' => '',
+                'provinceError' => '',
+                'districtError' => '',
+            );
         }
         $this->view('buyers/orderConfirmation',$data);
     }

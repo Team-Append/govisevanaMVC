@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/addStockStyle.css" />
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/Style.css" />
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/addStockStyle.css" />
+    
     <title>addStock</title>
 </head>
 <body>
@@ -46,7 +47,7 @@
                 <input type="text"  name="qty" placeholder="Quantity..">
                 <br>
 
-                <label >Fixed Price</label><br>
+                <label >Unit Price</label><br>
                 <span class="invalidFeedback">
                     <?php echo $data['qtyError'];?>
                 </span>

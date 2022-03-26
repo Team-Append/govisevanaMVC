@@ -5,13 +5,12 @@
     <title></title>
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/styleStockV.css">
     <link rel="stylesheet" href="<?php echo URLROOT;?>/css/style.css" />
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/footerStyles.css" />
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
   </head>
   <body>
   <?php include_once(APPROOT.'/views/includes/navigation.php'); ?>
-    <div class="side">
-      <?php include_once(APPROOT.'/views/includes/sidebar.php'); ?>  
-    </div>
+    
     <?php foreach($data['cats'] as $cat){?>
     <div class="detail">
       <div class="dtopic">
@@ -60,7 +59,9 @@
       <?php }?>
     </div>
     <?php }?>
-    
+    <div class="footer">
+        <?php include_once(APPROOT.'/views/includes/footer.php'); ?>
+    </div>
       
 
   </body>

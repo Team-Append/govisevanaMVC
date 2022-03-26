@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script src="<?php echo URLROOT; ?>/js/selectDistrict.js"></script>
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/orderConfirmStyles.css">
   </head>
   <body>
@@ -35,21 +36,58 @@
               <div class="take-info">Unit Price: </div><div class="info"><?php echo $data['posts']->fixedPrice;?></div>
             </div>
             <div class="info-row">
-              <div class="take-info">Quantity : </div><div class="info"><?php echo $data['posts']->qty;?></div>
+              <div class="take-info">Quantity : </div><div class="info"><?php echo $data['orderQty'];?></div>
             </div>
             <div class="info-row">
-              <div class="take-info">Total : </div><div class="info"><?php echo $data['posts']->qty * $data['posts']->fixedPrice;?></div>
+              <div class="take-info">Total : </div><div class="info"><?php echo $data['orderQty'] * $data['posts']->fixedPrice;?></div>
             </div>
-            <div class="info-row">
-              <form method="POST">
-                 <label for=""> Shipping Address :</label> 
-                 <br>
-                 <input type="text" name="shippingAddress" id="shippingAddress" style="width: 100%;" value="<?php echo $data['posts']->address;?>">
+            <form method="POST">
+              <div class="info-row">
+                  <label for=""> Shipping Address :</label> 
+              </div>
+              <div class="info-row">
+                  <input type="text" name="shippingAddress" id="shippingAddress" style="width: 80%;" value="<?php echo $data['posts']->address;?>">
+              </div>
+              <div class="info-row">
+                  <span class="invalidFeedback">
+                    <?php echo $data['provinceError'];?>
+                  </span>
+              </div>
+              <div class="info-row">
+                  <div class="inputfield">
+                    <label>Province</label>
+                    <select id="province" name="province" onchange="selectDistrict(this.id,'district')">
+                      <option value=""></option>
+                      <option value="Western">Western</option>
+                      <option value="Central">Central</option>
+                      <option value="Southern">Southern</option>
+                      <option value="Uva">Uva</option>
+                      <option value="Sabaragamuwa">Sabaragamuwa</option>
+                      <option value="North Western">North Western</option>
+                      <option value="North Central">North Central</option>
+                      <option value="Nothern">Nothern</option>
+                      <option value="Eastern">Eastern</option>
+                    </select>
+                  </div>
+              </div>
+              <div class="info-row">
+                  <span class="invalidFeedback">
+                          <?php echo $data['districtError'];?>
+                      </span>
+              </div>
+              <div class="info-row">
+                  <div class="inputfield">
+                    <label>District</label>
+                    <select id="district" name="district">
+                      <option value=" "></option>
+                    </select>
+                  </div>
                  <div class="proceed-button">
                     <input class="btn-proceed" type="submit" value="PROCEED TO PAYMENT">
                  </div>
-              </form>  
-            </div>  
+              </div>
+            </form>  
+             
           </div>
 
           

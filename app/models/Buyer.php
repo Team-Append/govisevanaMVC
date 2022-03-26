@@ -22,11 +22,13 @@
             }
         } 
         public function register($data){
-            $this->db -> query('INSERT INTO buyer(NIC,password,name,address,tpno,email) VALUES(:NIC,:password,:name, :address, :tpno , :email)');
+            $this->db -> query('INSERT INTO buyer(NIC,password,name,address,province,district,tpno,email) VALUES(:NIC,:password,:name, :address,:province, :district, :tpno , :email)');
             $this->db -> bind(':NIC',$data['NIC']);
             $this->db -> bind(':password',$data['password']);
             $this->db -> bind(':name',$data['name']);
             $this->db -> bind(':address',$data['address']);
+            $this->db -> bind(':province',$data['province']);
+            $this->db -> bind(':district',$data['district']);
             $this->db -> bind(':tpno',$data['tpno']);
             $this->db -> bind(':email',$data['email']);
 

@@ -72,6 +72,8 @@ class Farmers extends Controller {
             'name' => '',
             'NIC' => '',
             'address' => '',
+            'province'=>'',
+            'district'=>'',
             'email' => '',
             'tpno' => '',
             'password' => '',
@@ -79,6 +81,8 @@ class Farmers extends Controller {
             'nameError' => '',
             'NICError' => '',
             'addressError' => '',
+            'provinceError'=>'',
+            'districtError'=>'',
             'emailError' => '',
             'tpError' => '',
             'passwordError' => '',
@@ -91,6 +95,8 @@ class Farmers extends Controller {
                 'name' => trim($_POST['name']),
                 'NIC' => trim($_POST['NIC']),
                 'address' => trim($_POST['address']),
+                'province'=>trim($_POST['province']),
+                'district'=>trim($_POST['district']),
                 'email' => trim($_POST['email']),
                 'tpno' => trim($_POST['tpno']),
                 'password' => trim($_POST['password']),
@@ -98,6 +104,8 @@ class Farmers extends Controller {
                 'nameError' => '',
                 'NICError' => '',
                 'addressError' => '',
+                'provinceError'=>'',
+                'districtError'=>'',
                 'emailError' => '',
                 'tpError' => '',
                 'passwordError' => '',
@@ -113,6 +121,12 @@ class Farmers extends Controller {
             }
             if(empty($data['address'])){
                 $data['addressError'] = 'please enter the address'; 
+            }
+            if(empty($data['province'])){
+                $data['provinceError'] = 'please enter the address'; 
+            }
+            if(empty($data['district'])){
+                $data['districtError'] = 'please enter the district'; 
             }
             if(empty($data['email'])){
                 $data['emailError'] = 'please enter the email'; 
@@ -131,7 +145,7 @@ class Farmers extends Controller {
                     $data['confirmPasswordError'] = 'two passwords does not match'; 
                 }
             }
-            if(empty($data['nameError']) && empty($data['NICError']) && empty($data['addressError']) && empty($data['emailError']) && empty($data['tpError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])){
+            if(empty($data['nameError']) && empty($data['NICError']) && empty($data['addressError']) && empty($data['provinceError']) && empty($data['districtError']) && empty($data['emailError']) && empty($data['tpError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])){
                 
 
             //hash password
@@ -146,26 +160,30 @@ class Farmers extends Controller {
             }
 
 
-        }}
-    // }else{
-    //     $data = array(
-    //     'name' => '',
-    //     'NIC' => '',
-    //     'address' => '',
-    //     'email' => '',
-    //     'tpno' => '',
-    //     'password' => '',
-    //     'confirmPassword' => '',
-    //     'nameError' => '',
-    //     'NICError' => '',
-    //     'addressError' => '',
-    //     'emailError' => '',
-    //     'tpError' => '',
-    //     'passwordError' => '',
-    //     'confirmPasswordError' => ''
-            
-    //     );
-    // }
+            }
+        }else{
+            $data = array(
+                'name' => '',
+                'NIC' => '',
+                'address' => '',
+                'province'=>'',
+                'district'=>'',
+                'email' => '',
+                'tpno' => '',
+                'password' => '',
+                'confirmPassword' => '',
+                'nameError' => '',
+                'NICError' => '',
+                'addressError' => '',
+                'provinceError'=>'',
+                'districtError'=>'',
+                'emailError' => '',
+                'tpError' => '',
+                'passwordError' => '',
+                'confirmPasswordError' => ''
+            );
+        }
+    
         $this->view('farmers/register',$data);
     }
 
@@ -201,8 +219,29 @@ class Farmers extends Controller {
     public function myOrder(){
         $orderDetails = $this->orderModel -> getOrdersByFarmerID($_SESSION['farmerID']);
         $data = array(
-            'orders' => $orderDetails
+            'orders' => $orderDetails,
+            'status' => '',
+            'orderID' => ''
         );
+        
+        if(!empty($_GET['orderID'])){
+            
+            $data = array(
+                'orders' => $orderDetails,
+                'status' => trim($_GET['status']),
+                'orderID' => trim($_GET['orderID'])
+            );
+
+            
+            if($this-> orderModel->updateOrderStatus($data['status'],$data['orderID'])){
+                header('location:' . URLROOT. '/farmers/myOrder'); 
+            }
+
+        }else{
+            $data = array(
+                'orders' => $orderDetails
+            );
+        }
         $this->view('farmers/myOrder',$data);
     }
 
@@ -221,10 +260,6 @@ class Farmers extends Controller {
         $this->view('farmers/notiOrder');
     }
 
-    public function editProfile(){
-        
-        $this->view('farmers/editProfile');
-    }
 
     public function analytic(){
         
@@ -242,5 +277,98 @@ class Farmers extends Controller {
     }
     
 
+    public function viewProfile(){
 
+        $id=$_SESSION['farmerID'];
+        $posts = $this->farmerModel->getFarmerByID($id);
+
+        $data = array( 'posts' => $posts);
+        
+        $this->view('farmers/viewProfile',$data);
+    }
+
+    public function editProfile(){
+        
+        $id=$_SESSION['farmerID'];
+        $posts = $this->farmerModel->getFarmerByID($id);
+        $data = array( 'posts' => $posts,
+                        'name' => '',
+                        'NIC' => '',
+                        'address' => '',
+                        'email' => '',
+                        'tpno' => '',
+                        'nameError' => '',
+                        'NICError' => '',
+                        'addressError' => '',
+                        'emailError' => '',
+                        'tpError' => '',
+        );
+        
+       
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+            $data = array(
+                'posts' => $posts,
+                'name' => trim($_POST['name']),
+                'NIC' => trim($_POST['nic']),
+                'address' => trim($_POST['address']),
+                'email' => trim($_POST['email']),
+                'tpno' => trim($_POST['tpno']),
+                'nameError' => '',
+                'NICError' => '',
+                'addressError' => '',
+                'emailError' => '',
+                'tpError' => '',
+            );
+            
+            
+            //validation
+            if(empty($data['name'])){
+                $data['nameError'] = 'please enter the name'; 
+            }
+            if(empty($data['NIC'])){
+                $data['NICError'] = 'please enter the NIC'; 
+            }
+            if(empty($data['address'])){
+                $data['addressError'] = 'please enter the address'; 
+            }
+            if(empty($data['email'])){
+                $data['emailError'] = 'please enter the email'; 
+            }
+            if(empty($data['tpno'])){
+                $data['tpError'] = 'please enter the tp number'; 
+            }
+            
+            
+            if(empty($data['nameError']) && empty($data['NICError']) && empty($data['addressError']) && empty($data['emailError']) && empty($data['tpError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])){
+            
+            //register user from model
+            if($this->farmerModel -> updateProfile($data,$id)){
+               // redirect to login page;
+               header('location:' . URLROOT. '/farmers/editProfile'); 
+            }else{
+                die('something went wrong');
+            }
+           
+            // echo($data1);
+            }
+        }else{
+            $data = array( 'posts' => $posts,
+                        'name' => '',
+                        'NIC' => '',
+                        'address' => '',
+                        'email' => '',
+                        'tpno' => '',
+                        'nameError' => '',
+                        'NICError' => '',
+                        'addressError' => '',
+                        'emailError' => '',
+                        'tpError' => '',
+        );
+              
+        }
+        $this->view('farmers/editProfile',$data);
+    }
+        
 }
