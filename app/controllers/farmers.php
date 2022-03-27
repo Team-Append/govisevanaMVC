@@ -6,6 +6,7 @@ class Farmers extends Controller {
         $this->farmerModel = $this-> model('Farmer');
         $this->stockModel = $this-> model('Stock');
         $this->orderModel = $this-> model('Order');
+        $this->deliveryModel = $this-> model('DeliveryPerson');
 
     }
     public function login(){
@@ -369,6 +370,31 @@ class Farmers extends Controller {
               
         }
         $this->view('farmers/editProfile',$data);
+    }
+    public function suggestDelivery(){
+        $data = array(
+            
+        );
+        $count =0;
+        if($_SERVER['REQUEST_METHOD'] == 'GET'){
+
+       
+        $data = array(
+            'deliveryPersons' => ''
+        );
+        if($_SERVER['REQUEST_METHOD'] == 'GET'){
+            $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+                $delivery = $this-> deliveryModel -> selectElegibleDeliveryPersons($_GET['farmerID'],$_GET['buyerID']);
+                $data = array(
+                    'deliveryPersons' => $delivery
+                );
+        }else{
+            $data = array(
+                'deliveryPersons' => ''
+            ); 
+        }          
+        }
+        $this->view('farmers/suggestDelivery',$data);
     }
         
 }

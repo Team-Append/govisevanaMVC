@@ -4,10 +4,13 @@ class Buyers extends Controller {
     public function __construct()
     {
         $this->buyerModel = $this-> model('Buyer');
+        $this->farmerModel = $this-> model('Farmer');
         $this->requestModel = $this-> model('Request');
         $this->offerModel = $this-> model('Offer');
         $this->orderModel = $this-> model('Order');
         $this->stockModel = $this-> model('Stock');
+        $this->deliveryModel = $this-> model('DeliveryPerson');
+        $this->reviewModel = $this-> model('Review');
 
 
     }
@@ -240,7 +243,6 @@ class Buyers extends Controller {
 
     public function orderConfirmation(){
         $post = $this->stockModel->getStockByID($_GET['stockID']);
-        $buyer = $this-> buyerModel ->getBuyerByID($_SESSION['buyerID']);
         $data = array('posts' => $post);
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
@@ -266,8 +268,8 @@ class Buyers extends Controller {
                 if($post->qty>= $data['orderQty']){
                     if($this -> orderModel-> createOrder($data)){
                         $this -> stockModel-> updateQty($post->stockID,$post->qty - $data['orderQty']);
-
-                        header('location:' . URLROOT. '/buyers/dashboard'); 
+                        
+                        header('location:' . URLROOT. '/buyers/suggestDelivery?farmerID='.$data['posts'] -> farmerID.'&buyerID='. $_SESSION['buyerID']); 
                     }else{
                         die('something went wrong');
                     }
@@ -291,8 +293,71 @@ class Buyers extends Controller {
     }
 
     public function reviewFarmer(){
+        $order = $this->orderModel -> getOrderByID($_GET['orderID']);
+        $farmer = $this->farmerModel -> getFarmerByID($order -> farmerID);
+        $data = array(
+            'farmer' =>$farmer,
+            'rating'=> '',
+            'description' => '',
+            'OrderID' => '',
+            'ratingError' => '',
+            'descriptionError' => ''
+            );
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+                $data = array(
+                    'farmer' =>$farmer,
+                    'rating'=> trim($_POST['rating']),
+                    'description' => trim($_POST['description']),
+                    'OrderID' => $_GET['orderID'],
+                    'ratingError' => '',
+                    'descriptionError' => ''
+                    );
+                if(empty($data['rating'])){
+                    $data['ratingError'] = 'please enter rating'; 
+                }
+                if(empty($data['description'])){
+                    $data['descriptionError'] = 'please enter a review'; 
+                }
+                
+                if(empty($data['ratingError']) && empty($data['descriptionError'])){
+                    $this->reviewModel-> addReview($data);
+                }
+    
+            }else{$data = array(
+            'farmer' =>$farmer,
+            'rating'=> '',
+            'description' => '',
+            'OrderID' => '',
+            'ratingError' => '',
+            'descriptionError' => ''
+            );}
+        $this->view('buyers/reviewFarmer',$data);
+    }
+    public function suggestDelivery(){
+        $data = array(
+            
+        );
+        $count =0;
+        if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
-        $this->view('buyers/reviewFarmer');
+       
+        $data = array(
+            'deliveryPersons' => ''
+        );
+        if($_SERVER['REQUEST_METHOD'] == 'GET'){
+            $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+                $delivery = $this-> deliveryModel -> selectElegibleDeliveryPersons($_GET['farmerID'],$_GET['buyerID']);
+                $data = array(
+                    'deliveryPersons' => $delivery
+                );
+        }else{
+            $data = array(
+                'deliveryPersons' => ''
+            ); 
+        }          
+        }
+        $this->view('buyers/suggestDelivery',$data);
     }
 
     public function notification(){
@@ -343,6 +408,7 @@ class Buyers extends Controller {
 
         $this->view('buyers/contactAdmin');
     }
+    
     public function myRequest(){
 
         $posts = $this->requestModel->getAllRequestByID($_SESSION['buyerID']);
@@ -351,8 +417,92 @@ class Buyers extends Controller {
         
         $this->view('buyers/MyRequest',$data);
 }
+/*
+public function editProfile(){
+        
+    $id=$_SESSION['buyerID'];
+    $posts = $this->buyerModel->getBuyerByID($id);
+    $data = array( 'posts' => $posts,
+                    'name' => '',
+                    'NIC' => '',
+                    'address' => '',
+                    'email' => '',
+                    'tpno' => '',
+                    'nameError' => '',
+                    'NICError' => '',
+                    'addressError' => '',
+                    'emailError' => '',
+                    'tpError' => '',
+    );
+    
+   
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
+        $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+        $data = array(
+            'posts' => $posts,
+            'name' => trim($_POST['name']),
+            'NIC' => trim($_POST['nic']),
+            'address' => trim($_POST['address']),
+            'email' => trim($_POST['email']),
+            'tpno' => trim($_POST['tpno']),
+            'nameError' => '',
+            'NICError' => '',
+            'addressError' => '',
+            'emailError' => '',
+            'tpError' => '',
+        );
+        
+        
+        //validation
+        if(empty($data['name'])){
+            $data['nameError'] = 'please enter the name'; 
+        }
+        if(empty($data['NIC'])){
+            $data['NICError'] = 'please enter the NIC'; 
+        }
+        if(empty($data['address'])){
+            $data['addressError'] = 'please enter the address'; 
+        }
+        if(empty($data['email'])){
+            $data['emailError'] = 'please enter the email'; 
+        }
+        if(empty($data['tpno'])){
+            $data['tpError'] = 'please enter the tp number'; 
+        }
+        
+        
+        if(empty($data['nameError']) && empty($data['NICError']) && empty($data['addressError']) && empty($data['emailError']) && empty($data['tpError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])){
+        
+        //register user from model
+        if($this->buyerModel -> updateProfile($data,$id)){
+           // redirect to login page;
+           header('location:' . URLROOT. '/buyers/editProfile'); 
+        }else{
+            die('something went wrong');
+        }
+       
+        // echo($data1);
+        }
+    }else{
+        $data = array( 'posts' => $posts,
+                    'name' => '',
+                    'NIC' => '',
+                    'address' => '',
+                    'email' => '',
+                    'tpno' => '',
+                    'nameError' => '',
+                    'NICError' => '',
+                    'addressError' => '',
+                    'emailError' => '',
+                    'tpError' => '',
+    );
+          
+    }
+    $this->view('buyers/editProfile',$data);
+}
 
+*/
 
 
 }

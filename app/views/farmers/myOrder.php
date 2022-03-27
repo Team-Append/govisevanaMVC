@@ -23,6 +23,7 @@
             <td>qty</td>
             <td>Total</td>
             <td>Status</td>
+            <td>delivery Options</td>
             
           </thead>
           <?php foreach ($data['orders'] as $order){ ?>
@@ -54,7 +55,7 @@
                   
                     <?php if($order-> orderStatus == 'pending'){ ?>
                         <a href="<?php echo URLROOT; ?>/farmers/myOrder?status=orderConfirmed&orderID=<?php echo $order-> orderID ?>">
-                          <button type="button" name="button"> <?php echo "confirm order recieved";?> </button>
+                          <button type="button" name="button"> <?php echo "accept order";?> </button>
                         </a>
                         <?php } else if($order-> orderStatus == 'orderConfirmed'){?>
                           <a href="<?php echo URLROOT; ?>/farmers/myOrder?status=orderShipped&orderID=<?php echo $order-> orderID ?>">
@@ -69,6 +70,11 @@
                   
                   
                 </div>
+              </td>
+              <td>
+                <a href="<?php echo URLROOT; ?>/farmers/suggestDelivery?farmerID=<?php echo $_SESSION['farmerID'] ?>&buyerID=<?php echo $order-> buyerID ?>">
+                  <button type="button" name="button"> view delivery suggestions </button>
+                </a>
               </td>
             </tr>
             <tr>

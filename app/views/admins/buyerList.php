@@ -42,11 +42,15 @@
               <td>
               <table>
                 <tr>
-                  <td><div class="bedit">
-                    <button type="button" name="button1">Edit</button></div></td>
+              <!--    <td><div class="bedit">
+
+                    <button type="button" name="button1">Edit</button></div></td> -->
                   <td>
-                   
-                  <button type="button" name="button">Delete</button></td>
+                   <form action="">
+                    <a href="<?php echo URLROOT; ?>/admins/deleteBuyer?buyerID=<?php echo $post->buyerID?>" >
+                  
+                      <button onclick="myFunction()" type="button" name="button">Delete</button></td>
+                      </a>
                 </tr>
               </table></td>
             </tr>
@@ -59,3 +63,15 @@
   </body>
   <?php }?>
 </html>
+
+<script>
+function myFunction() {
+  //var txt;
+  if (confirm("Are you sure want to delete!")) {
+    //txt = "You pressed OK!";
+  } else {
+    //txt = "You pressed Cancel!";
+  }
+ // document.getElementById("demo").innerHTML = txt;
+}
+</script>
