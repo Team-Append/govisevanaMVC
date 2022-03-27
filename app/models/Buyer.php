@@ -32,6 +32,16 @@
 
             return $this->db->single();
         } 
+
+
+        public function getBuyerByID($id){
+            $this->db -> query('SELECT name FROM buyer WHERE buyerID = :ID');
+            $this->db -> bind(':ID',$id);
+            $results = $this->db->single();
+            return $results;
+        }
+
+
         public function register($data){
             $this->db -> query('INSERT INTO buyer(NIC,password,name,address,province,district,tpno,email) VALUES(:NIC,:password,:name, :address,:province, :district, :tpno , :email)');
             $this->db -> bind(':NIC',$data['NIC']);
@@ -69,5 +79,40 @@
             return false;
         }
         }  
+        public function getAllBuyers(){
+            $this->db->query('SELECT * FROM buyer');
+
+            $results = $this->db->resultSet();
+            
+            return $results;
+        }
+        public function deleteBuyer($buyerID){
+            $this->db->query("DELETE FROM buyer WHERE buyerID = :ID");
+            $this->db -> bind(':ID',$buyerID);
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+
+        }
+/*
+        public function updateProfile($data,$id){
+            $this->db->query("UPDATE buyer SET name = :name , NIC = :NIC , address = :address , email = :email , tpno = :tpno WHERE buyerID =:ID");
+            $this->db -> bind(':ID',$id);
+            $this->db -> bind(':name',$data['name']);
+            $this->db -> bind(':NIC',$data['NIC']);
+            $this->db -> bind(':address',$data['address']);
+            $this->db -> bind(':email',$data['email']);
+            $this->db -> bind(':tpno',$data['tpno']);
+            
+            
+
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        } */
     }
 ?>

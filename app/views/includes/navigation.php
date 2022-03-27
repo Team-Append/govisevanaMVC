@@ -5,9 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/navStyles.css" />
         <!--Boxicons CDN Links-->
         <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        
+
+
+      <!-- <style>
+@media screen and (max-width: 600px) {
+  .nav.middle a:not(:first-child) {display: none;}
+  .nav.middle a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .nav.middle.responsive .icon {
+    position: absolute;
+    right: 0;
+    bottom:0;
+  }
+  .nav.middle.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+</style>  -->
+
 </head>
 <body>
     <div class="nav">
@@ -17,7 +44,7 @@
                 <span class="lan">English | සිංහල | தமிழ் </span>
             </div>
         </div>
-        <div class="middle">
+        <div class="middle" id ="mid" >
         <ul>
             <li class="right"><a href="<?php echo URLROOT;?>/pages/index">Home</a></li>
             <?php if(isFarmerLoggedIn()) : ?>
@@ -61,13 +88,23 @@
             
             <form method = "post" action="Navigation/navigation">
                 <li class="search">
-                    <input type="text" placeholder="Search.." name="search" >
+                <div class="search-container">
+                    <form action="/action_page.php">
+                    <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>    
+                    
+                <!-- <form action="" method="POST" name="search">
+                        <input type="text" placeholder="Search.." name="search">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
                         <form action="" method="POST" name="search">
                         <button type="submit" id="search">
                             <i class='bx bx-search'></i>
                         </button>
                         
-                        </form>
+                        </form> --> 
                     
                 </li>
             </form>
@@ -76,6 +113,7 @@
         </div>
         
         <div class="nav-right">
+       <!-- <a  style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a> -->
                 <div class="notify">
                     <i class='bx bxs-bell' ></i>
                 </div>
@@ -138,6 +176,21 @@ if (isset($_POST["submit"])) {
 }
 
 ?>
-
-
-
+<!--
+<script>
+function myFunction() {
+  
+  var x = document.getElementById("mid");
+  if(x === null){
+    x = document.getElementById("midresponsive");
+  }
+ 
+ if (x.id === "mid") {
+    
+    x.id = "midresponsive";
+  } else {
+    x.id = "mid";
+  }
+}
+</script>
+-->
