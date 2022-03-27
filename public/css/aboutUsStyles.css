@@ -1,0 +1,60 @@
+h1,h2,h3,p{
+    letter-spacing: 0;
+     font-weight: normal;
+     position: relative;
+     padding: 0 0 10px 0;
+     font-weight: normal;
+     line-height: 120% !important;
+     color: #1f1f1f;
+     margin: 0 ;
+     
+     
+}
+
+h1{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+h2{
+    font-weight: bold;
+}
+
+h3.main{
+    font-weight: bold;
+}
+
+p{
+    font-size: 20px;
+}
+
+.title{
+    padding-left: 100px;
+    padding-top: 50px;
+    padding-bottom: 25px;
+}
+
+.info{
+    display: flex;
+    padding-bottom: 50px;
+}
+
+.info .about-image{
+    float: left;
+    height: 400px;
+    width: 40%;
+    padding-top: 80px;
+    padding-left: 100px;
+}
+
+.info .about-image img{
+    width: 400px;
+}
+
+.info .details{
+    float: left;
+    height: 500px;
+    width: 60%;
+    padding-top: 20px;
+    
+}

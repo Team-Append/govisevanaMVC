@@ -4,7 +4,7 @@
         <title>Select Stock</title>
         <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/stock.css" />
         <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/navStyles.css" />
-
+        
     </head>
 
     <body style="font-family: 'Poppins', sans-serif; ">
@@ -21,7 +21,7 @@
             <div class="column middle">
             <table align="left" class="stock-info">
             <tr>
-                <td colspan="2"><h2 align="left"><?php echo $data['posts']->title;?>  <?php echo $data['posts']->qty;?> KG </h2></td>
+                <td colspan="2"><h2 align="left"><?php echo $data['posts']->title;?></h2> <h2 id="qty"> <?php echo $data['posts']->qty;?></h2></td>
                 
             </tr>
             <tr>
@@ -35,12 +35,21 @@
                 </td>
             </tr>
             <tr>
-                <td><input type="text" class="txt" id="qty" name="qty" placeholder="Qty" required></td>
-                <td><input type="text" class="txt" id="bid" name="bid" placeholder="Minimum Bid Rs.<?php echo $data['posts']->minBidPrice;?>" required></td>
+                <td colspan="2">
+                    <form action="" method="POST" onsubmit="checkqty()">
+                        <input type="text" class="txt" id="orderQty" name="qty" placeholder="Qty" required>
+                        <input type="submit" id="confirmOrder" class="btn" value="buy above quantitiy">
+                    </form>
+                </td>
+                
             </tr>
             <tr>
-                <td> <a href="<?php echo URLROOT;?>/buyers/orderConfirmation?stockID=<?php echo $data['posts']->stockID;?>"> <input type="button" class="btn" value="buy"></a></td>
-                <td><input type="button" class="btn" value="Place a Bid"></td>
+                
+                <td>
+                    <form action="" method="POST" onsubmit="checkqty()">
+                        <input type="hidden" id="orderQty" name="qty" value="<?php echo $data['posts']->qty;?>" />
+                        <input type="submit" class="btn" value="buy full stock" ></td>
+                    </form>   
             </tr>
             </table> 
             </div>
@@ -196,287 +205,15 @@
                 <!--end of the card1-->
             </div>
             <?php } ?>
-        <!-- <table class="stock-rows">
-         <tr>
-            <td width="20%">
-                <div class="card">
-                    <div class="stock-img">
-                    <img class="stock-img-1" src="images/carrot.jpg" alt="Stock" style="width:100%">
-                    </div>
-                    <div class="container">
-                        <div class="line-1">
-                            <div class="text1">
-                                <p>Carrot 20KG</p>
-                            </div>
-                            <div class="text2">
-                                <p>Rs.3000.00</p>
-                            </div>
-                        </div>
-                        <div class="line-2">
-                            <div class="text1">
-                            <p class="title">Farmer : Nimal</p>
-                            </div>
-                            <div class="text2">
-                                <i class='bx bx-star'></i>
-                                <i class='bx bx-star'></i>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </td>
-            <td width="20%">
-                <div class="card">
-                    <div class="stock-img">
-                    <img class="stock-img-1" src="images/carrot.jpg" alt="Stock" style="width:100%">
-                    </div>
-                    <div class="container">
-                        <div class="line-1">
-                            <div class="text1">
-                                <p>Carrot 20KG</p>
-                            </div>
-                            <div class="text2">
-                                <p>Rs.3000.00</p>
-                            </div>
-                        </div>
-                        <div class="line-2">
-                            <div class="text1">
-                            <p class="title">Farmer : Nimal</p>
-                            </div>
-                            <div class="text2">
-                                <i class='bx bx-star'></i>
-                                <i class='bx bx-star'></i>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </td>
-            <td width="20%">
-                <div class="card">
-                    <div class="stock-img">
-                    <img class="stock-img-1" src="images/carrot.jpg" alt="Stock" style="width:100%">
-                    </div>
-                    <div class="container">
-                        <div class="line-1">
-                            <div class="text1">
-                                <p>Carrot 20KG</p>
-                            </div>
-                            <div class="text2">
-                                <p>Rs.3000.00</p>
-                            </div>
-                        </div>
-                        <div class="line-2">
-                            <div class="text1">
-                            <p class="title">Farmer : Nimal</p>
-                            </div>
-                            <div class="text2">
-                                <i class='bx bx-star'></i>
-                                <i class='bx bx-star'></i>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </td>
-            <td width="20%">
-                <div class="card">
-                    <div class="stock-img">
-                    <img class="stock-img-1" src="images/carrot.jpg" alt="Stock" style="width:100%">
-                    </div>
-                    <div class="container">
-                        <div class="line-1">
-                            <div class="text1">
-                                <p>Carrot 20KG</p>
-                            </div>
-                            <div class="text2">
-                                <p>Rs.3000.00</p>
-                            </div>
-                        </div>
-                        <div class="line-2">
-                            <div class="text1">
-                            <p class="title">Farmer : Nimal</p>
-                            </div>
-                            <div class="text2">
-                                <i class='bx bx-star'></i>
-                                <i class='bx bx-star'></i>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </td>
-            <td width="20%">
-                <div class="card">
-                    <div class="stock-img">
-                    <img class="stock-img-1" src="images/carrot.jpg" alt="Stock" style="width:100%">
-                    </div>
-                    <div class="container">
-                        <div class="line-1">
-                            <div class="text1">
-                                <p>Carrot 20KG</p>
-                            </div>
-                            <div class="text2">
-                                <p>Rs.3000.00</p>
-                            </div>
-                        </div>
-                        <div class="line-2">
-                            <div class="text1">
-                            <p class="title">Farmer : Nimal</p>
-                            </div>
-                            <div class="text2">
-                                <i class='bx bx-star'></i>
-                                <i class='bx bx-star'></i>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </td>
-         </tr>
-        </table>
-        <br> <br> <br> 
+            <script>
+            function checkqty(){
 
-        <h2> Stock that might interest you </h2>
-        <table class="stock-rows">
-         <tr>
-            <td width="20%">
-                <div class="card">
-                    <div class="stock-img">
-                    <img class="stock-img-1" src="images/carrot.jpg" alt="Stock" style="width:100%">
-                    </div>
-                    <div class="container">
-                        <div class="line-1">
-                            <div class="text1">
-                                <p>Carrot 20KG</p>
-                            </div>
-                            <div class="text2">
-                                <p>Rs.3000.00</p>
-                            </div>
-                        </div>
-                        <div class="line-2">
-                            <div class="text1">
-                            <p class="title">Farmer : Nimal</p>
-                            </div>
-                            <div class="text2">
-                                <i class='bx bx-star'></i>
-                                <i class='bx bx-star'></i>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </td>
-            <td width="20%">
-                <div class="card">
-                    <div class="stock-img">
-                    <img class="stock-img-1" src="images/carrot.jpg" alt="Stock" style="width:100%">
-                    </div>
-                    <div class="container">
-                        <div class="line-1">
-                            <div class="text1">
-                                <p>Carrot 20KG</p>
-                            </div>
-                            <div class="text2">
-                                <p>Rs.3000.00</p>
-                            </div>
-                        </div>
-                        <div class="line-2">
-                            <div class="text1">
-                            <p class="title">Farmer : Nimal</p>
-                            </div>
-                            <div class="text2">
-                                <i class='bx bx-star'></i>
-                                <i class='bx bx-star'></i>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </td>
-            <td width="20%">
-                <div class="card">
-                    <div class="stock-img">
-                    <img class="stock-img-1" src="images/carrot.jpg" alt="Stock" style="width:100%">
-                    </div>
-                    <div class="container">
-                        <div class="line-1">
-                            <div class="text1">
-                                <p>Carrot 20KG</p>
-                            </div>
-                            <div class="text2">
-                                <p>Rs.3000.00</p>
-                            </div>
-                        </div>
-                        <div class="line-2">
-                            <div class="text1">
-                            <p class="title">Farmer : Nimal</p>
-                            </div>
-                            <div class="text2">
-                                <i class='bx bx-star'></i>
-                                <i class='bx bx-star'></i>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </td>
-            <td width="20%">
-                <div class="card">
-                    <div class="stock-img">
-                    <img class="stock-img-1" src="images/carrot.jpg" alt="Stock" style="width:100%">
-                    </div>
-                    <div class="container">
-                        <div class="line-1">
-                            <div class="text1">
-                                <p>Carrot 20KG</p>
-                            </div>
-                            <div class="text2">
-                                <p>Rs.3000.00</p>
-                            </div>
-                        </div>
-                        <div class="line-2">
-                            <div class="text1">
-                            <p class="title">Farmer : Nimal</p>
-                            </div>
-                            <div class="text2">
-                                <i class='bx bx-star'></i>
-                                <i class='bx bx-star'></i>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </td>
-            <td width="20%">
-                <div class="card">
-                    <div class="stock-img">
-                    <img class="stock-img-1" src="images/carrot.jpg" alt="Stock" style="width:100%">
-                    </div>
-                    <div class="container">
-                        <div class="line-1">
-                            <div class="text1">
-                                <p>Carrot 20KG</p>
-                            </div>
-                            <div class="text2">
-                                <p>Rs.3000.00</p>
-                            </div>
-                        </div>
-                        <div class="line-2">
-                            <div class="text1">
-                            <p class="title">Farmer : Nimal</p>
-                            </div>
-                            <div class="text2">
-                                <i class='bx bx-star'></i>
-                                <i class='bx bx-star'></i>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </td>
-         </tr>
-        </table>  -->
+                if(document.getElementById("orderQty").value > <?php echo $data['posts']->qty; ?>){
+                        window.alert("the ordered quantity is greater than the available stock");
+                       
+                }
+            }
+            </script>
    
     </body>
 </html> 

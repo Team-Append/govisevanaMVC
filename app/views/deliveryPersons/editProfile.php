@@ -1,3 +1,4 @@
+<?php if(isDeliveryPersonLoggedIn()){ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -187,3 +188,6 @@
 
   </body>
 </html>
+<?php } else{
+    header('location:' .URLROOT. '/pages/index');
+}?>

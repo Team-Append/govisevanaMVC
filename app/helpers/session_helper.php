@@ -37,7 +37,7 @@
         }
     }
     function isUserLoggedIn(){
-        if (isset($_SESSION['AdminID'])||isset($_SESSION['farmerID'])||isset($_SESSION['buyerID'])||isset($_SESSION['ModID'])){
+        if (isset($_SESSION['AdminID'])||isset($_SESSION['farmerID'])||isset($_SESSION['buyerID'])||isset($_SESSION['deliveryPersonID'])||isset($_SESSION['ModID'])){
             return true;
           }else {
             return false;

@@ -1,4 +1,4 @@
-<?php if(isDeliveryPersonLoggedIn()){ ?>
+<?php if(isBuyerLoggedIn()){ ?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -19,29 +19,25 @@
 
 <div class="wrapper" style="max-width: 600px;float: left;margin-left: 25%;">
     <div class="title">
-      Create account
+      Add Review
     </div>
     <form action="" method="POST" name="createAccount" onsubmit="return(validate())">
     <div class="form">
     <span class="invalidFeedback">
-              <?php echo $data['vehicleError'];?>
+              <?php echo $data['ratingError'];?>
           </span>
        <div class="inputfield">
-          <label>Enter the delivery vehicle model </label>
-          <input type="text" class="input" name="vehicle" id="vehicle" placeholder="vehicle model">
+          <label>Rate the farmer </label>
+          <input type="text" class="input" name="rating" id="rating" placeholder="rate">
        </div>
-       <label>select all the catagories that you like to deliver </label>
+       <label>write a review about the buyer </label>
        <span class="invalidFeedback">
-              <?php echo $data['catsError'];?>
+              <?php echo $data['descriptionError'];?>
           </span>
-       <?php foreach($data['cat'] as $cat){ ?>
-          <div class="inputfield" style="max-width: 100px;">
-                <label><?php echo $cat -> catName; ?></label>
-                <input type="checkbox"  name="cats[]" id="<?php echo $cat -> catID; ?>" value="<?php echo $cat -> catID; ?>" placeholder="r1">
-          </div>
-        <?php } ?>
+          <input type="text" class="textarea" name="review" id="review" placeholder="review">
+          
         <div class="inputfield" style="max-width: 100px; margin-left: 60px;">
-          <label >Select All</label>
+         
           <input type="checkbox" id="select-all">
         </div>
         <div class="submit-btn">
@@ -55,15 +51,7 @@
 </div>
 
 
-<script>
-      document.getElementById('select-all').onclick = function() {
-    
-      var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-      for (var checkbox of checkboxes) {
-          checkbox.checked = this.checked;
-      }
-    }
-</script>
+
 </body>
 </html>
 <?php } else{

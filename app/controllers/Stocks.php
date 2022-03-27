@@ -10,14 +10,22 @@ public function __construct()
 public function viewStock(){
     $post = $this->stockModel->getStockByID($_GET['stockID']);
     $data = array('posts' => $post);
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+        if($post-> qty>= $_POST['qty']){
+            header('location:' . URLROOT. "/buyers/orderConfirmation?stockID=". $post->stockID."&qty=".trim($_POST['qty'])); 
+        }else{
+            header('location:' . URLROOT. '/stocks/viewStock?stockID='. $post->stockID);
 
+        }
+    }
 
     $this->view('stocks/viewStock',$data);  
 }
 
 
 public function allStock(){
-    $stock = $this->stockModel->getAllStock();
+    $stock = $this->stockModel->getAllActiveStock();
     $cat = $this->catagoryModel -> getCatagory();
     $data = array(  
                     'stocks' => $stock,
