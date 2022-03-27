@@ -24,6 +24,7 @@
             <td>Farmer Name</td>
             <td>Contact Number</td>
             <td>Completed Date</td>
+            <td>Farmer Review</td>
            
           </thead>
           <?php foreach ($data['posts'] as $post){ ?>
@@ -48,6 +49,7 @@
               <td><?php echo $post-> name; ?></td>
               <td><?php echo $post-> tpno; ?></td>
               <td><?php echo $post-> orderDate; ?></td>
+              <td><a href="<?php echo  URLROOT?>/buyers/reviewFarmer?orderID=<?php echo $post-> orderID;?>"></a><button type="button" name="button"> Add review </button></td>
             </tr>
             <tr>
             </tr>
