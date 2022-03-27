@@ -29,7 +29,7 @@
                 
                     <div class="noti-details">
                         <div class="noti-name">
-                            <p><b><div class="info"></b> place an order</p>
+                            <p><b><div class="info"></b>you have a new order</p>
                         </div>
                         <div class="noti-info">
                         <div class="info"><?php echo $posts->description;?></div>

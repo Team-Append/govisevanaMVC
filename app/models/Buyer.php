@@ -35,7 +35,14 @@
 
 
         public function getBuyerByID($id){
-            $this->db -> query('SELECT name FROM buyer WHERE buyerID = :ID');
+            $this->db -> query('SELECT * FROM buyer WHERE buyerID = :ID');
+            $this->db -> bind(':ID',$id);
+            $results = $this->db->single();
+            return $results;
+        }
+
+        public function getBuyerByNIC($id){
+            $this->db -> query('SELECT * FROM buyer WHERE NIC = :ID');
             $this->db -> bind(':ID',$id);
             $results = $this->db->single();
             return $results;
@@ -95,6 +102,31 @@
                 return false;
             }
 
+        }
+
+        public function createNotification($buyerID,$description,$date){
+
+            $this->db -> query("INSERT INTO buyernotification(buyerID,description,notifdate,status) VALUES(:farmerID,:desc,:date,'unread')");
+            $this->db -> bind(':farmerID',$buyerID);
+            $this->db -> bind(':desc',$description);
+            $this->db -> bind(':date',$date);
+
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+
+            
+        }
+
+        public function getAllNotificationByBuyerID($id){
+            $this->db->query("SELECT * FROM buyernotification WHERE buyerID=:ID");
+            $this->db -> bind(':ID',$id);
+
+            $results = $this->db->resultSet();
+            return $results;
+            
         }
 /*
         public function updateProfile($data,$id){

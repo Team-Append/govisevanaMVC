@@ -34,10 +34,10 @@
                     </ul>
                     <div class="buttons">
                         <form action="">
-                            <a href="<?php echo URLROOT; ?>/admins/pendingRequest?RID=<?php echo  $post -> RID;?>&approve=true ">
+                            <a href="<?php echo URLROOT; ?>/requests/pendingRequest?RID=<?php echo  $post -> RID;?>&approve=true ">
                                 <input type="button" value="Approve" name="approve" >
                             </a>
-                            <a href="<?php echo URLROOT; ?>/admins/pendingRequest?RID=<?php echo  $post -> RID;?>&reject=true ">
+                            <a href="<?php echo URLROOT; ?>/requests/pendingRequest?RID=<?php echo  $post -> RID;?>&reject=true ">
                                 <input type="button" value="Reject" name="reject">
                             </a>
                         </form>
