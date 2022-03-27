@@ -36,9 +36,29 @@
                 <li class="right"><a href="<?php echo URLROOT;?>/deliveryPersons/dashboard">Dashboard</a></li>
             <?php endif;?>
             <li class="right"><a href="<?php echo URLROOT;?>/Stocks/allStock">Stocks</a></li>
-            <li class="right"><a href="index.html">Orders</a></li>
-            <li class="right"><a href="contact.html">Contact Us</a></li>
-            <li class="right"><a href="<?php echo URLROOT;?>/farmers/viewProfile">Profile</a></li>
+            <?php if(isBuyerLoggedIn()) : ?>
+                <li class="right"><a href="<?php echo URLROOT;?>/buyers/myOrders">Orders</a></li>
+            <?php endif;?>
+            <?php if(isFarmerLoggedIn()) : ?>
+                <li class="right"><a href="<?php echo URLROOT;?>/farmers/pendingOrders">Orders</a></li>
+            <?php endif;?>
+            <li class="right"><a href="">Contact Us</a></li>
+            <?php if(isFarmerLoggedIn()) : ?>
+                <li class="right"><a href="<?php echo URLROOT;?>/farmers/viewProfile">Profile</a></li>
+            <?php endif;?>
+            <?php if(isBuyerLoggedIn()) : ?>
+                <li class="right"><a href="<?php echo URLROOT;?>/buyers/viewProfile">Profile</a></li>
+            <?php endif;?>
+            <?php if(isModLoggedIn()) : ?>
+                <li class="right"><a href="<?php echo URLROOT;?>/Moderators/viewProfile">Profile</a></li>
+            <?php endif;?>
+            <?php if(isAdminLoggedIn()) : ?>
+                <li class="right"><a href="<?php echo URLROOT;?>/admins/viewProfile">Profile</a></li>
+            <?php endif;?>
+            <?php if(isDeliveryPersonLoggedIn()) : ?>
+                <li class="right"><a href="<?php echo URLROOT;?>/deliveryPersons/viewProfile">Profile</a></li>
+            <?php endif;?>
+            
             <form method = "post" action="Navigation/navigation">
                 <li class="search">
                     <input type="text" placeholder="Search.." name="search" >
@@ -84,6 +104,7 @@
 $con = new PDO("mysql:host=localhost;dbname=govisevana",'root','');
 
 if (isset($_POST["submit"])) {
+    if(isset($_POST['search'])){
 	$str = $_POST["search"];
 	$sth = $con->prepare("SELECT * FROM catagory,stock WHERE catagory.catName = '$str' and stock.catID = catagory.catID");
 
@@ -112,7 +133,7 @@ if (isset($_POST["submit"])) {
 		else{
 			echo "Name Does not exist";
 		}
-
+    }
 
 }
 

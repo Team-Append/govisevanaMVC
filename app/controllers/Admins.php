@@ -332,17 +332,7 @@ class Admins extends Controller {
         $this->view('admins/buyerList',$data);
      }
 
-     public function deleteBuyer($buyerID){
-        
-        $post = $this->adminModel('posts')->find($buyerID);  
-        if(isset($post['action'])){
-        $data->deleteBuyer();
-       // header('location:/admins/buyerList');
-        }
-        else{
-        $this->view('admins/buyerList',$data);
-     }
-    }
+    
 
 
 

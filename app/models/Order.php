@@ -33,6 +33,13 @@
             return $results;
             
         }
+        public function getOrderByID($orderID){
+            $this->db -> query('SELECT * FROM stockorder WHERE orderID = :ID');
+            $this->db -> bind(':ID',$orderID);
+            $results = $this->db->single();
+            return $results;
+            
+        }
         public function getOrdersByFarmerID($farmerID){
             $this->db -> query('SELECT * FROM stockorder,stock,farmer,buyer WHERE stockorder.farmerID = :ID and stockorder.stockId = stock.stockID and farmer.farmerID = stock.farmerID and buyer.buyerID = stockorder.buyerID order BY orderDate DESC');
             $this->db -> bind(':ID',$farmerID);

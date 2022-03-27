@@ -109,5 +109,14 @@
             $results = $this->db->resultSet();
             return $results;
     }
+    
+    public function selectElegibleDeliveryPersons($farmerID,$buyerID){
+        $this->db->query("select deliveryperson.name,deliveryperson.address,deliveryperson.tpno,deliveryperson.email,deliveryvehicles.vehicleModel from deliveryperson inner join farmer on farmer.district = deliveryperson.district inner join deliveryareas on deliveryareas.deliveryPersonID = deliveryperson.deliveryPersonID INNER join buyer on buyer.district = deliveryareas.areas inner join deliveryvehicles on deliveryperson.deliveryPersonID = deliveryvehicles.deliveryPersonID where farmer.farmerID = :farmerID  and buyer.buyerID = :buyerID");
+            $this->db -> bind(':farmerID',$farmerID);
+            $this->db -> bind(':buyerID',$buyerID);
+            $results = $this->db->resultSet();
+            return $results;
+            
+    }
     }  
 ?>

@@ -20,6 +20,17 @@
             }else{
                 return false;
             }
+        }
+        public function getDistrict($buyerID){
+            
+            $this->db -> query('SELECT district FROM buyer WHERE buyerID = :buyerID');
+
+            
+            $this->db -> bind(':buyerID',$buyerID);
+
+            
+
+            return $this->db->single();
         } 
         public function register($data){
             $this->db -> query('INSERT INTO buyer(NIC,password,name,address,province,district,tpno,email) VALUES(:NIC,:password,:name, :address,:province, :district, :tpno , :email)');
