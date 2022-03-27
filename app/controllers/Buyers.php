@@ -300,6 +300,7 @@ class Buyers extends Controller {
             'rating'=> '',
             'description' => '',
             'OrderID' => '',
+            'reviewDate' => '',
             'ratingError' => '',
             'descriptionError' => ''
             );
@@ -309,7 +310,8 @@ class Buyers extends Controller {
                     'farmer' =>$farmer,
                     'rating'=> trim($_POST['rating']),
                     'description' => trim($_POST['description']),
-                    'OrderID' => $_GET['orderID'],
+                    'orderID' => $_GET['orderID'],
+                    'reviewDate' => date("Y/m/d"),
                     'ratingError' => '',
                     'descriptionError' => ''
                     );
@@ -329,6 +331,7 @@ class Buyers extends Controller {
             'rating'=> '',
             'description' => '',
             'OrderID' => '',
+            'reviewDate' => '',
             'ratingError' => '',
             'descriptionError' => ''
             );}
