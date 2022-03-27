@@ -578,7 +578,7 @@ html {
     .right{
         width: calc(100% - 60px);
         left: 60px;
-      }
+    }
 
     .slideshow .slideshow-container{
         height: 500px;

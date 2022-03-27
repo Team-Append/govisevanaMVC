@@ -64,6 +64,13 @@
         public function myOrders(){
             
         }
+        public function getAllFarmers(){
+            $this->db->query('SELECT * FROM farmer');
+
+            $results = $this->db->resultSet();
+            
+            return $results;
+        }
 
         public function getFarmerByID($id){
             $this->db->query("SELECT * FROM farmer WHERE farmerID=:ID");
@@ -128,5 +135,16 @@
         }
 
         
+        
+        public function deleteFarmer($farmerID){
+            $this->db->query("DELETE FROM farmer WHERE farmerID = :ID");
+            $this->db -> bind(':ID',$farmerID);
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+
+        }
     }
 ?>

@@ -9,6 +9,32 @@
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/navStyles.css" />
         <!--Boxicons CDN Links-->
         <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        
+
+
+      <!-- <style>
+@media screen and (max-width: 600px) {
+  .nav.middle a:not(:first-child) {display: none;}
+  .nav.middle a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .nav.middle.responsive .icon {
+    position: absolute;
+    right: 0;
+    bottom:0;
+  }
+  .nav.middle.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+</style>  -->
+
 </head>
 <body>
     <div class="nav">
@@ -18,7 +44,7 @@
                 <span class="lan">English | සිංහල | தமிழ் </span>
             </div>
         </div>
-        <div class="middle">
+        <div class="middle" id ="mid" >
         <ul>
             <li class="right"><a href="<?php echo URLROOT;?>/pages/index">Home</a></li>
             <?php if(isFarmerLoggedIn()) : ?>
@@ -37,9 +63,29 @@
                 <li class="right"><a href="<?php echo URLROOT;?>/deliveryPersons/dashboard">Dashboard</a></li>
             <?php endif;?>
             <li class="right"><a href="<?php echo URLROOT;?>/Stocks/allStock">Stocks</a></li>
-            <li class="right"><a href="index.html">Orders</a></li>
-            <li class="right"><a href="contact.html">Contact Us</a></li>
-            <li class="right"><a href="<?php echo URLROOT;?>/farmers/viewProfile">Profile</a></li>
+            <?php if(isBuyerLoggedIn()) : ?>
+                <li class="right"><a href="<?php echo URLROOT;?>/buyers/myOrders">Orders</a></li>
+            <?php endif;?>
+            <?php if(isFarmerLoggedIn()) : ?>
+                <li class="right"><a href="<?php echo URLROOT;?>/farmers/pendingOrders">Orders</a></li>
+            <?php endif;?>
+            <li class="right"><a href="">Contact Us</a></li>
+            <?php if(isFarmerLoggedIn()) : ?>
+                <li class="right"><a href="<?php echo URLROOT;?>/farmers/viewProfile">Profile</a></li>
+            <?php endif;?>
+            <?php if(isBuyerLoggedIn()) : ?>
+                <li class="right"><a href="<?php echo URLROOT;?>/buyers/viewProfile">Profile</a></li>
+            <?php endif;?>
+            <?php if(isModLoggedIn()) : ?>
+                <li class="right"><a href="<?php echo URLROOT;?>/Moderators/viewProfile">Profile</a></li>
+            <?php endif;?>
+            <?php if(isAdminLoggedIn()) : ?>
+                <li class="right"><a href="<?php echo URLROOT;?>/admins/viewProfile">Profile</a></li>
+            <?php endif;?>
+            <?php if(isDeliveryPersonLoggedIn()) : ?>
+                <li class="right"><a href="<?php echo URLROOT;?>/deliveryPersons/viewProfile">Profile</a></li>
+            <?php endif;?>
+            
             <form method = "post" action="Navigation/navigation">
                 <li class="search">
                 <div class="search-container">
@@ -67,6 +113,7 @@
         </div>
         
         <div class="nav-right">
+       <!-- <a  style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a> -->
                 <div class="notify">
                     <i class='bx bxs-bell' ></i>
                 </div>
@@ -95,6 +142,7 @@
 $con = new PDO("mysql:host=localhost;dbname=govisevana",'root','');
 
 if (isset($_POST["submit"])) {
+    if(isset($_POST['search'])){
 	$str = $_POST["search"];
 	$sth = $con->prepare("SELECT * FROM catagory,stock WHERE catagory.catName = '$str' and stock.catID = catagory.catID");
 
@@ -123,11 +171,26 @@ if (isset($_POST["submit"])) {
 		else{
 			echo "Name Does not exist";
 		}
-
+    }
 
 }
 
 ?>
-
-
-
+<!--
+<script>
+function myFunction() {
+  
+  var x = document.getElementById("mid");
+  if(x === null){
+    x = document.getElementById("midresponsive");
+  }
+ 
+ if (x.id === "mid") {
+    
+    x.id = "midresponsive";
+  } else {
+    x.id = "mid";
+  }
+}
+</script>
+-->

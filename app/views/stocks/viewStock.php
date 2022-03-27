@@ -68,11 +68,11 @@
                     <table id="farmer-card-stats">
                         <tbody>
                             <tr>
-                                <td class="stats-desc">address</td>
+                                <td class="stats-desc">Address</td>
                                 <td class="stat"><?php echo $data['posts']->address;?></td>
                             </tr>
                             <tr>
-                                <td class="stats-desc">telephone number</td>
+                                <td class="stats-desc">Telephone Number</td>
                                 <td class="stat"><?php echo $data['posts']->tpno;?></td>
                             </tr>
                             <tr>

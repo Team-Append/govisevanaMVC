@@ -6,6 +6,8 @@ class Admins extends Controller {
         $this->adminModel = $this-> model('Admin');
         $this->stockModel = $this-> model('Stock');
         $this->requestModel = $this-> model('Request');
+        $this->farmerModel = $this-> model('Farmer');
+        $this->buyerModel = $this-> model('Buyer');
         
 
     }
@@ -318,7 +320,7 @@ class Admins extends Controller {
 
     public function farmerList(){
         
-       $post = $this->adminModel->farmerList();
+       $post = $this->farmerModel->getAllFarmers();
        $data = array( 'posts' => $post);
        $this->view('admins/farmerList',$data);
     
@@ -327,22 +329,33 @@ class Admins extends Controller {
 
     public function buyerList(){
         
-        $post = $this->adminModel->buyerList();  
+        $post = $this->buyerModel->getAllBuyers();  
         $data = array( 'posts' => $post);
         $this->view('admins/buyerList',$data);
      }
 
-     public function deleteBuyer($buyerID){
-        
-        $post = $this->adminModel('posts')->find($buyerID);  
-        if(isset($post['action'])){
-        $data->deleteBuyer();
-       // header('location:/admins/buyerList');
+     public function deleteBuyer(){
+        if($_SERVER['REQUEST_METHOD'] == 'GET'){
+    
+            $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+            if(isAdminLoggedin()){
+                $this->buyerModel-> deleteBuyer($_GET['buyerID']);
+            }
+            header('location:' .URLROOT. '/admins/buyerList');
         }
-        else{
-        $this->view('admins/buyerList',$data);
      }
-    }
+
+     public function deleteFarmer(){
+        if($_SERVER['REQUEST_METHOD'] == 'GET'){
+    
+            $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+            if(isAdminLoggedin()){
+                $this->farmerModel-> deleteFarmer($_GET['farmerID']);
+            }
+            header('location:' .URLROOT. '/admins/farmerList');
+        }
+     }
+    
 
 
 
