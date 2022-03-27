@@ -8,6 +8,32 @@
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/navStyles.css" />
         <!--Boxicons CDN Links-->
         <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        
+
+
+      <!-- <style>
+@media screen and (max-width: 600px) {
+  .nav.middle a:not(:first-child) {display: none;}
+  .nav.middle a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .nav.middle.responsive .icon {
+    position: absolute;
+    right: 0;
+    bottom:0;
+  }
+  .nav.middle.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+</style>  -->
+
 </head>
 <body>
     <div class="nav">
@@ -17,7 +43,7 @@
                 <span class="lan">English | සිංහල | தமிழ் </span>
             </div>
         </div>
-        <div class="middle">
+        <div class="middle" id ="mid" >
         <ul>
             <li class="right"><a href="<?php echo URLROOT;?>/pages/index">Home</a></li>
             <?php if(isFarmerLoggedIn()) : ?>
@@ -39,6 +65,10 @@
             <li class="right"><a href="index.html">Orders</a></li>
             <li class="right"><a href="contact.html">Contact Us</a></li>
             <li class="right"><a href="international.html">Help</a></li>
+
+            
+
+
             <form method = "post">
                 <li class="search">
                     <input type="text" placeholder="Search.." name="search" >
@@ -50,6 +80,7 @@
         </div>
         
         <div class="nav-right">
+       <!-- <a  style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a> -->
                 <div class="notify">
                     <i class='bx bxs-bell'></i>
                 </div>
@@ -111,6 +142,21 @@ if (isset($_POST["submit"])) {
 }
 
 ?>
-
-
-
+<!--
+<script>
+function myFunction() {
+  
+  var x = document.getElementById("mid");
+  if(x === null){
+    x = document.getElementById("midresponsive");
+  }
+ 
+ if (x.id === "mid") {
+    
+    x.id = "midresponsive";
+  } else {
+    x.id = "mid";
+  }
+}
+</script>
+-->

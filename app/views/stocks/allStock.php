@@ -9,9 +9,7 @@
   </head>
   <body>
   <?php include_once(APPROOT.'/views/includes/navigation.php'); ?>
-    <div class="side">
-      <?php include_once(APPROOT.'/views/includes/sidebar.php'); ?>  
-    </div>
+    
     <?php foreach($data['cats'] as $cat){?>
     <div class="detail">
       <div class="dtopic">
