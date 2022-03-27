@@ -53,5 +53,19 @@
             $results = $this->db->execute();
             return $results;
         }
+        public function getCompletedOrdersByBuyerID($buyerID){
+            $this->db -> query('SELECT * FROM stockorder,farmer,stock WHERE buyerID = :ID AND farmer.farmerID = stockorder.farmerID and stock.stockID = stockorder.stockID and orderStatus = "completed" ORDER BY orderDate DESC');
+            $this->db -> bind(':ID',$buyerID);
+            $results = $this->db->resultSet();
+            return $results;
+            
+        }
+        public function getOngoingOrdersByBuyerID($buyerID){
+            $this->db -> query('SELECT * FROM stockorder,farmer,stock WHERE buyerID = :ID AND farmer.farmerID = stockorder.farmerID and stock.stockID = stockorder.stockID and orderStatus != "completed" ORDER BY orderDate DESC');
+            $this->db -> bind(':ID',$buyerID);
+            $results = $this->db->resultSet();
+            return $results;
+            
+        }
     }
 ?>
