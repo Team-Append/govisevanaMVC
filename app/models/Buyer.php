@@ -32,6 +32,23 @@
 
             return $this->db->single();
         } 
+
+
+        public function getBuyerByID($id){
+            $this->db -> query('SELECT * FROM buyer WHERE buyerID = :ID');
+            $this->db -> bind(':ID',$id);
+            $results = $this->db->single();
+            return $results;
+        }
+
+        public function getBuyerByNIC($id){
+            $this->db -> query('SELECT * FROM buyer WHERE NIC = :ID');
+            $this->db -> bind(':ID',$id);
+            $results = $this->db->single();
+            return $results;
+        }
+
+
         public function register($data){
             $this->db -> query('INSERT INTO buyer(NIC,password,name,address,province,district,tpno,email) VALUES(:NIC,:password,:name, :address,:province, :district, :tpno , :email)');
             $this->db -> bind(':NIC',$data['NIC']);
@@ -94,6 +111,31 @@
             return $results;
         }
 
+        public function createNotification($buyerID,$description,$date){
+
+            $this->db -> query("INSERT INTO buyernotification(buyerID,description,notifdate,status) VALUES(:farmerID,:desc,:date,'unread')");
+            $this->db -> bind(':farmerID',$buyerID);
+            $this->db -> bind(':desc',$description);
+            $this->db -> bind(':date',$date);
+
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+
+            
+        }
+
+        public function getAllNotificationByBuyerID($id){
+            $this->db->query("SELECT * FROM buyernotification WHERE buyerID=:ID");
+            $this->db -> bind(':ID',$id);
+
+            $results = $this->db->resultSet();
+            return $results;
+            
+        }
+/*
         public function updateProfile($data,$id){
             $this->db->query("UPDATE buyer SET name = :name , NIC = :NIC , address = :address , email = :email , tpno = :tpno WHERE buyerID =:ID");
             $this->db -> bind(':ID',$id);

@@ -58,5 +58,14 @@
             $results = $this->db->resultSet();
             return $results;
         }
+
+        public function getRequestByID($id){
+            $this->db->query("SELECT * FROM request WHERE RID = :RID");
+            $this->db -> bind(':RID',$id);
+            $results = $this->db->single();
+            return $results;
+        }
+
+
     }
 ?>

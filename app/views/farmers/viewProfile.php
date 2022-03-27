@@ -47,7 +47,7 @@
           </div>
 
           <div class="proceed-button">
-          <a href="<?php echo URLROOT;?>/farmers/editProfile"><input class="btn-proceed" type="button" value="EDIT PROFILE"></a>
+            <a href="<?php echo URLROOT;?>/farmers/editProfile"><input class="btn-proceed" type="button" value="EDIT PROFILE"></a>
           </div>
 
       </div>    

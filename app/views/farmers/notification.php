@@ -1,3 +1,4 @@
+<?php if(isFarmerLoggedIn()){ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,46 +18,38 @@
             <img src="<?php echo URLROOT; ?>/img/bell-ring.png" alt="notification-icon"><br>
             <hr>
         </div>
+        <?php foreach ($data['posts'] as $posts){ ?>
         <div class="noti-list">
+        
             <div class="noti">
                 <div class="noti-profile">
                     <img src="<?php echo URLROOT; ?>/img/prof.png" alt="profile image">
 
                 </div>
-                <div class="noti-details">
-                    <div class="noti-name">
-                        <p><b>Sunil de Silva</b> place an order</p>
-                    </div>
-                    <div class="noti-info">
-                        Buyer, sunil de silva place a order to the stock post you posts on 17th october
-                    </div>
-                    <div class="time">
-                        10 hours ago
-                    </div>
-
-                </div>
-            </div>
-            <div class="pre-noti">
-                <div class="noti">
-                    <div class="noti-profile">
-                        <img src="<?php echo URLROOT; ?>/img/prof.png" alt="profile image">
-                    </div>
+                
                     <div class="noti-details">
                         <div class="noti-name">
-                            <p><b>Sunil de Silva</b> place an order</p>
+                            <p><b><div class="info"></b>you have a new order</p>
                         </div>
                         <div class="noti-info">
-                            Buyer, sunil de silva place a order to the stock post you posts on 17th october
-
-                        </div>
+                        <div class="info"><?php echo $posts->description;?></div>
                         <div class="time">
-                            10 hours ago
+                            <div class="info"><?php echo $posts->notifdate;?></div>
                         </div>
-
+                        <form action=""  method="POST" name="notify">
+                            <!-- <div class="delete-button">
+                                
+                                <input type="submit" value="Delete" class="btn-delete">
+                            </div> -->
+                        </form>
+                        
+                        </div>
                     </div>
-                </div>
+                
             </div>
+            
         </div>
+        <?php } ?>
     </div>
     <div class="footer">
         <hr>
@@ -68,3 +61,7 @@
     
 </body>
 </html>
+
+<?php } else{
+    header('location:' .URLROOT. '/pages/index');
+}?>

@@ -4,46 +4,28 @@
     font-family: 'Poppins', sans-serif;
 }
 body{
-  background-color: #EAE9E9;
-}
-
-.viewreq-container{
-  margin-top: 200px;
-}
-
-.side{
-  /* width: 18%; */
-  margin: auto;
-  background-color: gray;
-  height: auto;
-  text-align: center;
-  border-radius: 5px;
- 
-  margin-left: 10px;
-  margin-right: 2px;
-  margin-top: 84px;
+    background-color: rgb(250, 250, 250);
 }
 
 .detail{
-  width: 1200px;
+  width: 99%;
   margin: auto;
-  background-color: white;
+  background-color: #EAE9E9;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   height: auto;
   text-align: center;
   border-radius: 5px;
-  float: left;
-  margin-left: 80px;
+  float: right;
+  margin-left: 1px;
   margin-right: 10px;
-  margin-top: 82px;
-
 }
 
 .detail .dtopic{
   height: 100px;
+  background-color: #EAE9E9;
   text-align: left;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 30px;
   padding-left: 30px;
 }
 
@@ -51,105 +33,72 @@ body{
   font-size: 26px;
 }
 
-
-
-.detail .dlist .d1{
-  width: 1050px;
-  height: auto;
-  margin-left: 60px;
-  margin-right: 10px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin-top: 10px;
-  margin-bottom: 10px
+.detail .dcontent .main{
+  width: 99%;
+  margin-left: 8px;
 }
 
-input[type=button]{
-    width: 150px;
-    background-color: rgb(78, 190, 13);;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 600;
-    margin-right: 10px;
-  
-  
-}
-input[type=submit]:hover {
-  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.24),0 12px 10px 0 rgba(0,0,0,0.10);
-}
-.detail .dlist .d1 table{
-  width: 100%;
+.detail .dcontent .main .ttopic{
+  background-color: gray;
+  height: 60px;
+  margin: auto;
 }
 
-.detail .dlist .d1 th{
-  color: gray;
+.detail .dcontent .main .rw img{
+  border-radius: 10px;
+  width: 150px;
+  height: 200px;
+  margin: 10px;
 }
 
-.detail .dlist .d1 h3{
-  color: black;
-}
-
-.detail .dlist .d1 .description{
-  background-color: white;
-  width: 950px;
-  height: auto;
-  border-radius: 8px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  word-wrap: break-word;
-  text-align: left;
-}
-
-
-.detail .dlist .d1 .content{
-  margin-left: 50px;
-  margin-right: 50px;
-  
-}
-
-
-.detail .dlist .top-line{
-  display: flex;
-}
-
-.detail .dlist .top-line .name{
-    float: left;
-    width: 310px;
-}
-
-.detail .dlist .top-line .budget{
-  float: right;
-  width: 310px;
-  margin-top: 20px;
-  color: gray;
-  font-weight: 600;
-}
-
-.detail .dlist .top-line .cat{
-  float: right;
-  width: 310px;
-  margin-top: 20px;
-  color: gray;
-  font-weight: 600;
-  
-}
-
-.detail .dlist .bottom-line{
-  display: flex;
-  margin-bottom: 30px;
-}
-
-.detail .dlist .bottom-line .date{
-  float: left;
+.detail .dcontent .main .rw .col-description{
   width: 650px;
-
 }
 
-.detail .dlist .bottom-line .button{
+.detail .dcontent .main .ttopic td{
+  width: 200px;
+}
+
+.detail .dcontent .main .rw .s-details .s-description{
+  display: flex;
+  /* margin: 10px; */
+  /* margin-left: 200px; */
+}
+
+.detail .dcontent .main .rw .s-details .s-description .image{
+  float: left;
+  margin-left: 50px;
+}
+
+.detail .dcontent .main .rw .s-details .s-description .info{
   float: right;
-  padding-left: 150px;
+  margin-left: 50px;
+  margin-top: 40px;
+}
+
+.detail .Proceed{
+  margin-bottom: 60px;
+  margin-top: 50px;
+}
+
+.detail .Proceed button{
+  background-color: #54E346;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 20px;
+  break-inside:avoid;
+}
+
+.detail .dcontent .main .rw{
+  border-bottom: 5px;
+}
+
+tbody{
+  border-bottom: #54E346;
 }

@@ -6,6 +6,7 @@ public function __construct()
     $this->stockModel = $this->model('Stock');
     $this->catagoryModel = $this->model('Catagory');
     $this->requestModel = $this-> model('Request');
+    
 }
 public function viewStock(){
     $post = $this->stockModel->getStockByID($_GET['stockID']);

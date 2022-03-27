@@ -44,8 +44,7 @@
             $this->db -> bind(':email', $email);
 
             $row = $this->db-> single();
-            echo $email;
-            echo $password;
+           
             if(isset($row->password)){
             $hashedPassword = $row -> password;
 
@@ -73,9 +72,6 @@
             return $results;
         }
 
-        
-        
-
         public function getFarmerByID($id){
             $this->db->query("SELECT * FROM farmer WHERE farmerID=:ID");
             $this->db -> bind(':ID',$id);
@@ -100,6 +96,44 @@
                 return false;
             }
         }
+
+        public function createNotification($farmerID,$description,$date){
+
+            $this->db -> query("INSERT INTO farmernotification(farmerID,description,notifdate,status) VALUES(:farmerID,:desc,:date,'unread')");
+            $this->db -> bind(':farmerID',$farmerID);
+            $this->db -> bind(':desc',$description);
+            $this->db -> bind(':date',$date);
+
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+
+            
+        }
+
+        public function getAllNotificationByFarmerID($id){
+            $this->db->query("SELECT * FROM farmernotification WHERE farmerID=:ID");
+            $this->db -> bind(':ID',$id);
+
+            $results = $this->db->resultSet();
+            return $results;
+            
+        }
+
+        public function deleteNotificationByNotifID($id){
+            $this->db->query('DELETE FROM farmernotification WHERE notifID = :notifID');
+            $this->db -> bind(':notifID',$id);
+
+            if ($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+            
+        }
+
         
         
         public function deleteFarmer($farmerID){

@@ -9,6 +9,7 @@ class Buyers extends Controller {
         $this->offerModel = $this-> model('Offer');
         $this->orderModel = $this-> model('Order');
         $this->stockModel = $this-> model('Stock');
+        $this->farmerModel = $this-> model('Farmer');
         $this->deliveryModel = $this-> model('DeliveryPerson');
         $this->reviewModel = $this-> model('Review');
 
@@ -161,8 +162,10 @@ class Buyers extends Controller {
             
             //register user from model
             if($this->buyerModel -> register($data)){
+                $buyer=$this->buyerModel->getBuyerByNIC($data['NIC']);
+                $this-> createUserSession($buyer);
                // redirect to login page;
-               header('location:' . URLROOT. '/buyers/login'); 
+               header('location:' . URLROOT. '/index'); 
             }else{
                 die('something went wrong');
             }
@@ -243,6 +246,8 @@ class Buyers extends Controller {
 
     public function orderConfirmation(){
         $post = $this->stockModel->getStockByID($_GET['stockID']);
+        
+
         $data = array('posts' => $post);
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
@@ -269,7 +274,13 @@ class Buyers extends Controller {
                     if($this -> orderModel-> createOrder($data)){
                         $this -> stockModel-> updateQty($post->stockID,$post->qty - $data['orderQty']);
                         
-                        header('location:' . URLROOT. '/buyers/suggestDelivery?farmerID='.$data['posts'] -> farmerID.'&buyerID='. $_SESSION['buyerID']); 
+                        $buyer = $this-> buyerModel ->getBuyerByID($_SESSION['buyerID']);
+                        $desc = "buyer,".$buyer -> name ." place a order to the stock post you posts on" . date("Y/m/d");
+                        $farmerID = $post->farmerID;
+                        
+                        $this-> farmerModel ->createNotification($farmerID,$desc,date("Y/m/d"));
+
+                        header('location:' . URLROOT. '/buyers/dashboard'); 
                     }else{
                         die('something went wrong');
                     }
@@ -291,15 +302,73 @@ class Buyers extends Controller {
         }
         $this->view('buyers/orderConfirmation',$data);
     }
+    public function offerOrderConfirmation(){
+        $post = $this->offerModel->getOffersByID($_GET['offerID']);
+        
+
+        $data = array('posts' => $post);
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+            $data = array(
+                'posts' => $post,
+                'shippingAddress' => trim($_POST['shippingAddress']),
+                'province' =>$_POST['province'],
+                'district' => $_POST['district'],
+                'provinceError' => '',
+                'districtError' => '',
+            );
+            if(empty($data['district'])){
+                $data['districtError'] = 'please enter shipping infrormation'; 
+            }
+            if(empty($data['province'])){
+                $data['provinceError'] = 'please enter shipping infrormation'; 
+            }
+            if(empty($data['shippingAddress'])){
+                $data['provinceError'] = 'please enter shipping infrormation'; 
+            }
+            if(empty($data['provinceError']) && empty($data['districtError'])){
+                
+                    if($this -> orderModel-> createofferOrder($data)){
+                        
+                        $buyer = $this-> buyerModel ->getBuyerByID($_SESSION['buyerID']);
+                        $desc = "buyer,".$buyer -> name ." place a order to the offer posts on" . date("Y/m/d");
+                        $farmerID = $post->farmerID;
+                        
+                        $this-> farmerModel ->createNotification($farmerID,$desc,date("Y/m/d"));
+
+                        header('location:' . URLROOT. '/buyers/ongoingorders'); 
+                    }else{
+                        die('something went wrong');
+                    }
+               
+            }
+
+        }else{
+            $data = array(  
+                'posts' => $post,
+                'orderQty' => '',
+                'shippingAddress' => '',
+                'province' =>'',
+                'district' => '',
+                'provinceError' => '',
+                'districtError' => '',
+            );
+        }
+        $this->view('buyers/offerOrderConfirmation',$data);
+    }
 
     public function reviewFarmer(){
         $order = $this->orderModel -> getOrderByID($_GET['orderID']);
         $farmer = $this->farmerModel -> getFarmerByID($order -> farmerID);
+
+        if(!$this -> reviewModel -> isReviewed($_GET['orderID'])){
+        
         $data = array(
             'farmer' =>$farmer,
             'rating'=> '',
             'description' => '',
             'OrderID' => '',
+            'reviewDate' => '',
             'ratingError' => '',
             'descriptionError' => ''
             );
@@ -309,7 +378,8 @@ class Buyers extends Controller {
                     'farmer' =>$farmer,
                     'rating'=> trim($_POST['rating']),
                     'description' => trim($_POST['description']),
-                    'OrderID' => $_GET['orderID'],
+                    'orderID' => $_GET['orderID'],
+                    'reviewDate' => date("Y/m/d"),
                     'ratingError' => '',
                     'descriptionError' => ''
                     );
@@ -329,9 +399,12 @@ class Buyers extends Controller {
             'rating'=> '',
             'description' => '',
             'OrderID' => '',
+            'reviewDate' => '',
             'ratingError' => '',
             'descriptionError' => ''
-            );}
+            );}}else{
+                header('location:' . URLROOT. '/buyers/completedOrder');
+                }
         $this->view('buyers/reviewFarmer',$data);
     }
     public function suggestDelivery(){
@@ -361,8 +434,12 @@ class Buyers extends Controller {
     }
 
     public function notification(){
-
-        $this->view('buyers/notification');
+        $id=$_SESSION['buyerID'];
+        $posts = $this->buyerModel->getAllNotificationByBuyerID($id);
+        
+        $data = array( 'posts' => $posts);
+        
+        $this->view('buyers/notification',$data);
     }
 
     public function notiOffer(){

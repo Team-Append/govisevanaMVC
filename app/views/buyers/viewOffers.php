@@ -43,8 +43,8 @@
                   <p>offer price : <?php echo $post->offerPrice;?></p>
                 </div>
                 <div class="button">
-                  <a href="">
-                  <input type="button" value="accept">
+                  <a href="<?php echo URLROOT?>/buyers/offerORderConfirmation?offerID=<?php echo $post -> offerID?>">
+                    <input type="button" value="accept">
                   </a>
                   <a href="">
                   <input type="button" value="reject">

@@ -17,6 +17,7 @@
             <img src="<?php echo URLROOT; ?>/img/bell-ring.png" alt="notification-icon"><br>
             <hr>
         </div>
+        <?php foreach ($data['posts'] as $posts){ ?>
         <div class="noti-list">
             <div class="noti">
                 <div class="noti-profile">
@@ -28,36 +29,16 @@
                         <p><b>Kamal de Silva</b> sent an offer</p>
                     </div>
                     <div class="noti-info">
-                        Offer sent by farmer kamal de silva to the request,posts by you on 14th saturday
-
+                        <?php echo $posts->description;?>
                     </div>
                     <div class="time">
-                        10 hours ago
+                        <div class="info"><?php echo $posts->notifdate;?>
                     </div>
 
-                </div>
-            </div>
-            <div class="pre-noti">
-                <div class="noti">
-                    <div class="noti-profile">
-                        <img src="<?php echo URLROOT; ?>/img/prof.png" alt="profile image">
-                    </div>
-                    <div class="noti-details">
-                        <div class="noti-name">
-                            <p><b>Kamal de Silva</b> sent an offer</p>
-                        </div>
-                        <div class="noti-info">
-                            Offer sent by farmer kamal de silva to the request,posts by you on 14th saturday
-
-                        </div>
-                        <div class="time">
-                            10 hours ago
-                        </div>
-
-                    </div>
                 </div>
             </div>
         </div>
+        <?php } ?>
     </div>
     <div class="footer">
         <hr>
