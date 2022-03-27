@@ -302,15 +302,73 @@ class Buyers extends Controller {
         }
         $this->view('buyers/orderConfirmation',$data);
     }
+    public function offerOrderConfirmation(){
+        $post = $this->offerModel->getOffersByID($_GET['offerID']);
+        
+
+        $data = array('posts' => $post);
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+            $data = array(
+                'posts' => $post,
+                'shippingAddress' => trim($_POST['shippingAddress']),
+                'province' =>$_POST['province'],
+                'district' => $_POST['district'],
+                'provinceError' => '',
+                'districtError' => '',
+            );
+            if(empty($data['district'])){
+                $data['districtError'] = 'please enter shipping infrormation'; 
+            }
+            if(empty($data['province'])){
+                $data['provinceError'] = 'please enter shipping infrormation'; 
+            }
+            if(empty($data['shippingAddress'])){
+                $data['provinceError'] = 'please enter shipping infrormation'; 
+            }
+            if(empty($data['provinceError']) && empty($data['districtError'])){
+                
+                    if($this -> orderModel-> createofferOrder($data)){
+                        
+                        $buyer = $this-> buyerModel ->getBuyerByID($_SESSION['buyerID']);
+                        $desc = "buyer,".$buyer -> name ." place a order to the offer posts on" . date("Y/m/d");
+                        $farmerID = $post->farmerID;
+                        
+                        $this-> farmerModel ->createNotification($farmerID,$desc,date("Y/m/d"));
+
+                        header('location:' . URLROOT. '/buyers/ongoingorders'); 
+                    }else{
+                        die('something went wrong');
+                    }
+               
+            }
+
+        }else{
+            $data = array(  
+                'posts' => $post,
+                'orderQty' => '',
+                'shippingAddress' => '',
+                'province' =>'',
+                'district' => '',
+                'provinceError' => '',
+                'districtError' => '',
+            );
+        }
+        $this->view('buyers/offerOrderConfirmation',$data);
+    }
 
     public function reviewFarmer(){
         $order = $this->orderModel -> getOrderByID($_GET['orderID']);
         $farmer = $this->farmerModel -> getFarmerByID($order -> farmerID);
+
+        if(!$this -> reviewModel -> isReviewed($_GET['orderID'])){
+        
         $data = array(
             'farmer' =>$farmer,
             'rating'=> '',
             'description' => '',
             'OrderID' => '',
+            'reviewDate' => '',
             'ratingError' => '',
             'descriptionError' => ''
             );
@@ -320,7 +378,8 @@ class Buyers extends Controller {
                     'farmer' =>$farmer,
                     'rating'=> trim($_POST['rating']),
                     'description' => trim($_POST['description']),
-                    'OrderID' => $_GET['orderID'],
+                    'orderID' => $_GET['orderID'],
+                    'reviewDate' => date("Y/m/d"),
                     'ratingError' => '',
                     'descriptionError' => ''
                     );
@@ -340,9 +399,12 @@ class Buyers extends Controller {
             'rating'=> '',
             'description' => '',
             'OrderID' => '',
+            'reviewDate' => '',
             'ratingError' => '',
             'descriptionError' => ''
-            );}
+            );}}else{
+                header('location:' . URLROOT. '/buyers/completedOrder');
+                }
         $this->view('buyers/reviewFarmer',$data);
     }
     public function suggestDelivery(){

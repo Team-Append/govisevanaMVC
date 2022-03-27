@@ -28,6 +28,13 @@
             return $results;
             
         }
+        public function getOffersByID($offerID){
+            $this->db -> query('SELECT * FROM offer,farmer,catagory,request WHERE offerID = :offerID and offer.farmerID = farmer.farmerID and request.RID= offer.RID and request.catID =  catagory.catID');
+            $this->db -> bind(':offerID',$offerID);
+            $results = $this->db->single();
+            return $results;
+            
+        }
         
     }
 ?>

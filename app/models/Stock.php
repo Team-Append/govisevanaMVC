@@ -48,6 +48,13 @@
             $results = $this->db->resultSet();
             return $results;
         }
+        public function getAllApprovedPosts($ID){
+            $this->db->query("SELECT * FROM stock WHERE farmerID = :ID where stockStatus = 'approved'ORDER BY stockID DESC");
+            $this->db -> bind(':ID',$ID);
+    
+            $results = $this->db->resultSet();
+            return $results;
+        }
         
         public function updateStockStatus($status,$stockID){
             $this->db->query("UPDATE stock SET stockStatus = :status WHERE stockID = :stockID");
@@ -84,7 +91,7 @@
 
         }
         public function  getAllActiveStock(){
-            $this->db->query('SELECT * FROM stock,farmer WHERE  stock.farmerID = farmer.farmerID and stock.qty>0');
+            $this->db->query("SELECT * FROM stock,farmer WHERE  stock.farmerID = farmer.farmerID and stock.qty>0 and stockStatus = 'approved'");
             
     
             $results = $this->db->resultSet();

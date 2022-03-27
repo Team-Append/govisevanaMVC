@@ -27,7 +27,7 @@
           <table class="tble">
             <tr>
               <td>rate the Farmer</td>
-              <td><input type="number" min="1" max="5" placeHolder="rate between 1-5"></td>
+              <td><input type="number" name="rating" id="rating" min="1" max="5" placeHolder="rate between 1-5"></td>
             </tr>
           </table>
         </div>
