@@ -8,6 +8,7 @@ class Buyers extends Controller {
         $this->offerModel = $this-> model('Offer');
         $this->orderModel = $this-> model('Order');
         $this->stockModel = $this-> model('Stock');
+        $this->farmerModel = $this-> model('Farmer');
 
 
     }
@@ -240,7 +241,8 @@ class Buyers extends Controller {
 
     public function orderConfirmation(){
         $post = $this->stockModel->getStockByID($_GET['stockID']);
-        $buyer = $this-> buyerModel ->getBuyerByID($_SESSION['buyerID']);
+        
+
         $data = array('posts' => $post);
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
@@ -266,6 +268,12 @@ class Buyers extends Controller {
                 if($post->qty>= $data['orderQty']){
                     if($this -> orderModel-> createOrder($data)){
                         $this -> stockModel-> updateQty($post->stockID,$post->qty - $data['orderQty']);
+                        
+                        $buyer = $this-> buyerModel ->getBuyerByID($_SESSION['buyerID']);
+                        $desc = "buyer,".$buyer -> name ." place a order to the stock post you posts on" . date("Y/m/d");
+                        $farmerID = $post->farmerID;
+                        
+                        $this-> farmerModel ->createNotification($farmerID,$desc,date("Y/m/d"));
 
                         header('location:' . URLROOT. '/buyers/dashboard'); 
                     }else{

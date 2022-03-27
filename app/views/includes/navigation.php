@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/navStyles.css" />
         <!--Boxicons CDN Links-->
         <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
@@ -41,13 +42,23 @@
             <li class="right"><a href="<?php echo URLROOT;?>/farmers/viewProfile">Profile</a></li>
             <form method = "post" action="Navigation/navigation">
                 <li class="search">
-                    <input type="text" placeholder="Search.." name="search" >
+                <div class="search-container">
+                    <form action="/action_page.php">
+                    <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>    
+                    
+                <!-- <form action="" method="POST" name="search">
+                        <input type="text" placeholder="Search.." name="search">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
                         <form action="" method="POST" name="search">
                         <button type="submit" id="search">
                             <i class='bx bx-search'></i>
                         </button>
                         
-                        </form>
+                        </form> --> 
                     
                 </li>
             </form>

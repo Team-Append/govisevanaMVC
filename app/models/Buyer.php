@@ -21,6 +21,16 @@
                 return false;
             }
         } 
+
+
+        public function getBuyerByID($id){
+            $this->db -> query('SELECT name FROM buyer WHERE buyerID = :ID');
+            $this->db -> bind(':ID',$id);
+            $results = $this->db->single();
+            return $results;
+        }
+
+
         public function register($data){
             $this->db -> query('INSERT INTO buyer(NIC,password,name,address,province,district,tpno,email) VALUES(:NIC,:password,:name, :address,:province, :district, :tpno , :email)');
             $this->db -> bind(':NIC',$data['NIC']);
@@ -57,6 +67,8 @@
         }else{
             return false;
         }
-        }  
+        } 
+        
+        
     }
 ?>

@@ -251,8 +251,34 @@ class Farmers extends Controller {
     }
 
     public function notification(){
+        $id=$_SESSION['farmerID'];
+        $posts = $this->farmerModel->getAllNotificationByFarmerID($id);
         
-        $this->view('farmers/notification');
+        $data = array( 'posts' => $posts);
+        
+        $this->view('farmers/notification',$data);
+    }
+
+    public function deleteNotification($id){
+        
+        // if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        //     $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+        //     if($this->farmerModel->deleteNotificationByNotifID($id)){
+                
+        //     $posts = $this->farmerModel->getAllNotificationByFarmerID($id);
+        //     $notifID = $posts->notifID;
+        //     $posts = $this->farmerModel->deleteNotificationByNotifID($notifID);
+
+
+        //         header("Location: " . URLROOT . "/farmers/notification");
+                
+        //     }else {
+        //         die('Something went wrong');
+        //     }
+
+        // }
+        $this->view('farmers/notiOrder');
     }
 
     public function notiOrder(){
