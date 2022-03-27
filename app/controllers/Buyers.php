@@ -394,10 +394,10 @@ class Buyers extends Controller {
         $this->view('buyers/completedOrder',$data);
     }
 
-    public function editProfile(){
+   // public function editProfile(){
 
-        $this->view('buyers/editProfile');
-    }
+       // $this->view('buyers/editProfile');
+   // }
 
     public function analytic(){
 
@@ -417,7 +417,17 @@ class Buyers extends Controller {
         
         $this->view('buyers/MyRequest',$data);
 }
-/*
+
+public function viewProfile(){
+
+    $id=$_SESSION['buyerID'];
+    $posts = $this->buyerModel->getBuyerByID($id);
+
+    $data = array( 'posts' => $posts);
+    
+    $this->view('buyers/viewProfile',$data);
+}
+
 public function editProfile(){
         
     $id=$_SESSION['buyerID'];
@@ -502,7 +512,6 @@ public function editProfile(){
     $this->view('buyers/editProfile',$data);
 }
 
-*/
 
 
 }

@@ -16,6 +16,8 @@
       <div class="dtopic">
         <h1><?php echo $cat->catName;?></h1>
       </div>
+
+
       <?php foreach($data['stocks'] as $stock){?>
         <?php if($stock -> catID == $cat -> catID){?>
         <a href="<?php echo URLROOT; ?>/stocks/viewStock?stockID=<?php echo  $stock -> stockID;?>">

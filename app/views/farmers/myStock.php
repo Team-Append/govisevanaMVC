@@ -45,7 +45,6 @@
             </div>
             <div class="posts-list">
                 <?php $count = 0; ?>
-
                         <!-- checkk -->
                         <?php  foreach($data['posts'] as $post){ ?>
                             <?php if($count == 0){ echo "<div class=\"row\">";}?>   
