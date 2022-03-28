@@ -111,12 +111,53 @@
     }
     
     public function selectElegibleDeliveryPersons($farmerID,$buyerID){
-        $this->db->query("select deliveryperson.name,deliveryperson.address,deliveryperson.tpno,deliveryperson.email,deliveryvehicles.vehicleModel from deliveryperson inner join farmer on farmer.district = deliveryperson.district inner join deliveryareas on deliveryareas.deliveryPersonID = deliveryperson.deliveryPersonID INNER join buyer on buyer.district = deliveryareas.areas inner join deliveryvehicles on deliveryperson.deliveryPersonID = deliveryvehicles.deliveryPersonID where farmer.farmerID = :farmerID  and buyer.buyerID = :buyerID");
+        $this->db->query("select deliveryperson.deliveryPersonID,deliveryperson.name,deliveryperson.address,deliveryperson.tpno,deliveryperson.email,deliveryvehicles.vehicleModel from deliveryperson inner join farmer on farmer.district = deliveryperson.district inner join deliveryareas on deliveryareas.deliveryPersonID = deliveryperson.deliveryPersonID INNER join buyer on buyer.district = deliveryareas.areas inner join deliveryvehicles on deliveryperson.deliveryPersonID = deliveryvehicles.deliveryPersonID where farmer.farmerID = :farmerID  and buyer.buyerID = :buyerID");
             $this->db -> bind(':farmerID',$farmerID);
             $this->db -> bind(':buyerID',$buyerID);
             $results = $this->db->resultSet();
             return $results;
             
     }
+
+    public function getDeliveryPersonByID($id){
+        $this->db->query("SELECT * FROM deliveryperson WHERE deliveryPersonID=:ID");
+        $this->db -> bind(':ID',$id);
+        $results = $this->db->single();
+        return $results;
+    }
+
+    public function updateProfile($data,$id){
+        $this->db->query("UPDATE deliveryperson SET name = :name , NIC = :NIC , address = :address , email = :email , tpno = :tpno WHERE deliveryPersonID =:ID");
+        $this->db -> bind(':ID',$id);
+        $this->db -> bind(':name',$data['name']);
+        $this->db -> bind(':NIC',$data['NIC']);
+        $this->db -> bind(':address',$data['address']);
+        $this->db -> bind(':email',$data['email']);
+        $this->db -> bind(':tpno',$data['tpno']);
+        
+        
+
+        if($this->db->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    
+    public function deleteFarmer($farmerID){
+        $this->db->query("DELETE FROM farmer WHERE farmerID = :ID");
+        $this->db -> bind(':ID',$farmerID);
+        if($this->db->execute()){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+
+
+
     }  
 ?>

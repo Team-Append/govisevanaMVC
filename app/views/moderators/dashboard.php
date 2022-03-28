@@ -60,8 +60,7 @@ include_once(APPROOT.'/views/includes/navigation.php');
             </div>
             </a>
         </div>
-
-
+    
     </div>
 
 </body>

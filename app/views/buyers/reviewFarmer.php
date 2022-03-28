@@ -27,12 +27,18 @@
           <table class="tble">
             <tr>
               <td>rate the Farmer</td>
+              <span class="invalidFeedback" style="color: red;">
+                  <?php echo $data['ratingError'];?>
+              </span>
               <td><input type="number" name="rating" id="rating" min="1" max="5" placeHolder="rate between 1-5"></td>
             </tr>
           </table>
         </div>
         <div class="t1">
           <h2>Review farmer</h2>
+          <span class="invalidFeedback" style="color: red;">
+                  <?php echo $data['descriptionError'];?>
+            </span>
         </div>
         <div class="reviewbox">
           

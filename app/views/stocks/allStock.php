@@ -3,19 +3,34 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/stock.css" />
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/styleStockV.css">
     <link rel="stylesheet" href="<?php echo URLROOT;?>/css/style.css" />
+    
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/footerStyles.css" />
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
   </head>
   <body>
-  <?php include_once(APPROOT.'/views/includes/navigation.php'); ?>
+  <div style="position: fixed; width: 100%; z-index: 2;">
+    <?php include_once(APPROOT.'/views/includes/navigation.php'); ?>
+  </div>
+  <div class="sidenav">
     
+    <?php foreach($data['catsList'] as $cat){?>
+      <a href="<?php echo URLROOT; ?>/stocks/allStock?catID=<?php echo  $cat -> catID;?>"><?php echo $cat->catName;?></a>
+    <?php } ?>
+</div>
+
+<div class="main">
+  
+
     <?php foreach($data['cats'] as $cat){?>
     <div class="detail">
       <div class="dtopic">
         <h1><?php echo $cat->catName;?></h1>
       </div>
+      
+
       <?php foreach($data['stocks'] as $stock){?>
         <?php if($stock -> catID == $cat -> catID){?>
         <a href="<?php echo URLROOT; ?>/stocks/viewStock?stockID=<?php echo  $stock -> stockID;?>">
@@ -42,10 +57,6 @@
                                     <p class="title">Farmer : <?php echo $stock->name;?></p>
                                 </div>
 
-                                <div class="text2">
-                                    <i class='bx bx-star'></i>
-                                    <i class='bx bx-star'></i>
-                                </div>
                                 
                             </div>
                         </div>
@@ -63,6 +74,6 @@
         <?php include_once(APPROOT.'/views/includes/footer.php'); ?>
     </div>
       
-
+    </div>
   </body>
 </html>

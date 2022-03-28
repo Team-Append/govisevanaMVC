@@ -104,6 +104,8 @@
 
         }
 
+        
+
         public function createNotification($buyerID,$description,$date){
 
             $this->db -> query("INSERT INTO buyernotification(buyerID,description,notifdate,status) VALUES(:farmerID,:desc,:date,'unread')");
@@ -128,6 +130,7 @@
             return $results;
             
         }
+    }
 /*
         public function updateProfile($data,$id){
             $this->db->query("UPDATE buyer SET name = :name , NIC = :NIC , address = :address , email = :email , tpno = :tpno WHERE buyerID =:ID");
@@ -145,6 +148,6 @@
             }else{
                 return false;
             }
-        } */
+        } 
     }
-?>
+?>*/

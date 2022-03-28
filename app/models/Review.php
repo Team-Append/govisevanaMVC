@@ -25,7 +25,7 @@
         }
 
         public function getAllReviewByfarmerID($ID){
-            $this->db->query("SELECT * FROM review WHERE farmerID = :ID  ORDER BY reviewDate");
+            $this->db->query("SELECT * FROM review,buyer WHERE farmerID = :ID  and buyer.buyerID = review.buyerID ORDER BY reviewDate");
             $this->db -> bind(':ID',$ID);
             $results = $this->db->resultSet();
             return $results;

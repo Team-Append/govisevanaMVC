@@ -101,13 +101,13 @@
             
         }
         public function getOfferOrdersByFarmerID($farmerID){
-            $this->db -> query('SELECT * FROM offerorder,stock,farmer,buyer WHERE offerorder.farmerID = :ID and offerorder.stockId = stock.stockID and farmer.farmerID = stock.farmerID and buyer.buyerID = offerorder.buyerID order BY orderDate DESC');
+            $this->db -> query('SELECT * FROM offerorder,request,farmer,buyer,offer WHERE offerorder.farmerID = :ID and offerorder.RID = request.RID and farmer.farmerID = offer.farmerID and buyer.buyerID = offerorder.buyerID order BY orderDate DESC');
             $this->db -> bind(':ID',$farmerID);
             $results = $this->db->resultSet();
             return $results;
         }
         public function updateOfferOrderStatus($status, $orderID){
-            $this->db -> query('UPDATE stockorder SET orderStatus = :stat WHERE orderID = :ID');
+            $this->db -> query('UPDATE offerorder SET orderStatus = :stat WHERE offerOrderID = :ID');
             $this->db -> bind(':ID',$orderID);
             $this->db -> bind(':stat',$status);
             $results = $this->db->execute();

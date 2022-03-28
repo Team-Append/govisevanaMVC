@@ -34,7 +34,13 @@
               <td><?php echo $deliveryPerson-> tpno ?></td>
               <td><?php echo $deliveryPerson-> email ?></td>
               <td><?php echo $deliveryPerson-> vehicleModel ?></td>
-              <td><button type="button" name="button"> select delivery person </button></td>
+              
+                <td>
+                <a href="<?php echo URLROOT; ?>/farmers/myOrder?farmerID=<?php echo $_GET['farmerID']?>&buyerID=<?php echo $_GET['farmerID']?>&orderID=<?php echo $_GET['orderID']?>&deliveryPersonID=<?php echo $deliveryPerson -> deliveryPersonID?>">
+                  <button type="button" name="button"> select delivery person </button>
+                </a>
+                </td>
+              
             </tr>
             <tr>
             </tr>
