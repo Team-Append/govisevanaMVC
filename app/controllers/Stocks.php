@@ -6,11 +6,20 @@ public function __construct()
     $this->stockModel = $this->model('Stock');
     $this->catagoryModel = $this->model('Catagory');
     $this->requestModel = $this-> model('Request');
+    $this->farmerModel = $this-> model('Farmer');
+    $this->reviewModel = $this-> model('Review');
+    
     
 }
 public function viewStock(){
     $post = $this->stockModel->getStockByID($_GET['stockID']);
-    $data = array('posts' => $post);
+    $farmer = $this->farmerModel -> getFarmerByID($post -> farmerID);
+    $reviews = $this->reviewModel -> getAllReviewByfarmerID($post -> farmerID);
+    $farmerPosts = $this->stockModel -> getAllApprovedPosts($post -> farmerID);
+    $data = array('posts' => $post,
+                    'farmer'=> $farmer,
+                    'reviews' => $reviews,
+                    'farmerPosts' => $farmerPosts);
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
         if($post-> qty>= $_POST['qty']){
@@ -27,15 +36,57 @@ public function viewStock(){
 
 public function allStock(){
     $stock = $this->stockModel->getAllActiveStock();
-    $cat = $this->catagoryModel -> getCatagory();
+    $cats = $this->catagoryModel -> getCatagory();
     $data = array(  
-                    'stocks' => $stock,
-                    'cats' => $cat,
-                    );
-
+        'stocks' => $stock,
+        'cats' => $cats,
+        'catsList' => $cats
+    );
+    if(isset($_GET['catID'])){
+     
+        $cat = $this-> catagoryModel -> getCatagorybyID($_GET['catID']);
+        $data = array(  
+            'stocks' => $stock,
+            'cats' => $cat,
+            'catsList' => $cats
+        );
+    }else{
+            $data = array(  
+                'stocks' => $stock,
+                'cats' => $cats,
+                'catsList' => $cats
+            );
+    }
 
 
     $this->view('stocks/allStock',$data);  
+}
+public function allCats(){
+    $stock = $this->stockModel->getAllActiveStock();
+    $cats = $this->catagoryModel -> getCatagory();
+    $data = array(  
+        'stocks' => $stock,
+        'cats' => $cats,
+        'catsList' => $cats
+    );
+    if(isset($_GET['catID'])){
+     
+        $cat = $this-> catagoryModel -> getCatagorybyID($_GET['catID']);
+        $data = array(  
+            'stocks' => $stock,
+            'cats' => $cat,
+            'catsList' => $cats
+        );
+    }else{
+            $data = array(  
+                'stocks' => $stock,
+                'cats' => $cats,
+                'catsList' => $cats
+            );
+    }
+
+
+    $this->view('stocks/allCats',$data);  
 }
 
 public function addStock(){

@@ -219,18 +219,21 @@ class Farmers extends Controller {
 
     public function myOrder(){
         $orderDetails = $this->orderModel -> getOrdersByFarmerID($_SESSION['farmerID']);
+        $offerOrderDetails = $this->orderModel -> getOfferOrdersByFarmerID($_SESSION['farmerID']);
         $data = array(
             'orders' => $orderDetails,
+            'offerOrders' => $offerOrderDetails,
             'status' => '',
             'orderID' => ''
         );
         
-        if(!empty($_GET['orderID'])){
+        if(!empty($_GET['status'])){
             
             $data = array(
                 'orders' => $orderDetails,
-                'status' => trim($_GET['status']),
-                'orderID' => trim($_GET['orderID'])
+                'offerOrders' => $offerOrderDetails,
+                'status' => $_GET['status'],
+                'orderID' => $_GET['orderID']
             );
 
             
@@ -240,7 +243,32 @@ class Farmers extends Controller {
 
         }else{
             $data = array(
-                'orders' => $orderDetails
+                'orders' => $orderDetails,
+                'offerOrders' => $offerOrderDetails,
+                'status' => '',
+                'orderID' => ''
+            );
+        }
+        if(!empty($_GET['offerOrderID'])){
+            
+            $data = array(
+                'orders' => $orderDetails,
+                'offerOrders' => $offerOrderDetails,
+                'status' => $_GET['status'],
+                'orderID' => $_GET['offerOrderID']
+            );
+
+            
+            if($this-> orderModel->updateOfferOrderStatus($data['status'],$data['orderID'])){
+                header('location:' . URLROOT. '/farmers/myOrder'); 
+            }
+
+        }else{
+            $data = array(
+                'orders' => $orderDetails,
+                'offerOrders' => $offerOrderDetails,
+                'status' => '',
+                'orderID' => ''
             );
         }
         $this->view('farmers/myOrder',$data);

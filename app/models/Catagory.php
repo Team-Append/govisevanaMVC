@@ -25,5 +25,11 @@
         $results = $this->db->resultSet();
         return $results;
     }
+    public function getCatagorybyID($ID){
+        $this->db->query("SELECT * FROM catagory where catID = :ID");
+        $this->db -> bind(':ID',$ID);
+        $results = $this->db->resultSet();
+        return $results;
+    }
     }
 ?>

@@ -52,7 +52,7 @@ body{
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: block;
   font-size: 10px;
   margin: 5px 2px;
   cursor: pointer;
@@ -175,11 +175,11 @@ body{
 .title {
     color: grey;
   }
-
+/* 
 .container .line-1{
     display: flex;
 
-}
+} */
 
 .container .line-1 .text1{
     width: 75% ;
@@ -190,9 +190,9 @@ body{
 
 }
 
-.container .line-2{
+/* .container .line-2{
     display: flex;
-}
+} */
 
 .container .line-2 .text1{
     width: 75% ;
