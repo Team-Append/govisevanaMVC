@@ -66,7 +66,7 @@
               </span>
             <div class="info-row">
               <div class="take-info">Telephone Number : </div>
-              <div class="info"><input type="text" name="tpno" value="<?php echo $data['posts']->tpno;?>"></div>
+              <div class="info"><input type="text" name="tpno" value="<?php echo $data['posts']->TPno;?>"></div>
             </div>
             
           </div>

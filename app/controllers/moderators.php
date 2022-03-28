@@ -92,7 +92,7 @@ public function dashboard(){
 
     public function editProfile(){
         
-        $id=$_SESSION['ModID'];
+        $id=$_SESSION['MID'];
         $posts = $this->moderatorModel->getModeratorByID($id);
         $data = array( 'posts' => $posts,
                         'ModName' => '',
@@ -172,6 +172,7 @@ public function dashboard(){
               
         }
         $this->view('moderators/editProfile',$data);
+        
     public function farmernotification(){
         
         $posts = $this->moderatorModel->getAllNotification();

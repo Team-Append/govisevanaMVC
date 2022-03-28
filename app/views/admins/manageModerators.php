@@ -31,7 +31,12 @@
                             <td><?php echo $post->ModName ;?></td>
                             <td><?php echo $post->ModEmail ;?></td>
                             <td><?php echo $post->ModTP ;?></td>
-                            <td style="background-color: #FF4A4A;text-align: center;">Remove Mod</td>
+                            <td style="text-align: center;">
+                            <form action="">
+                    <!-- <a href="<?php echo URLROOT; ?>/admins/deleteModerator?MID=<?php echo $post->MID?>" > -->
+                      <button onclick="myFunction(<?php echo $post->MID?>)" type="button" name="button"> Remove Mod</button></td>
+                    <!-- </a>  -->
+                           </td>
                         </tr>
                     <?php }?>
                     </tbody>
@@ -41,6 +46,23 @@
         
     </body>
     </html>
+
+    <script>
+function myFunction(MID) {
+  //var txt;
+  if (confirm("Are you sure want to delete!")) {
+        var newUrl = "<?php echo URLROOT; ?>/admins/deleteModerator?MID="+MID;
+        document.location.href = newUrl;
+  } else {
+    //txt = "You pressed Cancel!";
+  }
+ // document.getElementById("demo").innerHTML = txt;
+}
+</script>
+
+
+
+
     <?php } else{
         header('location:' .URLROOT. '/pages/index');
     }?>

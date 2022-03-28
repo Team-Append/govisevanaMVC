@@ -47,9 +47,9 @@
                     <button type="button" name="button1">Edit</button></div></td> -->
                   <td>
                    <form action="">
-                    <a href="<?php echo URLROOT; ?>/admins/deleteBuyer?buyerID=<?php echo $post->buyerID?>" >
+                   <!-- <a href="<?php echo URLROOT; ?>/admins/deleteBuyer?buyerID=<?php echo $post->buyerID?>" > -->
                   
-                     <button onclick="myFunction()" type="button" name="button">Delete</button></a></td>
+                     <button onclick="myFunction(<?php echo $post->buyerID?>)" type="button" name="button">Delete</button></a></td>
                       
                 </tr>
               </table></td>
@@ -65,10 +65,11 @@
 </html>
 
 <script>
-function myFunction() {
+function myFunction(buyerID) {
   //var txt;
   if (confirm("Are you sure want to delete!")) {
-    //txt = "You pressed OK!";
+    var newUrl = "<?php echo URLROOT; ?>/admins/deleteBuyer?buyerID="+buyerID;
+        document.location.href = newUrl;
   } else {
     //txt = "You pressed Cancel!";
   }

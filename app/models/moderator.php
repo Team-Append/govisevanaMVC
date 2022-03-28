@@ -91,4 +91,18 @@ public function login($email,$password){
         return $results;
         
     }
+
+    public function deleteModerator($moderatorID){
+        $this->db->query("DELETE FROM moderator WHERE MID = :ID");
+        $this->db -> bind(':ID',$moderatorID);
+        if($this->db->execute()){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+
+
 }
