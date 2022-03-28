@@ -24,6 +24,7 @@
 <div class="main">
   
 <div class="detail">
+<h2 >Select the catagory you want to shop in</h2>
     <a href="<?php echo URLROOT; ?>/stocks/allStock/">
     <div class="dlist">
               <div class="d1">
