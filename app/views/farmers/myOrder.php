@@ -1,8 +1,9 @@
+<?php if(isFarmerLoggedIn()){ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>My Order</title>
     <link rel="stylesheet" href=" <?php echo URLROOT; ?> /css/myOrderStyle.css" />
     <script>    <?php if(isset($_GET['alert'])){?>
       <?php if($_GET['alert'] == 'reviewDone'){?>
@@ -175,3 +176,6 @@
     </div>
   </body>
 </html>
+<?php } else{
+    header('location:' .URLROOT. '/pages/index');
+}?>
