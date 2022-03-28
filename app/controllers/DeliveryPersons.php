@@ -220,7 +220,12 @@ class DeliveryPersons extends Controller {
     }
 
     public function mySchedule(){
-        $this->view('deliveryPersons/mySchedule');
+        $delivery = $this-> DeliveryPersonModel -> getDeliveryOrdersbyID($_SESSION['deliveryPersonID']);
+        $data =array(
+            'deliveryOrders' => $delivery
+        );
+        $this->view('deliveryPersons/mySchedule',$data);
+
     }
 
     public function analytic(){
