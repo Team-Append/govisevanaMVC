@@ -89,7 +89,7 @@ include_once(APPROOT.'/views/includes/navigation.php');
         </div>
         <div id="order-table">
             <h1>current orders</h1>
-            <table>
+            <table >
                 <thead>
                     <tr>
                         <th>Order ID</th>

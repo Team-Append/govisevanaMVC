@@ -1,9 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+<<<<<<< HEAD
+    <title>My Requests</title>
+    <link rel="stylesheet" href=" <?php echo URLROOT; ?> /css/styleCompleteOrders.css" />
+=======
     <title>view Request</title>
     <link rel="stylesheet" href=" <?php echo URLROOT; ?> /css/viewReqStyles.css" />
+>>>>>>> d53e4a3cff3df862aeac0c997302d769ce044297
     <link rel="stylesheet" href="<?php echo URLROOT;?>/css/style.css" type="text/css">
   </head>
   <body>
@@ -11,51 +17,65 @@
       <?php include_once(APPROOT.'/views/includes/navigation.php'); ?>
     </div>
 
-    
-    <!-- <div class="side">
-      Side bar
-    </div> -->
     <div class="detail">
       <div class="dtopic">
-        <h1>Buyer requests</h1>
+        <h1>Buyer Requests</h1>
       </div>
-      <div class="dlist">
-      <?php foreach ($data['posts'] as $post){ ?>
-        <div class="d1">
-          <div class="content">
-            <div class="top-line">
-              <div class="name">
-                <h3><?php echo $post->name;?></h3>
-              </div>
-              <div class="budget">
-                Budget | Rs. <hb>3000.00</hb>
-              </div>
-              <div class="cat">
-                Category | <hc><?php echo $post->catName;?></hc>
-              </div>
-            </div>
+      <div class="dcontent">
+        <table class="main">
+          <thead class="ttopic">
+              <td>Name</td>
+            <td>Budget</td>
+            <td>Request Description</td>
+            <td>Catagory</td>
+            <td>Expected Date</td>
+            <td></td>
+           
             
-            <div class="description">
-            <?php echo $post->reqDescription;?>
-            </div>
-            <div class="bottom-line">
-                <div class="date">
-                  <p>Expect delivery date : <?php echo $post->expectedDate;?></p>
+            
+          </thead>
+          <?php foreach ($data['posts'] as $post){ ?>
+          <tbody>
+            <tr class="rw">
+            <td><?php echo $post->name;?></td>
+              <td><?php echo $post->budget;?></td>
+              <td class="col-description">
+                <div class="s-details">
+                    <div class="info">
+                      <p><?php echo $post->reqDescription;?></p>
+                    </div>
+                  </div>
                 </div>
-                <div class="button">
-                  <a href="<?php echo URLROOT;?>/Offers/addOffer?RID=<?php echo $post->RID;?>">
-                  <input type="button" value="Submit Offer">
-                  </a>
-                </div>
-            </div>
+              </td>
+              <td><?php echo $post->catName;?></td>
+              <td><?php echo $post->expectedDate;?></td>
+              <td>
+              <div class="myrequest-Proceed">
+                  
+                    <a href="<?php echo URLROOT;?>/Offers/addOffer?RID=<?php echo $post->RID;?>">
+                    <input type="button" value="Submit Offer" class="btn-myreq">
+                
+                
+              </div>
+            </td>
+              
+             
+              
+            </tr>
+            <tr>
+            </tr>
+            
+          </tbody>
           
-          </div>
-        </div>
-        <?php } ?>
+          <?php } ?>
+          
+        </table>
+        
       </div>
-    </div>
-    <div class="footer">
+      <br><br>
       
     </div>
   </body>
 </html>
+
+
