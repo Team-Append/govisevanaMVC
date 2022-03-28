@@ -8,6 +8,7 @@ public function __construct()
     $this->requestModel = $this-> model('Request');
     $this->farmerModel = $this-> model('Farmer');
     $this->reviewModel = $this-> model('Review');
+    $this->moderatorModel = $this-> model('Moderator');
     
     
 }

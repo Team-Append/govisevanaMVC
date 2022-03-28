@@ -172,7 +172,7 @@ public function dashboard(){
               
         }
         $this->view('moderators/editProfile',$data);
-        
+    }    
     public function farmernotification(){
         
         $posts = $this->moderatorModel->getAllNotification();

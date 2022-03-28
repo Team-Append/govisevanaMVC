@@ -8,6 +8,7 @@ class Farmers extends Controller {
         $this->orderModel = $this-> model('Order');
         $this->deliveryModel = $this-> model('DeliveryPerson');
         $this->reviewModel = $this-> model('review');
+        $this->moderatorModel = $this-> model('Moderator');
         
 
     }
