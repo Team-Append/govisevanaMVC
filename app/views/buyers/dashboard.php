@@ -17,7 +17,7 @@ include_once(APPROOT.'/views/includes/navigation.php');
         <div id="profile-info-card">
             <div class="profile-upper">
                 <div class = "profile-pic">
-                    <img src="<?php echo URLROOT;?>/img/pp.jpg" alt="">
+                    <img src="<?php echo URLROOT;?>/img/icons/buyer.png" alt="">
                 </div>
                 <h1>Hello</h1>
                 <h2><?php echo $_SESSION['name']?></h2>
@@ -90,36 +90,24 @@ include_once(APPROOT.'/views/includes/navigation.php');
                 <thead>
                     <tr>
                         <th>Order ID</th>
-                        <th>Delivery Date</th>
-                        <th>Description</th>
-                        <th>Status</th>
+                        <th>farmer name</th>
+                        <th>quantitiy</th>
+                        <th>total</th>
+                        <th>status</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
+                <?php foreach($data['orders'] as $order){ ?>
                     <tr>
-                        <td>001</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><?php echo $order -> orderID?></td>
+                        <td><?php echo $order -> farmerName?></td>
+                        <td><?php echo $order -> orderQty?></td>
+                        <td><?php echo $order -> Total?></td>
+                        <td><?php echo $order -> orderStatus?></td>
+                        <td> <a href="<?php echo URLROOT;?>/farmers/myOrder"><input type="button" value="visit order page"> </button></a></td>
                     </tr>
-                    <tr>
-                        <td>001</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <?php }?>
                 </tbody>
             </table>
         </div>

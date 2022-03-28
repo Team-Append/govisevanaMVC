@@ -17,7 +17,7 @@ include_once(APPROOT.'/views/includes/navigation.php');
         <div id="profile-info-card">
             <div class="profile-upper">
                 <div class = "profile-pic">
-                    <img src="<?php echo URLROOT;?>/img/pp.jpg" alt="">
+                    <img src="<?php echo URLROOT;?>/img/farmer.png" alt="">
                 </div>
                 <h1>Hello</h1>
                 <h2><?php echo $_SESSION['name']?></h2>
@@ -27,19 +27,22 @@ include_once(APPROOT.'/views/includes/navigation.php');
                 <tbody>
                     <tr>
                         <td class="stats-desc">Orders completed</td>
-                        <td class="stat">50</td>
+                        <td class="stat"><?php echo $data['completedOrders'] -> count?></td>
                     </tr>
                     <tr>
-                        <td class="stats-desc">Orders completed</td>
-                        <td class="stat">231</td>
+                        <td class="stats-desc">ongoing Orders</td>
+                        <td class="stat"><?php echo $data['onGoingOrders'] -> count?></td>
                     </tr>
                     <tr>
-                        <td class="stats-desc">Orders completed</td>
+                        <td class="stats-desc">Active Stock</td>
                         <td class="stat">12</td>
                     </tr>
                     <tr>
                         <td class="stats-desc rating">Rating</td>
-                        <td class="stat"></td>
+                        <td class="stat"><?php if($data['rating']== NULL){
+                            
+                        }
+                        else echo $data['rating'] -> averageRating;;?></td>
                     </tr>
                 </tbody>
             </table>
@@ -90,36 +93,22 @@ include_once(APPROOT.'/views/includes/navigation.php');
                 <thead>
                     <tr>
                         <th>Order ID</th>
-                        <th>Delivery Date</th>
+                        <th>buyerName</th>
                         <th>Description</th>
                         <th>Status</th>
+                        <th> Visit Order Page</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style="text-align: center;">
+                    <?php foreach($data['orders'] as $order){ ?>
                     <tr>
-                        <td>001</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><?php echo $order -> orderID?></td>
+                        <td><?php echo $order -> buyerName?></td>
+                        <td><?php echo $order -> shippingAddress?></td>
+                        <td><?php echo $order -> orderStatus?></td>
+                        <td> <a href="<?php echo URLROOT;?>/farmers/myOrder"><input type="button" value="visit order page"> </button></a></td>
                     </tr>
-                    <tr>
-                        <td>001</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <?php }?>
                 </tbody>
             </table>
         </div>
