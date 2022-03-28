@@ -111,7 +111,7 @@
     }
     
     public function selectElegibleDeliveryPersons($farmerID,$buyerID){
-        $this->db->query("select deliveryperson.name,deliveryperson.address,deliveryperson.tpno,deliveryperson.email,deliveryvehicles.vehicleModel from deliveryperson inner join farmer on farmer.district = deliveryperson.district inner join deliveryareas on deliveryareas.deliveryPersonID = deliveryperson.deliveryPersonID INNER join buyer on buyer.district = deliveryareas.areas inner join deliveryvehicles on deliveryperson.deliveryPersonID = deliveryvehicles.deliveryPersonID where farmer.farmerID = :farmerID  and buyer.buyerID = :buyerID");
+        $this->db->query("select deliveryperson.deliveryPersonID,deliveryperson.name,deliveryperson.address,deliveryperson.tpno,deliveryperson.email,deliveryvehicles.vehicleModel from deliveryperson inner join farmer on farmer.district = deliveryperson.district inner join deliveryareas on deliveryareas.deliveryPersonID = deliveryperson.deliveryPersonID INNER join buyer on buyer.district = deliveryareas.areas inner join deliveryvehicles on deliveryperson.deliveryPersonID = deliveryvehicles.deliveryPersonID where farmer.farmerID = :farmerID  and buyer.buyerID = :buyerID");
             $this->db -> bind(':farmerID',$farmerID);
             $this->db -> bind(':buyerID',$buyerID);
             $results = $this->db->resultSet();
@@ -156,7 +156,21 @@
 
     }
 
+    public function createDeliveryOrder($data){
+        $this->db -> query('INSERT INTO deliveryorder(deliveryPersonID,orderID,farmerID,buyerID,pickupAddress,DeliveryAddress) VALUES(:deliveryPersonID,:orderID,:farmerID, :buyerID, :pickupAddress , :DeliveryAddress )');
+        $this->db -> bind(':deliveryPersonID',$data['deliveryPersonID']);
+        $this->db -> bind(':orderID',$data['orderID']);
+        $this->db -> bind(':farmerID',$data['farmerID']);
+        $this->db -> bind(':buyerID',$data['buyerID']);
+        $this->db -> bind(':pickupAddress',$data['pickupAddress']);
+        $this->db -> bind(':DeliveryAddress',$data['DeliveryAddress']);
 
+        if($this->db->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 
     }  

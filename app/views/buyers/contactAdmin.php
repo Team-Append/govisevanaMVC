@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="<?php echo URLROOT;?>/css/styleContactAdmin.css">
   </head>
   <body>
+  <?php
+    
+    include_once(APPROOT.'/views/includes/navigation.php');
+     ?> 
     <div class="head">
       <header>
         <h2>Contact Us</h2>

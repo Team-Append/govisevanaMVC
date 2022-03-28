@@ -10,7 +10,7 @@ body{
     height: 100px;
     display: flex;
     background: rgb(245, 245, 245);
-    box-shadow: 0 8px 12px 0 rgba(90, 90, 90, 0.2), 0 6px 10px 0 rgba(0, 0, 0, .10);
+    /* box-shadow: 0 8px 12px 0 rgba(90, 90, 90, 0.2), 0 6px 10px 0 rgba(0, 0, 0, .10); */
     font-family: Candara Light;
     position: sticky;
     z-index: 100;
@@ -26,7 +26,7 @@ body{
 
 .nav .logo{
     float: right;
-    width: 20%;
+    width: 15%;
     height: 100px;
     padding-left: 25px;
     margin-top: 20px;
@@ -42,7 +42,7 @@ body{
     float: right;
     width: 65%;
     height: 100px;
-    margin-left: 180px;
+    /* margin-left: 180px; */
 }
 
 .nav .nav-right{
@@ -55,7 +55,16 @@ body{
    font-size: medium;
    margin-right:10px;
 }
-
+.searchForm{
+    position: absolute;
+    top: 25;
+    right: 50;
+}
+.searchForm .searchbutton{
+    border-radius: 4px;
+    height: 40px;
+    width: 40px;
+}
 .select .lan{
     font-weight: 500;
     font-size: 12px;
@@ -77,7 +86,7 @@ body{
     padding: 0;
     overflow: hidden;
     position: -webkit-sticky;
-    position: sticky;
+    /* position: sticky; */
     top: 0;  
   }
 
@@ -174,14 +183,14 @@ body{
     height: 20px;
 }
 
-.nav ul li a:hover:not(.active) {
+/* .nav ul li a:hover:not(.active) {
     background-color: #9a9c9c;
     border-radius: 20px;
 }
 
 .nav ul li a.active {
     background-color: #646969;
-}
+} */
 
 .nav ul li .right {
     float: right;
@@ -229,10 +238,10 @@ body{
     width:200px;
     padding: 6px;
     margin-right: 16px;
-    border-radius: 10px;
+    border-radius: 2px;
     font-size: 17px;
-    height: 20px;
-    border-color: #9a9c9c;
+    height: 40px;
+    border-color: #00000086;
 }
 
 @media screen and (max-width: 1366px) {
@@ -244,10 +253,17 @@ body{
         width: 15%;
         margin-right: 0px;
     }
-    .nav .middle{
+    /* .nav .middle{
         margin-left: 130px;
-    }
+    } */
 }
+
+@media screen and (max-width: 1366px) {
+
+    .nav .middle .search input[type=text]{
+        width: 150px;
+    }
+  }
 
 /* old nav css starts */
 /*google fonts*/

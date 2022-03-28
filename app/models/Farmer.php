@@ -122,6 +122,8 @@
             
         }
 
+        
+
         public function deleteNotificationByNotifID($id){
             $this->db->query('DELETE FROM farmernotification WHERE notifID = :notifID');
             $this->db -> bind(':notifID',$id);
@@ -146,5 +148,7 @@
             }
 
         }
+
+        
     }
 ?>

@@ -7,6 +7,20 @@
     <!--Boxicons CDN Links-->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <title>Document</title>
+    <style>
+        .login-links{
+            display: flex;
+        }
+        .login-admin{
+            float: left;
+            padding-right: 10px;
+        }
+
+        .login-moderator{
+            float: left;
+        }
+
+    </style>
     <link href="css/fstyle.css" rel="stylesheet">
 
 </head>
@@ -45,10 +59,25 @@
                 <h2>Quick Links</h2>
                 
                 <a href=""><i class='bx bx-right-arrow'></i>Home</a>
-                <a href=""><i class='bx bx-right-arrow'></i>Terms of use</a>
+                <a href=""><i class='bx bx-right-arrow'></i>About Us</a>
                 <a href=""><i class='bx bx-right-arrow'></i>Report</a>
                 <a href=""><i class='bx bx-right-arrow'></i>Help</a>
-                <a href=""><i class='bx bx-right-arrow'></i>FQAs</a>
+                <a href=""><i class='bx bx-right-arrow'></i>FQAs</a><br>
+                <div class="login-links">
+                    <div class="login-admin">
+                        <a href="<?php echo URLROOT;?>/admins/login" style="text-decoration: none; font-size:12px;">
+                        Admin
+                    </div>
+                        </a>
+                    <div class="login-moderator">
+                        
+                            <a href="<?php echo URLROOT;?>/moderators/login" style="text-decoration: none; font-size:12px;">
+                        Moderator
+                    </div>
+                    </a>
+                    </div>
+                </div>
+
             </div>
         </div>
        

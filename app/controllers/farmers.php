@@ -155,7 +155,7 @@ class Farmers extends Controller {
             //register user from model
             if($this->farmerModel -> register($data)){
                // redirect to login page;
-               header('location:' . URLROOT. '/farmers/dashboard'); 
+               header('location:' . URLROOT. '/farmers/login'); 
             }else{
                 die('something went wrong');
             }
@@ -219,18 +219,21 @@ class Farmers extends Controller {
 
     public function myOrder(){
         $orderDetails = $this->orderModel -> getOrdersByFarmerID($_SESSION['farmerID']);
+        $offerOrderDetails = $this->orderModel -> getOfferOrdersByFarmerID($_SESSION['farmerID']);
         $data = array(
             'orders' => $orderDetails,
+            'offerOrders' => $offerOrderDetails,
             'status' => '',
             'orderID' => ''
         );
         
-        if(!empty($_GET['orderID'])){
+        if(!empty($_GET['status'])){
             
             $data = array(
                 'orders' => $orderDetails,
-                'status' => trim($_GET['status']),
-                'orderID' => trim($_GET['orderID'])
+                'offerOrders' => $offerOrderDetails,
+                'status' => $_GET['status'],
+                'orderID' => $_GET['orderID']
             );
 
             
@@ -240,7 +243,32 @@ class Farmers extends Controller {
 
         }else{
             $data = array(
-                'orders' => $orderDetails
+                'orders' => $orderDetails,
+                'offerOrders' => $offerOrderDetails,
+                'status' => '',
+                'orderID' => ''
+            );
+        }
+        if(!empty($_GET['offerOrderID'])){
+            
+            $data = array(
+                'orders' => $orderDetails,
+                'offerOrders' => $offerOrderDetails,
+                'status' => $_GET['status'],
+                'orderID' => $_GET['offerOrderID']
+            );
+
+            
+            if($this-> orderModel->updateOfferOrderStatus($data['status'],$data['orderID'])){
+                header('location:' . URLROOT. '/farmers/myOrder'); 
+            }
+
+        }else{
+            $data = array(
+                'orders' => $orderDetails,
+                'offerOrders' => $offerOrderDetails,
+                'status' => '',
+                'orderID' => ''
             );
         }
         $this->view('farmers/myOrder',$data);
@@ -260,27 +288,6 @@ class Farmers extends Controller {
         $this->view('farmers/notification',$data);
     }
 
-    public function deleteNotification($id){
-        
-        // if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        //     $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-        //     if($this->farmerModel->deleteNotificationByNotifID($id)){
-                
-        //     $posts = $this->farmerModel->getAllNotificationByFarmerID($id);
-        //     $notifID = $posts->notifID;
-        //     $posts = $this->farmerModel->deleteNotificationByNotifID($notifID);
-
-
-        //         header("Location: " . URLROOT . "/farmers/notification");
-                
-        //     }else {
-        //         die('Something went wrong');
-        //     }
-
-        // }
-        $this->view('farmers/notiOrder');
-    }
 
     public function notiOrder(){
         
@@ -373,7 +380,7 @@ class Farmers extends Controller {
             //register user from model
             if($this->farmerModel -> updateProfile($data,$id)){
                // redirect to login page;
-               header('location:' . URLROOT. '/farmers/editProfile'); 
+               header('location:' . URLROOT. '/farmers/viewProfile'); 
             }else{
                 die('something went wrong');
             }

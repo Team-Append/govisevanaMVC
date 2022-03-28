@@ -50,8 +50,11 @@ class Buyers extends Controller {
 
             if($loggedInUser){
                 $this->createUserSession($loggedInUser);
+                if(isset($_GET['qty'])){
+                    header('location:'.URLROOT.'/buyers/orderConfirmation?stockID='.$_GET['stockID'].'&qty='.$_GET['qty']);
+                }else{
                 header('location:'.URLROOT.'/buyers/dashboard');
-  
+                }
             }else{
                 $data['passwordError'] = 'Password or username is incorrect. Please try again' ;
 
@@ -245,11 +248,13 @@ class Buyers extends Controller {
 
 
     public function orderConfirmation(){
+        
         $post = $this->stockModel->getStockByID($_GET['stockID']);
         
 
         $data = array('posts' => $post);
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            if(isset($_POST['orderID'])){
             $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
             $data = array(
                 'posts' => $post,
@@ -288,6 +293,9 @@ class Buyers extends Controller {
                     header('location:' . URLROOT. '/stocks/viewStock?stockID='. $post->stockID);
                 }
             }
+        }else{
+            header('location:' . URLROOT. '/buyers/login?stockID='.$_GET['stockID'].'&qty='.$_GET['qty']);
+        }
 
         }else{
             $data = array(  
@@ -358,6 +366,7 @@ class Buyers extends Controller {
     }
 
     public function reviewFarmer(){
+        
         $order = $this->orderModel -> getOrderByID($_GET['orderID']);
         $farmer = $this->farmerModel -> getFarmerByID($order -> farmerID);
 
@@ -391,7 +400,9 @@ class Buyers extends Controller {
                 }
                 
                 if(empty($data['ratingError']) && empty($data['descriptionError'])){
+                    $this -> orderModel -> updateOrderStatus('completed',$_GET['orderID']);
                     $this->reviewModel-> addReview($data);
+                    header('location:' . URLROOT. '/buyers/completedOrder?alert=reviewDone');
                 }
     
             }else{$data = array(

@@ -13,7 +13,7 @@
         <div>
             <div id="order-table">
                 <h1>Moderator list</h1>
-                <a href="<?php echo URLROOT;?>/admins/addModerator"><div id="addMod">Add moderator</div></a>
+                <a href="<?php echo URLROOT;?>/admins/addModerator"><div id="addMod">Add Moderator</div></a>
                 <table>
                     <thead>
                         <tr>
@@ -21,7 +21,7 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>TP</th>
-                            <th>remove</th>
+                            <th>Remove</th>
                         </tr>
                     </thead>
                     <tbody>

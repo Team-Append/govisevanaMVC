@@ -6,6 +6,12 @@
     <title>Completed Orders</title>
     <link rel="stylesheet" href=" <?php echo URLROOT; ?> /css/styleCompleteOrders.css" />
     <link rel="stylesheet" href="<?php echo URLROOT;?>/css/style.css" type="text/css">
+    <script>    <?php if(isset($_GET['alert'])){?>
+      <?php if($_GET['alert'] == 'reviewDone'){?>
+          window.alert('review Successfully added');
+      <?php } ?>  
+    <?php }?>
+    </script>
   </head>
   <body>
     <div class="nav">

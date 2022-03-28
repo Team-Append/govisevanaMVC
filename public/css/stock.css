@@ -62,7 +62,7 @@ body{
 .column {
 float: left;
 padding: 10px;
-width: 25%;
+/* width: 25%; */
 }
 
 /* Right column */
@@ -198,6 +198,7 @@ table,td,tr {
     padding: 10px;
     border-radius: 10px;
     width: 250px;
+    height: 400px;
     margin: auto;
 }
 
@@ -221,10 +222,10 @@ table,td,tr {
     color: grey;
 }
 
-.container .line-1{
+/* .container .line-1{
     display: flex;
 
-} 
+}  */
 
 .container .line-1 .text1{
     width: 75% ; 
@@ -233,10 +234,10 @@ table,td,tr {
 .container .line-1 .text2{
     text-align: left;
 }
-
+/* 
 .container .line-2{
     display: flex;
-}
+} */
 
 .container .line-2 .text1{
     width: 75% ; 

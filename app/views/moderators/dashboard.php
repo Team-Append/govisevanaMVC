@@ -41,7 +41,7 @@ include_once(APPROOT.'/views/includes/navigation.php');
             </a>
         </div>
         <div class="card-line">
-            <a href="<?php echo URLROOT;?>/">
+            <!-- <a href="<?php echo URLROOT;?>/">
             <div class="dash-card">
                 <h1>*****</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/earn.png" alt="">
@@ -58,7 +58,7 @@ include_once(APPROOT.'/views/includes/navigation.php');
                 <h1>*****</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/analytics.png" alt="">
             </div>
-            </a>
+            </a> -->
         </div>
         <div id="order-table">
        <!-- <h1>current orders</h1> -->

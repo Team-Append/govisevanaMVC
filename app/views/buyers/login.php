@@ -1,4 +1,5 @@
 
+  <?php if(!isUserLoggedIn()){?>
   <html lang="en" dir="ltr">
     <head>
       <meta charset="utf-8">
@@ -49,3 +50,6 @@
 
       </body>
   </html>
+<?php }else{
+    header('location:' .URLROOT. '/pages/index');
+}?>

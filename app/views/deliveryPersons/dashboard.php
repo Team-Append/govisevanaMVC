@@ -53,7 +53,7 @@ include_once(APPROOT.'/views/includes/navigation.php');
             </a>
             <a href="<?php echo URLROOT;?>/deliveryPersons/mySchedule">
             <div class="dash-card">
-                <h3>View Schedule</h3>
+                <h3>View Delivery Orders</h3>
                 <img src="<?php echo URLROOT;?>/img/icons/admin.png" alt="">
             </div>
             </a>

@@ -38,7 +38,7 @@
                   </div> -->
                   <div class="s-description">
                     <div class="image">
-                    <img class="cart-image" src="<?php echo URLROOT; ?>/img/carrot.jpg" alt="cartpic" style="width:100%">
+                    
                     </div>
                     <div class="info">
                       <p><?php echo $post-> description; ?></p>
@@ -53,8 +53,10 @@
                 <?php echo $post-> orderStatus ?>
                 <div class="Proceed">
                   
-                    <?php if($post-> orderStatus == 'shipped'){ ?>
-                        <button type="button" name="button"> <?php echo "confirm order recieved";?> </button>
+                    <?php if($post-> orderStatus == 'orderShipped'){ ?>
+                        <a href="<?php echo URLROOT;?>/buyers/reviewFarmer?orderID=<?php echo $post-> orderID;?>">
+                          <button type="button" name="button">confirm order recieved</button>
+                        </a>
                         <?php } ?>
                   
                   

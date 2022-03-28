@@ -9,7 +9,18 @@
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/navStyles.css" />
         <!--Boxicons CDN Links-->
         <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-        
+    <style>
+        .searchForm{
+            position: absolute;
+            top: 19px;
+            right: 50px;
+        }
+        .searchForm .searchbutton{
+            border-radius: 4px;
+            height: 40px;
+            width: 40px;
+        }
+    </style>    
 
 
       <!-- <style>
@@ -62,14 +73,14 @@
             <?php if(isDeliveryPersonLoggedIn()) : ?>
                 <li class="right"><a href="<?php echo URLROOT;?>/deliveryPersons/dashboard">Dashboard</a></li>
             <?php endif;?>
-            <li class="right"><a href="<?php echo URLROOT;?>/Stocks/allStock">Stocks</a></li>
+            <li class="right"><a href="<?php echo URLROOT;?>/Stocks/allCats">Stocks</a></li>
             <?php if(isBuyerLoggedIn()) : ?>
-                <li class="right"><a href="<?php echo URLROOT;?>/buyers/myOrders">Orders</a></li>
+                <li class="right"><a href="<?php echo URLROOT;?>/buyers/ongoingorders">Orders</a></li>
             <?php endif;?>
             <?php if(isFarmerLoggedIn()) : ?>
                 <li class="right"><a href="<?php echo URLROOT;?>/farmers/pendingOrders">Orders</a></li>
             <?php endif;?>
-            <li class="right"><a href="">Contact Us</a></li>
+            
             <?php if(isFarmerLoggedIn()) : ?>
                 <li class="right"><a href="<?php echo URLROOT;?>/farmers/viewProfile">Profile</a></li>
             <?php endif;?>
@@ -86,14 +97,7 @@
                 <li class="right"><a href="<?php echo URLROOT;?>/deliveryPersons/viewProfile">Profile</a></li>
             <?php endif;?>
             
-            <form method = "post" action="Navigation/navigation">
-                <li class="search">
-                <div class="search-container">
-                    <form action="/action_page.php">
-                    <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>    
+             
                     
                 <!-- <form action="" method="POST" name="search">
                         <input type="text" placeholder="Search.." name="search">
@@ -106,10 +110,16 @@
                         
                         </form> --> 
                     
-                </li>
-            </form>
-            
             </ul>
+            <form method = "post" action="Navigation/navigation" class="searchForm">
+                <div class="search">
+                <div class="search-container">
+                    <form action="/action_page.php">
+                    <input type="text" placeholder="Search.." name="search">
+                <button type="submit" class="searchbutton"><i class="fa fa-search"></i></button>
+                </div>
+                </div>  
+            </form> 
         </div>
         
         <div class="nav-right">
@@ -132,6 +142,7 @@
                     <a href="<?php echo URLROOT;?>/pages/accountType">Log in</a>
                     <?php }?>
             </div>
+            
         </div>
     </div>
 </body>

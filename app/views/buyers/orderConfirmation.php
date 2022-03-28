@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/orderConfirmStyles.css">
   </head>
   <body>
+  <?php 
+            include_once(APPROOT.'/views/includes/navigation.php');
+        ?>  
     <header>
       <div class="order-title">
         <h2>ORDER CONFIRMATION</h2>

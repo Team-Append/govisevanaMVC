@@ -3,6 +3,7 @@ class Moderators extends Controller {
     public function __construct()
     {
         $this->moderatorModel = $this-> model('moderator');
+        $this->farmerModel = $this-> model('Farmer');
 
         
 
@@ -171,6 +172,22 @@ public function dashboard(){
               
         }
         $this->view('moderators/editProfile',$data);
+    public function farmernotification(){
+        
+        $posts = $this->moderatorModel->getAllNotification();
+        
+        $data = array( 'posts' => $posts);
+        
+        $this->view('moderators/farmernotification',$data);
+    }
+
+    public function buyernotification(){
+        
+        $posts = $this->moderatorModel->getAllNotification();
+        
+        $data = array( 'posts' => $posts);
+        
+        $this->view('moderators/buyernotification',$data);
     }
 
 }

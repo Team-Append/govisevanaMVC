@@ -94,10 +94,7 @@
                     <?php echo $data['imageError'];?>
                 </span>
                  <input type="file" id="image" name="image" placeholder="Upload an image">
-                <br>
-
-                
-                <p><i class='bx bx-check-square' style='color:#5e5d5d' ></i>I agree to all the terms and conditions</p>  
+                <br>  
 
                 <input type="submit" value="Submit">
             </form>
