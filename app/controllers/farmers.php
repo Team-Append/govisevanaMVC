@@ -198,16 +198,11 @@ class Farmers extends Controller {
     }
 
     public function dashboard(){
-<<<<<<< HEAD
-        // $posts = $this->stockModel->getNumberOfStocksByFarmerID($_SESSION['farmerID']);
-
-=======
         $orders = $this->orderModel -> getOrdersByfarmerID($_SESSION['farmerID']);
         $rating = $this->reviewModel -> getFarmerRating($_SESSION['farmerID']); 
         $completedOrdersCount = $this->orderModel -> getCompletedOrdersCountByFarmerID($_SESSION['farmerID']);
         $activeStockCount = '';
         $onGoingOrdersCount = $this->orderModel -> getOnGoingOrdersCountByFarmerID($_SESSION['farmerID']);
->>>>>>> d53e4a3cff3df862aeac0c997302d769ce044297
         $data = array(
             'orders' => $orders,
             'name' => '',
