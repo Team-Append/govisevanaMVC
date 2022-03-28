@@ -5,6 +5,8 @@ public function __construct()
 {
     $this->requestModel = $this->model('Request');
     $this->catagoryModel = $this->model('Catagory');
+    $this->buyerModel = $this->model('Buyer');
+    $this->moderatorModel = $this-> model('Moderator');
 }
 public function addRequest(){
     $cat = $this->catagoryModel->getCatagory();
@@ -71,6 +73,11 @@ public function addRequest(){
         //add request to db
         if($this->requestModel -> addRequest($data)){
            // redirect to index;
+           $buyer = $this-> buyerModel ->getbuyerByID($_SESSION['buyerID']);
+           $desc = "farmer,".$buyer -> name ." submitted a request post" . date("Y/m/d");
+           $this-> moderatorModel ->createNotificationOfBuyer($_SESSION['buyerID'], $desc,date("Y/m/d"));
+
+
            header('location:' . URLROOT. '/buyers/dashboard?status=success'); 
         }else{
             die('something went wrong');
@@ -115,13 +122,29 @@ public function pendingRequest(){
     $data = array( 'posts' => $posts);
 
         if(isset($_GET['approve'])) {
-            echo $_GET['RID'];
-            $posts = $this->requestModel->updateRequestStatus('approved',$_GET['RID']);
-            header('location:' .URLROOT. '/stocks/PendingRequest');
+            
+            $post = $this->requestModel->updateRequestStatus('approved',$_GET['RID']);
+            
+                        $request = $this->requestModel->getRequestByID($_GET['RID']);
+                       
+                        $buyer = $this-> buyerModel ->getBuyerByID($request->buyerID);
+                        $desc = "buyer,".$buyer -> name ." your request has been approved ";
+
+                        $this-> buyerModel ->createNotification($request->buyerID,$desc,date("Y/m/d"));
+                        header('location:' .URLROOT. '/requests/PendingRequest');            
+
         }
         if(isset($_GET['reject'])) {
-            $posts = $this->requestModel->updateRequestStatus('rejected',$_GET['RID']);
-            header('location:' .URLROOT. '/stocks/PendingRequest');
+            $post = $this->requestModel->updateRequestStatus('rejected',$_GET['RID']);
+
+                        $request = $this->requestModel->getRequestByID($_GET['RID']);
+                       
+                        $buyer = $this-> buyerModel ->getBuyerByID($request->buyerID);
+                        $desc = "buyer,".$buyer -> name ." your request has been rejected ";
+
+                        $this-> buyerModel ->createNotification($request->buyerID,$desc,date("Y/m/d"));
+
+            header('location:' .URLROOT. '/requests/PendingRequest');
         }
 
     $this->view('Requests/PendingRequest',$data);

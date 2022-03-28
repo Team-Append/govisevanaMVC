@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/notiStyles.css" />
-    <title>Buyer Notifications</title>
+    <title>Farmer Notifications</title>
 </head>
 <body>
     <div class="nav">
@@ -19,24 +20,31 @@
         </div>
         <?php foreach ($data['posts'] as $posts){ ?>
         <div class="noti-list">
+        
             <div class="noti">
                 <div class="noti-profile">
                     <img src="<?php echo URLROOT; ?>/img/prof.png" alt="profile image">
 
                 </div>
-                <div class="noti-details">
-                    <div class="noti-name">
-                        <p><b>Kamal de Silva</b> sent an offer</p>
+                
+                    <div class="noti-details">
+                        <div class="noti-name">
+                            <p><b><div class="info"></b>Pending request post !</p>
+                        </div>
+                        <div class="noti-info">
+                        <div class="info"><?php echo $posts->description;?></div>
+                        <div class="time">
+                            <div class="info"><?php echo $posts->notifdate;?></div>
+                        </div>
+                        <form action=""  method="POST" name="notify">
+                            
+                        </form>
+                        
+                        </div>
                     </div>
-                    <div class="noti-info">
-                        <?php echo $posts->description;?>
-                    </div>
-                    <div class="time">
-                        <div class="info"><?php echo $posts->notifdate;?>
-                    </div>
-
-                </div>
+                
             </div>
+            
         </div>
         <?php } ?>
     </div>
@@ -50,3 +58,4 @@
     
 </body>
 </html>
+

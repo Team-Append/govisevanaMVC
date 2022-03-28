@@ -86,5 +86,23 @@
             $results->execute(['buyerID'=>$this->buyerID]);
             return $results->rowCount();
         }
+
+        public function updateProfile($data,$id){
+            $this->db->query("UPDATE admin SET name = :name , NIC = :NIC , address = :address , email = :email , tpno = :tpno WHERE adminID =:ID");
+            $this->db -> bind(':ID',$id);
+            $this->db -> bind(':name',$data['name']);
+            $this->db -> bind(':NIC',$data['NIC']);
+            $this->db -> bind(':address',$data['address']);
+            $this->db -> bind(':email',$data['email']);
+            $this->db -> bind(':tpno',$data['tpno']);
+            
+            
+    
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
  
     }

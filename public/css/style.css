@@ -419,10 +419,9 @@ html {
   
   .column {
     float: left;
-    width: 33.3%;
+    /* width: 33.3%; */
     margin-bottom: 16px;
     padding-left: 25px;
-
   }
   
   @media screen and (max-width: 650px) {
@@ -441,6 +440,7 @@ html {
     padding: 10px;
     border-radius: 10px;
     width: 250px;
+    height: 400px;
     text-decoration: none;
 }
 /*text-1*/
@@ -516,22 +516,23 @@ html {
     color: grey;
   }
 
-.container .line-1{
+/* .container .line-1{
     display: flex;
 
-} 
+}  */
 
 .container .line-1 .text1{
-    width: 75% ; 
+    width: 100% ; 
+    text-align: center;
 }
 
 .container .line-1 .text2{
-    text-align: left;
+    text-align: center;
 }
-
+/* 
 .container .line-2{
     display: flex;
-}
+} */
 
 .container .line-2 .text1{
     width: 75% ; 
@@ -978,6 +979,40 @@ body{
   }
   
 
-/* new styles */
+/* side nav */
 
+  .sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 100;
+    left: 0;
+    background-color: rgb(245, 245, 245);;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .sidenav a {
+    padding: 6px 6px 6px 32px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #000000;
+    display: block;
+  }
+  
+  .sidenav a:hover {
+    color: #0a3a1e;
+  }
+  
+  .main {
+    position: relative;
+    top: 100;
+    margin-left: 200px; /* Same as the width of the sidenav */
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
 

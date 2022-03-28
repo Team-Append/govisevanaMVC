@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/orderConfirmStyles.css">
   </head>
   <body>
-  <?php 
-            include_once(APPROOT.'/views/includes/navigation.php');
-        ?>  
     <header>
       <div class="order-title">
         <h2>ORDER CONFIRMATION</h2>
@@ -30,20 +27,15 @@
               <div class="take-info">Farmer : </div><div class="info"><?php echo $data['posts']->name;?></div>
             </div>
             <div class="info-row">
-              <div class="take-info">Stock Name : </div><div class="info"><?php echo $data['posts']->description;?></div>
+              <div class="take-info">Offer description : </div><div class="info"><?php echo $data['posts']->offerDescription;?></div>
             </div>
             <div class="info-row">
-              <div class="take-info">Category : </div><div class="info"><?php echo $data['posts']->catName;?></div>
+              <div class="take-info">Category : </div><div class="info"><?php echo $data['posts']->catName;?></div> 
             </div>
             <div class="info-row">
-              <div class="take-info">Unit Price: </div><div class="info"><?php echo $data['posts']->fixedPrice;?></div>
+              <div class="take-info">Offer Price: </div><div class="info"><?php echo $data['posts']->offerPrice;?></div>
             </div>
-            <div class="info-row">
-              <div class="take-info">Quantity : </div><div class="info"><?php echo $data['orderQty'];?></div>
-            </div>
-            <div class="info-row">
-              <div class="take-info">Total : </div><div class="info"><?php echo $data['orderQty'] * $data['posts']->fixedPrice;?></div>
-            </div>
+
             <form method="POST">
               <div class="info-row">
                   <label for=""> Shipping Address :</label> 
