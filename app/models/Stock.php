@@ -42,7 +42,8 @@
             return $results;
         }
         public function findAllPosts($ID){
-            $this->db->query('SELECT * FROM stock,farmer WHERE stock.farmerID = :ID and stock.farmerID = farmer.farmerID ORDER BY stockID DESC');
+            $sa = $this->db->query('SELECT * FROM stock,farmer WHERE stock.farmerID = :ID and stock.farmerID = farmer.farmerID ORDER BY stockID DESC');
+            echo $sa;
             $this->db -> bind(':ID',$ID);
     
             $results = $this->db->resultSet();
@@ -109,6 +110,45 @@
             }
 
         }
+
+        public function getNumberOfStocksByFarmerID($id){
+            $this->db->query('SELECT COUNT(stockID) FROM stock WHERE farmerID = :farmerfID');
+            $this->db -> bind(':farmerID',$id);
         
+            if ($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        
+        
+        public function editStock($stockID){
+            $this->db->query("UPDATE stock SET stock = :name , NIC = :NIC , address = :address , email = :email , tpno = :tpno WHERE farmerID =:ID");
+            
+            
+            
+
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+
+        }
+
+        public function deleteStockByStockID($id){
+            
+            $this->db->query('DELETE FROM stock WHERE stockID = :stockID');
+            $this->db -> bind(':stockID',$id);
+        
+            if ($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        } 
+
      }
 ?>

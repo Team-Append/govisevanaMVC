@@ -58,8 +58,7 @@
                           <button type="button" name="button">confirm order recieved</button>
                         </a>
                         <?php } ?>
-                  
-                  
+
                 </div>
               </td>
             </tr>

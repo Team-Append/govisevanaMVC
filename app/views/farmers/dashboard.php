@@ -25,15 +25,15 @@ include_once(APPROOT.'/views/includes/navigation.php');
             <table id="farmer-card-stats">
                 <tbody>
                     <tr>
-                        <td class="stats-desc">Orders completed</td>
+                        <td class="stats-desc">Orders Completed </td>
                         <td class="stat">50</td>
                     </tr>
                     <tr>
-                        <td class="stats-desc">Orders completed</td>
+                        <td class="stats-desc">Stock Posts </td>
                         <td class="stat">231</td>
                     </tr>
                     <tr>
-                        <td class="stats-desc">Orders completed</td>
+                        <td class="stats-desc">Pending Stock Posts</td>
                         <td class="stat">12</td>
                     </tr>
                     <tr>
@@ -85,7 +85,7 @@ include_once(APPROOT.'/views/includes/navigation.php');
         </div>
         <div id="order-table">
             <h1>current orders</h1>
-            <table>
+            <table >
                 <thead>
                     <tr>
                         <th>Order ID</th>

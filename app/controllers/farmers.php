@@ -196,6 +196,8 @@ class Farmers extends Controller {
     }
 
     public function dashboard(){
+        // $posts = $this->stockModel->getNumberOfStocksByFarmerID($_SESSION['farmerID']);
+
         $data = array(
             'name' => '',
             'NIC' => '',

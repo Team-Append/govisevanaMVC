@@ -19,7 +19,7 @@
           <img src="../img/logo.png" >
         </div>
         <h2>Welcome back</h2>
-        <h1>Log into Govisevana</h1>
+        <h1>Log in as a ADMIN</h1>
         <h3>Enter your email and password below</h3>
 
         <form class="" action="" method="post">
