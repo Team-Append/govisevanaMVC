@@ -2,10 +2,14 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Analytic</title>
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/styleDanalysis.css">
   </head>
   <body>
+  <?php
+    
+    include_once(APPROOT.'/views/includes/navigation.php');
+     ?> 
     <div class="side">
       <ul>
   <li><a href="#AO">Active Orders</a></li><hr>

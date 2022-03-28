@@ -155,7 +155,7 @@ class Farmers extends Controller {
             //register user from model
             if($this->farmerModel -> register($data)){
                // redirect to login page;
-               header('location:' . URLROOT. '/farmers/dashboard'); 
+               header('location:' . URLROOT. '/farmers/login'); 
             }else{
                 die('something went wrong');
             }

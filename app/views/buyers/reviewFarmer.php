@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Review Farmers</title>
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/reviewFarmerStyles.css" />
   </head>
   <body>
