@@ -156,7 +156,21 @@
 
     }
 
+    public function createDeliveryOrder($data){
+        $this->db -> query('INSERT INTO deliveryorder(deliveryPersonID,orderID,farmerID,buyerID,pickupAddress,DeliveryAddress) VALUES(:deliveryPersonID,:orderID,:farmerID, :buyerID, :pickupAddress , :DeliveryAddress )');
+        $this->db -> bind(':deliveryPersonID',$data['deliveryPersonID']);
+        $this->db -> bind(':orderID',$data['orderID']);
+        $this->db -> bind(':farmerID',$data['farmerID']);
+        $this->db -> bind(':buyerID',$data['buyerID']);
+        $this->db -> bind(':pickupAddress',$data['pickupAddress']);
+        $this->db -> bind(':DeliveryAddress',$data['DeliveryAddress']);
 
+        if($this->db->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 
     }  
