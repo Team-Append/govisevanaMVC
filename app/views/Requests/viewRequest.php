@@ -3,9 +3,17 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+
+    <title>View Requests</title>
+
+
+  
+    <link rel="stylesheet" href=" <?php echo URLROOT; ?> /css/styleCompleteOrders.css" />
+
     
-    <title>view Request</title>
+
     <link rel="stylesheet" href=" <?php echo URLROOT; ?> /css/viewReqStyles.css" />
+
     <link rel="stylesheet" href="<?php echo URLROOT;?>/css/style.css" type="text/css">
   </head>
   <body>

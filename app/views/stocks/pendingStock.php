@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/notiStyles.css" />
-    <title>Admin Notifications</title>
+    <title>Pending Stocks</title>
 </head>
 <body>
     <div class="nav">
@@ -39,7 +39,7 @@
                     <?php $_SESSION['currentStockID'] = $post -> stockID; ?>
                     <div class="buttons">
                         <form action="">
-                            <a href="<?php echo URLROOT; ?>/admins/pendingStock?stockID=<?php echo  $post -> stockID;?>&approve=true ">
+                            <a href="<?php echo URLROOT; ?>/stocks/pendingStock?stockID=<?php echo  $post -> stockID;?>&approve=true ">
                                 <input type="button" value="Approve" name="approve" >
                             </a>
                             <a href="<?php echo URLROOT; ?>/admins/pendingStock?stockID=<?php echo  $post -> stockID;?>&reject=true ">

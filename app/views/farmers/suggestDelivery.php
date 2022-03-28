@@ -1,8 +1,9 @@
+<?php if(isFarmerLoggedIn()){ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Suggest Delivery</title>
     <link rel="stylesheet" href=" <?php echo URLROOT; ?> /css/myOrderStyle.css" />
   </head>
   <body>
@@ -57,3 +58,6 @@
     </div>
   </body>
 </html>
+<?php } else{
+    header('location:' .URLROOT. '/pages/index');
+}?>

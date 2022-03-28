@@ -1,3 +1,4 @@
+<?php if(isAdminLoggedIn()){ ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,3 +41,6 @@
     </div>
 </body>
 </html>
+<?php } else{
+    header('location:' .URLROOT. '/pages/index');
+}?>

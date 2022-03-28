@@ -1,3 +1,4 @@
+<?php if(isFarmerLoggedIn()){ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -172,3 +173,6 @@
     </div>
   </body>
 </html>
+<?php } else{
+    header('location:' .URLROOT. '/pages/index');
+}?>

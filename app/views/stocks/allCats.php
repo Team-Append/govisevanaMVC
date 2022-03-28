@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>All Categories</title>
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/stock.css" />
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/styleStockV.css">
     <link rel="stylesheet" href="<?php echo URLROOT;?>/css/style.css" />

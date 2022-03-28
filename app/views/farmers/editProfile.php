@@ -1,9 +1,9 @@
-
+<?php if(isFarmerLoggedIn()){ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Profile</title>
+    <title>Edit Profile</title>
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/editProfStyles.css" />
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/footerStyles.css" />
   </head>
@@ -86,3 +86,6 @@
   </body>
 
 </html>
+<?php } else{
+    header('location:' .URLROOT. '/pages/index');
+}?>
