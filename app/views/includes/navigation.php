@@ -142,6 +142,7 @@
                     <a href="<?php echo URLROOT;?>/pages/accountType">Log in</a>
                     <?php }?>
             </div>
+            
         </div>
     </div>
 </body>

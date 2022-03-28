@@ -193,6 +193,10 @@ public function addStock(){
         
         //add stock to db
         if($this->stockModel -> addStock($data)){
+            $farmer = $this-> farmerModel ->getfarmerByID($_SESSION['farmerID']);
+            $desc = "farmer,".$farmer -> name ." submitted a stock" . date("Y/m/d");
+            $this-> moderatorModel ->createNotificationOfFarmer($_SESSION['farmerID'], $desc,date("Y/m/d"));
+            
 
         header('location:' . URLROOT. "/farmers/dashboard?status=success"); 
         }else{
