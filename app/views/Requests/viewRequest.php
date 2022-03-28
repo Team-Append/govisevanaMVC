@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>View Requests</title>
     <link rel="stylesheet" href=" <?php echo URLROOT; ?> /css/viewReqStyles.css" />
     <link rel="stylesheet" href="<?php echo URLROOT;?>/css/style.css" type="text/css">
   </head>

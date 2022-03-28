@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -53,4 +53,4 @@ include_once(APPROOT.'/views/includes/navigation.php');
     </div>
 
   </body>
-</html>
+</html> -->

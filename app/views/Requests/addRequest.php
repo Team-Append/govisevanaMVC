@@ -7,7 +7,7 @@
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/addReqStyles.css" />
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/Style.css" />
-    <title>addStock</title>
+    <title>Add Request</title>
 </head>
 <body>
 <?php if(isset($_GET['status'])){ ?>   

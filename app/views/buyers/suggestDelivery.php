@@ -1,3 +1,4 @@
+<?php if(isBuyerLoggedIn()){ ?>
 <?php 
 
 foreach($data['deliveryPersons'] as $deliveryPerson){
@@ -5,3 +6,6 @@ foreach($data['deliveryPersons'] as $deliveryPerson){
 }
 
 ?>
+<?php } else{
+    header('location:' .URLROOT. '/pages/index');
+}?>

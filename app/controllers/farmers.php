@@ -295,9 +295,13 @@ class Farmers extends Controller {
     }
 
 
-    public function analytic(){
+    public function completedOrders(){
+        $orders =  $this->orderModel -> getCompletedOrdersByFarmerID($_SESSION['farmerID']);
+        $data = array(
+            'posts' => $orders
+        );
         
-        $this->view('farmers/analytic');
+        $this->view('farmers/completedOrders',$data);
     }
 
     public function offersSent(){

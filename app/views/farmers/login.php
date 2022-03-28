@@ -1,8 +1,8 @@
-
+<?php if(!isFarmerLoggedIn()){ ?>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Farmer Login</title>
       <link rel="stylesheet" type="text/css" href="../public/css/styleLogin.css">
       <link rel="stylesheet" type="text/css" href="../public/css/style.css">
   </head>
@@ -49,3 +49,6 @@
 
     </body>
 </html>
+<?php } else{
+    header('location:' .URLROOT. '/pages/index');
+}?>

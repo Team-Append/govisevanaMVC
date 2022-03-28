@@ -1,8 +1,9 @@
+<?php if(isBuyerLoggedIn()){ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Order Confermation</title>
     <script src="<?php echo URLROOT; ?>/js/selectDistrict.js"></script>
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/orderConfirmStyles.css">
   </head>
@@ -102,3 +103,6 @@
 
 
 </html>
+<?php } else{
+    header('location:' .URLROOT. '/pages/index');
+}?>

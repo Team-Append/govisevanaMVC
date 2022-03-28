@@ -1,4 +1,4 @@
-
+<?php if(!isModLoggedIn()){ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/notiStyles.css" />
-    <title>Farmer Notifications</title>
+    <title>Buyer Notifications</title>
 </head>
 <body>
     <div class="nav">
@@ -58,4 +58,6 @@
     
 </body>
 </html>
-
+<?php } else{
+    header('location:' .URLROOT. '/pages/index');
+}?>
