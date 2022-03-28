@@ -6,6 +6,8 @@ public function __construct()
     $this->stockModel = $this->model('Stock');
     $this->catagoryModel = $this->model('Catagory');
     $this->requestModel = $this-> model('Request');
+    $this->farmerModel = $this-> model('Farmer');
+    $this->moderatorModel = $this-> model('Moderator');
     
 }
 public function viewStock(){
@@ -142,6 +144,10 @@ public function addStock(){
         
         //add stock to db
         if($this->stockModel -> addStock($data)){
+            $farmer = $this-> farmerModel ->getfarmerByID($_SESSION['farmerID']);
+            $desc = "farmer,".$farmer -> name ." submitted a stock" . date("Y/m/d");
+            $this-> moderatorModel ->createNotificationOfFarmer($_SESSION['farmerID'], $desc,date("Y/m/d"));
+            
 
         header('location:' . URLROOT. "/farmers/dashboard?status=success"); 
         }else{

@@ -69,7 +69,6 @@
             <?php if(isFarmerLoggedIn()) : ?>
                 <li class="right"><a href="<?php echo URLROOT;?>/farmers/pendingOrders">Orders</a></li>
             <?php endif;?>
-            <li class="right"><a href="">Contact Us</a></li>
             <?php if(isFarmerLoggedIn()) : ?>
                 <li class="right"><a href="<?php echo URLROOT;?>/farmers/viewProfile">Profile</a></li>
             <?php endif;?>
@@ -132,6 +131,7 @@
                     <a href="<?php echo URLROOT;?>/pages/accountType">Log in</a>
                     <?php }?>
             </div>
+            
         </div>
     </div>
 </body>

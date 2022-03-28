@@ -174,14 +174,14 @@ body{
     height: 20px;
 }
 
-.nav ul li a:hover:not(.active) {
+/* .nav ul li a:hover:not(.active) {
     background-color: #9a9c9c;
     border-radius: 20px;
 }
 
 .nav ul li a.active {
     background-color: #646969;
-}
+} */
 
 .nav ul li .right {
     float: right;
@@ -248,6 +248,13 @@ body{
         margin-left: 130px;
     }
 }
+
+@media screen and (max-width: 1366px) {
+
+    .nav .middle .search input[type=text]{
+        width: 150px;
+    }
+  }
 
 /* old nav css starts */
 /*google fonts*/

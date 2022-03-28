@@ -3,6 +3,7 @@ class Moderators extends Controller {
     public function __construct()
     {
         $this->moderatorModel = $this-> model('moderator');
+        $this->farmerModel = $this-> model('Farmer');
 
         
 
@@ -86,6 +87,24 @@ public function dashboard(){
         unset($_SESSION['modName']);
         unset($_SESSION['modEmail']);
         header('location:' .URLROOT. '/pages/index');
+    }
+
+    public function farmernotification(){
+        
+        $posts = $this->moderatorModel->getAllNotification();
+        
+        $data = array( 'posts' => $posts);
+        
+        $this->view('moderators/farmernotification',$data);
+    }
+
+    public function buyernotification(){
+        
+        $posts = $this->moderatorModel->getAllNotification();
+        
+        $data = array( 'posts' => $posts);
+        
+        $this->view('moderators/buyernotification',$data);
     }
 
 }

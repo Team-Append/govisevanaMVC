@@ -8,6 +8,7 @@ class Admins extends Controller {
         $this->requestModel = $this-> model('Request');
         $this->farmerModel = $this-> model('Farmer');
         $this->buyerModel = $this-> model('Buyer');
+        $this->moderatorModel = $this-> model('Moderator');
         
 
     }
@@ -356,7 +357,23 @@ class Admins extends Controller {
         }
      }
     
+     public function farmernotification(){
+        
+        $posts = $this->moderatorModel->getAllNotification();
+        
+        $data = array( 'posts' => $posts);
+        
+        $this->view('admins/farmernotification',$data);
+    }
 
+    public function buyernotification(){
+        
+        $posts = $this->moderatorModel->getAllNotification();
+        
+        $data = array( 'posts' => $posts);
+        
+        $this->view('admins/buyernotification',$data);
+    }
 
 
 }   

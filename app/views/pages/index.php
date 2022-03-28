@@ -69,7 +69,7 @@
                 <div class="numbertext">3 / 3</div>
                 <img src="<?php echo URLROOT; ?>/img/landing3.jpg" style="width:100%">
                 <div class="text" style="color: black;">
-                <div class="hello" >More products comming Soon!</div>
+                <div class="hello" >More products coming Soon!</div>
                 </div>
             </div>
 

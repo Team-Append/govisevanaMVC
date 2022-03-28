@@ -260,27 +260,6 @@ class Farmers extends Controller {
         $this->view('farmers/notification',$data);
     }
 
-    public function deleteNotification($id){
-        
-        // if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        //     $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-        //     if($this->farmerModel->deleteNotificationByNotifID($id)){
-                
-        //     $posts = $this->farmerModel->getAllNotificationByFarmerID($id);
-        //     $notifID = $posts->notifID;
-        //     $posts = $this->farmerModel->deleteNotificationByNotifID($notifID);
-
-
-        //         header("Location: " . URLROOT . "/farmers/notification");
-                
-        //     }else {
-        //         die('Something went wrong');
-        //     }
-
-        // }
-        $this->view('farmers/notiOrder');
-    }
 
     public function notiOrder(){
         
@@ -373,7 +352,7 @@ class Farmers extends Controller {
             //register user from model
             if($this->farmerModel -> updateProfile($data,$id)){
                // redirect to login page;
-               header('location:' . URLROOT. '/farmers/editProfile'); 
+               header('location:' . URLROOT. '/farmers/viewProfile'); 
             }else{
                 die('something went wrong');
             }

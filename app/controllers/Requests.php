@@ -6,6 +6,7 @@ public function __construct()
     $this->requestModel = $this->model('Request');
     $this->catagoryModel = $this->model('Catagory');
     $this->buyerModel = $this->model('Buyer');
+    $this->moderatorModel = $this-> model('Moderator');
 }
 public function addRequest(){
     $cat = $this->catagoryModel->getCatagory();
@@ -72,6 +73,11 @@ public function addRequest(){
         //add request to db
         if($this->requestModel -> addRequest($data)){
            // redirect to index;
+           $buyer = $this-> buyerModel ->getbuyerByID($_SESSION['buyerID']);
+           $desc = "farmer,".$buyer -> name ." submitted a request post" . date("Y/m/d");
+           $this-> moderatorModel ->createNotificationOfBuyer($_SESSION['buyerID'], $desc,date("Y/m/d"));
+
+
            header('location:' . URLROOT. '/buyers/dashboard?status=success'); 
         }else{
             die('something went wrong');
