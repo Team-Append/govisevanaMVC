@@ -2,10 +2,14 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Contact Admin</title>
     <link rel="stylesheet" href="<?php echo URLROOT;?>/css/styleContactAdmin.css">
   </head>
   <body>
+  <?php
+    
+    include_once(APPROOT.'/views/includes/navigation.php');
+     ?> 
     <div class="head">
       <header>
         <h2>Contact Us</h2>

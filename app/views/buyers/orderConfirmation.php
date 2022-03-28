@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Order Confirmation</title>
     <script src="<?php echo URLROOT; ?>/js/selectDistrict.js"></script>
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/orderConfirmStyles.css">
   </head>
@@ -49,7 +49,7 @@
                   <label for=""> Shipping Address :</label> 
               </div>
               <div class="info-row">
-                  <input type="text" name="shippingAddress" id="shippingAddress" style="width: 80%;" value="<?php echo $data['posts']->address;?>">
+                  <input type="text" name="shippingAddress" id="shippingAddress" style="width: 80%;" value="<?php echo $data['buyer']->address;?>">
               </div>
               <div class="info-row">
                   <span class="invalidFeedback">

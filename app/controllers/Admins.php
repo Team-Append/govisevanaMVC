@@ -357,9 +357,20 @@ class Admins extends Controller {
         }
      }
 
+     public function deleteModerator(){
+        if($_SERVER['REQUEST_METHOD'] == 'GET'){
+    
+            $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+            if(isAdminLoggedin()){
+                $this->moderatorModel-> deleteModerator($_GET['MID']);
+            }
+            header('location:' .URLROOT. '/admins/manageModerators');
+        }
+     }
+
      public function editProfile(){
         
-        $id=$_SESSION['adminID'];
+        $id=$_SESSION['AdminID'];
         $posts = $this->adminModel->getAdminByID($id);
         $data = array( 'posts' => $posts,
                         'name' => '',

@@ -205,12 +205,19 @@ class Buyers extends Controller {
         header('location:' .URLROOT. '/pages/index');
     }
     public function dashboard(){
+        $orders = $this->orderModel -> getOrdersByBuyerID($_SESSION['buyerID']); 
+        $completedOrdersCount = $this->orderModel -> getCompletedOrdersCountByBuyerID($_SESSION['buyerID']);
+        $activeStockCount = '';
+        $onGoingOrdersCount = $this->orderModel -> getOnGoingOrdersCountByBuyerID($_SESSION['buyerID']);
         $data = array(
+            'orders' => $orders,
             'name' => '',
             'NIC' => '',
             'address' => '',
             'email' => '',
             'tpno' => '',
+            'completedOrders' => $completedOrdersCount,
+            'ongoingOrders' => $onGoingOrdersCount,
         );
         
         
@@ -250,7 +257,10 @@ class Buyers extends Controller {
     public function orderConfirmation(){
         
         $post = $this->stockModel->getStockByID($_GET['stockID']);
-        
+        $buyer ='';
+        if(isBuyerLoggedIn()){
+            $buyer = $this->buyerModel->getBuyerByID($_SESSION['buyerID']);
+        }
 
         $data = array('posts' => $post);
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -258,6 +268,7 @@ class Buyers extends Controller {
             $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
             $data = array(
                 'posts' => $post,
+                'buyer' => $buyer,
                 'shippingAddress' => trim($_POST['shippingAddress']),
                 'orderQty' => $_GET['qty'],
                 'province' =>$_POST['province'],
@@ -301,6 +312,7 @@ class Buyers extends Controller {
             $data = array(  
                 'posts' => $post,
                 'orderQty' => $_GET['qty'],
+                'buyer' => $buyer,
                 'shippingAddress' => '',
                 'province' =>'',
                 'district' => '',

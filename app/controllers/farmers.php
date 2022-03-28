@@ -7,6 +7,8 @@ class Farmers extends Controller {
         $this->stockModel = $this-> model('Stock');
         $this->orderModel = $this-> model('Order');
         $this->deliveryModel = $this-> model('DeliveryPerson');
+        $this->reviewModel = $this-> model('review');
+        
 
     }
     public function login(){
@@ -155,7 +157,7 @@ class Farmers extends Controller {
             //register user from model
             if($this->farmerModel -> register($data)){
                // redirect to login page;
-               header('location:' . URLROOT. '/farmers/dashboard'); 
+               header('location:' . URLROOT. '/farmers/login'); 
             }else{
                 die('something went wrong');
             }
@@ -196,15 +198,26 @@ class Farmers extends Controller {
     }
 
     public function dashboard(){
+<<<<<<< HEAD
         // $posts = $this->stockModel->getNumberOfStocksByFarmerID($_SESSION['farmerID']);
 
+=======
+        $orders = $this->orderModel -> getOrdersByfarmerID($_SESSION['farmerID']);
+        $rating = $this->reviewModel -> getFarmerRating($_SESSION['farmerID']); 
+        $completedOrdersCount = $this->orderModel -> getCompletedOrdersCountByFarmerID($_SESSION['farmerID']);
+        $activeStockCount = '';
+        $onGoingOrdersCount = $this->orderModel -> getOnGoingOrdersCountByFarmerID($_SESSION['farmerID']);
+>>>>>>> d53e4a3cff3df862aeac0c997302d769ce044297
         $data = array(
+            'orders' => $orders,
             'name' => '',
             'NIC' => '',
             'address' => '',
             'email' => '',
             'tpno' => '',
-            'rating' => '' 
+            'rating' => $rating,
+            'completedOrders' => $completedOrdersCount,
+            'onGoingOrders' => $onGoingOrdersCount
         );
         
         
@@ -273,6 +286,27 @@ class Farmers extends Controller {
                 'orderID' => ''
             );
         }
+        if(!empty($_GET['deliveryPersonID'])){
+            $farmer = $this->farmerModel -> getFarmerByID($_SESSION['farmerID']);
+            $order = $this-> orderModel -> getOrderByID($_GET['orderID']);
+            $data = array(
+                'orders' => $orderDetails,
+                'offerOrders' => $offerOrderDetails,
+                'status' => '',
+                'orderID' => '',
+                'deliveryPersonID' => $_GET['deliveryPersonID'],
+                'orderID' => $_GET['orderID'],
+                'farmerID' => $_SESSION['farmerID'],
+                'buyerID' => $_GET['buyerID'],
+                'pickupAddress' => $farmer -> address,
+                'DeliveryAddress' => $order -> shippingAddress
+
+            );
+            if($this-> deliveryModel->createDeliveryOrder($data)){
+                header('location:' . URLROOT. '/farmers/myOrder');
+            }
+        }
+       
         $this->view('farmers/myOrder',$data);
     }
 

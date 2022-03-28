@@ -1,4 +1,5 @@
 <?php if(isFarmerLoggedIn()){ ?>
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -8,6 +9,20 @@
     <link rel="stylesheet" href="<?php echo URLROOT;?>/css/style.css" type="text/css">
   </head>
   <body>
+=======
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Boxicons CDN Links-->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/myStockStyles.css" />
+    <link rel="stylesheet" href="myStockstyles.css"/>
+    <title>My stocks</title>
+</head>
+<body>
+>>>>>>> d53e4a3cff3df862aeac0c997302d769ce044297
     <div class="nav">
       <?php include_once(APPROOT.'/views/includes/navigation.php'); ?>
     </div>
