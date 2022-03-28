@@ -271,6 +271,27 @@ class Farmers extends Controller {
                 'orderID' => ''
             );
         }
+        if(!empty($_GET['deliveryPersonID'])){
+            $farmer = $this->farmerModel -> getFarmerByID($_SESSION['farmerID']);
+            $order = $this-> orderModel -> getOrderByID($_GET['orderID']);
+            $data = array(
+                'orders' => $orderDetails,
+                'offerOrders' => $offerOrderDetails,
+                'status' => '',
+                'orderID' => '',
+                'deliveryPersonID' => $_GET['deliveryPersonID'],
+                'orderID' => $_GET['orderID'],
+                'farmerID' => $_SESSION['farmerID'],
+                'buyerID' => $_GET['buyerID'],
+                'pickupAddress' => $farmer -> address,
+                'DeliveryAddress' => $order -> shippingAddress
+
+            );
+            if($this-> deliveryModel->createDeliveryOrder($data)){
+                header('location:' . URLROOT. '/farmers/myOrder');
+            }
+        }
+       
         $this->view('farmers/myOrder',$data);
     }
 
