@@ -88,4 +88,89 @@ public function dashboard(){
         header('location:' .URLROOT. '/pages/index');
     }
 
+
+    public function editProfile(){
+        
+        $id=$_SESSION['ModID'];
+        $posts = $this->moderatorModel->getModeratorByID($id);
+        $data = array( 'posts' => $posts,
+                        'ModName' => '',
+                        //'NIC' => '',
+                        //'address' => '',
+                        'ModEmail' => '',
+                        'ModTP' => '',
+                        'ModNameError' => '',
+                        //'NICError' => '',
+                        //'addressError' => '',
+                        'ModEmailError' => '',
+                        'ModTPError' => '',
+        );
+        
+       
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+            $data = array(
+                'posts' => $posts,
+                'ModName' => trim($_POST['ModName']),
+                //'NIC' => trim($_POST['nic']),
+                //'address' => trim($_POST['address']),
+                'ModEmail' => trim($_POST['ModEmail']),
+                'ModTP' => trim($_POST['ModTP']),
+                'ModNameError' => '',
+                //'NICError' => '',
+                //'addressError' => '',
+                'ModEmailError' => '',
+                'ModTPError' => '',
+            );
+            
+            
+            //validation
+            if(empty($data['ModName'])){
+                $data['ModNameError'] = 'please enter the name'; 
+            }
+           // if(empty($data['NIC'])){
+             //   $data['NICError'] = 'please enter the NIC'; 
+            //}
+            //if(empty($data['address'])){
+              //  $data['addressError'] = 'please enter the address'; 
+            //}
+            if(empty($data['ModEmail'])){
+                $data['ModEmailError'] = 'please enter the email'; 
+            }
+            if(empty($data['ModTP'])){
+                $data['ModTPError'] = 'please enter the tp number'; 
+            }
+            
+            
+            if(empty($data['ModNameError']) && /*empty($data['NICError']) && empty($data['addressError']) && */ empty($data['ModEmailError']) && empty($data['ModTPError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])){
+            
+            //register user from model
+            if($this->moderatorModel -> updateProfile($data,$id)){
+               // redirect to login page;
+               header('location:' . URLROOT. '/moderators/editProfile'); 
+            }else{
+                die('something went wrong');
+            }
+           
+            // echo($data1);
+            }
+        }else{
+            $data = array( 'posts' => $posts,
+                        'ModName' => '',
+                        //'NIC' => '',
+                        //'address' => '',
+                        'ModEmail' => '',
+                        'ModTP' => '',
+                        'ModNameError' => '',
+                        //'NICError' => '',
+                        //'addressError' => '',
+                        'ModEmailError' => '',
+                        'ModTPError' => '',
+        );
+              
+        }
+        $this->view('moderators/editProfile',$data);
+    }
+
 }

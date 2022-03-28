@@ -1,7 +1,8 @@
 <?php if(isBuyerLoggedIn()){ ?>
 <html>
 <head>
-    <link rel="stylesheet" href="<?php echo URLROOT;?>/css/style.css" type="text/css">   
+    <link rel="stylesheet" href="<?php echo URLROOT;?>/css/style.css" type="text/css">
+    <title>Buyer Dashboard</title>   
 </head>
 <body>
 <?php if(isset($_GET['status'])){ ?>

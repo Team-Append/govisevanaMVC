@@ -104,12 +104,13 @@
 
         }
 
-        public function getBuyerByID($id){
+      /*  public function getBuyerByID($id){
             $this->db->query("SELECT * FROM buyer WHERE buyerID=:ID");
             $this->db -> bind(':ID',$id);
             $results = $this->db->single();
             return $results;
         }
+        */
 
         public function createNotification($buyerID,$description,$date){
 
@@ -135,7 +136,7 @@
             return $results;
             
         }
-/*
+
         public function updateProfile($data,$id){
             $this->db->query("UPDATE buyer SET name = :name , NIC = :NIC , address = :address , email = :email , tpno = :tpno WHERE buyerID =:ID");
             $this->db -> bind(':ID',$id);
