@@ -29,7 +29,7 @@
             <td>Address</td>
             <td>Telephone No</td>
             <td>Email</td>
-            <td>Edit/Delete</td>
+            <td>Remove Buyer</td>
           </thead>
           <tbody>
             <tr> <?php  foreach($data["posts"] as $post){ ?>
@@ -49,8 +49,8 @@
                    <form action="">
                     <a href="<?php echo URLROOT; ?>/admins/deleteBuyer?buyerID=<?php echo $post->buyerID?>" >
                   
-                      <button onclick="myFunction()" type="button" name="button">Delete</button></td>
-                      </a>
+                     <button onclick="myFunction()" type="button" name="button">Delete</button></a></td>
+                      
                 </tr>
               </table></td>
             </tr>
