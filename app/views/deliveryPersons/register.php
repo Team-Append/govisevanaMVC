@@ -1,3 +1,4 @@
+<?php if(!isDeliveryPersonLoggedIn()){ ?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -216,3 +217,6 @@
 
 </body>
 </html>
+<?php } else{
+    header('location:' .URLROOT. '/pages/index');
+}?>

@@ -7,6 +7,9 @@ class Farmers extends Controller {
         $this->stockModel = $this-> model('Stock');
         $this->orderModel = $this-> model('Order');
         $this->deliveryModel = $this-> model('DeliveryPerson');
+        $this->reviewModel = $this-> model('review');
+        $this->moderatorModel = $this-> model('Moderator');
+        
 
     }
     public function login(){
@@ -196,13 +199,21 @@ class Farmers extends Controller {
     }
 
     public function dashboard(){
+        $orders = $this->orderModel -> getOrdersByfarmerID($_SESSION['farmerID']);
+        $rating = $this->reviewModel -> getFarmerRating($_SESSION['farmerID']); 
+        $completedOrdersCount = $this->orderModel -> getCompletedOrdersCountByFarmerID($_SESSION['farmerID']);
+        $activeStockCount = '';
+        $onGoingOrdersCount = $this->orderModel -> getOnGoingOrdersCountByFarmerID($_SESSION['farmerID']);
         $data = array(
+            'orders' => $orders,
             'name' => '',
             'NIC' => '',
             'address' => '',
             'email' => '',
             'tpno' => '',
-            'rating' => '' 
+            'rating' => $rating,
+            'completedOrders' => $completedOrdersCount,
+            'onGoingOrders' => $onGoingOrdersCount
         );
         
         
@@ -316,9 +327,13 @@ class Farmers extends Controller {
     }
 
 
-    public function analytic(){
+    public function completedOrders(){
+        $orders =  $this->orderModel -> getCompletedOrdersByFarmerID($_SESSION['farmerID']);
+        $data = array(
+            'posts' => $orders
+        );
         
-        $this->view('farmers/analytic');
+        $this->view('farmers/completedOrders',$data);
     }
 
     public function offersSent(){

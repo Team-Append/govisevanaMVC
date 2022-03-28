@@ -1,8 +1,9 @@
+<?php if(isFarmerLoggedIn()){ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>View Request</title>
     <link rel="stylesheet" href=" <?php echo URLROOT; ?> /css/viewReqStyles.css" />
     <link rel="stylesheet" href="<?php echo URLROOT;?>/css/style.css" type="text/css">
   </head>
@@ -58,3 +59,6 @@
     </div>
   </body>
 </html>
+<?php } else{
+    header('location:' .URLROOT. '/pages/index');
+}?>

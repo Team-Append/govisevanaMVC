@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Moderator Login</title>
       <link rel="stylesheet" type="text/css" href="../public/css/styleLogin.css">
       <link rel="stylesheet" type="text/css" href="../public/css/style.css">
       

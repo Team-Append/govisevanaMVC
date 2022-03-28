@@ -32,7 +32,7 @@
         }
 
         public function getFarmerRating($ID){
-            $this->db->query('SELECT AVG(rating) FROM review WHERE  farmerID = :ID ');
+            $this->db->query('SELECT ROUND(AVG(rating),2) as averageRating FROM review WHERE  farmerID = :ID ');
             $this->db -> bind(':ID',$ID);
     
             $results = $this->db->single();

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/Style.css" />
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/addStockStyle.css" />
     
-    <title>addStock</title>
+    <title>Add Stock</title>
 </head>
 <body>
     <?php include_once(APPROOT.'/views/includes/navigation.php'); ?>

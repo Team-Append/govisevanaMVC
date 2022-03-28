@@ -20,7 +20,7 @@
     <hr>
     <div class="order-content">
       <div class="stock-image">
-        <img src="<?php echo URLROOT;?>/img/pp.jpg" alt="profile image" height="225px">
+        <img src="<?php echo URLROOT;?>/img/farmer.png" alt="profile image" height="225px">
       </div>
       <div class="stock-details">
           <div class="name">

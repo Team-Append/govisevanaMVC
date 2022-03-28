@@ -37,7 +37,7 @@ body{
   width: 99%;
   margin-left: 8px;
 }
-
+#order-table tr:nth-child(even){background-color: #f2f2f2;}
 .detail .dcontent .main .ttopic{
   background-color: gray;
   height: 60px;

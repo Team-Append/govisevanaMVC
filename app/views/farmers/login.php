@@ -1,4 +1,4 @@
-
+<?php if(!isFarmerLoggedIn()){ ?>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -12,13 +12,13 @@
 
             include_once(APPROOT.'/views/includes/navigation.php');
         ?>  
-      <h1 class="title">Login as a farmer</h1>
+      <!-- <h1 class="title">Login as a farmer</h1> -->
       <div class="loginbox">
         <div class="cover">
           <img src="../img/logo.png" >
         </div>
         <h2>Welcome back</h2>
-        <h1>Log into Govisevana</h1>
+        <h1>Log in as a FARMER</h1>
         <h3>Enter your email and password below</h3>
 
         <form class="" action="" method="post">
@@ -49,3 +49,6 @@
 
     </body>
 </html>
+<?php } else{
+    header('location:' .URLROOT. '/pages/index');
+}?>

@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Select Stock</title>
+        <title>View Stock</title>
         <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/stock.css" />
         <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
         <style>

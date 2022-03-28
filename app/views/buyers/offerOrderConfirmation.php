@@ -1,8 +1,9 @@
+<?php if(isBuyerLoggedIn()){ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Offer Order Confermation</title>
     <script src="<?php echo URLROOT; ?>/js/selectDistrict.js"></script>
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/orderConfirmStyles.css">
   </head>
@@ -16,7 +17,7 @@
     <hr>
     <div class="order-content">
       <div class="stock-image">
-        <img src="carrot.jpg" alt="Stock image" height="225px">
+        <img src="<?php echo URLROOT; ?>/img/familia-feliz-jardin-cosecha-frutas-verduras_218872-1488.jpg" alt="Stock image" height="225px">
       </div>
       <div class="stock-details">
           <div class="name">
@@ -94,3 +95,6 @@
 
 
 </html>
+<?php } else{
+    header('location:' .URLROOT. '/pages/index');
+}?>

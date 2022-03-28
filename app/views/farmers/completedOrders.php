@@ -1,9 +1,9 @@
-<?php if(isBuyerLoggedIn()){ ?>
+<?php if(isfarmerLoggedIn()){ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Ongoing Orders</title>
+    <title>Completed Orders</title>
     <link rel="stylesheet" href=" <?php echo URLROOT; ?> /css/styleCompleteOrders.css" />
     <link rel="stylesheet" href="<?php echo URLROOT;?>/css/style.css" type="text/css">
   </head>
@@ -14,7 +14,7 @@
 
     <div class="detail">
       <div class="dtopic">
-        <h1>Ongoing Orders</h1>
+        <h1>Completed Orders</h1>
       </div>
       <div class="dcontent">
         <table class="main">
@@ -27,15 +27,15 @@
             <td>Status</td>
            
           </thead>
-          <?php foreach ($data['posts'] as $post){ ?>
+        <?php foreach ($data['posts'] as $post){ ?>
           <tbody>
             <tr class="rw">
               <td><?php echo $post-> orderID;?></td>
               <td class="col-description">
                 <div class="s-details">
-                  <!-- <div class="s-topic">
+                  <div class="s-topic">
                     <h4><?php echo $post-> title ?></h4>
-                  </div> -->
+                  </div>
                   <div class="s-description">
                     <div class="image">
                     
@@ -58,7 +58,8 @@
                           <button type="button" name="button">confirm order recieved</button>
                         </a>
                         <?php } ?>
-
+                  
+                  
                 </div>
               </td>
             </tr>

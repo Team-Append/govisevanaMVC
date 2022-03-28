@@ -137,6 +137,8 @@
         }
 
         
+
+        
         
         public function deleteFarmer($farmerID){
             $this->db->query("DELETE FROM farmer WHERE farmerID = :ID");

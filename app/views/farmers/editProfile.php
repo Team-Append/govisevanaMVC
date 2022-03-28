@@ -1,9 +1,9 @@
-
+<?php if(isFarmerLoggedIn()){ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Profile</title>
+    <title>Edit Profile</title>
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/editProfStyles.css" />
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/footerStyles.css" />
   </head>
@@ -20,7 +20,7 @@
     <hr>
     <div class="order-content">
       <div class="stock-image">
-        <img src="<?php echo URLROOT;?>/img/pp.jpg" alt="profile image" height="225px">
+        <img src="<?php echo URLROOT;?>/img/farmer.png" alt="profile image" height="225px">
       </div>
       <div class="stock-details">
           <div class="name">
@@ -86,3 +86,6 @@
   </body>
 
 </html>
+<?php } else{
+    header('location:' .URLROOT. '/pages/index');
+}?>

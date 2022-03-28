@@ -205,12 +205,19 @@ class Buyers extends Controller {
         header('location:' .URLROOT. '/pages/index');
     }
     public function dashboard(){
+        $orders = $this->orderModel -> getOrdersByBuyerID($_SESSION['buyerID']); 
+        $completedOrdersCount = $this->orderModel -> getCompletedOrdersCountByBuyerID($_SESSION['buyerID']);
+        $activeStockCount = '';
+        $onGoingOrdersCount = $this->orderModel -> getOnGoingOrdersCountByBuyerID($_SESSION['buyerID']);
         $data = array(
+            'orders' => $orders,
             'name' => '',
             'NIC' => '',
             'address' => '',
             'email' => '',
             'tpno' => '',
+            'completedOrders' => $completedOrdersCount,
+            'ongoingOrders' => $onGoingOrdersCount,
         );
         
         

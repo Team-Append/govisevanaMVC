@@ -1,3 +1,4 @@
+<?php if(isFarmerLoggedIn()){ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,3 +68,6 @@ Lorem ipsum dolor sit amet, consectetu
     
 </body>
 </html>
+<?php } else{
+    header('location:' .URLROOT. '/pages/index');
+}?>
