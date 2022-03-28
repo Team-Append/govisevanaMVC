@@ -86,9 +86,17 @@
             $results->execute(['buyerID'=>$this->buyerID]);
             return $results->rowCount();
         }
+        public function getAdminByID($id){
+            $this->db->query('select * from admin where AID = :adminID');
+            $this->db -> bind(':adminID',$id);
 
+            $results = $this->db->single();
+            
+            return $results;
+        }
+       
         public function updateProfile($data,$id){
-            $this->db->query("UPDATE admin SET name = :name , NIC = :NIC , address = :address , email = :email , tpno = :tpno WHERE adminID =:ID");
+            $this->db->query("UPDATE admin SET name = :name , NIC = :NIC , address = :address , email = :email , tpno = :tpno WHERE AID =:ID");
             $this->db -> bind(':ID',$id);
             $this->db -> bind(':name',$data['name']);
             $this->db -> bind(':NIC',$data['NIC']);

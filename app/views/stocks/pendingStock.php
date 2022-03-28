@@ -39,7 +39,7 @@
                     <?php $_SESSION['currentStockID'] = $post -> stockID; ?>
                     <div class="buttons">
                         <form action="">
-                            <a href="<?php echo URLROOT; ?>/admins/pendingStock?stockID=<?php echo  $post -> stockID;?>&approve=true ">
+                            <a href="<?php echo URLROOT; ?>/stocks/pendingStock?stockID=<?php echo  $post -> stockID;?>&approve=true ">
                                 <input type="button" value="Approve" name="approve" >
                             </a>
                             <a href="<?php echo URLROOT; ?>/admins/pendingStock?stockID=<?php echo  $post -> stockID;?>&reject=true ">

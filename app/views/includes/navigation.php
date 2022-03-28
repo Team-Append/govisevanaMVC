@@ -78,7 +78,7 @@
                 <li class="right"><a href="<?php echo URLROOT;?>/buyers/ongoingorders">Orders</a></li>
             <?php endif;?>
             <?php if(isFarmerLoggedIn()) : ?>
-                <li class="right"><a href="<?php echo URLROOT;?>/farmers/pendingOrders">Orders</a></li>
+                <li class="right"><a href="<?php echo URLROOT;?>/farmers/myOrder">Orders</a></li>
             <?php endif;?>
             
             <?php if(isFarmerLoggedIn()) : ?>

@@ -171,6 +171,12 @@
             return false;
         }
     }
+    public function getDeliveryOrdersbyID($data){
+        $this->db->query("SELECT *,buyer.name as buyerName, farmer.name as farmerName FROM deliveryorder,stockorder,farmer,buyer WHERE deliveryPersonID=:ID and stockorder.orderId = deliveryorder.orderID and farmer.farmerID = deliveryorder.farmerId and buyer.buyerId = deliveryorder.buyerID");
+        $this->db -> bind(':ID',$data);
+        $results = $this->db->resultSet();
+        return $results;
+    }
 
 
     }  

@@ -61,7 +61,52 @@ include_once(APPROOT.'/views/includes/navigation.php');
             </div>
             </a> -->
         </div>
-    
+        <div id="order-table">
+       <!-- <h1>current orders</h1> -->
+            <table>
+                <thead>
+                    <tr> <!--
+                        <th>Order ID</th>
+                        <th>Delivery Date</th>
+                        <th>Description</th>
+                        <th>Status</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id = "edit-profile-card">
+            <h1>Farmer</h1>
+            <hr>
+            <h2><a href="<?php echo URLROOT;?>/moderators/editProfile">Edit profile</a></h2>
+        </div>
+</div>
     </div>
 
 </body>

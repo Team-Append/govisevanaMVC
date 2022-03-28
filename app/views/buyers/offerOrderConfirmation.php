@@ -17,7 +17,7 @@
     <hr>
     <div class="order-content">
       <div class="stock-image">
-        <img src="carrot.jpg" alt="Stock image" height="225px">
+        <img src="<?php echo URLROOT; ?>/img/familia-feliz-jardin-cosecha-frutas-verduras_218872-1488.jpg" alt="Stock image" height="225px">
       </div>
       <div class="stock-details">
           <div class="name">

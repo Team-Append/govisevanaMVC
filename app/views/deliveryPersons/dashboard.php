@@ -2,6 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="<?php echo URLROOT;?>/css/styleDeliveryPersonDashboard.css">
+    <title>Dashboard</title>
 </head>
 <body>
 <?php

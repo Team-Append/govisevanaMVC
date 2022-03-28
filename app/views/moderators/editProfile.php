@@ -1,4 +1,4 @@
-<?php if(isAdminLoggedIn()){ ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -35,9 +35,9 @@
               </span>
 
             <div class="info-row">
-              <div class="take-info">Full Name : </div><div class="info"><input type="text" name="name" value="<?php echo $data['posts']->name;?>"></div>
+              <div class="take-info">Full Name : </div><div class="info"><input type="text" name="name" value="<?php echo $data['posts']->ModName;?>"></div>
             </div>
-            
+            <!--
             <span class="invalidFeedback" style="color: red;">
                 <?php echo $data['NICError'];?>
               </span>
@@ -52,13 +52,13 @@
             <div class="info-row">
               <div class="take-info">Address : </div><div class="info"><input type="text" name="address" value="<?php echo $data['posts']->address;?>"></div>
             </div>
-            
+-->
 
             <span class="invalidFeedback" style="color: red;">
                 <?php echo $data['emailError'];?>
               </span>
             <div class="info-row">
-              <div class="take-info">E-mail Address: </div><div class="info"><input type="text" name="email" value="<?php echo $data['posts']->email;?>"></div>
+              <div class="take-info">E-mail Address: </div><div class="info"><input type="text" name="email" value="<?php echo $data['posts']->ModEmail;?>"></div>
             </div>
 
             <span class="invalidFeedback" style="color: red;">
@@ -66,7 +66,7 @@
               </span>
             <div class="info-row">
               <div class="take-info">Telephone Number : </div>
-              <div class="info"><input type="text" name="tpno" value="<?php echo $data['posts']->TPno;?>"></div>
+              <div class="info"><input type="text" name="tpno" value="<?php echo $data['posts']->ModTP;?>"></div>
             </div>
             
           </div>
@@ -86,6 +86,3 @@
   </body>
 
 </html>
-<?php } else{
-    header('location:' .URLROOT. '/pages/index');
-}?>

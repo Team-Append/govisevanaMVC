@@ -1,9 +1,9 @@
-<?php if(isAdminLoggedIn()){ ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Profile</title>
+    <title>Edit stock</title>
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/editProfStyles.css" />
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/footerStyles.css" />
   </head>
@@ -11,12 +11,6 @@
     <div class="nav">
         <?php include_once(APPROOT.'/views/includes/navigation.php'); ?>
     </div>
-    <header>
-      <div class="order-title">
-        <h2>HELLO <?php echo $_SESSION['name']?> !</h2>
-      </div>
-      
-    </header>
     <hr>
     <div class="order-content">
       <div class="stock-image">
@@ -24,7 +18,7 @@
       </div>
       <div class="stock-details">
           <div class="name">
-            <h2>EDIT PROFILE</h2>
+            <h2>EDIT STOCK</h2>
           </div>
           <div class="details">
           <form action="" method="POST" name="createAccount" >
@@ -66,7 +60,7 @@
               </span>
             <div class="info-row">
               <div class="take-info">Telephone Number : </div>
-              <div class="info"><input type="text" name="tpno" value="<?php echo $data['posts']->TPno;?>"></div>
+              <div class="info"><input type="text" name="tpno" value="<?php echo $data['posts']->tpno;?>"></div>
             </div>
             
           </div>
@@ -86,6 +80,3 @@
   </body>
 
 </html>
-<?php } else{
-    header('location:' .URLROOT. '/pages/index');
-}?>

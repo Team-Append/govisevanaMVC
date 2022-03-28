@@ -21,7 +21,7 @@
       <div class="dtopic">
         <h1>My Orders</h1>
       </div>
-      <div class="dcontent">
+      <div class="dcontent" id="detail-table">
         <table class="main">
           <thead class="ttopic">
             <td>Order number</td>
@@ -111,10 +111,11 @@
           <tbody>
             <tr class="rw">
               <td><?php echo $order-> offerOrderID ?></td>
+              <td><?php echo $order-> shippingAddress ?></td>
               <td class="col-description">
                 <div class="s-details">
                   <div class="s-topic">
-                    <h4><?php echo $order-> shippingAddress ?></h4>
+                    
                   </div>
                   <div class="s-description">
                     <div class="image">
@@ -154,11 +155,7 @@
                   <button type="button" name="button"> view delivery suggestions </button>
                 </a>
               </td>
-              <td>
-              <a href="<?php echo URLROOT; ?>/farmers/suggestDelivery?farmerID=<?php echo $_SESSION['farmerID'] ?>&buyerID=<?php echo $order-> buyerID ?>&orderID=<?php echo $order-> orderID ?>">
-                  <button type="button" name="button"> view delivery suggestions </button>
-                </a>
-              </td>
+             
             </tr>
             <tr>
             

@@ -3,6 +3,10 @@
 <head>
     <link rel="stylesheet" href="<?php echo URLROOT;?>/css/styleMain.css">
     <link rel="stylesheet" href="<?php echo URLROOT;?>/css/style.css">
+
+    <style>
+      .a{text-decoration-style: none;} 
+    </style>
 </head>
 
 <body>
@@ -10,6 +14,7 @@
 
             include_once(APPROOT.'/views/includes/navigation.php');
         ?> 
+
 <div class="select-title">
   <p><b>I am</b></p>
 </div>
@@ -32,7 +37,7 @@
   <button class="btn">
     <a href="<?php echo URLROOT;?>/deliveryPersons/login">
   <div class="centered">
-    <img src="<?php echo URLROOT;?>/img/icons/delivery.png" alt="deliveryP">
+    <img src="<?php echo URLROOT;?>/img/icons/delivery.png" alt="deliveryP" styles="color:black;">
     <h2>A delivery person</h2>
   </div>
 </a>

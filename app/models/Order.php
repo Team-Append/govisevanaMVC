@@ -27,7 +27,7 @@
             }
         }
         public function getOrdersByBuyerID($buyerID){
-            $this->db -> query('SELECT * FROM stockorder WHERE buyerID = :ID ORDER BY orderDate DESC');
+            $this->db -> query('SELECT *,farmer.name as farmerName FROM stockorder,stock,farmer,buyer WHERE stockOrder.buyerID = :ID and stockorder.stockId = stock.stockID and farmer.farmerID = stock.farmerID and buyer.buyerID = stockorder.buyerID ORDER BY orderDate DESC');
             $this->db -> bind(':ID',$buyerID);
             $results = $this->db->resultSet();
             return $results;
@@ -41,7 +41,7 @@
             
         }
         public function getOrdersByFarmerID($farmerID){
-            $this->db -> query('SELECT * FROM stockorder,stock,farmer,buyer WHERE stockorder.farmerID = :ID and stockorder.stockId = stock.stockID and farmer.farmerID = stock.farmerID and buyer.buyerID = stockorder.buyerID order BY orderDate DESC');
+            $this->db -> query('SELECT *,buyer.name as buyerName FROM stockorder,stock,farmer,buyer WHERE stockorder.farmerID = :ID and stockorder.stockId = stock.stockID and farmer.farmerID = stock.farmerID and buyer.buyerID = stockorder.buyerID order BY orderDate DESC');
             $this->db -> bind(':ID',$farmerID);
             $results = $this->db->resultSet();
             return $results;
@@ -70,6 +70,34 @@
             $this->db -> query('SELECT * FROM stockorder,farmer,stock WHERE buyerID = :ID AND farmer.farmerID = stockorder.farmerID and stock.stockID = stockorder.stockID and orderStatus != "completed" ORDER BY orderDate DESC');
             $this->db -> bind(':ID',$buyerID);
             $results = $this->db->resultSet();
+            return $results;
+            
+        }
+        public function getCompletedOrdersCountByFarmerID($farmerID){
+            $this->db -> query('SELECT count(orderID)as count FROM stockorder WHERE farmerID = :ID and orderStatus = "completed"');
+            $this->db -> bind(':ID',$farmerID);
+            $results = $this->db->single();
+            return $results;
+            
+        }
+        public function getOnGoingOrdersCountByFarmerID($farmerID){
+            $this->db -> query('SELECT count(orderID)as count FROM stockorder WHERE farmerID = :ID and orderStatus != "completed"');
+            $this->db -> bind(':ID',$farmerID);
+            $results = $this->db->single();
+            return $results;
+            
+        }
+        public function getCompletedOrdersCountByBuyerID($buyerID){
+            $this->db -> query('SELECT count(orderID)as count FROM stockorder WHERE buyerID = :ID and orderStatus = "completed"');
+            $this->db -> bind(':ID',$buyerID);
+            $results = $this->db->single();
+            return $results;
+            
+        }
+        public function getOnGoingOrdersCountByBuyerID($buyerID){
+            $this->db -> query('SELECT count(orderID)as count FROM stockorder WHERE buyerID = :ID and orderStatus != "completed"');
+            $this->db -> bind(':ID',$buyerID);
+            $results = $this->db->single();
             return $results;
             
         }

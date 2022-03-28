@@ -18,7 +18,7 @@
     </div>
     <div class="detail">
       <div class="dtopic">
-        <h1>My Orders</h1>
+        <h1>My delivery Orders</h1>
       </div>
       <div class="dcontent">
         <table class="main">
@@ -29,59 +29,27 @@
             <td>Buyer Name</td>
             <td>pickup Address</td>
             <td>shipping Address</td>
-            <td>Unit Price</td>
+            <td>Total Price</td>
             <td>status</td>
             
           </thead>
-          <?php foreach ($data['orders'] as $order){ ?>
+          <?php foreach ($data['deliveryOrders'] as $deliveryorder){ ?>
           <tbody>
             <tr class="rw">
-              <td><?php echo $order-> orderID ?></td>
+              <td><?php echo $deliveryorder-> deliveryOrderID ?></td>
               <td class="col-description">
-                <div class="s-details">
-                  <div class="s-topic">
-                    <h4><?php echo $order-> title ?></h4>
-                  </div>
-                  <div class="s-description">
-                    <div class="image">
-                    
-                    </div>
-                    <div class="info">
-                      <p><?php echo $order-> description ?></p>
-                    </div>
-                  </div>
-                </div>
+                
+                    <?php echo $deliveryorder-> orderID ?>
+                 
               </td>
-              <td><?php echo $order-> shippingAddress ?></td>
-              <td><?php echo $order-> fixedPrice ?></td>
-              <td><?php echo $order-> qty ?></td>
-              <td><?php echo $order-> qty * $order-> fixedPrice?></td>
+              <td><?php echo $deliveryorder-> farmerName ?></td>
+              <td><?php echo $deliveryorder-> buyerName ?></td>
+              <td><?php echo $deliveryorder-> pickupAddress ?></td>
+              <td><?php echo $deliveryorder-> DeliveryAddress?></td>
+              <td><?php echo $deliveryorder-> Total?></td>
               <td>
-                <?php echo $order-> orderStatus ?>
-                <div class="Proceed">
-                  
-                    <?php if($order-> orderStatus == 'pending'){ ?>
-                        <a href="<?php echo URLROOT; ?>/farmers/myOrder?status=orderConfirmed&orderID=<?php echo $order-> orderID ?>">
-                          <button type="button" name="button"> <?php echo "accept order";?> </button>
-                        </a>
-                        <?php } else if($order-> orderStatus == 'orderConfirmed'){?>
-                          <a href="<?php echo URLROOT; ?>/farmers/myOrder?status=orderShipped&orderID=<?php echo $order-> orderID ?>">
-                            <button type="button" name="button"> <?php echo "order shipped";?> </button>
-                          </a>
-                      <?php }else if($order-> orderStatus == 'shipped'){ ?>
-                         
-                      <?php }else if($order-> orderStatus == 'completed'){?>
-                        <button type="button" name="button"> <?php echo "view review";?> </button>
-                      <?php }?>
-
-                  
-                  
-                </div>
-              </td>
-              <td>
-                <a href="<?php echo URLROOT; ?>/farmers/suggestDelivery?farmerID=<?php echo $_SESSION['farmerID'] ?>&buyerID=<?php echo $order-> buyerID ?>">
-                  <button type="button" name="button"> view delivery suggestions </button>
-                </a>
+                <?php echo $deliveryorder-> orderStatus ?>
+               
               </td>
             </tr>
             <tr>

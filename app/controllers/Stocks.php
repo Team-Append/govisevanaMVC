@@ -8,7 +8,8 @@ public function __construct()
     $this->requestModel = $this-> model('Request');
     $this->farmerModel = $this-> model('Farmer');
     $this->reviewModel = $this-> model('Review');
-    $this->moderatorModel = $this-> model('moderator');
+    $this->moderatorModel = $this-> model('Moderator');
+    
     
 }
 public function viewStock(){
@@ -61,6 +62,9 @@ public function allStock(){
 
     $this->view('stocks/allStock',$data);  
 }
+
+
+
 public function allCats(){
     $stock = $this->stockModel->getAllActiveStock();
     $cats = $this->catagoryModel -> getCatagory();
@@ -87,6 +91,22 @@ public function allCats(){
 
 
     $this->view('stocks/allCats',$data);  
+}
+
+
+
+public function deleteStock(){
+    if($_SERVER['REQUEST_METHOD'] == 'GET'){
+    
+        $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+        if(isFarmerLoggedin()){
+            $this->stockModel-> deleteStockByStockID($_GET['stockID']);
+        }
+        header('location:' .URLROOT. '/farmers/myStock');
+    }
+    
+    // $cat = $this-> stockModel -> deleteStockByStockID();
+    // $this->view('farmers/myStock'); 
 }
 
 public function addStock(){

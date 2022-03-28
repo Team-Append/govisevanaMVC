@@ -2,7 +2,8 @@
     
 <html>
 <head>
-    <link rel="stylesheet" href="<?php echo URLROOT;?>/css/style.css" type="text/css">  
+    <link rel="stylesheet" href="<?php echo URLROOT;?>/css/style.css" type="text/css"> 
+    <title>Admin Dashboard</title>  
 </head>
 <body>
 <?php
@@ -19,26 +20,7 @@ include_once(APPROOT.'/views/includes/navigation.php');
                 <h2><?php echo $_SESSION['name']?></h2>
                 <hr>
             </div>
-            <!-- <table id="farmer-card-stats">
-                <tbody>
-                    <tr>
-                        <td class="stats-desc">Current orders</td>
-                        <td class="stat">50</td>
-                    </tr>
-                    <tr>
-                        <td class="stats-desc">Orders completed</td>
-                        <td class="stat">231</td>
-                    </tr>
-                    <tr>
-                        <td class="stats-desc">current requests</td>
-                        <td class="stat">12</td>
-                    </tr>
-                    <tr>
-                        <td class="stats-desc rating">Rating</td>
-                        <td class="stat"></td>
-                    </tr> 
-                </tbody>
-            </table> -->
+            
         </div>
         <div class="card-line">
             <a href="<?php echo URLROOT;?>/stocks/pendingStock">
