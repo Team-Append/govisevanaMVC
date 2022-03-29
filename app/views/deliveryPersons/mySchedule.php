@@ -25,12 +25,11 @@
           <thead class="ttopic">
             <td>Delivery Order ID</td>
             <td>Order number</td>
-            <td>Farmer Name</td>
-            <td>Buyer Name</td>
+            <td>Farmer Number</td>
+            <td>Buyer Number</td>
             <td>pickup Address</td>
             <td>shipping Address</td>
-            <td>Total Price</td>
-            <td>status</td>
+            
             
           </thead>
           <?php foreach ($data['deliveryOrders'] as $deliveryorder){ ?>
@@ -42,15 +41,10 @@
                     <?php echo $deliveryorder-> orderID ?>
                  
               </td>
-              <td><?php echo $deliveryorder-> farmerName ?></td>
-              <td><?php echo $deliveryorder-> buyerName ?></td>
+              <td><?php echo $deliveryorder-> farmerID ?></td>
+              <td><?php echo $deliveryorder-> buyerID ?></td>
               <td><?php echo $deliveryorder-> pickupAddress ?></td>
               <td><?php echo $deliveryorder-> DeliveryAddress?></td>
-              <td><?php echo $deliveryorder-> Total?></td>
-              <td>
-                <?php echo $deliveryorder-> orderStatus ?>
-               
-              </td>
             </tr>
             <tr>
             </tr>
