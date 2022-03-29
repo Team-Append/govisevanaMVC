@@ -12,7 +12,7 @@
     <title>Home</title>
     <style>
         .contactUs .contact-img{
-            background-image: url("<?php echo URLROOT; ?>/img/contact.jpg");
+            background-image: url("<?php echo URLROOT; ?>/img/landing1.jpg");
         }
         .instagram-box{
             background: url("<?php echo URLROOT; ?>/img/img-pro-03.jpg") no-repeat center center;
@@ -166,61 +166,31 @@
             <div class="f-row">
                 <div class=""><center>
                     <div class="title-all text-center">
-                        <h1>Latest Posts</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p>
+                        <h1>Top catagories</h1>
+                        <p>these are the top catagories</p>
                     </div></center>
                 </div>
             </div>
             <div class="row">
-               
+               <?php foreach($data['cats'] as $cat){?>
                     <div class="blog-box">
                         <div class="blog-img">
-                            <img class="img-fluid" src="<?php echo URLROOT; ?>/img/blog-img.jpg" alt="" />
+                            <img class="img-fluid" src="<?php echo URLROOT; ?>/img/<?php if($cat -> image != ''){ echo $cat -> image;  } else echo 'blog-img.jpg' ?>" alt="" width="500px" height ="500px"/>
                         </div>
                         <div class="blog-content">
                             <div class="title-blog">
-                                <h3>Fusce in augue non nisi fringilla</h3>
-                                <p>Nulla ut urna egestas, porta libero id, suscipit orci. Quisque in lectus sit amet urna dignissim feugiat. Mauris molestie egestas pharetra. Ut finibus cursus nunc sed mollis. Praesent laoreet lacinia elit id lobortis.</p>
+                                <h3 style="text-align: center;"><?php echo $cat -> catName; ?></h3>
+                                <p><?php echo $cat -> catDescription; ?></p>
                             </div>
                             <ul class="option-blog">
-                                <li><a href="#"><i class="">Visit</i></a></li>
+                                <li><a href="<?php echo URLROOT; ?>/stocks/allStock/?catID=<?php echo  $cat -> catID;?>"><i class="">Visit</i></a></li>
 
                             </ul>
                         </div>
                     </div>
-                
+                <?php }?>
 
-                    <div class="blog-box">
-                        <div class="blog-img">
-                            <img class="img-fluid" src="<?php echo URLROOT; ?>/img/blog-img-01.jpg" alt="" />
-                        </div>
-                        <div class="blog-content">
-                            <div class="title-blog">
-                                <h3>Fusce in augue non nisi fringilla</h3>
-                                <p>Nulla ut urna egestas, porta libero id, suscipit orci. Quisque in lectus sit amet urna dignissim feugiat. Mauris molestie egestas pharetra. Ut finibus cursus nunc sed mollis. Praesent laoreet lacinia elit id lobortis.</p>
-                            </div>
-                            <ul class="option-blog">
-                                <li><a href="#">Visit</a></li>
-                            </ul>
-                        </div>
-                    </div>
-            
-                
-                    <div class="blog-box">
-                        <div class="blog-img">
-                            <img class="img-fluid" src="<?php echo URLROOT; ?>/img/blog-img-02.jpg" alt="" />
-                        </div>
-                        <div class="blog-content">
-                            <div class="title-blog">
-                                <h3>Fusce in augue non nisi fringilla</h3>
-                                <p>Nulla ut urna egestas, porta libero id, suscipit orci. Quisque in lectus sit amet urna dignissim feugiat. Mauris molestie egestas pharetra. Ut finibus cursus nunc sed mollis. Praesent laoreet lacinia elit id lobortis.</p>
-                            </div>
-                            <ul class="option-blog">
-                                <li><a href="#"><i class="">Visit</i></a></li>
-
-                            </ul>
-                        </div>
-                    </div>
+                    
                 
             </div>
         </div>

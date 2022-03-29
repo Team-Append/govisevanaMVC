@@ -22,7 +22,7 @@
             <div class="topic">
                 <span class="main-topic">Add Catagory</span>
             </div>
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <label >Catagory name</label><br>
                 <span class="invalidFeedback">
                     <?php echo $data['catNameError'];?>
@@ -37,6 +37,12 @@
                 <br>
                 <textarea rows="4" cols="35" name="catDescription" placeholder="Add description here..."></textarea><br>
                  <br>
+                 <label for="image">Image</label><br>
+                 <span class="invalidFeedback">
+                    <?php echo $data['imageError'];?>
+                </span>
+                 <input type="file" id="image" name="image" placeholder="Upload an image">
+                <br>  
                 <input type="submit" value="Submit">
             </form>
 

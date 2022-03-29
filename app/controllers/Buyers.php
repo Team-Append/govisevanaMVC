@@ -264,7 +264,7 @@ class Buyers extends Controller {
 
         $data = array('posts' => $post);
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            if(isset($_POST['orderID'])){
+            if(isset($_SESSION['buyerID'])){
             $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
             $data = array(
                 'posts' => $post,

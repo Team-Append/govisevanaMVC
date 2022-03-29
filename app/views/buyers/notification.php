@@ -26,9 +26,9 @@
 
                 </div>
                 <div class="noti-details">
-                    <div class="noti-name">
+                    <!-- <div class="noti-name">
                         <p><b>Kamal de Silva</b> sent an offer</p>
-                    </div>
+                    </div> -->
                     <div class="noti-info">
                         <?php echo $posts->description;?>
                     </div>

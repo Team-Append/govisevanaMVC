@@ -42,7 +42,7 @@
                             <a href="<?php echo URLROOT; ?>/stocks/pendingStock?stockID=<?php echo  $post -> stockID;?>&approve=true ">
                                 <input type="button" value="Approve" name="approve" >
                             </a>
-                            <a href="<?php echo URLROOT; ?>/admins/pendingStock?stockID=<?php echo  $post -> stockID;?>&reject=true ">
+                            <a href="<?php echo URLROOT; ?>/stocks/pendingStock?stockID=<?php echo  $post -> stockID;?>&reject=true ">
                                 <input type="button" value="Reject" name="reject">
                             </a>
                         </form>

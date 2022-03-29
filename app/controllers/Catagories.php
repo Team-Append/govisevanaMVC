@@ -12,16 +12,44 @@ class Catagories extends Controller {
             'catName' => '',
             'catDescription' => '',
             'catNameError' => '',
+            'imageError' => '',
             'catDescriptionError' => ''
         );
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
     
             $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+            $imgContent= '';
+            $imgError = '';
+            $image ='';
+            if(!empty($_FILES["image"]["name"])) { 
+                // Get file info 
+                $fileName = basename($_FILES["image"]["name"]); 
+                $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
+                $image = $_FILES['image']['tmp_name']; 
+                // Allow certain file formats 
+                $allowTypes = array('jpg','png','jpeg'); 
+                if(in_array($fileType, $allowTypes)){ 
+                    
+                    $image =$_FILES['image']['name'];
+                    $tempname = $_FILES["image"]["tmp_name"];
+                    $target =  "img/".$image;
+                    
+                    move_uploaded_file($tempname, $target); 
+                }else{
+                    $imgError = 'file not supported'; 
+                }
+            }else{
+                $imgError = 'please insert a photo'; 
+            }
             $data = array(
                 'catName' => trim($_POST['catName']),
                 'catDescription' => trim($_POST['catDescription']),
+                'image' => $image,
                 'catNameError' => '',
-                'catDescriptionError' => ''
+                'catDescriptionError' => '',
+                
+                'imageError' => $imgError  
+
                 
             );
             
@@ -35,7 +63,7 @@ class Catagories extends Controller {
             
             
             
-            if(empty($data['catNameError']) && empty($data['catDescriptionError'])){
+            if(empty($data['catNameError']) && empty($data['catDescriptionError'])&& empty($data['ImageError'])){
                 
     
       
@@ -55,7 +83,8 @@ class Catagories extends Controller {
             'catName' => '',
             'catDescription' => '',
             'catNameError' => '',
-            'catDescriptionError' => ''
+            'catDescriptionError' => '',
+            'imageError' => '',
         );
     }   
 

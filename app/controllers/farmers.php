@@ -9,7 +9,7 @@ class Farmers extends Controller {
         $this->deliveryModel = $this-> model('DeliveryPerson');
         $this->reviewModel = $this-> model('review');
         $this->moderatorModel = $this-> model('Moderator');
-        
+        $this->offerModel = $this-> model('Offer');
 
     }
     public function login(){
@@ -199,7 +199,7 @@ class Farmers extends Controller {
     }
 
     public function dashboard(){
-        $orders = $this->orderModel -> getOrdersByfarmerID($_SESSION['farmerID']);
+        $orders = $this->orderModel -> getOngoingOrdersByFarmerID($_SESSION['farmerID']);
         $rating = $this->reviewModel -> getFarmerRating($_SESSION['farmerID']); 
         $completedOrdersCount = $this->orderModel -> getCompletedOrdersCountByFarmerID($_SESSION['farmerID']);
         $activeStockCount = '';
@@ -229,7 +229,7 @@ class Farmers extends Controller {
     }
 
     public function myOrder(){
-        $orderDetails = $this->orderModel -> getOrdersByFarmerID($_SESSION['farmerID']);
+        $orderDetails = $this->orderModel -> getOngoingOrdersByFarmerID($_SESSION['farmerID']);
         $offerOrderDetails = $this->orderModel -> getOfferOrdersByFarmerID($_SESSION['farmerID']);
         $data = array(
             'orders' => $orderDetails,
@@ -337,8 +337,12 @@ class Farmers extends Controller {
     }
 
     public function offersSent(){
+        $offers =  $this->offerModel -> getOffersByFarmerID($_SESSION['farmerID']);
+        $data = array(
+            'posts' => $offers
+        );
         
-        $this->view('farmers/offersSent');
+        $this->view('farmers/offersSent',$data);
     }
 
     public function earning(){
