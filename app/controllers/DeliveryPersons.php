@@ -329,7 +329,7 @@ class DeliveryPersons extends Controller {
                 if(empty($data['nameError']) && empty($data['NICError']) && empty($data['addressError']) && empty($data['emailError']) && empty($data['tpError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])){
                 
                 //register user from model
-                if($this->farmerModel -> updateProfile($data,$id)){
+                if($this->DeliveryPersonModel -> updateProfile($data,$id)){
                    // redirect to login page;
                    header('location:' . URLROOT. '/deliveryPersons/editProfile'); 
                 }else{
