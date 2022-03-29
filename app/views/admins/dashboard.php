@@ -66,12 +66,12 @@ include_once(APPROOT.'/views/includes/navigation.php');
             <a href="<?php echo URLROOT;?>/admins/farmerList">
             <div class="dash-card">
                 <h1>View farmer list</h1>
-                <img src="<?php echo URLROOT;?>/img/icons/admin.png" alt="">
+                <img src="<?php echo URLROOT;?>/img/farmer.png" alt="">
             </div>
         </a>
         </div>
 <!-- -->
-        <div class="card-line">
+        
         <!-- <a href="<?php echo URLROOT;?>/admins/buyerList">
             <div class="dash-card">
                 <h1>View buyer List</h1>
@@ -89,7 +89,7 @@ include_once(APPROOT.'/views/includes/navigation.php');
                 <h1>View Delivery Person list</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/analytics.png" alt="">
             </div> -->
-        </div>
+        
     
 <!-- -->
 
@@ -102,7 +102,6 @@ include_once(APPROOT.'/views/includes/navigation.php');
                         <th>catagory</th>
                         <th>Description</th>
                         <th>no of stock</th>
-                        <th>no of Active orders</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -110,23 +109,21 @@ include_once(APPROOT.'/views/includes/navigation.php');
                         <td>001</td>
                         <td></td>
                         <td></td>
-                        <td></td>
+
                     </tr>
                     <tr>
                         <td>001</td>
                         <td></td>
                         <td></td>
-                        <td></td>
+
                     </tr>
                     <tr>
                         <td>001</td>
                         <td></td>
                         <td></td>
-                        <td></td>
                     </tr>
                     <tr>
                         <td>001</td>
-                        <td></td>
                         <td></td>
                         <td></td>
                     </tr>

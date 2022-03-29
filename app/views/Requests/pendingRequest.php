@@ -24,7 +24,7 @@
                 <div class="details">
                     <ul>
                         <li><label for="fname"><b>Buyer Name :</b> <?php echo $post->name ;?></label></li>
-                        <li><label for="qty"><b>Title :</b> <?php echo $post->title ;?>kg</li>
+                        <li><label for="qty"><b>Title :</b> <?php echo $post->title ;?></li>
                         <li><label for="price"><b>Budget :</b> <?php echo $post->budget ;?> </li>
                         <li><label for="hdate"><b>expected Date :</b> <?php echo $post->expectedDate ;?></li>
                         <li><label for="category"><b>Category : </b><?php echo $post->catName ;?></li>

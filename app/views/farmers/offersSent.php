@@ -1,73 +1,75 @@
-<?php if(isFarmerLoggedIn()){ ?>
+<?php if(isfarmerLoggedIn()){ ?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?php echo URLROOT; ?> /css/sendOfferStyles.css" />
-    <title>Offers Sent</title>
-</head>
-<body>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Completed Orders</title>
+    <link rel="stylesheet" href=" <?php echo URLROOT; ?> /css/styleCompleteOrders.css" />
+    <link rel="stylesheet" href="<?php echo URLROOT;?>/css/style.css" type="text/css">
+  </head>
+  <body>
     <div class="nav">
-    <?php
-
-include_once(APPROOT.'/views/includes/navigation.php');
-?> 
+      <?php include_once(APPROOT.'/views/includes/navigation.php'); ?>
     </div>
-    <div class="offer-content">
-        <div class="topic">
-            <span class="main-topic">Send Offer</span>
-        </div>
-        <div class="content">
-            <div class="stock-details">
-                <div class="line-1">
-                    <div class="col-1">
-                        <p>Thilakaratne Dilshan</p>
+
+    <div class="detail">
+      <div class="dtopic">
+        <h1>Offers Sent</h1>
+      </div>
+      <div class="dcontent">
+        <table class="main">
+          <thead class="ttopic">
+            <td>Offer number</td>
+            <td>request</td>
+            <td>Buyer Name</td>
+            <td>Offer Description</td>
+            <td>Offer Price</td>
+            <td> Offer Status</td>
+           
+          </thead>
+        <?php foreach ($data['posts'] as $post){ ?>
+          <tbody>
+            <tr class="rw">
+            <td><?php echo $post-> offerID; ?></td>
+              <td><?php echo $post-> title;?></td>
+              <td class="col-description">
+                <div class="s-details">
+                  <div class="s-topic">
+                    <h4><?php echo $post-> name ?></h4>
+                  </div>
+                  <div class="s-description">
+                    <div class="image">
+                    
                     </div>
-                    <div class="col-2">
-                        <p>Budget Rs.30,000</p>
+                    <div class="info">
+                      <p></p>
                     </div>
-                    <div class="col-3">
-                        <p>Category | Carrot</p>
-                    </div>
+                  </div>
                 </div>
-                <div class="line-2">
-                    <p>
-                    Lorem Ipsum comes from a latin text written in 45BC by Roman statesman, lawyer, scholar, and philosopher, Marcus Tullius Cicero. The text is titled "de Finibus Bonorum et Malorum" which means "The Extremes of Good and Evil". The most common form of Lorem ipsum is the following:
-
-Lorem ipsum dolor sit amet, consectetu
-                    </p>
-                </div>
-                <div class="line-3">
-                    <p>Expected Delivery Date | 12/09/2021</p>
-                </div>
-            </div>
-            <div class="form">
-                <form action="/action_page.php">
-                    <input type="text" id="title" name="title" placeholder="Title">
-                    <br>
-
-                    <textarea rows="10" cols="50" name="comment" form="usrform" placeholder="Add offer description here..."></textarea><br>
-
-                    <input type="text" id="fname" name="fixedprice" placeholder="Fixed Price..">
-                    <br>
-
-                    <input type="file" id="image" name="image" placeholder="Upload an image(optional)">
-                    <br>
-
-                    <input type="submit" value="Send Offer">
-                </form>
-            </div>
-        </div>
-
-    </div>
-    <div class="footer">
+              </td>
+              <td><?php echo $post-> offerPrice; ?></td>
+              <td><?php echo $post-> offerDescription; ?></td>
+              <td><?php echo $post-> offerStatus; ?></td>
+              
+            </tr>
+            <tr>
+            </tr>
+            
+          </tbody>
+          
+          <?php } ?>
+          
+        </table>
         
+      </div>
+      <br><br>
+      
     </div>
-    
-</body>
+  </body>
 </html>
+
+          
+  
 <?php } else{
     header('location:' .URLROOT. '/pages/index');
 }?>

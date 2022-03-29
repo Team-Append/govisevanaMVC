@@ -81,7 +81,7 @@
                 <li class="right"><a href="<?php echo URLROOT;?>/farmers/myOrder">Orders</a></li>
             <?php endif;?>
             
-            <?php if(isFarmerLoggedIn()) : ?>
+            <!-- <?php if(isFarmerLoggedIn()) : ?>
                 <li class="right"><a href="<?php echo URLROOT;?>/farmers/viewProfile">Profile</a></li>
             <?php endif;?>
             <?php if(isBuyerLoggedIn()) : ?>
@@ -97,7 +97,7 @@
                 <li class="right"><a href="<?php echo URLROOT;?>/deliveryPersons/viewProfile">Profile</a></li>
             <?php endif;?>
             
-             
+              -->
                     
                 <!-- <form action="" method="POST" name="search">
                         <input type="text" placeholder="Search.." name="search">
@@ -111,12 +111,13 @@
                         </form> --> 
                     
             </ul>
-            <form method = "post" action="Navigation/navigation" class="searchForm">
+            <form method = "GET" action="<?php echo URLROOT;?>/stocks/allStock" class="searchForm">
                 <div class="search">
                 <div class="search-container">
-                    <form action="/action_page.php">
-                    <input type="text" placeholder="Search.." name="search">
+                    
+                    <input type="text" placeholder="Search by catagory" name="catName">
                 <button type="submit" class="searchbutton"><i class="fa fa-search"></i></button>
+                     
                 </div>
                 </div>  
             </form> 
@@ -124,9 +125,45 @@
         
         <div class="nav-right">
        <!-- <a  style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a> -->
-                <div class="notify">
+       <?php if(isBuyerLoggedIn()){ ?>
+                    <a href="<?php echo URLROOT;?>/buyers/notification">
+                    <div class="notify">
                     <i class='bx bxs-bell' ></i>
                 </div>
+                </a>
+                <?php }else if (isFarmerLoggedIn()){ ?>
+                    <a href="<?php echo URLROOT;?>/farmers/notification">
+                    <div class="notify">
+                    <i class='bx bxs-bell' ></i>
+                </div>
+                </a>
+                <?php }else if(isAdminLoggedIn()){ ?>
+                    <a href="<?php echo URLROOT;?>/admins/farmernotification">
+                    <div class="notify">
+                    <i class='bx bxs-bell' ></i>
+                </div>
+                </a>
+                <?php }else if(isDeliveryPersonLoggedIn()){ ?>
+                    <a href="#">
+                    <div class="notify">
+                    <i class='bx bxs-bell' ></i>
+                </div>
+                </a>
+                <?php }else if(isModLoggedIn()){ ?>
+                    <a href="<?php echo URLROOT;?>/moderators/farmernotification">
+                    <div class="notify">
+                    <i class='bx bxs-bell' ></i>
+                </div>
+                </a>
+                <?php }else {?>
+                    <a href="#">
+                    <div class="notify">
+                    <i class='bx bxs-bell' ></i>
+                </div>
+                </a> 
+               
+                    <?php }?>
+                
             <div class="name">
             <?php if(isBuyerLoggedIn()){ ?>
                     <a href="<?php echo URLROOT;?>/buyers/Logout">Log out</a>

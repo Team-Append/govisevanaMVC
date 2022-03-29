@@ -74,7 +74,7 @@ public function addRequest(){
         if($this->requestModel -> addRequest($data)){
            // redirect to index;
            $buyer = $this-> buyerModel ->getbuyerByID($_SESSION['buyerID']);
-           $desc = "farmer,".$buyer -> name ." submitted a request post" . date("Y/m/d");
+           $desc = "buyer,".$buyer -> name ." submitted a request post" . date("Y/m/d");
            $this-> moderatorModel ->createNotificationOfBuyer($_SESSION['buyerID'], $desc,date("Y/m/d"));
 
 

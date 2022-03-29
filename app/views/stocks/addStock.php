@@ -13,7 +13,7 @@
     <?php include_once(APPROOT.'/views/includes/navigation.php'); ?>
     <div class="content">
         <div class="image">
-            <img src="<?php echo URLROOT; ?>/img/carrot.jpg" alt="vegetables"><br>
+            <img src="<?php echo URLROOT; ?>/img/instagram-img-04.jpg" alt="vegetables"><br>
             <div class="img-content">
             
             </div>

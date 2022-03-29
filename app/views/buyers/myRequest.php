@@ -79,10 +79,6 @@
   </body>
 </html>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 29d4719d949ba59fa3545a19400c223df705d6a9
 <?php } else{
     header('location:' .URLROOT. '/pages/index');
 }?>
