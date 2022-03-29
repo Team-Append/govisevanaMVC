@@ -21,7 +21,7 @@
         <?php  foreach($data['posts'] as $post){ ?>
             <div class="stock-noti">
                 <div class="image">
-                    <img src="<?php echo URLROOT; ?>/img/<?php echo $post->image;?>" alt="image of stock">
+                    <img src="<?php echo URLROOT; ?>/img/<?php echo $post->stockImage;?>" alt="image of stock">
 
                 </div>
                 <div class="details">

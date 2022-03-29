@@ -36,7 +36,7 @@
             return $results;
         }
         public function getPendingStock(){
-            $this->db->query("SELECT * FROM stock,farmer,catagory WHERE stockStatus = 'pending' and stock.farmerID = farmer.farmerID and stock.catID = catagory.catID ORDER BY stockID DESC");
+            $this->db->query("SELECT *,stock.image as stockImage FROM stock,farmer,catagory WHERE stockStatus = 'pending' and stock.farmerID = farmer.farmerID and stock.catID = catagory.catID ORDER BY stockID DESC");
 
             $results = $this->db->resultSet();
             return $results;
