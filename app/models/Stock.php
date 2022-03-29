@@ -69,7 +69,7 @@
 
         }
         public function getStockByID($stockID){
-            $this->db->query('SELECT * FROM stock,farmer,catagory WHERE stockID = :ID and stock.farmerID = farmer.farmerID and stock.catID = catagory.catID');
+            $this->db->query('SELECT *,stock.image as stockImage FROM stock,farmer,catagory WHERE stockID = :ID and stock.farmerID = farmer.farmerID and stock.catID = catagory.catID');
             $this->db -> bind(':ID',$stockID);
     
             $results = $this->db->single();

@@ -40,7 +40,7 @@
                 <input type="text"  name="offerPrice" id="offerPrice" placeholder="Offered Price..">
                 <br>
                
-                <p><i class='bx bx-check-square' style='color:#5e5d5d' ></i>I agree to all the terms and conditions</p>  
+                  
 
                 <input type="submit" value="Submit">
             </form>

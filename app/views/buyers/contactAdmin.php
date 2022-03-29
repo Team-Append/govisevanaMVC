@@ -1,5 +1,4 @@
-<<?php if(isBuyerLoggedIn()){ ?>
-  !DOCTYPE html>
+<?php if(isBuyerLoggedIn()){ ?>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -22,7 +21,7 @@
       <div class="info">
          <div class="topic">
            <h2>Contact Information</h2>
-           dddddddddddddddssssssssssss
+           
          </div>
          <div class="contact">
            <table>

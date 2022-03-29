@@ -43,7 +43,14 @@ public function allStock(){
         'cats' => $cats,
         'catsList' => $cats
     );
-    if(isset($_GET['catID'])){
+    if(isset($_GET['catName'])){
+        $cat = $this-> catagoryModel -> getCatagorybyName($_GET['catName']);
+        $data = array(  
+            'stocks' => $stock,
+            'cats' => $cat,
+            'catsList' => $cats
+        );
+    }elseif(isset($_GET['catID'])){
      
         $cat = $this-> catagoryModel -> getCatagorybyID($_GET['catID']);
         $data = array(  

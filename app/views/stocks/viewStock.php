@@ -26,18 +26,18 @@
        <div class="row">
         <!-- Left column for Stock Image -->
             <div class="column left">
-            <img src="<?php echo URLROOT; ?>/img/carrot.jpg" alt="Stock Image" width="100%" height="100%">
+            <img src="<?php echo URLROOT; ?>/img/<?php echo $data['posts']->stockImage;?>" alt="Stock Image" width="100%" height="100%">
             </div>
 
         <!-- Middle column for Stock Information -->
             <div class="column middle">
             <table align="left" class="stock-info">
             <tr>
-                <td colspan="2"><h2 align="left"><?php echo $data['posts']->title;?></h2> <h2 id="qty"> <?php echo $data['posts']->qty;?></h2></td>
+                <td colspan="2"><h2 align="left"><?php echo $data['posts']->title;?></h2> <h2 id="qty"> Quantitiy: <?php echo $data['posts']->qty;?></h2></td>
                 
             </tr>
             <tr>
-            <td colspan="2"><h2 align="left">Rs.<?php echo $data['posts']->fixedPrice;?>.00</h2></td>
+            <td colspan="2"><h2 align="left">Rs.<?php echo $data['posts']->fixedPrice;?></h2></td>
             </tr>
             <tr align="center" style="height:200px">
                 <td colspan='2'>

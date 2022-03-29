@@ -20,7 +20,7 @@
     <hr>
     <div class="order-content">
       <div class="stock-image">
-        <img src="carrot.jpg" alt="Stock image" height="225px">
+        <img src="<?php echo URLROOT; ?>/img/<?php echo $data['posts']->stockImage;?>" alt="Stock image" height="225px">
       </div>
       <div class="stock-details">
           <div class="name">
@@ -31,7 +31,7 @@
               <div class="take-info">Farmer : </div><div class="info"><?php echo $data['posts']->name;?></div>
             </div>
             <div class="info-row">
-              <div class="take-info">Stock Name : </div><div class="info"><?php echo $data['posts']->description;?></div>
+              <div class="take-info">Stock Name : </div><div class="info"><?php echo $data['posts']->title;?></div>
             </div>
             <div class="info-row">
               <div class="take-info">Category : </div><div class="info"><?php echo $data['posts']->catName;?></div>

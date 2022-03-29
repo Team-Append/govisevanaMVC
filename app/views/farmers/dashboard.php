@@ -68,7 +68,7 @@ include_once(APPROOT.'/views/includes/navigation.php');
             </a>
         </div>
         <div class="card-line">
-            <a href="<?php echo URLROOT;?>/farmers/completedOrder">
+            <a href="<?php echo URLROOT;?>/farmers/completedOrders">
             <div class="dash-card">
                 <h1>Completed Orders</h1>
                 <img src="<?php echo URLROOT;?>/img/icons/earn.png" alt="">

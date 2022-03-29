@@ -32,7 +32,7 @@
                       <div class="column">
                         <div class="card" style="height: 300px;">
                         <div class="stock-img">
-                            <img class="stock-img-1" src="<?php echo URLROOT; ?>/img/carrot.jpg" alt="Stock" style="width:100%">
+                            <img class="stock-img-1" src="<?php echo URLROOT; ?>/img/categories_img_01.jpg" alt="Stock" style="width:100%">
                                 <!-- <img class="stock-img-1" src="<?php echo URLROOT; ?>/img/<?php echo $stock -> image ?>" alt="Stock" style="width:100%"/> -->
                             </div>
                             <div class="container">
@@ -63,7 +63,7 @@
                   <div class="column">
                     <div class="card" style="height: 300px;">
                     <div class="stock-img">
-                        <img class="stock-img-1" src="<?php echo URLROOT; ?>/img/carrot.jpg" alt="Stock" style="width:100%">
+                        <img class="stock-img-1" src="<?php echo URLROOT; ?>/img/<?php if($cat -> image != ''){ echo $cat -> image;  } else echo 'carrot.jpg' ?>" alt="Stock" style="width:100%">
                             <!-- <img class="stock-img-1" src="<?php echo URLROOT; ?>/img/<?php echo $stock -> image ?>" alt="Stock" style="width:100%"/> -->
                         </div>
                         <div class="container">

@@ -73,6 +73,13 @@
             return $results;
             
         }
+        public function getOngoingOrdersByFarmerID($farmerID){
+            $this->db -> query('SELECT *,buyer.name as buyerName FROM stockorder,farmer,stock,buyer WHERE stockorder.farmerID = :ID AND buyer.buyerID = stockorder.buyerID and farmer.farmerID = stockorder.farmerID and stock.stockID = stockorder.stockID and orderStatus != "completed" ORDER BY orderDate DESC');
+            $this->db -> bind(':ID',$farmerID);
+            $results = $this->db->resultSet();
+            return $results;
+            
+        }
         public function getCompletedOrdersCountByFarmerID($farmerID){
             $this->db -> query('SELECT count(orderID)as count FROM stockorder WHERE farmerID = :ID and orderStatus = "completed"');
             $this->db -> bind(':ID',$farmerID);
@@ -101,6 +108,7 @@
             return $results;
             
         }
+        
         public function createOfferOrder($data){
             $this->db -> query('INSERT INTO offerorder(RID, farmerID, buyerID, offerID,total, shippingAddress,province,district, orderDate, orderStatus) VALUES(:RID,:farmerID,:buyerID, :offerID,:total, :shippingAddress, :province, :district, :orderDate, :orderStatus)');
             $this->db -> bind(':RID',$data['posts']->RID); //get the currently loged in buyers's ID

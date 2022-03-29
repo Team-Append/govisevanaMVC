@@ -31,7 +31,7 @@
             <td>CatID</td>
             <td>Quantity(Unit Price)</td>
             <td>Status</td>
-            <td></td>
+            <!-- <td></td> -->
             <td></td>
            
             
@@ -57,12 +57,12 @@
               <td><?php echo $post ->stockStatus;?></td>
 
               
-              <td>
+              <!-- <td>
               <div class="proceed-button">
                 <a href="<?php echo URLROOT;?>/Stock/editStock?stockID=<?php echo $post->stockID;?>"><input class="btn-proceed" type="button" value="update"></a>
               </div>
               
-            </td>
+            </td> -->
             <td>
             <div class="proceed-button">
 
