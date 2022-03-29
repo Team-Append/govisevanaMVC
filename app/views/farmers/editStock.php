@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Edit stock</title>
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/editProfStyles.css" />
-    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/footerStyles.css" />
+    
   </head>
   <body>
     <div class="nav">
@@ -74,9 +74,7 @@
       </div>    
     </div>
 
-    <div class="footer">
-        <?php include_once(APPROOT.'/views/includes/footer.php'); ?>
-    </div>
+    
   </body>
 
 </html>
